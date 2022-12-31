@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpets_support=self.webpackChunkpets_support||[]).push([[202],{9202:function(e,s,t){t.r(s);t(2791);var u=t(3329);s.default=function(){return(0,u.jsx)("div",{children:"NoticesPage"})}}}]);
+//# sourceMappingURL=202.8c8d00df.chunk.js.map
