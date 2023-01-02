@@ -2,6 +2,7 @@
   outline: none;
   padding: 8px 28px;
   border-radius: 40px;
+  cursor: pointer;
   border: 2px solid #f59256;
   transition: 0.2s all ease-in-out;
 
@@ -28,13 +29,14 @@
 
 .transparent {
   @extend .btn;
-  background-color: transparent;
+  background-color: white;
   color: #f59256;
 }
 
 .disabled {
   @extend .btn;
   border: 2px solid lightgray;
+  cursor: default;
   &:hover {
     transform: scale(1);
   }
