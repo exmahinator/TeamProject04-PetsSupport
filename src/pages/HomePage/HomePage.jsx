@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+
+import { Input } from 'components/Reuse/Input/Input';
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <div>
+      <Input />
+    </div>
+  );
+};
 
-export default HomePage
+export default HomePage;

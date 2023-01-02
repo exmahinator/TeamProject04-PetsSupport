@@ -1,0 +1,121 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(17, 17, 17, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1200;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  //   max-width: 280px;
+  //   text-align: center;
+  max-height: 395px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+  border-radius: 40px;
+  background-color: white;
+  @media screen and (min-width: 760px) {
+    padding: 40px 80px;
+  }
+  @media screen and (min-width: 1200px) {
+    max-width: fit-content;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  background: #fdf7f2 url('../../../shared/images/overused/cross.png') no-repeat
+    50%;
+  background-size: 19px;
+  border-radius: 50%;
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @media screen and (min-width: 760px) {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+// ! Circle BTN
+
+.circle {
+  position: relative;
+  outline: none;
+  background: #f59256 url('../../../shared/images/overused/add.png') no-repeat
+    50% 25%;
+  background-size: 21px;
+  width: 80px;
+  height: 80px;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #f59256;
+  transition: 0.2s all ease-in-out;
+
+  @media (min-width: 760px) {
+    width: 44px;
+    height: 44px;
+    background-position: 50%;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  & > span {
+    font-weight: 500;
+    font-size: 12px;
+    width: 100%;
+    height: 100%;
+    line-height: 780%;
+
+    @media screen and (min-width: 760px) {
+      position: absolute;
+      font-size: 20px;
+      line-height: 27px;
+      color: black;
+      line-height: normal;
+      left: -85px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 75px;
+      height: fit-content;
+    }
+  }
+}
+
+// ! Long BTN
+
+.long {
+  outline: none;
+  padding: 8px 80px;
+  border-radius: 40px;
+  cursor: pointer;
+  border: 2px solid #f59256;
+  transition: 0.2s all ease-in-out;
+  background-color: white;
+  color: #f59256;
+  // ???  box-shadow: 7px 4px 16px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

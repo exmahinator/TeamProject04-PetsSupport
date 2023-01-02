@@ -1,0 +1,43 @@
+.btn {
+  outline: none;
+  padding: 8px 28px;
+  border-radius: 40px;
+  cursor: pointer;
+  border: 2px solid #f59256;
+  transition: 0.2s all ease-in-out;
+
+  @media (min-width: 760px) {
+    padding: 10px 28px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.orange {
+  @extend .btn;
+  background-color: #f59256;
+  color: white;
+}
+
+.white {
+  @extend .btn;
+  background-color: white;
+  color: black;
+}
+
+.transparent {
+  @extend .btn;
+  background-color: white;
+  color: #f59256;
+}
+
+.disabled {
+  @extend .btn;
+  border: 2px solid lightgray;
+  cursor: default;
+  &:hover {
+    transform: scale(1);
+  }
+}
