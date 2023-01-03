@@ -1,24 +1,25 @@
+import { Button } from 'components/Reuse/Button/Button';
 import styles from './NoticesCategories.module.scss';
 
 const NoticesCategories = () => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.btnWrap}>
-        <button className={styles.btn}>lost/found</button>
-      </div>
-      <div className={styles.btnWrap}>
-        <button className={styles.btn}>in good hands</button>
-      </div>
-      <div className={styles.btnWrap}>
-        <button className={styles.btn}>sell</button>
-      </div>
-      <div className={styles.btnWrap}>
-        <button className={styles.btn}>favorite ads</button>
-      </div>
-      <div className={styles.btnWrap}>
-        <button className={styles.btn}>my ads</button>
-      </div>
-    </div>
+    <ul className={styles.wrapper}>
+      <li>
+        <Button text={'lost/found'} type={'white'} />
+      </li>
+      <li>
+        <Button text={'in good hands'} type={'white'} />
+      </li>
+      <li>
+        <Button text={'sell'} type={'white'} />
+      </li>
+      <li>
+        <Button text={'favorite ads'} type={'white'} />
+      </li>
+      <li>
+        <Button text={'my ads'} type={'white'} />
+      </li>
+    </ul>
   );
 };
 

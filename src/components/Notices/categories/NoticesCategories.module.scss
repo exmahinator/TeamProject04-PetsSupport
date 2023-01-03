@@ -6,29 +6,3 @@
   margin-bottom: 30px;
   gap: 5px;
 }
-
-.btn{
-  padding: 8px 22px;
-  border-radius: 40px;
-  border: 2px solid #F59256;
-
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 19px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.04em;
-
-  cursor: pointer;
-}
-
-.btnWrap{
-  
-  :hover,
-  :active {
-    background: #F59256;
-    color: aliceblue;
-  }
-}
