@@ -12,8 +12,27 @@
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(../../shared/images/auth/mobile@2x.png);
+    background-image: url(../../shared/images/auth/mobile2x.png);
   }
+  @include media(tablet) {
+    background-image: url(../../shared/images/auth/tablet1x.png);
+    @media (min-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: url(../../shared/images/auth/tablet2x.png);
+        }
+  }
+   @include media(desktop) {
+       background-image: url(../../shared/images/auth/desktop1x.png);
+
+       @media (min-device-pixel-ratio: 2),
+       (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi),
+       (min-resolution: 2dppx) {
+           background-image: url(../../shared/images/auth/desktop2x.png);
+       }
+   }
 }
 .container {
   width: 100%;
