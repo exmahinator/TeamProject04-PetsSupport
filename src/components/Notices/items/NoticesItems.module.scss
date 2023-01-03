@@ -28,6 +28,11 @@
   margin-right: 40px;
 }
 
+.pictures {
+  width: 280px;
+  height: 280px;
+}
+
 .btnContainer {
   @include flex(center, center);
   flex-direction: column;
