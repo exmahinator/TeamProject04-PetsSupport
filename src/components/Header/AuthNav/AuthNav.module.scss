@@ -1,0 +1,40 @@
+@import 'src/shared/styles/mixins.scss';
+@import 'src/shared/styles/variables.scss';
+
+
+.btn {
+    display: flex;
+    gap: 20px;
+    height: 47px;
+}
+.linkLogo {
+    color: $secondary-text-color;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+}
+.login {
+    @include flex(center, center);
+
+    width: 111px;
+    background: $accent-color;
+    border-radius: 40px;
+}
+
+.linkRegistration{
+    color: $primary-text-color;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.registration {
+    @include flex(center, center);
+    width: 181px;
+
+    background: $secondary-bg-color;
+    border-radius: 40px;
+    border: 2px solid $accent-color;
+}
