@@ -1,3 +1,4 @@
+@import '../../../shared/styles/mixins';
 .btn {
   outline: none;
   padding: 8px 28px;
@@ -6,7 +7,7 @@
   border: 2px solid #f59256;
   transition: 0.2s all ease-in-out;
 
-  @media (min-width: 760px) {
+  @include media(tablet) {
     padding: 10px 28px;
   }
 

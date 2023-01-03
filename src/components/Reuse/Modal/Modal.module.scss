@@ -1,3 +1,4 @@
+@import '../../../shared/styles/mixins';
 .backdrop {
   position: fixed;
   top: 0;
@@ -23,10 +24,11 @@
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   border-radius: 40px;
   background-color: white;
-  @media screen and (min-width: 760px) {
+
+  @include media(tablet) {
     padding: 40px 80px;
   }
-  @media screen and (min-width: 1200px) {
+  @include media(desktop) {
     max-width: fit-content;
   }
 }
@@ -48,7 +50,7 @@
     transform: scale(1.1);
   }
 
-  @media screen and (min-width: 760px) {
+  @include media(tablet) {
     width: 44px;
     height: 44px;
   }
@@ -57,7 +59,7 @@
 // ! Circle BTN
 
 .circle {
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   right: 20px;
   outline: none;
@@ -72,7 +74,7 @@
   border: 2px solid #f59256;
   transition: 0.2s all ease-in-out;
 
-  @media (min-width: 760px) {
+  @include media(tablet) {
     position: relative;
     width: 44px;
     height: 44px;
@@ -90,7 +92,7 @@
     height: 100%;
     line-height: 780%;
 
-    @media screen and (min-width: 760px) {
+    @include media(tablet) {
       position: absolute;
       font-size: 20px;
       line-height: 27px;

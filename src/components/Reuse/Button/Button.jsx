@@ -1,6 +1,6 @@
 import React from 'react';
 
-import s from './Button.module.scss';
+import style from './Button.module.scss';
 
 export const Button = ({
   text,
@@ -12,25 +12,25 @@ export const Button = ({
   switch (type) {
     case 'orange':
       return (
-        <button onClick={() => onClickFunc()} className={s.orange}>
+        <button onClick={() => onClickFunc()} className={style.orange}>
           {text}
         </button>
       );
     case 'white':
       return (
-        <button onClick={() => onClickFunc()} className={s.white}>
+        <button onClick={() => onClickFunc()} className={style.white}>
           {text}
         </button>
       );
     case 'transparent':
       return (
-        <button onClick={() => onClickFunc()} className={s.transparent}>
+        <button onClick={() => onClickFunc()} className={style.transparent}>
           {text}
         </button>
       );
     case 'disabled':
       return (
-        <button disabled={true} className={s.disabled}>
+        <button disabled={true} className={style.disabled}>
           {text}
         </button>
       );
