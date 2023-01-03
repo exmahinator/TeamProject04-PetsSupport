@@ -1,16 +1,16 @@
-@import "src/shared/styles/mixins.scss";
+@import 'src/shared/styles/mixins.scss';
 
 .wrapper {
   max-width: 280px;
   max-height: 606px;
-  outline: 2px solid tomato;
+  margin-bottom: 32px;
 }
 
-.heading{
+.heading {
   padding: 20px;
 }
 
-.paragraph{
+.paragraph {
   padding-left: 20px;
 }
 
@@ -20,18 +20,94 @@
   padding-bottom: 20px;
 }
 
-.item{
+.item {
   display: flex;
 }
+
 .desc {
   margin-right: 40px;
 }
-.button{
+
+.btnContainer {
   @include flex(center, center);
   flex-direction: column;
-  button{
-    margin-bottom: 12px;
-    width: 248px;
-    height: 38px;
+  gap: 10px;
+  padding-bottom: 10px;
+
+  .btnWrap {
+    :hover,
+    :active {
+      background: #f59256;
+      color: aliceblue;
+    }
   }
+
+  button {
+    display:inline-block;
+    height: 38px;
+    width: 238px;
+    padding: 8px 28px;
+  
+    background: #ffffff;
+    border: 2px solid #f59256;
+    border-radius: 40px;
+
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    color: #f59256;
+  }
+}
+
+.pctWrap {
+  position: relative;
+}
+
+.svgWrap{
+  @include flex(center, center);
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 44px;
+  height: 44px;
+
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.categoriesWrap{
+  @include flex(center, center);
+  position: absolute;
+  left: 0;
+  top: 20px;
+
+  padding: 6px 50px 6px 20px;
+
+  border: none;
+  border-radius: 0px 100px 100px 0px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.categories{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+
+  color: #111111;
 }
