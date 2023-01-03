@@ -1,7 +1,7 @@
 import React from 'react';
 
-import s from './Title.module.scss';
+import style from './Title.module.scss';
 
 export const Title = ({ text }) => {
-  return <h2 className={s.title}>{text}</h2>;
+  return <h2 className={style.title}>{text}</h2>;
 };
