@@ -57,9 +57,7 @@
 // ! Circle BTN
 
 .circle {
-  position: absolute;
-  bottom: 30px;
-  right: 20px;
+  position: relative;
   outline: none;
   background: #f59256 url('../../../shared/images/overused/add.png') no-repeat
     50% 25%;
@@ -73,7 +71,6 @@
   transition: 0.2s all ease-in-out;
 
   @media (min-width: 760px) {
-    position: relative;
     width: 44px;
     height: 44px;
     background-position: 50%;
