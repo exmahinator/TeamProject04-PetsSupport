@@ -4,25 +4,9 @@ import styles from '../Authorization.module.scss';
 import { useForm } from 'react-hook-form';
 
 import { useState } from 'react';
-import { Subtitle } from 'components/Reuse/Title/Subtitle';
 
-export const RegisterForm = ({ login, registration }) => {
-
-  const [nextStep, setNextStep] = useState(false)
-
-  // !to make a hook
-  const content = login
-    ? {
-        title: 'Login',
-        navigatePath: 'register',
-        navigateMessage: "Don't have an account?",
-      }
-    : {
-        title: 'Register',
-        navigatePath: 'login',
-        navigateMessage: 'Already have an account?',
-    };
-  // !!
+export const RegisterForm = () => {
+  const [nextStep, setNextStep] = useState(false);
 
   const {
     register,
@@ -38,33 +22,54 @@ export const RegisterForm = ({ login, registration }) => {
     console.log(res);
   };
   const handleNextBtn = () => {
-    setNextStep(true)
-    console.log(isValid)
-  }
+    setNextStep(true);
+    console.log(isValid);
+  };
 
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <Subtitle text={content.title} />
-
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {!nextStep &&
-            <>
-            <input
-            defaultValue=""
-            {...register('example')}
-            />
-              <input {...register('name', { required: true })} />
-          {login ? <button type="submit">{content.title}</button> :
-              <button
-                disabled={!isValid}
-                onClick={handleNextBtn}>next</button>
-          
-            }
-            </>
-          }
-          {nextStep &&<>
-       
+  <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      {!nextStep && (
+        <>
+         <input
+              className={styles.input}
+            type="email"
+          placeholder='Email'
+        {...register('email', {
+          required: {
+            value: true,
+            message: 'Email is required',
+          },
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: 'Invalid email address',
+          },
+        })}
+      />
+          <input
+              className={styles.input}
+            type="password"
+          placeholder='Password'
+        {...register('password', {
+          required: {
+            value: true,
+            message: 'Password is required',
+          },
+          pattern: {
+            value: /^\S{7,32}$/i,
+            message: 'Invalid password',
+          },
+        })}
+      />
+          <button
+            className={styles.btn}
+            disabled={!isValid}
+            onClick={handleNextBtn}>
+            Next
+          </button>
+        </>
+      )}
+      {nextStep && (
+        <>
           <input {...register('age', { required: true })} />
           <input
             type="password"
@@ -73,10 +78,9 @@ export const RegisterForm = ({ login, registration }) => {
 
           {errors.example && <span>This field is required</span>}
 
-          <button type="submit">{content.title}</button>
-         </> }
-        </form>
-      </div>
-    </section>
+          <button type="submit">Register</button>
+        </>
+      )}
+    </form>
   );
 };

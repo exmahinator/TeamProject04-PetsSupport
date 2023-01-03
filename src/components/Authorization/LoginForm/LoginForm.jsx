@@ -24,7 +24,8 @@ export const LoginForm = () => {
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <input
               className={styles.input}
-        type="email"
+              type="email"
+          placeholder='Email'
         {...register('email', {
           required: {
             value: true,
@@ -38,7 +39,8 @@ export const LoginForm = () => {
       />
           <input
               className={styles.input}
-        type="password"
+              type="password"
+          placeholder='Password'
         {...register('password', {
           required: {
             value: true,
