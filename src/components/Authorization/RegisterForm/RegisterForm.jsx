@@ -7,17 +7,20 @@ import { useState } from 'react';
 
 export const RegisterForm = () => {
   const [nextStep, setNextStep] = useState(false);
-
+ 
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm();
 
-  const onSubmit = ({ name, age }) => {
+  const onSubmit = ({ email, password, city, phone, name }) => {
     let res = {
       name,
-      age,
+      email,
+      password,
+      city, 
+      phone
     };
     console.log(res);
   };
@@ -70,13 +73,54 @@ export const RegisterForm = () => {
       )}
       {nextStep && (
         <>
-          <input {...register('age', { required: true })} />
           <input
-            type="password"
-            {...register('exampleRequired', { required: true })}
+              className={styles.input}
+            type="text"
+          placeholder='Name'
+        {...register('name', {
+          required: {
+            value: true,
+            message: 'Name is required',
+          },
+          pattern: {
+            value: /^[a-zA-Z]+$/i,
+            message: 'Invalid name',
+          },
+        })}
+      />
+          <input
+              className={styles.input}
+            type="text"
+          placeholder='City, region'
+        {...register('city', {
+          required: {
+            value: true,
+            message: 'City and region are required',
+          },
+          pattern: {           
+            value: /^\s*(?:\w+\s*,\s*){1,}(?:\w+\s*)$/i,
+            message: 'Brovary, Kyiv',
+          },
+        })}
           />
-
-          {errors.example && <span>This field is required</span>}
+          <input
+              className={styles.input}
+            type="tel"
+          placeholder='Phone'
+        {...register('phone', {
+          required: {
+            value: true,
+            message: 'Phone is required',
+          },
+          pattern: {
+            value: /^\d{10}$/i,
+            message: '0971234567',
+          },
+        })}
+      />
+          {errors.name && <span>name</span>}
+          {errors.city && <span>city</span>}
+                    {errors.phone && <span>phone</span>}
 
           <button type="submit">Register</button>
         </>
