@@ -1,3 +1,5 @@
+@import 'shared/styles/_mixins.scss';
+
 .title {
   font-weight: 700;
   font-size: 24px;
@@ -5,8 +7,12 @@
   text-align: center;
   color: #111111;
 
-  @media (min-width: 760px) {
+  @include media(mobile) {
+    font-size: 24px;
+    line-height: 1.35;
+  }
+  @include media(tablet) {
     font-size: 48px;
-    line-height: 66px;
+    line-height: 1.35;
   }
 }
