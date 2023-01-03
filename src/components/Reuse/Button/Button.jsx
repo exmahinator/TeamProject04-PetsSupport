@@ -34,6 +34,8 @@ export const Button = ({
           {text}
         </button>
       );
+    default:
+      return;
   }
 };
 

@@ -9,6 +9,7 @@ export const Modal = ({ children, btnType }) => {
   const onClose = () => {
     setIsShowModal(false);
   };
+
   useEffect(() => {
     const handeleClickDown = e => {
       if (e.code === 'Escape') {
@@ -61,6 +62,8 @@ export const Modal = ({ children, btnType }) => {
           )}
         </>
       );
+    default:
+      <div>Where is props?</div>;
   }
 };
 
@@ -83,5 +86,5 @@ export const Modal = ({ children, btnType }) => {
           <li>Nice</li>
           <li>Kill me</li>
         </ul>
-      </Modal> */
+      </Modal>  */
 }
