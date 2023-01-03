@@ -5,24 +5,11 @@ import { Link } from 'react-router-dom';
 import { Subtitle } from 'components/Reuse/Title/Subtitle';
 import { LoginForm } from './LoginForm/LoginForm';
 import { RegisterForm } from './RegisterForm/RegisterForm';
+import { getAuthFormContent } from './getAuthFormContent';
 
-export const Authorization = ({ login, registration }) => {
+export const Authorization = ({ type}) => {
 
-  // !to make a hook
-  const content = login
-    ? {
-        title: 'Login',
-        navigatePath: '/register',
-        navigateMessage: "Don't have an account?",
-        linkText: 'Register',
-      }
-    : {
-        title: 'Register',
-        navigatePath: '/login',
-          navigateMessage: 'Already have an account?',
-         linkText: 'Login',
-      };
-  // !!
+  const content = getAuthFormContent(type)
 
   return (
     <section className={styles.section}>
@@ -30,7 +17,7 @@ export const Authorization = ({ login, registration }) => {
               <div className={styles.wrapper}>
                   
               <Subtitle text={content.title} />
-              {login ? <LoginForm /> : <RegisterForm />}
+              {type === 'login' ? <LoginForm /> : <RegisterForm />}
               <span className={styles.linkText}>{ content.navigateMessage}</span>
               <Link className={styles.link} to={content.navigatePath}>{ content.linkText}</Link>
               </div>

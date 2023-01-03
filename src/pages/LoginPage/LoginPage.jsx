@@ -3,7 +3,7 @@ import React from 'react'
 
 const LoginPage = () => {
   return (
-   <Authorization login/>
+   <Authorization type='login'/>
   )
 }
 
