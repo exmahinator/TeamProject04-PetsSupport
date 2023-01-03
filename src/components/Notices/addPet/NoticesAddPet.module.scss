@@ -1,0 +1,17 @@
+@import "src/shared/styles/mixins.scss";
+
+.wrapper{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 220px;
+  top: 455px;
+
+  /* Акцентный */
+  border: none;
+  background: #F59256;
+  border-radius: 50%;
+  /* Тень для карточек */
+
+  box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+}
