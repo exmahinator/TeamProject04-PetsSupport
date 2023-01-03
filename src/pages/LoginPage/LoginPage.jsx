@@ -1,9 +1,9 @@
-import { AuthForm } from 'components/AuthForm/AuthForm'
+import { Authorization } from 'components/Authorization/Authorization'
 import React from 'react'
 
 const LoginPage = () => {
   return (
-   <AuthForm isLogin/>
+   <Authorization registration/>
   )
 }
 
