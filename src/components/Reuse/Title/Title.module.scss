@@ -1,12 +1,14 @@
+@import 'shared/styles/_mixins.scss';
+
 .title {
   font-weight: 700;
   font-size: 24px;
-  line-height: 33px;
+  line-height: 1.37;
   text-align: center;
   color: #111111;
 
-  @media (min-width: 760px) {
+  @include media(tablet) {
     font-size: 48px;
-    line-height: 66px;
+    line-height: 1.35;
   }
 }

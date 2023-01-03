@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Input } from 'components/Reuse/Input/Input';
+import { Title } from 'components/Reuse/Title/Title';
 
 const HomePage = () => {
   return (
     <div>
-      <Input />
+      <Title text={'Test'} />
     </div>
   );
 };

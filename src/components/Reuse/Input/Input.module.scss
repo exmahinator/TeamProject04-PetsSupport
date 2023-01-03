@@ -1,12 +1,14 @@
+@import '../../../shared/styles/mixins';
+
 .wrap {
   position: relative;
   width: fit-content;
   margin: 0 auto;
   width: 90%;
-  @media (min-width: 760px) {
+  @include media(tablet) {
     width: 80%;
   }
-  @media (min-width: 1200px) {
+  @include media(desktop) {
     width: 600px;
   }
 }
@@ -41,7 +43,4 @@
   border: none;
   border-radius: 50%;
   transition: 0.2s all ease-in-out;
-
-  //   &:hover {
-  //   }
 }
