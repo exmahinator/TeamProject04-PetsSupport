@@ -75,7 +75,7 @@ export const Modal = ({ children, btnType }) => {
 
 // !=============EXEMPLES==============
 
-{
+
   /* <Modal textBtn={'Add pet'} btnType={'circle'}>
         <h2>Heloooooo</h2>
         <p>
@@ -93,4 +93,4 @@ export const Modal = ({ children, btnType }) => {
           <li>Kill me</li>
         </ul>
       </Modal>  */
-}
+
