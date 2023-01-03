@@ -1,5 +1,7 @@
 import styles from './NoticesItems.module.scss';
 import {ReactComponent as NoticesHartSvg} from 'shared/images/Notices/Notices-hart.svg';
+import { Subtitle } from 'components/Reuse/Title/Subtitle';
+import { Button } from 'components/Reuse/Button/Button';
 
 const posterBg = 'https://via.placeholder.com/350';
 const placeholder = 'https://via.placeholder.com/150';
@@ -23,7 +25,7 @@ const NoticesItems = () => {
       </div>
       <div>
         <div className={styles.heading}>
-          <h2>Сute dog looking for a home</h2>
+          <Subtitle text="Сute dog looking for a home"/>
         </div>
         <div className={styles.paragraph}>
           <ul className={styles.list}>
@@ -42,14 +44,14 @@ const NoticesItems = () => {
             </li>
           </ul>
         </div>
-        <div className={styles.btnContainer}>
-          <div className={styles.btnWrap}>
-            <button>Learn more</button>
-          </div>
-          <div className={styles.btnWrap}>
-            <button>Delete</button>
-          </div>
-        </div>
+        <ul className={styles.btnContainer}>
+          <li>
+            <Button text={'Learn more'} type={'white'}/>
+          </li>
+          <li>
+            <Button text={'Delete'} type={'white'}/>
+          </li>
+        </ul>
       </div>
     </div>
   );

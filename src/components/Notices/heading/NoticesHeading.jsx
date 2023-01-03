@@ -1,3 +1,4 @@
+import { Title } from 'components/Reuse/Title/Title';
 import styles from './NoticesHeading.module.scss';
 
 
@@ -5,7 +6,7 @@ const NoticesHeading = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 >Find your favorite pet</h1>
+      <Title text='Find your favorite pet'/>
     </div>
   )
 }

@@ -35,38 +35,8 @@
 
 .btnContainer {
   @include flex(center, center);
-  flex-direction: column;
   gap: 10px;
   padding-bottom: 10px;
-
-  .btnWrap {
-    :hover,
-    :active {
-      background: #f59256;
-      color: aliceblue;
-    }
-  }
-
-  button {
-    display:inline-block;
-    height: 38px;
-    width: 238px;
-    padding: 8px 28px;
-  
-    background: #ffffff;
-    border: 2px solid #f59256;
-    border-radius: 40px;
-
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-    letter-spacing: 0.04em;
-
-    color: #f59256;
-  }
 }
 
 .pctWrap {
