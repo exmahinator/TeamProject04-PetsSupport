@@ -7,27 +7,3 @@
   padding-left: 160px;
 }
 
-.addPetBtn{
-  @include flex(center, center);
-  flex-direction: column;
-  width: 80px;
-  height: 80px;
-
-  /* Акцентный */
-  border: none;
-  background: #F59256;
-  border-radius: 50%;
-  /* Тень для карточек */
-
-  box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
-}
-
-.paragraph{
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-
-  color: #FFFFFF;
-}

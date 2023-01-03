@@ -1,15 +1,20 @@
 import styles from './NoticesAddPet.module.scss';
-import {ReactComponent as NoticesPlusSvg} from 'shared/images/Notices/Notices-plus.svg';
+import { Modal } from 'components/Reuse/Modal/Modal';
 
 
 const NoticesAddPet = () => {
 
   return (
-    <div className={styles.addPetWrap}>
-      <button className={styles.addPetBtn}>
-        <NoticesPlusSvg/>
-        <span className={styles.paragraph}>Add pet</span>
-      </button>
+    <div className={styles.wrapper}>
+        <Modal textBtn={'Add pet'} btnType={'circle'}>
+        <h2>Heloooooo</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+          expedita in ratione dolores. Recusandae, nesciunt fugit ipsum,
+          molestiae totam sed nam at blanditiis quidem dolorem obcaecati cum
+          nobis, sapiente nostrum.
+        </p>
+      </Modal>
     </div>
   )
 }
