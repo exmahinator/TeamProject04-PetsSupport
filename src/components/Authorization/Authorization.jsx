@@ -26,11 +26,14 @@ export const Authorization = ({ login, registration }) => {
 
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+          <div className={styles.container}>
+              <div className={styles.wrapper}>
+                  
               <Subtitle text={content.title} />
               {login ? <LoginForm /> : <RegisterForm />}
               <span className={styles.linkText}>{ content.navigateMessage}</span>
               <Link className={styles.link} to={content.navigatePath}>{ content.linkText}</Link>
+              </div>
       </div>
     </section>
   );

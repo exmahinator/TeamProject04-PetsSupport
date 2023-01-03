@@ -4,6 +4,8 @@
 .section {
   padding: 40px 0;
   height: calc(100vh - 60px);
+  position: relative;
+
   background-image: url(../../shared/images/auth/mobile1x.png);
   background-repeat: no-repeat;
   background-position: bottom;
@@ -17,22 +19,22 @@
   @include media(tablet) {
     background-image: url(../../shared/images/auth/tablet1x.png);
     @media (min-device-pixel-ratio: 2),
-        (-webkit-min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: url(../../shared/images/auth/tablet2x.png);
-        }
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../../shared/images/auth/tablet2x.png);
+    }
   }
-   @include media(desktop) {
-       background-image: url(../../shared/images/auth/desktop1x.png);
+  @include media(desktop) {
+    background-image: url(../../shared/images/auth/desktop1x.png);
 
-       @media (min-device-pixel-ratio: 2),
-       (-webkit-min-device-pixel-ratio: 2),
-       (min-resolution: 192dpi),
-       (min-resolution: 2dppx) {
-           background-image: url(../../shared/images/auth/desktop2x.png);
-       }
-   }
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../../shared/images/auth/desktop2x.png);
+    }
+  }
 }
 .container {
   width: 100%;
@@ -43,8 +45,33 @@
   text-align: center;
 
   @include media('tablet') {
+    max-width: 708px;
   }
 }
+.wrapper {
+  @include media(tablet) {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 608px;
+    margin: 0 auto;
+    padding: 60px 80px 40px;
+
+    border-radius: 40px;
+    background-color: $secondary-text-color;
+    box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+  }
+  @include media(desktop) {
+    width: 618px;
+    margin: 0 auto;
+    padding: 60px 80px;
+
+    border-radius: 40px;
+    background-color: $secondary-text-color;
+  }
+}
+
 .form {
   padding: 40px 0;
 }
@@ -67,13 +94,19 @@
   margin-bottom: 16px;
 
   border: 1px solid $accent-color;
+  background-color: $primary-bg-color;
   border-radius: 40px;
+
+    @include media(tablet) {
+        width: 450px;
+            height: 50px;
+    }
 }
 .input:last-of-type {
   margin-bottom: 40px;
 }
 .btn {
-    width: 280px;
+  width: 100%;
   outline: none;
   padding: 8px 28px;
   border-radius: 40px;
@@ -82,7 +115,6 @@
   background-color: #f59256;
   color: white;
   transition: 0.2s all ease-in-out;
-
 
   @media (min-width: 760px) {
     padding: 10px 28px;
