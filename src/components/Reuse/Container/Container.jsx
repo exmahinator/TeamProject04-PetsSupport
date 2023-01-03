@@ -1,9 +1,9 @@
 import React from 'react';
 
-import style from './Modal.module.scss';
+import style from './Container.module.scss';
 
 export const Container = ({ children }) => {
-  return <div className={style.container}></div>;
+  return <div className={style.container}>{children}</div>;
 };
 
 // !=============EXEMPLES==============
