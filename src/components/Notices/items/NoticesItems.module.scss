@@ -1,9 +1,5 @@
 @import "src/shared/styles/mixins.scss";
 
-.container {
-  outline: 2px solid tomato;
-  @include flex(center, center);
-}
 .wrapper {
   max-width: 280px;
   max-height: 606px;

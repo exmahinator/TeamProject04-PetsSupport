@@ -1,4 +1,4 @@
-import styles from './Notices-items.module.scss';
+import styles from './NoticesItems.module.scss';
 
 const posterBg = 'https://via.placeholder.com/350'
 const placeholder = 'https://via.placeholder.com/150'
@@ -6,7 +6,6 @@ const placeholder = 'https://via.placeholder.com/150'
 const NoticesItems = () => {
 
   return (
-    <div className={styles.container}>
       <div className={styles.wrapper}>
         <img
           // className={styles.poster}
@@ -41,7 +40,6 @@ const NoticesItems = () => {
           </div>
         </div>
       </div>
-    </div>
   )
 }
 
