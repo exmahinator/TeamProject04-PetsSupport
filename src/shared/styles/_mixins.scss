@@ -2,27 +2,24 @@
 
 
 @mixin flex($content: flex-start, $align: baseline) {
-   display: flex;
-   flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 
-   @if($content !=flex-start) {
-      justify-content: $content;
-   }
+	@if ($content !=flex-start) {
+		justify-content: $content;
+	}
 
-   @if($align !=baseline) {
-      align-items: $align;
-   }
+	@if ($align !=baseline) {
+		align-items: $align;
+	}
 }
 
-
 @mixin media($type) {
-
-
-   @if $type =='mobile' {
-      @media screen and (min-width: $mobile) {
-         @content;
-      }
-   }
+	@if $type == 'mobile' {
+		@media screen and (min-width: $mobile) {
+			@content;
+		}
+	}
 
 
    @if $type =='tablet' {
@@ -47,3 +44,4 @@
       }
    }
 }
+
