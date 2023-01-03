@@ -3,6 +3,17 @@
 
 .section{
     padding: 40px 0;
+    height: calc(100vh - 60px);
+    background-image: url(../../shared/images/auth/mobile1x.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+@media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        background-image: url(../../shared/images/auth/mobile@2x.png);
+    }
 }
 .container{
     width: 100%;
@@ -10,11 +21,27 @@
     margin-left: auto;
     margin-right: auto;
 
+    text-align: center;
 
     @include media("tablet") {
-            background-color: $accent-color;
 
         }
 
 }
+.form{
 
+    padding: 40px 0;
+}
+
+.linkText{
+font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.35;
+    letter-spacing: 0.04em;
+    color: $third-bg-color;
+}
+.link{
+    @extend .linkText;
+    color: #3091EB;
+}

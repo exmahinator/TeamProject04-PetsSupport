@@ -14,11 +14,13 @@ export const Authorization = ({ login, registration }) => {
         title: 'Login',
         navigatePath: 'register',
         navigateMessage: "Don't have an account?",
+        linkText: 'Register',
       }
     : {
         title: 'Register',
         navigatePath: 'login',
-        navigateMessage: 'Already have an account?',
+          navigateMessage: 'Already have an account?',
+         linkText: 'Login',
       };
   // !!
 
@@ -26,8 +28,9 @@ export const Authorization = ({ login, registration }) => {
     <section className={styles.section}>
       <div className={styles.container}>
               <Subtitle text={content.title} />
-              {login ? <LoginForm/> : <RegisterForm/>}
-              <Link to={content.navigatePath}>{ content.navigateMessage}</Link>
+              {login ? <LoginForm /> : <RegisterForm />}
+              <span className={styles.linkText}>{ content.navigateMessage}</span>
+              <Link className={styles.link} to={content.navigatePath}>{ content.linkText}</Link>
       </div>
     </section>
   );

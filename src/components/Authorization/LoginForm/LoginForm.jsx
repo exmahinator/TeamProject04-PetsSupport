@@ -1,5 +1,5 @@
 import React from 'react';
-// import styles from '../Authorization.module.scss';
+import styles from '../Authorization.module.scss';
 
 import { useForm } from 'react-hook-form';
 
@@ -21,7 +21,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <input
         type="email"
         {...register('email', {
@@ -35,18 +35,19 @@ export const LoginForm = () => {
           },
         })}
       />
-          <input
-              type="password"
-              {...register('password', {
-                  required: {
-                      value: true,
-                      message: 'Password is required',
-                  },
-                  pattern: {
-                      value: /^\S{7,32}$/i,
-                      message: 'Invalid password',
-                  },
-              })} />
+      <input
+        type="password"
+        {...register('password', {
+          required: {
+            value: true,
+            message: 'Password is required',
+          },
+          pattern: {
+            value: /^\S{7,32}$/i,
+            message: 'Invalid password',
+          },
+        })}
+      />
 
       {errors.password && <span>{errors.password?.message}</span>}
 
