@@ -5,10 +5,12 @@ import {ReactComponent as NoticesPlusSvg} from 'shared/images/Notices/Notices-pl
 const NoticesAddPet = () => {
 
   return (
-    <button className={styles.wrapper}>
-      <NoticesPlusSvg/>
-      <span>qwe</span>
-    </button>
+    <div className={styles.addPetWrap}>
+      <button className={styles.addPetBtn}>
+        <NoticesPlusSvg/>
+        <span className={styles.paragraph}>Add pet</span>
+      </button>
+    </div>
   )
 }
 
