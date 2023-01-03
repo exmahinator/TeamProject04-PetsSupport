@@ -1,3 +1,6 @@
+@import "./variables";
+
+
 @mixin flex($content: flex-start, $align: baseline) {
    display: flex;
    flex-wrap: wrap;
@@ -14,11 +17,7 @@
 
 
 @mixin media($type) {
-   @if $type =='mobile-only' {
-      @media screen and (max-width: #{$tablet - 1}) {
-         @content;
-      }
-   }
+
 
    @if $type =='mobile' {
       @media screen and (min-width: $mobile) {
@@ -26,11 +25,6 @@
       }
    }
 
-   @if $type =='tablet-only' {
-      @media screen and (min-width: $tablet) and (max-width: #{$desktop - 1}) {
-         @content;
-      }
-   }
 
    @if $type =='tablet' {
       @media screen and (min-width: $tablet) {
@@ -38,11 +32,6 @@
       }
    }
 
-   @if $type =='not-desktop' {
-      @media screen and (max-width: #{$desktop - 1}) {
-         @content;
-      }
-   }
 
    @if $type =='desktop' {
       @media screen and (min-width: $desktop) {
