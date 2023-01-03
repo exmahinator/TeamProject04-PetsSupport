@@ -1,0 +1,41 @@
+@import "src/shared/styles/mixins.scss";
+
+.container {
+  outline: 2px solid tomato;
+  @include flex(center, center);
+}
+.wrapper {
+  max-width: 280px;
+  max-height: 606px;
+  outline: 2px solid tomato;
+}
+
+.heading{
+  padding: 20px;
+}
+
+.paragraph{
+  padding-left: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.item{
+  display: flex;
+}
+.desc {
+  margin-right: 40px;
+}
+.button{
+  @include flex(center, center);
+  flex-direction: column;
+  button{
+    margin-bottom: 12px;
+    width: 248px;
+    height: 38px;
+  }
+}
