@@ -1,0 +1,12 @@
+@import 'src/shared/styles/mixins.scss';
+
+.wrapper {
+  @include flex(center, center);
+  flex-direction: column;
+
+  @include media(tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+}

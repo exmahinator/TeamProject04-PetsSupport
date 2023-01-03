@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 
-import s from './Modal.module.scss';
+import style from './Modal.module.scss';
 
 export const Modal = ({ children, btnType }) => {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -9,6 +9,7 @@ export const Modal = ({ children, btnType }) => {
   const onClose = () => {
     setIsShowModal(false);
   };
+
   useEffect(() => {
     const handeleClickDown = e => {
       if (e.code === 'Escape') {
@@ -32,13 +33,16 @@ export const Modal = ({ children, btnType }) => {
     case 'circle':
       return (
         <>
-          <button className={s.circle} onClick={() => setIsShowModal(true)}>
+          <button className={style.circle} onClick={() => setIsShowModal(true)}>
             <span>Add pet</span>
           </button>
           {isShowModal && (
-            <div onClick={handleBackdropClick} className={s.backdrop}>
-              <div className={s.modal}>
-                <div onClick={handleBackdropClick} className={s.close}></div>
+            <div onClick={handleBackdropClick} className={style.backdrop}>
+              <div className={style.modal}>
+                <div
+                  onClick={handleBackdropClick}
+                  className={style.close}
+                ></div>
                 {children}
               </div>
             </div>
@@ -48,40 +52,64 @@ export const Modal = ({ children, btnType }) => {
     case 'long':
       return (
         <>
-          <button className={s.long} onClick={() => setIsShowModal(true)}>
+          <button className={style.long} onClick={() => setIsShowModal(true)}>
             Learn more
           </button>
           {isShowModal && (
-            <div onClick={handleBackdropClick} className={s.backdrop}>
-              <div className={s.modal}>
-                <div onClick={handleBackdropClick} className={s.close}></div>
+            <div onClick={handleBackdropClick} className={style.backdrop}>
+              <div className={style.modal}>
+                <div
+                  onClick={handleBackdropClick}
+                  className={style.close}
+                ></div>
                 {children}
               </div>
             </div>
           )}
         </>
       );
+    case 'circle-info':
+      return (
+        <>
+          <button className={style.info} onClick={() => setIsShowModal(true)}>
+            <span>Add pet</span>
+          </button>
+          {isShowModal && (
+            <div onClick={handleBackdropClick} className={style.backdrop}>
+              <div className={style.modal}>
+                <div
+                  onClick={handleBackdropClick}
+                  className={style.close}
+                ></div>
+                {children}
+              </div>
+            </div>
+          )}
+        </>
+      );
+    default:
+      <div>Where is props?</div>;
   }
 };
 
 // !=============EXEMPLES==============
 
-{
-  /* <Modal textBtn={'Add pet'} btnType={'circle'}>
+
+/* <Modal btnType={'circle'}>
         <h2>Heloooooo</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-          expedita in ratione dolores. Recusandae, nesciunt fugit ipsum,
-          molestiae totam sed nam at blanditiis quidem dolorem obcaecati cum
-          nobis, sapiente nostrum.
-        </p>
       </Modal>
-      <Modal textBtn={'TEST MODAL 2'} btnType={'long'}>
+      
+      <Modal  btnType={'long'}>
         <h2>WOW</h2>
         <ul>
           <li>Cool</li>
           <li>Nice</li>
           <li>Kill me</li>
         </ul>
+
+      </Modal> 
+
+      <Modal btnType={'circle-info'}>
+        <h2>Info for Paul</h2>
       </Modal> */
-}
+
