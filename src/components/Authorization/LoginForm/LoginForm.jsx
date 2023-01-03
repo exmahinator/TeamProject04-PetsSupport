@@ -22,7 +22,8 @@ export const LoginForm = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <input
+          <input
+              className={styles.input}
         type="email"
         {...register('email', {
           required: {
@@ -35,7 +36,8 @@ export const LoginForm = () => {
           },
         })}
       />
-      <input
+          <input
+              className={styles.input}
         type="password"
         {...register('password', {
           required: {
@@ -51,7 +53,7 @@ export const LoginForm = () => {
 
       {errors.password && <span>{errors.password?.message}</span>}
 
-      <button disabled={!isValid} type="submit">
+      <button className={styles.btn} disabled={!isValid} type="submit">
         Login
       </button>
     </form>

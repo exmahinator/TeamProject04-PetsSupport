@@ -1,47 +1,75 @@
 @import 'shared/styles/mixins.scss';
 @import 'shared/styles/variables.scss';
 
-.section{
-    padding: 40px 0;
-    height: calc(100vh - 60px);
-    background-image: url(../../shared/images/auth/mobile1x.png);
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: contain;
-@media (min-device-pixel-ratio: 2),
+.section {
+  padding: 40px 0;
+  height: calc(100vh - 60px);
+  background-image: url(../../shared/images/auth/mobile1x.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-        background-image: url(../../shared/images/auth/mobile@2x.png);
-    }
+    background-image: url(../../shared/images/auth/mobile@2x.png);
+  }
 }
-.container{
-    width: 100%;
-    max-width: 280px;
-    margin-left: auto;
-    margin-right: auto;
+.container {
+  width: 100%;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
 
-    text-align: center;
+  text-align: center;
 
-    @include media("tablet") {
-
-        }
-
+  @include media('tablet') {
+  }
 }
-.form{
-
-    padding: 40px 0;
+.form {
+  padding: 40px 0;
 }
 
-.linkText{
-font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.35;
-    letter-spacing: 0.04em;
-    color: $third-bg-color;
+.linkText {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: $third-bg-color;
 }
-.link{
-    @extend .linkText;
-    color: #3091EB;
+.link {
+  @extend .linkText;
+  color: #3091eb;
+}
+.input {
+  width: 280px;
+  height: 40px;
+  margin-bottom: 16px;
+
+  border: 1px solid $accent-color;
+  border-radius: 40px;
+}
+.input:last-of-type {
+  margin-bottom: 40px;
+}
+.btn {
+    width: 280px;
+  outline: none;
+  padding: 8px 28px;
+  border-radius: 40px;
+  cursor: pointer;
+  border: 2px solid #f59256;
+  background-color: #f59256;
+  color: white;
+  transition: 0.2s all ease-in-out;
+
+
+  @media (min-width: 760px) {
+    padding: 10px 28px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
