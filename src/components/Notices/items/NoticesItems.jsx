@@ -1,7 +1,8 @@
 import styles from './NoticesItems.module.scss';
-import {ReactComponent as NoticesHartSvg} from 'shared/images/Notices/Notices-hart.svg';
+import { ReactComponent as NoticesHartSvg } from 'shared/images/Notices/Notices-hart.svg';
 import { Subtitle } from 'components/Reuse/Title/Subtitle';
 import { Button } from 'components/Reuse/Button/Button';
+import { Modal } from 'components/Reuse/Modal/Modal';
 
 const posterBg = 'https://via.placeholder.com/350';
 const placeholder = 'https://via.placeholder.com/150';
@@ -17,7 +18,7 @@ const NoticesItems = () => {
           title="title"
         />
         <button className={styles.svgWrap}>
-          <NoticesHartSvg/>
+          <NoticesHartSvg />
         </button>
         <div className={styles.categoriesWrap}>
           <p className={styles.categories}>In good hands</p>
@@ -25,7 +26,7 @@ const NoticesItems = () => {
       </div>
       <div>
         <div className={styles.heading}>
-          <Subtitle text="Сute dog looking for a home"/>
+          <Subtitle text="Сute dog looking for a home" />
         </div>
         <div className={styles.paragraph}>
           <ul className={styles.list}>
@@ -46,10 +47,17 @@ const NoticesItems = () => {
         </div>
         <ul className={styles.btnContainer}>
           <li>
-            <Button text={'Learn more'} type={'white'}/>
+            <Modal textBtn={'Learn more'} btnType={'long'}>
+              <h2>WOW</h2>
+              <ul>
+                <li>Cool</li>
+                <li>Nice</li>
+                <li>Kill me</li>
+              </ul>
+            </Modal>
           </li>
           <li>
-            <Button text={'Delete'} type={'white'}/>
+            <Button text={'Delete'} type={'white'} />
           </li>
         </ul>
       </div>

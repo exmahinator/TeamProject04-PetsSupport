@@ -1,12 +1,10 @@
-import React from 'react'
-// import styles from './NoticesPage.module.scss';
-import NoticesItems from 'components/Notices/items/NoticesItems'
 import NoticesHeading from 'components/Notices/heading/NoticesHeading';
 import NoticesSearch from 'components/Notices/search/NoticesSearch';
 import NoticesCategories from 'components/Notices/categories/NoticesCategories';
-// import {ReactComponent as NoticesPlusSvg} from 'shared/images/Notices/Notices-plus.svg';
 import NoticesAddPet from 'components/Notices/addPet/NoticesAddPet';
+import NoticesList from 'components/Notices/list/NoticesList';
 import { Container } from 'components/Reuse/Container/Container';
+import styles from './NoticesPage.module.scss';
 
 
 const NoticesPage = () => {
@@ -14,19 +12,12 @@ const NoticesPage = () => {
   return (
     <Container>
     <NoticesHeading/>
-      <NoticesSearch/>
-      <NoticesCategories/>
-      <NoticesItems/>
-      <NoticesItems/>
-      <NoticesItems/>
-      <NoticesItems/>
-      <NoticesItems/>
-      <NoticesItems/>
-      <NoticesItems/>
-      <NoticesItems/>
-      <NoticesItems/>
-      <NoticesItems/>
-      <NoticesAddPet/>
+    <NoticesSearch/>
+      <div className={styles.wrapper}>
+        <NoticesCategories/>
+        <NoticesAddPet/>
+      </div>
+    <NoticesList/>
     </Container>
   )
 }
