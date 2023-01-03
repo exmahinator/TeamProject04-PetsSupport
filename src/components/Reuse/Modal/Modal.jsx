@@ -68,6 +68,25 @@ export const Modal = ({ children, btnType }) => {
           )}
         </>
       );
+    case 'circle-info':
+      return (
+        <>
+          <button className={style.info} onClick={() => setIsShowModal(true)}>
+            <span>Add pet</span>
+          </button>
+          {isShowModal && (
+            <div onClick={handleBackdropClick} className={style.backdrop}>
+              <div className={style.modal}>
+                <div
+                  onClick={handleBackdropClick}
+                  className={style.close}
+                ></div>
+                {children}
+              </div>
+            </div>
+          )}
+        </>
+      );
     default:
       <div>Where is props?</div>;
   }
@@ -76,21 +95,21 @@ export const Modal = ({ children, btnType }) => {
 // !=============EXEMPLES==============
 
 
-  /* <Modal textBtn={'Add pet'} btnType={'circle'}>
+/* <Modal btnType={'circle'}>
         <h2>Heloooooo</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-          expedita in ratione dolorestyle. Recusandae, nesciunt fugit ipsum,
-          molestiae totam sed nam at blanditiis quidem dolorem obcaecati cum
-          nobis, sapiente nostrum.
-        </p>
       </Modal>
-      <Modal textBtn={'TEST MODAL 2'} btnType={'long'}>
+      
+      <Modal  btnType={'long'}>
         <h2>WOW</h2>
         <ul>
           <li>Cool</li>
           <li>Nice</li>
           <li>Kill me</li>
         </ul>
-      </Modal>  */
+
+      </Modal> 
+
+      <Modal btnType={'circle-info'}>
+        <h2>Info for Paul</h2>
+      </Modal> */
 
