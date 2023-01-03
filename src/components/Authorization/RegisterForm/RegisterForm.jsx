@@ -122,7 +122,7 @@ export const RegisterForm = () => {
           {errors.city && <span>city</span>}
                     {errors.phone && <span>phone</span>}
 
-          <button type="submit">Register</button>
+          <button className={styles.btn} type="submit">Register</button>
         </>
       )}
     </form>

@@ -12,13 +12,13 @@ export const Authorization = ({ login, registration }) => {
   const content = login
     ? {
         title: 'Login',
-        navigatePath: 'register',
+        navigatePath: '/register',
         navigateMessage: "Don't have an account?",
         linkText: 'Register',
       }
     : {
         title: 'Register',
-        navigatePath: 'login',
+        navigatePath: '/login',
           navigateMessage: 'Already have an account?',
          linkText: 'Login',
       };
