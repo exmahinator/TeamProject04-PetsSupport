@@ -1,0 +1,33 @@
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
+
+.card__list {
+	@include flex(center, center);
+	flex-direction: column;
+	gap: 20px;
+	width: 100%;
+}
+.card__item {
+	min-height: 500px;
+	position: relative;
+	width: 280px;
+	padding: 16px 20px 40px;
+	border-radius: 20px;
+	background-color: $secondary-bg-color;
+	box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+
+	@include media('tablet') {
+		@include flex(flex-start, center);
+		gap: 32px;
+		width: 704px;
+		border-radius: 40px;
+		min-height: 230px;
+		padding: 16px 20px;
+	}
+	@include media('desktop') {
+		width: 821px;
+		min-height: 210px;
+	}
+}
+
+

@@ -1,0 +1,50 @@
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
+
+.card__meta {
+	@include flex(center, flex-start);
+	flex-direction: column;
+	gap: 12px;
+	@include media('tablet') {
+		min-width: 270px;
+		margin-bottom: auto;
+	}
+	@include media('desktop') {
+		min-width: 580px;
+	}
+}
+
+.card__metaInfo {
+	@include flex(flex-start, center);
+
+	width: 100%;
+
+	@include media('tablet') {
+		width: 470px;
+	}
+	@include media('desktop') {
+		width: 580px;
+	}
+}
+
+.card__metaHeading {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 1.35;
+	letter-spacing: 0.04em;
+	@include media('tablet') {
+		font-size: 16px;
+		line-height: 1.75;
+	}
+}
+
+.card__metaText {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 1.35;
+	letter-spacing: 0.04em;
+	@include media('tablet') {
+		font-size: 16px;
+		line-height: 1.75;
+	}
+}

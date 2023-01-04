@@ -1,0 +1,27 @@
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
+
+.iconThumb {
+	position: absolute;
+	top: 57%;
+	right: 0;
+	transform: translate(-100%, -50%);
+	@include flex(center, center);
+	width: 20px;
+	height: 20px;
+	padding: 0px;
+
+	background-color: transparent;
+	border: none;
+
+	@include media('tablet') {
+		width: 44px;
+		height: 44px;
+		top: 0;
+		right: 0;
+		transform: translate(-50%, 50%);
+		border-radius: 50%;
+		background-color: $primary-bg-color;
+		backdrop-filter: blur(2px);
+	}
+}
