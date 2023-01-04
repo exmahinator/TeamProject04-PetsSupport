@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from '../Authorization.module.scss';
 
 import { useForm } from 'react-hook-form';
@@ -6,12 +6,19 @@ import { useState } from 'react';
 
 export const RegisterForm = () => {
 	const [nextStep, setNextStep] = useState(false);
-
 	const {
 		register,
-		handleSubmit,
-		formState: { errors, isValid },
-	} = useForm();
+    handleSubmit,
+    watch,
+		formState: { errors, isValid, validate},
+  } = useForm({
+    mode: 'onBlur',
+  });
+
+  const password = useRef({});
+
+  password.current = watch("password", "");
+  
 
 	const onSubmit = ({ email, password, city, phone, name }) => {
 		let res = {
@@ -53,7 +60,8 @@ export const RegisterForm = () => {
 					<input
 						className={styles.input}
 						type="password"
-						placeholder="Password"
+            placeholder="Password"
+          ref={password}
 						{...register('password', {
 							required: {
 								value: true,
@@ -64,7 +72,25 @@ export const RegisterForm = () => {
 								message: 'Invalid password',
 							},
 						})}
-					/>
+          />
+          <input
+						className={styles.input}
+						type="password"
+						placeholder="Confirm Password"
+						{...register('passwordConfirm', {
+							required: {
+								value: true,
+								message: 'Confirm your password, please',
+							},
+					
+              validate: value => value === password.current || "passwords do not match"
+      
+						})}
+          />
+          {errors.email && <span>{errors.email?.message}</span>}
+          {errors.password && <span>{errors.password?.message}</span>}
+          {errors.passwordConfirm && <span>{errors.passwordConfirm?.message}</span>}
+          
 					<button
 						className={styles.btn}
 						disabled={!isValid}
@@ -120,7 +146,8 @@ export const RegisterForm = () => {
 								message: '0971234567',
 							},
 						})}
-					/>
+          />
+          {errors.passwordConfirm && <span>{errors.passwordConfirm?.message }</span>}
 					{errors.name && <span>name</span>}
 					{errors.city && <span>city</span>}
 					{errors.phone && <span>phone</span>}
@@ -132,7 +159,8 @@ export const RegisterForm = () => {
 						Back
 					</button>
 				</>
-			)}
+      )}
+      
 		</form>
 	);
 };
