@@ -1,36 +1,45 @@
+@import '../../../shared/styles/mixins';
+@import '../../../shared/styles/variables';
 .btn {
   outline: none;
   padding: 8px 28px;
   border-radius: 40px;
   cursor: pointer;
-  border: 2px solid #f59256;
-  transition: 0.2s all ease-in-out;
+  border: 2px solid $accent-color;
+  transition: $transition;
 
-  @media (min-width: 760px) {
+  @include media(tablet) {
     padding: 10px 28px;
-  }
-
-  &:hover {
-    transform: scale(1.1);
   }
 }
 
 .orange {
   @extend .btn;
-  background-color: #f59256;
-  color: white;
+  background-color: $accent-color;
+  color: $secondary-text-color;
+  &:hover {
+    background-color: $hover-color;
+    border-color: $hover-color;
+  }
 }
 
 .white {
   @extend .btn;
-  background-color: white;
-  color: black;
+  background-color: $secondary-bg-color;
+  color: $fifth-text-color;
+  &:hover {
+    border-color: $hover-color;
+  }
 }
 
 .transparent {
   @extend .btn;
-  background-color: white;
-  color: #f59256;
+  background-color: $secondary-bg-color;
+  color: $accent-color;
+  &:hover {
+    border-color: $hover-color;
+    color: $hover-color;
+  }
 }
 
 .disabled {

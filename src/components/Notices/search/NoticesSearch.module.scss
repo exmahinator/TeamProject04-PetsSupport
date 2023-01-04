@@ -1,0 +1,7 @@
+@import "src/shared/styles/mixins.scss";
+
+.wrapper{
+  @include flex(center, center);
+  margin-top: 28px;
+  margin-bottom: 28px;
+}

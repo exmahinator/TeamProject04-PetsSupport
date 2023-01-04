@@ -1,0 +1,10 @@
+@import 'shared/styles/_mixins.scss';
+
+
+.wrapper {
+
+  @include media(tablet) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
