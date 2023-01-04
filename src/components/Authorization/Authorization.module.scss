@@ -125,3 +125,11 @@ margin-right: 5px;
     transform: scale(1.1);
   }
 }
+.lightBtn{
+
+    @extend .btn;
+    margin-top: 16px;
+        background-color: transparent;
+        color: inherit;
+    
+}

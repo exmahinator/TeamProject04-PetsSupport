@@ -125,6 +125,9 @@ export const RegisterForm = () => {
           <button className={styles.btn} type="submit">
             Register
           </button>
+                    <button className={styles.lightBtn} type="button">
+            Back
+          </button>
         </>
       )}
     </form>
