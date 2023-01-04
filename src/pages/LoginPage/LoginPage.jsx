@@ -1,8 +1,9 @@
+import { Authorization } from 'components/Authorization/Authorization'
 import React from 'react'
 
 const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+   <Authorization type='login'/>
   )
 }
 

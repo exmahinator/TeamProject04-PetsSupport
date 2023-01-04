@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import style from './Logo.module.scss';
 
 export const Logo = () => {
   return (
-    <div>Logo</div>
-  )
-}
+    <Link className={style.link}>
+      pe<span className={style.span}>t</span>ly
+    </Link>
+  );
+};

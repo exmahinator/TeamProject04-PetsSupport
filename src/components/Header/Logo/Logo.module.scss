@@ -1,0 +1,13 @@
+@import 'src/shared/styles/variables.scss';
+
+.span { 
+    color: $accent-color;
+}
+.link {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    
+    color: $primary-text-color;
+    text-decoration: none;
+}
