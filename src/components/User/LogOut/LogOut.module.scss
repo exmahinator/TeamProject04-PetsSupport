@@ -2,8 +2,14 @@
 @import 'shared/styles/mixins';
 
 .LogOut {
+	position: absolute;
 	@include flex(flex-end, center);
 	gap: 8px;
+	bottom: 16px;
+	right: 16px;
+	width: 102px;
+	background-color: transparent;
+	border: none;
 
 	&__text {
 		font-weight: 500;
@@ -14,7 +20,6 @@
 		color: $third-bg-color;
 	}
 	@include media('tablet') {
-		position: absolute;
 		left: 44px;
 		bottom: 44px;
 	}

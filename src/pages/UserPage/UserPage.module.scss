@@ -1,0 +1,21 @@
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
+
+.general {
+	@include media('desktop') {
+		@include flex(center, center);
+		width: 1296px;
+	}
+}
+
+.desktop {
+	@include media('desktop') {
+		margin-bottom: auto;
+	}
+}
+
+.tablet {
+	@include media('tablet') {
+		@include flex(space-between, center);
+	}
+}

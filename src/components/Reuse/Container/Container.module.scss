@@ -1,12 +1,13 @@
 @import 'shared/styles/_mixins.scss';
 .container {
-  margin: 0 auto;
-  padding: 0 20px;
+	margin: 0 auto;
+	padding: 0 20px;
 
-  @include media(tablet) {
-    padding: 0 32px;
-  }
-  @include media(desktop) {
-    max-width: 1248px;
-  }
+	@include media(tablet) {
+		padding: 0 32px;
+	}
+	@include media(desktop) {
+		max-width: 1280px;
+		padding: 0 16px;
+	}
 }

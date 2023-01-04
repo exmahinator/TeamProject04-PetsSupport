@@ -1,47 +1,44 @@
-@import "./variables";
-
+@import './variables';
 
 @mixin flex($content: flex-start, $align: baseline) {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-	@if ($content !=flex-start) {
-		justify-content: $content;
-	}
+  @if ($content !=flex-start) {
+    justify-content: $content;
+  }
 
-	@if ($align !=baseline) {
-		align-items: $align;
-	}
+  @if ($align !=baseline) {
+    align-items: $align;
+  }
+
 }
 
 @mixin media($type) {
-	@if $type == 'mobile' {
-		@media screen and (min-width: $mobile) {
-			@content;
-		}
-	}
+  @if $type == 'mobile' {
+    @media screen and (min-width: $mobile) {
+      @content;
+    }
+  }
 
+  @if $type == 'tablet' {
+    @media screen and (min-width: $tablet) {
+      @content;
+    }
+  }
 
-   @if $type =='tablet' {
-      @media screen and (min-width: $tablet) {
-         @content;
-      }
-   }
+  @if $type == 'desktop' {
+    @media screen and (min-width: $desktop) {
+      @content;
+    }
+  }
 
-
-   @if $type =='desktop' {
-      @media screen and (min-width: $desktop) {
-         @content;
-      }
-   }
-
-   @if $type =='retina' {
-
-      @media (min-device-pixel-ratio: 2),
+  @if $type == 'retina' {
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-         @content;
-      }
-   }
+      @content;
+    }
+  }
 }
-
