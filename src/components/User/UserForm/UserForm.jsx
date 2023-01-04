@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { ReactComponent as ApproveIcon } from 'shared/images/user/userApprove.svg';
 import { ReactComponent as EditIcon } from 'shared/images/user/userChange.svg';
 import { ReactComponent as UploadIcon } from 'shared/images/user/uploadIcon.svg';
+import { LogOut } from '../LogOut/LogOut';
 
 import s from './UserForm.module.scss';
 import userData from './user.json';
 import defaultAvatar from 'shared/images/user/anonymous.png';
-import { LogOut } from '../LogOut/LogOut';
 
 export const UserForm = () => {
 	const [userInput, setUserInput] = useState('');
