@@ -1,9 +1,12 @@
+import { Authorization } from 'components/Authorization/Authorization'
 import React from 'react'
 
 const RegisterPage = () => {
   return (
-    <div>RegisterPage</div>
+   <Authorization type='register'/>
   )
 }
+
+
 
 export default RegisterPage
