@@ -58,7 +58,7 @@ export const RegisterForm = () => {
 							},
 						})}
             />
-            {errors.email && <span>{errors.email?.message}</span>}
+            {errors.email && <p className={styles.error}>{errors.email?.message}</p>}
           </div>
           <div className={styles.inputWrapper}>
 					<input
@@ -73,11 +73,11 @@ export const RegisterForm = () => {
 							},
 							pattern: {
 								value: /^\S{7,32}$/i,
-								message: 'Invalid password',
+								message: 'Min 7 and max 32 symbols',
 							},
 						})}
           />
-            {errors.password && <span>{errors.password?.message}</span>}
+            {errors.password && <p className={styles.error}>{errors.password?.message}</p>}
           </div>
           <div className={styles.inputWrapper}>
           <input
@@ -90,11 +90,11 @@ export const RegisterForm = () => {
 								message: 'Confirm your password, please',
 							},
 					
-              validate: value => value === password.current || "passwords do not match"
+              validate: value => value === password.current || "Passwords do not match"
       
 						})}
           />
-          {errors.passwordConfirm && <span>{errors.passwordConfirm?.message}</span>}
+          {errors.passwordConfirm && <p className={styles.error}>{errors.passwordConfirm?.message}</p>}
           </div>
 					<button
 						className={styles.btn}
@@ -115,7 +115,7 @@ export const RegisterForm = () => {
 						{...register('name', {
               required: {
                 value: true,
-								message: 'Name is required',
+								message: 'Enter your name, please',
 							},
 							pattern: {
                 value: /^[a-zA-Z]+$/i,
@@ -123,7 +123,7 @@ export const RegisterForm = () => {
 							},
 						})}
             />
-            {errors.name && <span>{errors.name?.message}</span>}
+            {errors.name && <p className={styles.error}>{errors.name?.message}</p>}
           </div>
           <div className={styles.inputWrapper}>
 					<input
@@ -133,7 +133,7 @@ export const RegisterForm = () => {
 						{...register('city', {
 							required: {
 								value: true,
-								message: 'City and region are required',
+								message: 'Enter your city and region, please',
 							},
 							pattern: {
 								value: /^\s*(?:\w+\s*,\s*){1,}(?:\w+\s*)$/i,
@@ -141,7 +141,7 @@ export const RegisterForm = () => {
 							},
 						})}
 					/>
-            {errors.city && <span>{errors.city?.message}</span>}
+            {errors.city && <p className={styles.error}>{errors.city?.message}</p>}
           </div>
           <div className={styles.inputWrapper}>
 					<input
@@ -151,15 +151,15 @@ export const RegisterForm = () => {
 						{...register('phone', {
 							required: {
 								value: true,
-								message: 'Phone is required',
+								message: 'Enter your phone, please',
 							},
 							pattern: {
 								value: /^\d{10}$/i,
-								message: '0971234567',
+								message: 'Phone format: +380971234567',
 							},
 						})}
           />
-            {errors.phone && <span>{errors.phone?.message}</span>}
+            {errors.phone && <p className={styles.error}>{errors.phone?.message}</p>}
             </div>
 
 					<button className={styles.btn} type="submit">

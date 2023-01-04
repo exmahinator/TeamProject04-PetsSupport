@@ -39,7 +39,7 @@ export const LoginForm = () => {
                     },
                 })}
                 />
-              {errors.email && <p>{errors.email?.message}</p>}
+              {errors.email && <p className={styles.error}>{errors.email?.message}</p>}
           </div>
            <div className={styles.inputWrapper}>
           <input
@@ -57,7 +57,7 @@ export const LoginForm = () => {
           },
         })}
       />
-      {errors.password && <p>{errors.password?.message}</p>}
+      {errors.password && <p className={styles.error}>{errors.password?.message}</p>}
         </div>
       <button className={styles.btn} disabled={!isValid} type="submit">
         Login
