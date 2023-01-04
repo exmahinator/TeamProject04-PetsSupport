@@ -3,19 +3,85 @@
 
 .general {
 	@include media('desktop') {
-		@include flex(center, center);
-		width: 1296px;
+		display: flex;
+		width: 1280px;
 	}
 }
 
 .desktop {
+	@include media('tablet') {
+		margin-right: auto;
+		margin-left: auto;
+	}
 	@include media('desktop') {
 		margin-bottom: auto;
 	}
 }
 
 .tablet {
+	@include flex(space-between, center);
+	width: 320px;
+	padding: 0px 20px;
+	margin: 0px auto 32px;
+
 	@include media('tablet') {
-		@include flex(space-between, center);
+		width: 768px;
+		padding: 0px 36px;
+		margin: 0px auto 24px;
+	}
+	@include media('desktop') {
+		width: 100%;
+		padding: 0px 16px;
+	}
+}
+
+.titleUser {
+	width: 320px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0px 20px;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 1.35;
+	letter-spacing: 0.04em;
+	color: $fifth-text-color;
+
+	@include media(tablet) {
+		margin-left: 0px;
+		margin-bottom: 40px;
+		padding: 0px 0px;
+		font-size: 28px;
+		line-height: 1.35;
+	}
+	@include media('desktop') {
+		padding: 0px 16px;
+		margin-bottom: 24px;
+	}
+}
+
+.title {
+	padding: 0px 20px;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 1.35;
+	letter-spacing: 0.04em;
+	color: $fifth-text-color;
+
+	@include media(tablet) {
+		padding: 0px 0px;
+		font-size: 28px;
+		line-height: 1.35;
+	}
+}
+
+.titleUpload {
+	@extend .titleUser;
+	width: fit-content;
+	margin: 0px auto;
+	@include media(tablet) {
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 40px;
 	}
 }

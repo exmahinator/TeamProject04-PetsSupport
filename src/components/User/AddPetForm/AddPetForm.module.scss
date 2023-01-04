@@ -1,3 +1,14 @@
 @import 'shared/styles/variables';
 @import 'shared/styles/mixins';
 
+.form {
+	margin: 0px auto;
+	width: 280px;
+	@include flex(center, center);
+	flex-direction: column;
+	gap: 16px;
+	@include media('tablet') {
+		width: 448px;
+		gap: 28px;
+	}
+}
