@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../Authorization.module.scss';
 
 import { useForm } from 'react-hook-form';
 import { PasswordBtn } from '../PasswordBtn/PasswordBtn';
+import { usePasswordBtn } from 'shared/hooks/usePasswordBtn';
 
 export const LoginForm = () => {
-    const [passwordBtnType, setPasswordBtnType] = useState('password')
+    const { passwordBtnType, handlePasswordBtn } = usePasswordBtn();
 
+    
 	const {
 		register,
 		handleSubmit,
@@ -14,11 +16,6 @@ export const LoginForm = () => {
 	} = useForm({
 		mode: 'onBlur',
 	});
-
-    const handlePasswordBtn = () => {
-        setPasswordBtnType(prevState=>  prevState === 'password'? 'text': 'password')
-    }
-
 
 	const onSubmit = ({ email, password }) => {
 		let res = {
