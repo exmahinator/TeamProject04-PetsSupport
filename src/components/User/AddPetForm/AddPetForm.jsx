@@ -1,94 +1,45 @@
-import { Button } from 'components/Reuse/Button/Button';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Buttons } from './Buttons/Buttons';
+import { AddPetFormFirstPage } from './FirstPage/AddPetFormFirstPage';
+import { AddPetFormSecondPage } from './SecondPage/AddPetFormSecondPage';
+
+import style from './AddPetForm.module.scss';
 
 export const AddPetForm = () => {
-	const [firstPage, setFirstPage] = useState(true);
-	const onClick = () => {
-		setFirstPage(false);
+	const { register, handleSubmit } = useForm();
+
+	const [isfirstPage, setIsFirstPage] = useState(true);
+
+	const onTogglePage = () => {
+		setIsFirstPage(prev => !prev);
 	};
-	const {
-		handleSubmit,
-		watch,
-		register,
-		// formState: { errors },
-	} = useForm({
-		defaultValues: {
-			petName: '',
-			petBirth: '',
-			petBreed: '',
-		},
-	});
-	const onSubmit = data => {
-		console.log(data);
+
+	const onCloseModal = e => {
+		console.log('nado global state zakritie modalki');
 	};
-	console.log('firstPage', firstPage);
-	console.log(watch());
+	const onSubmit = ({ petName, petBirth, petBreed, petUpload, petComment }) => {
+		let data = { petName, petBirth, petBreed, petUpload, petComment };
+		console.log('mydata', data);
+	};
+
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
-			{firstPage ? (
-				<>
-					<label htmlFor="petName">
-						<p>Name pet</p>
-						<input
-							type="text"
-							{...register('petName')}
-							id="petName"
-							placeholder="Type name pet"
-						/>
-					</label>
-					<label htmlFor="petBirth">
-						<p>Date of birth</p>
-						<input
-							type="text"
-							{...register('petBirth')}
-							id="petBirth"
-							placeholder="Type date of birth"
-						/>
-					</label>
-					<label htmlFor="petname">
-						<p>Breed</p>
-						<input
-							type="petBreed"
-							{...register('petBreed')}
-							id="petBreed"
-							placeholder="Type breed"
-						/>
-					</label>
-				</>
+		<form
+			onSubmit={handleSubmit(onSubmit)}
+			autoComplete="off"
+			className={style.form}
+		>
+			{isfirstPage ? (
+				<AddPetFormFirstPage register={register} />
 			) : (
-				<>
-					<label htmlFor="petName">
-						<p>qwe</p>
-						<input
-							type="text"
-							{...register('petName')}
-							id="petName"
-							placeholder="Type name pet"
-						/>
-					</label>
-					<label htmlFor="petBirth">
-						<p>Date of birth</p>
-						<input
-							type="text"
-							{...register('petBirth')}
-							id="petBirth"
-							placeholder="Type date of birth"
-						/>
-					</label>
-					<label htmlFor="petname">
-						<p>Breed</p>
-						<input
-							type="petBreed"
-							{...register('petBreed')}
-							id="petBreed"
-							placeholder="Type breed"
-						/>
-					</label>
-				</>
+				<AddPetFormSecondPage register={register} />
 			)}
-			<button text={'next'} type="button" onClick={onClick}></button>
-			<Button text={'cancel'} type={'white'}></Button>
+			<Buttons
+				onTogglePage={onTogglePage}
+				onSubmit={onSubmit}
+				onCloseModal={onCloseModal}
+				isFirstPage={isfirstPage}
+			/>
 		</form>
 	);
 };

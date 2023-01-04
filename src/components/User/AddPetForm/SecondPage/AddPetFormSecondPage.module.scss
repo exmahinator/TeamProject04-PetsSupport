@@ -1,0 +1,86 @@
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
+
+.petUploadLabel {
+	width: 233px;
+	@include flex(center, flex-start);
+	flex-direction: column;
+	gap: 20px;
+	&__text {
+		font-weight: 500;
+		font-size: 15px;
+		line-height: 1.4;
+		color: $primary-text-color;
+		@include media('tablet') {
+			font-size: 24px;
+			line-height: 1.1;
+		}
+	}
+
+	@include media('tablet') {
+		width: 448px;
+		@include flex(center, center);
+	}
+}
+
+.petCommentInput {
+	width: 240px;
+	min-height: 100px;
+
+	padding: 10px 15px;
+
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 19px;
+
+	border: 1px solid $sixth-bg-color;
+	color: $primary-text-color;
+	background-color: $primary-bg-color;
+	border-radius: 20px;
+	outline-color: $accent-color;
+
+	@include media('tablet') {
+		width: 448px;
+		height: 50px;
+		font-size: 16px;
+		line-height: 17px;
+	}
+}
+
+.crossWrapper {
+	@include flex(center, center);
+
+	width: 208px;
+	height: 208px;
+	border-radius: 20px;
+	background-color: $primary-bg-color;
+}
+
+.petCommentLabel {
+	margin-bottom: 26px;
+	&__text {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 1.5;
+		margin-bottom: 8px;
+		@include media('tablet') {
+			margin-bottom: 12px;
+
+			font-size: 24px;
+			line-height: 1.2;
+		}
+	}
+}
+
+.uploadThumb {
+	position: relative;
+	z-index: 10;
+}
+
+.uploadInput {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	position: absolute;
+	z-index: -10;
+}

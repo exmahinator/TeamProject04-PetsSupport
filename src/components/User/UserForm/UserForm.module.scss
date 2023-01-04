@@ -34,6 +34,7 @@
 	margin: 0px auto;
 	margin-top: 20px;
 	padding: 0px 20px;
+	margin-bottom: 44px;
 
 	background-color: $secondary-bg-color;
 	box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
@@ -43,6 +44,7 @@
 		width: 736px;
 		margin: 0px 0px;
 		padding: 0px 0px;
+		margin-bottom: 20px;
 		border-bottom-left-radius: 0px;
 		border-top-left-radius: 0px;
 		border-bottom-right-radius: 40px;
@@ -51,6 +53,7 @@
 
 	@include media('desktop') {
 		width: 411px;
+		margin-bottom: 0px;
 	}
 
 	&__uploadThumb {
@@ -96,7 +99,6 @@
 		flex-direction: column;
 		gap: 12px;
 		padding: 20px 16px 86px 12px;
-		margin-bottom: 44px;
 
 		@include media('tablet') {
 			width: 736px;
