@@ -52,7 +52,7 @@ export const LoginForm = () => {
           },
         })}
       />
-
+        {errors.email && <span>{errors.email?.message}</span>}
       {errors.password && <span>{errors.password?.message}</span>}
 
       <button className={styles.btn} disabled={!isValid} type="submit">
