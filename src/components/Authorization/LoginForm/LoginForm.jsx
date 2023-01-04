@@ -48,8 +48,8 @@ export const LoginForm = () => {
 				)}
 			</div>
 			<div className={styles.inputWrapper}>
-                <input
-                    id='password'
+				<input
+					id="password"
 					className={styles.input}
 					type="password"
 					placeholder="Password"
