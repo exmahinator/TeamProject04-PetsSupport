@@ -3,6 +3,8 @@ import styles from '../Authorization.module.scss';
 
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { register as reg } from "../../../redux/auth/auth-operations";
 
 export const RegisterForm = () => {
 	const [nextStep, setNextStep] = useState(false);
@@ -16,6 +18,7 @@ export const RegisterForm = () => {
 	});
 
 	const password = useRef({});
+	const dispatch = useDispatch();
 
 	password.current = watch('password', '');
 
@@ -28,6 +31,7 @@ export const RegisterForm = () => {
 			phone,
 		};
 		console.log(res);
+		dispatch(reg(res));
 	};
 	const handleNextBtn = () => {
 		setNextStep(true);

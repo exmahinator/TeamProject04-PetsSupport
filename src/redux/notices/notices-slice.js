@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import {
 	getNoticeByCategory,
-	getOneNotice,
+	// getOneNotice,
 	addNoticeToFavorite,
 	getFavoriteNotices,
 	removeNoticeFromFavorite,

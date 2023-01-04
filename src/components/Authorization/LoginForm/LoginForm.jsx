@@ -2,8 +2,11 @@ import React from 'react';
 import styles from '../Authorization.module.scss';
 
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { login } from "../../../redux/auth/auth-operations";
 
 export const LoginForm = () => {
+	const dispatch = useDispatch();
 	const {
 		register,
 		handleSubmit,
@@ -18,6 +21,8 @@ export const LoginForm = () => {
 			password,
 		};
 		console.log(res);
+		dispatch(login(res))
+
 	};
 
 	return (
