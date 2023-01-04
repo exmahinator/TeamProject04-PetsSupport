@@ -38,7 +38,7 @@ export const AddPetForm = () => {
 						/>
 					</label>
 					<label htmlFor="petBirth">
-						<p>Date of birthh</p>
+						<p>Date of birth</p>
 						<input
 							type="text"
 							{...register('petBirth')}
