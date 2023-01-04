@@ -23,4 +23,6 @@ const NoticesCategories = () => {
   );
 };
 
+
 export default NoticesCategories;
+
