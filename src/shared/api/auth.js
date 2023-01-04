@@ -1,17 +1,17 @@
-import axios from "axios";
+import axios from 'axios';
 
-const {REACT_APP_API_URL} = process.env;
+const { REACT_APP_API_URL } = process.env;
 
 const instance = axios.create({
-    baseURL: REACT_APP_API_URL,
+	baseURL: REACT_APP_API_URL,
 });
 
-const setToken = (token) => {
-    if(token) {
-        return instance.defaults.headers.common.authorization = `Bearer ${token}`;
-    }
-    instance.defaults.headers.common.authorization = "";
-}
+const setToken = token => {
+	if (token) {
+		return (instance.defaults.headers.common.authorization = `Bearer ${token}`);
+	}
+	instance.defaults.headers.common.authorization = '';
+};
 /*
 instance.interceptors.request.use(async(config)=> {
     const accessToken = localStorage.getItem("accessToken");
@@ -20,53 +20,55 @@ instance.interceptors.request.use(async(config)=> {
 })
 */
 
-instance.interceptors.response.use(response => response, async(error)=> {
-    if(error.response.status === 401) {
-        const refreshToken = localStorage.getItem("refreshToken");
-        try {
-            const {data} = await instance.post("/auth/refresh", {refreshToken});
-            setToken(data.accessToken);
-            localStorage.setItem("refreshToken", data.refreshToken);
+instance.interceptors.response.use(
+	response => response,
+	async error => {
+		if (error.response.status === 401) {
+			const refreshToken = localStorage.getItem('refreshToken');
+			try {
+				const { data } = await instance.post('/auth/refresh', { refreshToken });
 
-            return instance(error.config);
-        }
-        catch(error) {
-            return Promise.reject(error)
-        }
-    }
-    else {
-        return Promise.reject(error)
-    }
-})
+				setToken(data.accessToken);
+				localStorage.setItem('refreshToken', data.refreshToken);
 
-export const signup = async (data) => {
-    const {data: result} = await instance.post("/users/signup", data);
-    return result;
-}
+				return instance(error.config);
+			} catch (error) {
+				return Promise.reject(error);
+			}
+		} else {
+			return Promise.reject(error);
+		}
+	}
+);
 
-export const login = async (data) => {
-    const {data: result} = await instance.post("/users/login", data);
-    setToken(result.accessToken);
-    localStorage.setItem("refreshToken", result.refreshToken);
-    return result;
-}
+export const register = async data => {
+	const { data: result } = await instance.post('/auth/register', data);
+	return result;
+};
 
-export const logout = async() => {
-    const data = await instance.post("/users/logout");
-    setToken();
-    localStorage.removeItem("refreshToken");
-    return data;
-}
+export const login = async data => {
+	const { data: result } = await instance.post('/auth/login', data);
+	setToken(result.accessToken);
+	localStorage.setItem('refreshToken', result.refreshToken);
+	return result;
+};
 
-export const getCurrent = async(token) => {
-    try {
-        setToken(token);
-        const {data} = await instance.get("/users/current");
-        return data;
-    } catch (error) {
-        setToken();
-        throw error;
-    }
-}
+export const logout = async () => {
+	const data = await instance.post('/auth/logout');
+	setToken();
+	localStorage.removeItem('refreshToken');
+	return data;
+};
+
+export const getCurrent = async token => {
+	try {
+		setToken(token);
+		const { data } = await instance.get('/auth/current');
+		return data;
+	} catch (error) {
+		setToken();
+		throw error;
+	}
+};
 
 export default instance;
