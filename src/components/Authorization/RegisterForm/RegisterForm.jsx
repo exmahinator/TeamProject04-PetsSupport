@@ -43,7 +43,8 @@ export const RegisterForm = () => {
 			{!nextStep && (
         <>
           <div className={styles.inputWrapper}>
-					<input
+            <input
+              id='email'
 						className={styles.input}
 						type="email"
 						placeholder="Email"
@@ -58,10 +59,12 @@ export const RegisterForm = () => {
 							},
 						})}
             />
+             <label className={styles.label} htmlFor='email'>Email</label>
             {errors.email && <p className={styles.error}>{errors.email?.message}</p>}
           </div>
           <div className={styles.inputWrapper}>
-					<input
+            <input
+              id='password'
 						className={styles.input}
 						type="password"
             placeholder="Password"
@@ -76,11 +79,13 @@ export const RegisterForm = () => {
 								message: 'Min 7 and max 32 symbols',
 							},
 						})}
-          />
+            />
+             <label className={styles.label} htmlFor='password'>Password</label>
             {errors.password && <p className={styles.error}>{errors.password?.message}</p>}
           </div>
           <div className={styles.inputWrapper}>
-          <input
+            <input
+              id='confirmPassword'
 						className={styles.input}
 						type="password"
 						placeholder="Confirm Password"
@@ -93,7 +98,8 @@ export const RegisterForm = () => {
               validate: value => value === password.current || "Passwords do not match"
       
 						})}
-          />
+            />
+             <label className={styles.label} htmlFor='confirmPassword'> Confirm Password</label>
           {errors.passwordConfirm && <p className={styles.error}>{errors.passwordConfirm?.message}</p>}
           </div>
 					<button
@@ -108,7 +114,8 @@ export const RegisterForm = () => {
 			{nextStep && (
         <>
           <div className={styles.inputWrapper}>
-					<input
+            <input 
+              id='name'
 						className={styles.input}
 						type="text"
 						placeholder="Name"
@@ -123,10 +130,12 @@ export const RegisterForm = () => {
 							},
 						})}
             />
+              <label className={styles.label} htmlFor='name'> Name</label>
             {errors.name && <p className={styles.error}>{errors.name?.message}</p>}
           </div>
           <div className={styles.inputWrapper}>
-					<input
+            <input
+              id='city'
 						className={styles.input}
 						type="text"
 						placeholder="City, region"
@@ -140,11 +149,13 @@ export const RegisterForm = () => {
 								message: 'Brovary, Kyiv',
 							},
 						})}
-					/>
+            />
+             <label className={styles.label} htmlFor='city'> City, Region</label>
             {errors.city && <p className={styles.error}>{errors.city?.message}</p>}
           </div>
           <div className={styles.inputWrapper}>
-					<input
+            <input
+              id='phone'
 						className={styles.input}
 						type="tel"
 						placeholder="Phone"
@@ -158,7 +169,8 @@ export const RegisterForm = () => {
 								message: 'Phone format: +380971234567',
 							},
 						})}
-          />
+            />
+             <label className={styles.label} htmlFor='phone'> Phone</label>
             {errors.phone && <p className={styles.error}>{errors.phone?.message}</p>}
             </div>
 

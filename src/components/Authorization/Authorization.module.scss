@@ -96,10 +96,32 @@
 .inputWrapper:last-of-type {
 	margin-bottom: 40px;
 }
+.input:focus~.label,
+.input:not(:placeholder-shown)~ .label {
+    top: 0;
+    font-size: 14px;
+}
+.input::placeholder{
+    visibility: hidden;
+}
+.label{
+    position: absolute;
+    top:50%;
+    left: 34px;
+    transform: translateY(-50%);
+    padding: 0 5px;
 
+    border-radius: 5px;
+    pointer-events: none;
+    color: $third-bg-color;
+    background-color: $primary-bg-color;
+
+    transition: 0.2s all ease-in-out;
+}
 .input {
 	width: 280px;
 	height: 40px;
+    padding: 0 30px;
 
 	border: 1px solid $accent-color;
 	background-color: $primary-bg-color;
