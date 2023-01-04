@@ -1,52 +1,53 @@
 @import '../../../shared/styles/mixins';
 @import '../../../shared/styles/variables';
 .btn {
-  outline: none;
-  padding: 8px 28px;
-  border-radius: 40px;
-  cursor: pointer;
-  border: 2px solid $accent-color;
-  transition: $transition;
+	width: 100%;
+	outline: none;
+	padding: 8px 28px;
+	border-radius: 40px;
+	cursor: pointer;
+	border: 2px solid $accent-color;
+	transition: $transition;
 
-  @include media(tablet) {
-    padding: 10px 28px;
-  }
+	@include media(tablet) {
+		padding: 10px 28px;
+	}
 }
 
 .orange {
-  @extend .btn;
-  background-color: $accent-color;
-  color: $secondary-text-color;
-  &:hover {
-    background-color: $hover-color;
-    border-color: $hover-color;
-  }
+	@extend .btn;
+	background-color: $accent-color;
+	color: $secondary-text-color;
+	&:hover {
+		background-color: $hover-color;
+		border-color: $hover-color;
+	}
 }
 
 .white {
-  @extend .btn;
-  background-color: $secondary-bg-color;
-  color: $fifth-text-color;
-  &:hover {
-    border-color: $hover-color;
-  }
+	@extend .btn;
+	background-color: $secondary-bg-color;
+	color: $fifth-text-color;
+	&:hover {
+		border-color: $hover-color;
+	}
 }
 
 .transparent {
-  @extend .btn;
-  background-color: $secondary-bg-color;
-  color: $accent-color;
-  &:hover {
-    border-color: $hover-color;
-    color: $hover-color;
-  }
+	@extend .btn;
+	background-color: $secondary-bg-color;
+	color: $accent-color;
+	&:hover {
+		border-color: $hover-color;
+		color: $hover-color;
+	}
 }
 
 .disabled {
-  @extend .btn;
-  border: 2px solid lightgray;
-  cursor: default;
-  &:hover {
-    transform: scale(1);
-  }
+	@extend .btn;
+	border: 2px solid lightgray;
+	cursor: default;
+	&:hover {
+		transform: scale(1);
+	}
 }
