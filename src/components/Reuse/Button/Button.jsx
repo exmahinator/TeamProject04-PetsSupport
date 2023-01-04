@@ -3,45 +3,58 @@ import React from 'react';
 import style from './Button.module.scss';
 
 export const Button = ({
-  text,
-  type,
-  onClickFunc = () => {
-    console.log('Your func!');
-  },
+	text,
+	colorType,
+	type = 'button',
+	onClickFunc = () => {
+		console.log('Your func!');
+	},
 }) => {
-  switch (type) {
-    case 'orange':
-      return (
-        <button onClick={() => onClickFunc()} className={style.orange}>
-          {text}
-        </button>
-      );
-    case 'white':
-      return (
-        <button onClick={() => onClickFunc()} className={style.white}>
-          {text}
-        </button>
-      );
-    case 'transparent':
-      return (
-        <button onClick={() => onClickFunc()} className={style.transparent}>
-          {text}
-        </button>
-      );
-    case 'disabled':
-      return (
-        <button disabled={true} className={style.disabled}>
-          {text}
-        </button>
-      );
-    default:
-      return;
-  }
+	switch (colorType) {
+		case 'orange':
+			return (
+				<button
+					type={type}
+					onClick={() => onClickFunc()}
+					className={style.orange}
+				>
+					{text}
+				</button>
+			);
+		case 'white':
+			return (
+				<button
+					type={type}
+					onClick={() => onClickFunc()}
+					className={style.white}
+				>
+					{text}
+				</button>
+			);
+		case 'transparent':
+			return (
+				<button
+					type={type}
+					onClick={() => onClickFunc()}
+					className={style.transparent}
+				>
+					{text}
+				</button>
+			);
+		case 'disabled':
+			return (
+				<button type={type} disabled={true} className={style.disabled}>
+					{text}
+				</button>
+			);
+		default:
+			return;
+	}
 };
 
 // !=============EXEMPLES==============
 
-//  <Button text={'TEST'} type={'white'} onClickFunc={yourFunction} />
-//  <Button text={'TEST1'} type={'orange'} onClickFunc={yourFunction} />
-//  <Button text={'TEST2'} type={'transparent'} onClickFunc={yourFunction} />
-//  <Button text={'TEST3'} type={'disabled'} onClickFunc={yourFunction} />
+//  <Button type={"type"} text={'TEST'} colorType={'white'} onClickFunc={yourFunction} />
+//  <Button type={"type"} text={'TEST1'} colorType={'orange'} onClickFunc={yourFunction} />
+//  <Button type={"type"} text={'TEST2'} colorType={'transparent'} onClickFunc={yourFunction} />
+//  <Button type={"type"} text={'TEST3'} colorType={'disabled'} onClickFunc={yourFunction} />
