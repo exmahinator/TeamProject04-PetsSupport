@@ -1,4 +1,12 @@
 @import 'src/shared/styles/variables.scss';
+
+@import 'src/shared/styles/mixins.scss';
+
+@include media(mobile) {}
+@include media(tablet) {}
+@include media(desktop) {}
+
+
 .svg{
     fill: $secondary-text-color;
 }

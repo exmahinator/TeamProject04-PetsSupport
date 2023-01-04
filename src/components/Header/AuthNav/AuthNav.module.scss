@@ -1,13 +1,26 @@
 @import 'src/shared/styles/mixins.scss';
 @import 'src/shared/styles/variables.scss';
 
+@include media(mobile) {}
+@include media(tablet) {}
+@include media(desktop) {}
+
+
+
 
 .btn {
-    display: flex;
-    gap: 20px;
-    height: 47px;
+    // display: flex;
+    @include flex();
+    @include media(desktop) {gap: 20px;
+        height: 47px;}
+    
 }
 .linkLogo {
+    @include media(mobile) {}
+    
+        @include media(tablet) {}
+    
+        @include media(desktop) {}
     color: $secondary-text-color;
     text-decoration: none;
     font-weight: 500;
@@ -15,6 +28,11 @@
     line-height: 27px;
 }
 .login {
+    @include media(mobile) {}
+    
+        @include media(tablet) {}
+    
+        @include media(desktop) {}
     @include flex(center, center);
 
     width: 111px;
@@ -23,6 +41,11 @@
 }
 
 .linkRegistration{
+    @include media(mobile) {}
+    
+        @include media(tablet) {}
+    
+        @include media(desktop) {}
     color: $primary-text-color;
     text-decoration: none;
     font-weight: 500;
@@ -31,6 +54,11 @@
 }
 
 .registration {
+    @include media(mobile) {}
+    
+        @include media(tablet) {}
+    
+        @include media(desktop) {}
     @include flex(center, center);
     width: 181px;
 
