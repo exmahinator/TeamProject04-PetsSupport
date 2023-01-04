@@ -10,7 +10,7 @@ export const RegisterForm = () => {
 		register,
     handleSubmit,
     watch,
-		formState: { errors, isValid, validate},
+		formState: { errors, isValid,},
   } = useForm({
     mode: 'onBlur',
   });
@@ -41,7 +41,8 @@ export const RegisterForm = () => {
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 			{!nextStep && (
-				<>
+        <>
+          <div className={styles.inputWrapper}>
 					<input
 						className={styles.input}
 						type="email"
@@ -56,7 +57,10 @@ export const RegisterForm = () => {
 								message: 'Invalid email address',
 							},
 						})}
-					/>
+            />
+            {errors.email && <span>{errors.email?.message}</span>}
+          </div>
+          <div className={styles.inputWrapper}>
 					<input
 						className={styles.input}
 						type="password"
@@ -73,6 +77,9 @@ export const RegisterForm = () => {
 							},
 						})}
           />
+            {errors.password && <span>{errors.password?.message}</span>}
+          </div>
+          <div className={styles.inputWrapper}>
           <input
 						className={styles.input}
 						type="password"
@@ -87,10 +94,8 @@ export const RegisterForm = () => {
       
 						})}
           />
-          {errors.email && <span>{errors.email?.message}</span>}
-          {errors.password && <span>{errors.password?.message}</span>}
           {errors.passwordConfirm && <span>{errors.passwordConfirm?.message}</span>}
-          
+          </div>
 					<button
 						className={styles.btn}
 						disabled={!isValid}
@@ -101,22 +106,26 @@ export const RegisterForm = () => {
 				</>
 			)}
 			{nextStep && (
-				<>
+        <>
+          <div className={styles.inputWrapper}>
 					<input
 						className={styles.input}
 						type="text"
 						placeholder="Name"
 						{...register('name', {
-							required: {
-								value: true,
+              required: {
+                value: true,
 								message: 'Name is required',
 							},
 							pattern: {
-								value: /^[a-zA-Z]+$/i,
+                value: /^[a-zA-Z]+$/i,
 								message: 'Invalid name',
 							},
 						})}
-					/>
+            />
+            {errors.name && <span>{errors.name?.message}</span>}
+          </div>
+          <div className={styles.inputWrapper}>
 					<input
 						className={styles.input}
 						type="text"
@@ -132,6 +141,9 @@ export const RegisterForm = () => {
 							},
 						})}
 					/>
+            {errors.city && <span>{errors.city?.message}</span>}
+          </div>
+          <div className={styles.inputWrapper}>
 					<input
 						className={styles.input}
 						type="tel"
@@ -147,10 +159,8 @@ export const RegisterForm = () => {
 							},
 						})}
           />
-          {errors.passwordConfirm && <span>{errors.passwordConfirm?.message }</span>}
-					{errors.name && <span>name</span>}
-					{errors.city && <span>city</span>}
-					{errors.phone && <span>phone</span>}
+            {errors.phone && <span>{errors.phone?.message}</span>}
+            </div>
 
 					<button className={styles.btn} type="submit">
 						Register

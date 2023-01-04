@@ -89,10 +89,14 @@
 	@extend .linkText;
 	color: #3091eb;
 }
+.inputWrapper{
+    margin-bottom: 16px;
+}
+
 .input {
 	width: 280px;
 	height: 40px;
-	margin-bottom: 16px;
+
 
 	border: 1px solid $accent-color;
 	background-color: $primary-bg-color;
@@ -104,7 +108,7 @@
 		height: 50px;
 	}
 }
-.input:last-of-type {
+.inputWrapper:last-of-type {
 	margin-bottom: 40px;
 }
 

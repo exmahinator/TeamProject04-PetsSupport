@@ -21,22 +21,27 @@ export const LoginForm = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+          <div className={styles.inputWrapper}>
+              
           <input
               className={styles.input}
               type="email"
-          placeholder='Email'
-        {...register('email', {
-          required: {
-            value: true,
-            message: 'Email is required',
-          },
-          pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: 'Invalid email address',
-          },
-        })}
-      />
+              placeholder='Email'
+              {...register('email', {
+                  required: {
+                      value: true,
+                      message: 'Email is required',
+                    },
+                    pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: 'Invalid email address',
+                    },
+                })}
+                />
+              {errors.email && <p>{errors.email?.message}</p>}
+          </div>
+           <div className={styles.inputWrapper}>
           <input
               className={styles.input}
               type="password"
@@ -52,9 +57,8 @@ export const LoginForm = () => {
           },
         })}
       />
-        {errors.email && <span>{errors.email?.message}</span>}
-      {errors.password && <span>{errors.password?.message}</span>}
-
+      {errors.password && <p>{errors.password?.message}</p>}
+        </div>
       <button className={styles.btn} disabled={!isValid} type="submit">
         Login
       </button>
