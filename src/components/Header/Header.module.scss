@@ -1,12 +1,40 @@
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+@import 'src/shared/styles/mixins.scss';
+// @import 'src/shared/styles/mixins.scss';
+
+// @include media(mobile) {}
+// @include media(tablet) {}
+// @include media(desktop) {}
+.wrapper {
+    @include flex(space-between, center);
+    position: relative;
+    // display: flex;
+    //     justify-content: space-between;
+    //     align-items: center;
+
+        @include media(desktop) {
+            @include flex(space-between, center);
+        }
 }
 
-.mainNav {
-    display: flex;
-    align-items: center;
-    gap: 80px;
+// .mainNav {
+//     display: flex;
+//     align-items: center;
+//     gap: 80px;
+// }
+.btnBurger{
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
 }
 
+.open{
+    @include flex(space-between, center);
+    position: absolute;
+top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: green;
+}

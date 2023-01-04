@@ -1,19 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import style from './Nav.module.scss';
 
 export const Nav = () => {
-  return (
-    <ul className={style.menu}>
-      <li className={style.item}>
-        <Link className={style.link}>News</Link>
-      </li>
-      <li className={style.item}>
-        <Link className={style.link}>Find pet</Link>
-      </li>
-      <li className={style.item}>
-        <Link className={style.link}>Our friend</Link>
-      </li>
-    </ul>
-  );
+	return (
+		<ul className={style.menu}>
+			<li className={style.item}>
+				<NavLink className={style.link}>News</NavLink>
+			</li>
+			<li className={style.item}>
+				<NavLink className={style.link}>Find pet</NavLink>
+			</li>
+			<li className={style.item}>
+				<NavLink className={style.link}>Our friend</NavLink>
+			</li>
+		</ul>
+	);
 };
