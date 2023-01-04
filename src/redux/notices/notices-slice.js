@@ -6,14 +6,13 @@ import {
 	addNoticeToFavorite,
 	getFavoriteNotices,
 	removeNoticeFromFavorite,
-	addNotice,
 	getUserNotices,
 	removeNotice,
 } from './notices-operations';
 
 const initialState = {
-	currentNotices: null,
-	favorite: null,
+	currentNotices: [],
+	favorite: [],
 	loading: false,
 	error: null,
 };
@@ -52,7 +51,8 @@ const noticesSlice = createSlice({
 		},
 		[addNoticeToFavorite.fulfilled]: (store, { payload }) => {
 			store.loading = false;
-			store.user.pets = [payload, ...store.user.pets];
+			store.favorite.push(payload.favorite.id[0]);
+			//нужен объект favorite вместо id
 		},
 		[addNoticeToFavorite.rejected]: (store, { payload }) => {
 			store.loading = false;
@@ -64,7 +64,7 @@ const noticesSlice = createSlice({
 		},
 		[getFavoriteNotices.fulfilled]: (store, { payload }) => {
 			store.loading = false;
-			store.user.pets = store.user.pets.filter(({ _id }) => _id !== payload.id);
+			store.favorite = payload;
 		},
 		[getFavoriteNotices.rejected]: (store, { payload }) => {
 			store.loading = false;
@@ -76,31 +76,30 @@ const noticesSlice = createSlice({
 		},
 		[removeNoticeFromFavorite.fulfilled]: (store, { payload }) => {
 			store.loading = false;
-			store.user.pets = store.user.pets.filter(({ _id }) => _id !== payload.id);
+			store.favorite = store.favorite.filter(({ _id }) => _id !== payload.id);
 		},
 		[removeNoticeFromFavorite.rejected]: (store, { payload }) => {
 			store.loading = false;
 			store.error = payload;
 		},
-		[addNotice.pending]: store => {
-			store.loading = true;
-			store.error = null;
-		},
-		[addNotice.fulfilled]: (store, { payload }) => {
-			store.loading = false;
-			store.user.pets = store.user.pets.filter(({ _id }) => _id !== payload.id);
-		},
-		[addNotice.rejected]: (store, { payload }) => {
-			store.loading = false;
-			store.error = payload;
-		},
+		// [addNotice.pending]: store => {
+		// 	store.loading = true;
+		// 	store.error = null;
+		// },
+		// [addNotice.fulfilled]: (store, { payload }) => {
+		// 	store.loading = false;
+		// },
+		// [addNotice.rejected]: (store, { payload }) => {
+		// 	store.loading = false;
+		// 	store.error = payload;
+		// },
 		[getUserNotices.pending]: store => {
 			store.loading = true;
 			store.error = null;
 		},
 		[getUserNotices.fulfilled]: (store, { payload }) => {
 			store.loading = false;
-			store.user.pets = store.user.pets.filter(({ _id }) => _id !== payload.id);
+			store.currentNotices = payload;
 		},
 		[getUserNotices.rejected]: (store, { payload }) => {
 			store.loading = false;
@@ -112,7 +111,9 @@ const noticesSlice = createSlice({
 		},
 		[removeNotice.fulfilled]: (store, { payload }) => {
 			store.loading = false;
-			store.user.pets = store.user.pets.filter(({ _id }) => _id !== payload.id);
+			store.currentNotices = store.currentNotices.filter(
+				({ _id }) => _id !== payload.id
+			);
 		},
 		[removeNotice.rejected]: (store, { payload }) => {
 			store.loading = false;
