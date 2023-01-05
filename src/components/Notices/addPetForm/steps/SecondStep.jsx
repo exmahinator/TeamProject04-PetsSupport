@@ -75,7 +75,7 @@ export const SecondStep = ({ register, onSubmit, downPage }) => {
 				/>
 			</label>
 
-			<div>
+			<div className={styles.buttonWrap}>
 				{/* <Button
 					type={'submit'}
 					text={'Done'}

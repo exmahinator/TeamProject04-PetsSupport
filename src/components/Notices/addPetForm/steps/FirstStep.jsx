@@ -48,7 +48,7 @@ export const FirstStep = ({ register, nextPage, onCloseModal }) => {
 				/>
 			</label>
 
-			<div>
+			<div className={styles.buttonWrap}>
 				<Button
 					type={'button'}
 					text={'Next'}
