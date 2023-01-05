@@ -1,15 +1,9 @@
-// import { useEffect } from "react";
-// import { useDispatch } from "react-redux";
-
-// import { current } from "./redux/auth/auth-operations";
-
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
-
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { current } from 'redux/auth/auth-operations';
-
 import { SharedLayout } from './components/SharedLayout/SharedLayout';
+
 import './shared/styles/style.scss';
 
 const NewsPage = lazy(() => import('./pages/NewsPage/NewsPage'));
@@ -24,10 +18,7 @@ const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 
 function App() {
 	const dispatch = useDispatch();
-
-	useEffect(() => {
-		dispatch(current());
-	}, [dispatch]);
+	useMemo(() => dispatch(current()), [dispatch]);
 
 	return (
 		<Suspense fallback={<p>....Load page</p>}>
