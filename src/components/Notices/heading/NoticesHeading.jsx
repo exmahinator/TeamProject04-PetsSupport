@@ -11,4 +11,4 @@ const NoticesHeading = () => {
   )
 }
 
-export default NoticesHeading
+export default NoticesHeading;

@@ -89,28 +89,6 @@
 	@extend .linkText;
 	color: #3091eb;
 }
-.inputWrapper{
-    margin-bottom: 16px;
-}
-
-.input {
-	width: 280px;
-	height: 40px;
-
-
-	border: 1px solid $accent-color;
-	background-color: $primary-bg-color;
-	border-radius: 40px;
-    outline-color: $accent-color;
-
-	@include media(tablet) {
-		width: 450px;
-		height: 50px;
-	}
-}
-.inputWrapper:last-of-type {
-	margin-bottom: 40px;
-}
 
 .btn {
 	width: 100%;

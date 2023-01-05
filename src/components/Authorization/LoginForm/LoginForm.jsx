@@ -2,66 +2,35 @@ import React from 'react';
 import styles from '../Authorization.module.scss';
 
 import { useForm } from 'react-hook-form';
+import { Input } from '../Input/Input';
+import { inputOptions } from '../Input/inputOptions';
+import { useDispatch } from 'react-redux';
+import { login } from "../../../redux/auth/auth-operations";
+
 
 export const LoginForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-  } = useForm({
-    mode: 'onBlur',
-  });
+    const { register, handleSubmit, formState: { errors, isValid }, } = useForm({ mode: 'onBlur', });
+      const { emailOpt, passwordOpt} = inputOptions;
 
-  const onSubmit = ({ email, password }) => {
-    let res = {
-      email,
-      password,
-    };
-    console.log(res);
-  };
+	const dispatch = useDispatch();
 
-  return (
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.inputWrapper}>
-              
-          <input
-              className={styles.input}
-              type="email"
-              placeholder='Email'
-              {...register('email', {
-                  required: {
-                      value: true,
-                      message: 'Email is required',
-                    },
-                    pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Invalid email address',
-                    },
-                })}
-                />
-              {errors.email && <p>{errors.email?.message}</p>}
-          </div>
-           <div className={styles.inputWrapper}>
-          <input
-              className={styles.input}
-              type="password"
-          placeholder='Password'
-        {...register('password', {
-          required: {
-            value: true,
-            message: 'Password is required',
-          },
-          pattern: {
-            value: /^\S{7,32}$/i,
-            message: 'Invalid password',
-          },
-        })}
-      />
-      {errors.password && <p>{errors.password?.message}</p>}
-        </div>
-      <button className={styles.btn} disabled={!isValid} type="submit">
-        Login
-      </button>
-    </form>
-  );
+	const onSubmit = ({ email, password }) => {
+		let res = {
+			email,
+			password,
+		};
+		console.log(res);
+		dispatch(login(res))
+
+	};
+
+	return (
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+            <Input settings={emailOpt} register={register} errors={errors} />
+            <Input settings={passwordOpt} register={register} errors={errors} />
+			<button className={styles.btn} disabled={!isValid} type="submit">
+				Login
+			</button>
+		</form>
+	);
 };
