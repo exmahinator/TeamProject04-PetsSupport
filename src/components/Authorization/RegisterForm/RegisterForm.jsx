@@ -6,33 +6,43 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { Input } from '../Input/Input';
-import { inputOptions } from '../Input/inputOptions';
+import {
+	emailOpt,
+	passwordOpt,
+	confirmPasswordOpt,
+	nameOpt,
+	cityOpt,
+	phoneOpt,
+} from '../Input/inputOptions';
 import { register as reg } from '../../../redux/auth/auth-operations';
+import { useFormSession } from 'shared/hooks/auth/useFormSession';
+
+
+const SESSION_STORAGE_NAME = 'registerFrom'
 
 export const RegisterForm = () => {
 	const [nextStep, setNextStep] = useState(false);
+	const { getSessionData, setSessionData } = useFormSession(SESSION_STORAGE_NAME);
+	const defaultValuesFromSessionStorage = getSessionData();
+
+	const dispatch = useDispatch();
+
 	const {
 		register,
 		handleSubmit,
 		watch,
 		formState: { errors, isValid },
-	} = useForm({ mode: 'onBlur' });
-	const {
-		emailOpt,
-		passwordOpt,
-		confirmPasswordOpt,
-		nameOpt,
-		cityOpt,
-		phoneOpt,
-	} = inputOptions;
+	} = useForm({mode: 'onBlur',defaultValues: defaultValuesFromSessionStorage,});
 
 	const password = useRef({});
-
-	const dispatch = useDispatch();
-
 	password.current = watch('password', '');
 
+  watch(({email, city, name, phone})=> {
+		setSessionData({ email, city, name, phone });
+	});
+
 	const onSubmit = ({ email, password, city, phone, name }) => {
+		phone = '+38' + phone;
 		let res = {
 			name,
 			email,
@@ -42,6 +52,7 @@ export const RegisterForm = () => {
 		};
 		console.log(res);
 		dispatch(reg(res));
+		setSessionData({});
 	};
 
 	const toggleBackBtn = () => {
