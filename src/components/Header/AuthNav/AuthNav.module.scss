@@ -9,60 +9,85 @@
 
 
 .btn {
-    // display: flex;
     @include flex();
+    height: 35px;
+    gap: 12px;
+    margin-top: 46px;
+
+    @include media(tablet) {
+    margin-top: 0;
+}
     @include media(desktop) {gap: 20px;
         height: 47px;}
     
 }
 .linkLogo {
-    @include media(mobile) {}
-    
-        @include media(tablet) {}
-    
-        @include media(desktop) {}
     color: $secondary-text-color;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 27px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19px;
+    
+        @include media(tablet) {
+            font-size: 20px;
+                line-height: 27px;
+        }
+    
+        @include media(desktop) {
+            color: $secondary-text-color;
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 27px;
+        }
+
 }
 .login {
-    @include media(mobile) {}
-    
-        @include media(tablet) {}
-    
-        @include media(desktop) {}
     @include flex(center, center);
-
-    width: 111px;
+    width: 95px;
     background: $accent-color;
     border-radius: 40px;
+    
+        @include media(tablet) {
+            width: 111px;
+        }
+    
+        @include media(desktop) {width: 111px;
+            background: $accent-color;
+            border-radius: 40px;}
+
 }
 
 .linkRegistration{
-    @include media(mobile) {}
-    
-        @include media(tablet) {}
-    
-        @include media(desktop) {}
     color: $primary-text-color;
     text-decoration: none;
     font-weight: 500;
-    font-size: 20px;
-    line-height: 27px;
+    font-size: 14px;
+    line-height: 19px;
+    
+        @include media(tablet) {
+            font-size: 20px;
+                line-height: 27px;
+        }
+    
+        @include media(desktop) {color: $primary-text-color;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 27px;}
 }
 
-.registration {
-    @include media(mobile) {}
-    
-        @include media(tablet) {}
-    
-        @include media(desktop) {}
+.registration {    
     @include flex(center, center);
-    width: 181px;
+    width: 144px;
 
     background: $secondary-bg-color;
     border-radius: 40px;
     border: 2px solid $accent-color;
+        @include media(tablet) {width: 181px;}
+    
+        @include media(desktop) {        
+            background: $secondary-bg-color;
+            border-radius: 40px;
+            border: 2px solid $accent-color;
+        }
 }

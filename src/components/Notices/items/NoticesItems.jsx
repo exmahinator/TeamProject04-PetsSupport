@@ -1,6 +1,5 @@
 import styles from './NoticesItems.module.scss';
 import { ReactComponent as NoticesHartSvg } from 'shared/images/Notices/Notices-hart.svg';
-import { Subtitle } from 'components/Reuse/Title/Subtitle';
 import { Button } from 'components/Reuse/Button/Button';
 import { Modal } from 'components/Reuse/Modal/Modal';
 
@@ -26,7 +25,7 @@ const NoticesItems = () => {
       </div>
       <div>
         <div className={styles.heading}>
-          <Subtitle text="Сute dog looking for a home" />
+          <h2>Сute dog looking for a home</h2>
         </div>
         <div className={styles.paragraph}>
           <ul className={styles.list}>

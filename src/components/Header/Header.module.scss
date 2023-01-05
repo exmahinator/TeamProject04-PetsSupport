@@ -1,26 +1,25 @@
 @import 'src/shared/styles/mixins.scss';
-// @import 'src/shared/styles/mixins.scss';
 
-// @include media(mobile) {}
-// @include media(tablet) {}
-// @include media(desktop) {}
+
 .wrapper {
+    width: 320px;
     @include flex(space-between, center);
     position: relative;
-    // display: flex;
-    //     justify-content: space-between;
-    //     align-items: center;
+    
+@include media(tablet) {
+    width: 756px;
+}
 
         @include media(desktop) {
-            @include flex(space-between, center);
+    width: 1280px;
         }
 }
 
-// .mainNav {
-//     display: flex;
-//     align-items: center;
-//     gap: 80px;
-// }
+
+.mainNav {
+    gap: 80px;
+    @include flex(space-between, center);
+}
 .btnBurger{
     display: inline-flex;
     margin: 0;
@@ -29,12 +28,31 @@
     background-color: transparent;
 }
 
+.btns{
+    display: contents;
+    // @include flex(center, center);
+    @include media(tablet) {
+        // width: 100%
+    }
+}
+
 .open{
-    @include flex(space-between, center);
+    @include flex(center, center);
+    flex-wrap: wrap-reverse;
     position: absolute;
 top: 100%;
     left: 0;
     width: 100%;
     text-align: center;
-    background-color: green;
+    background-color: #FDF7F2;;
+}
+
+.logoLink {
+@include media(tablet) {
+    @include flex(space-between, center);
+}
+}
+.logoBtn {
+    @include flex(space-between, center);
+    gap: 20px;
 }
