@@ -2,20 +2,34 @@ import React from 'react';
 import styles from '../Authorization.module.scss';
 
 import { useForm } from 'react-hook-form';
-import { PasswordBtn } from '../PasswordBtn/PasswordBtn';
-import { usePasswordBtn } from 'shared/hooks/usePasswordBtn';
+import { Input } from '../Input/Input';
+
+
+const set = {
+    name: 'email',
+    type: 'email',
+    placeholder: "Email",
+    required: true,
+    requiredMessage: 'Email is required',
+    pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+    patternMessage: 'Invalid email address',
+}
+
+const passwordSet = {
+        name: 'password',
+    type: 'password',
+    placeholder: "Password",
+    required: true,
+    requiredMessage: 'Password is required',
+    pattern: /^\S{7,32}$/i,
+    patternMessage: 'Min 7 max 32 symbols'
+}
+
+
 
 export const LoginForm = () => {
-    const { passwordBtnType, handlePasswordBtn } = usePasswordBtn();
-
-    
-	const {
-		register,
-		handleSubmit,
-		formState: { errors, isValid },
-	} = useForm({
-		mode: 'onBlur',
-	});
+  
+	const {register,handleSubmit,formState: { errors, isValid },} = useForm({mode: 'onBlur',});
 
 	const onSubmit = ({ email, password }) => {
 		let res = {
@@ -26,58 +40,9 @@ export const LoginForm = () => {
 	};
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-			<div className={styles.inputWrapper}>
-				<input
-					id="email"
-					className={styles.input}
-					type="email"
-					placeholder="Email"
-					{...register('email', {
-						required: {
-							value: true,
-							message: 'Email is required',
-						},
-						pattern: {
-							value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-							message: 'Invalid email address',
-						},
-					})}
-				/>
-				<label className={styles.label} htmlFor="email">
-					{' '}
-					Email
-				</label>
-				{errors.email && (
-					<p className={styles.error}>{errors.email?.message}</p>
-				)}
-			</div>
-			<div className={styles.inputWrapper}>
-				<input
-					id="password"
-					className={styles.input}
-					type={passwordBtnType}
-					placeholder="Password"
-					{...register('password', {
-						required: {
-							value: true,
-							message: 'Password is required',
-						},
-						pattern: {
-							value: /^\S{7,32}$/i,
-							message: 'Invalid password',
-						},
-					})}
-                />
-                <PasswordBtn type={passwordBtnType} onClickHandler={handlePasswordBtn}/>
-				<label className={styles.label} htmlFor="password">
-					{' '}
-					Password
-				</label>
-				{errors.password && (
-					<p className={styles.error}>{errors.password?.message}</p>
-				)}
-			</div>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+            <Input settings={set} register={register} errors={errors} />
+            <Input settings={passwordSet} register={register} errors={errors} />
 			<button className={styles.btn} disabled={!isValid} type="submit">
 				Login
 			</button>
