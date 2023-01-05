@@ -3,14 +3,13 @@ import styles from '../Authorization.module.scss';
 
 import { useForm } from 'react-hook-form';
 import { Input } from '../Input/Input';
-import { inputOptions } from '../Input/inputOptions';
+import  { emailOpt, passwordOpt} from '../Input/inputOptions';
 import { useDispatch } from 'react-redux';
 import { login } from "../../../redux/auth/auth-operations";
 
 
 export const LoginForm = () => {
     const { register, handleSubmit, formState: { errors, isValid }, } = useForm({ mode: 'onBlur', });
-      const { emailOpt, passwordOpt} = inputOptions;
 
 	const dispatch = useDispatch();
 
