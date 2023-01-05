@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/561.9d7f7d88.chunk.js","mappings":"8IAQA,UANuB,WACrB,OACE,2CAEH,C","sources":["pages/OurFriendsPage/OurFriendsPage.jsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst OurFriendsPage = () => {\r\n  return (\r\n    <div>OurFriendsPage</div>\r\n  )\r\n}\r\n\r\nexport default OurFriendsPage"],"names":[],"sourceRoot":""}
