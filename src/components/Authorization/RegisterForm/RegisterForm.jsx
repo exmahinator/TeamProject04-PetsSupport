@@ -17,9 +17,12 @@ import {
 import { register as reg } from '../../../redux/auth/auth-operations';
 import { useFormSession } from 'shared/hooks/auth/useFormSession';
 
+
+const SESSION_STORAGE_NAME = 'registerFrom'
+
 export const RegisterForm = () => {
 	const [nextStep, setNextStep] = useState(false);
-	const { getSessionData, setSessionData } = useFormSession();
+	const { getSessionData, setSessionData } = useFormSession(SESSION_STORAGE_NAME);
 	const defaultValuesFromSessionStorage = getSessionData();
 
 	const dispatch = useDispatch();
@@ -37,8 +40,8 @@ export const RegisterForm = () => {
 	const password = useRef({});
 	password.current = watch('password', '');
 
-	watch(data => {
-		setSessionData(data);
+  watch(({email, city, name, phone})=> {
+		setSessionData({ email, city, name, phone });
 	});
 
 	const onSubmit = ({ email, password, city, phone, name }) => {

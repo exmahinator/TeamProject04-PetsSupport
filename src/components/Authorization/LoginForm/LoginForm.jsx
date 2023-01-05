@@ -6,12 +6,21 @@ import { Input } from '../Input/Input';
 import  { emailOpt, passwordOpt} from '../Input/inputOptions';
 import { useDispatch } from 'react-redux';
 import { login } from "../../../redux/auth/auth-operations";
+import { useFormSession } from 'shared/hooks/auth/useFormSession';
 
+
+const SESSION_STORAGE_NAME = 'loginFrom'
 
 export const LoginForm = () => {
-    const { register, handleSubmit, formState: { errors, isValid }, } = useForm({ mode: 'onBlur', });
+    const dispatch = useDispatch();
+    const { getSessionData, setSessionData } = useFormSession(SESSION_STORAGE_NAME);
+	const defaultValuesFromSessionStorage = getSessionData();
+    
+    const {watch, register, handleSubmit, formState: { errors, isValid }, } = useForm({ mode: 'onBlur', defaultValues: defaultValuesFromSessionStorage, });
 
-	const dispatch = useDispatch();
+    watch(({email}) => {
+		setSessionData({email});
+	});
 
 	const onSubmit = ({ email, password }) => {
 		let res = {
@@ -19,7 +28,8 @@ export const LoginForm = () => {
 			password,
 		};
 		console.log(res);
-		dispatch(login(res))
+        dispatch(login(res))
+        setSessionData({});
 
 	};
 

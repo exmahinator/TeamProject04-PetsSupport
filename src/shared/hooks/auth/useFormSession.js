@@ -1,21 +1,16 @@
-export const useFormSession = () => {
+export const useFormSession = (formName) => {
+
+
+    const setSessionData = (data) => {
+        const formValues = JSON.stringify(data);
+        window.sessionStorage.setItem(formName, formValues);
+    };
+
+
 	const getSessionData = () => {
 		const defaultVal =
-			JSON.parse(window.sessionStorage.getItem('formValues')) ?? {};
-		const { name = '', city = '', email = '', phone = '' } = defaultVal;
-
-		return {
-			name,
-			city,
-			email,
-			phone,
-			password: '',
-			confirmPassword: '',
-		};
-	};
-	const setSessionData = ({ name = '', city = '', phone = '', email = '' }) => {
-		const formValues = JSON.stringify({ name, city, phone, email });
-		window.sessionStorage.setItem('formValues', formValues);
+			JSON.parse(window.sessionStorage.getItem(formName)) ?? {};
+        return defaultVal
 	};
 
 	return { getSessionData, setSessionData };
