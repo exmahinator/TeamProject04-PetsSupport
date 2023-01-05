@@ -3,21 +3,16 @@ import styles from '../Authorization.module.scss';
 
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { Input } from '../Input/Input';
+import { inputOptions } from '../Input/inputOptions';
 
 export const RegisterForm = () => {
 	const [nextStep, setNextStep] = useState(false);
-	const {
-		register,
-		handleSubmit,
-		watch,
-		formState: { errors, isValid },
-	} = useForm({
-		mode: 'onBlur',
-	});
+	const {register, handleSubmit, watch, formState: { errors, isValid },} = useForm({ mode: 'onBlur',});
+  const { emailOpt, passwordOpt, confirmPasswordOpt, nameOpt, cityOpt, phoneOpt} = inputOptions;
 
 	const password = useRef({});
-
-	password.current = watch('password', '');
+  password.current = watch('password', '');
 
 	const onSubmit = ({ email, password, city, phone, name }) => {
 		let res = {
@@ -28,187 +23,40 @@ export const RegisterForm = () => {
 			phone,
 		};
 		console.log(res);
-	};
-	const handleNextBtn = () => {
-		setNextStep(true);
-	};
-
-	const handleBackBtn = () => {
-		setNextStep(false);
-	};
+  };
+  
+  const toggleBackBtn = () => {
+    setNextStep(prevState => !prevState)
+  }
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 			{!nextStep && (
-				<>
-					<div className={styles.inputWrapper}>
-						<input
-							id="email"
-							className={styles.input}
-							type="email"
-							placeholder="Email"
-							{...register('email', {
-								required: {
-									value: true,
-									message: 'Email is required',
-								},
-								pattern: {
-									value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-									message: 'Invalid email address',
-								},
-							})}
-						/>
-						<label className={styles.label} htmlFor="email">
-							Email
-						</label>
-						{errors.email && (
-							<p className={styles.error}>{errors.email?.message}</p>
-						)}
-					</div>
-					<div className={styles.inputWrapper}>
-						<input
-							id="password"
-							className={styles.input}
-							type="password"
-							placeholder="Password"
-							ref={password}
-							{...register('password', {
-								required: {
-									value: true,
-									message: 'Password is required',
-								},
-								pattern: {
-									value: /^\S{7,32}$/i,
-									message: 'Min 7 and max 32 symbols',
-								},
-							})}
-						/>
-						<label className={styles.label} htmlFor="password">
-							Password
-						</label>
-						{errors.password && (
-							<p className={styles.error}>{errors.password?.message}</p>
-						)}
-					</div>
-					<div className={styles.inputWrapper}>
-						<input
-							id="confirmPassword"
-							className={styles.input}
-							type="password"
-							placeholder="Confirm Password"
-							{...register('passwordConfirm', {
-								required: {
-									value: true,
-									message: 'Confirm your password, please',
-								},
-
-								validate: value =>
-									value === password.current || 'Passwords do not match',
-							})}
-						/>
-						<label className={styles.label} htmlFor="confirmPassword">
-							{' '}
-							Confirm Password
-						</label>
-						{errors.passwordConfirm && (
-							<p className={styles.error}>{errors.passwordConfirm?.message}</p>
-						)}
-					</div>
-					<button
-						className={styles.btn}
+        <>
+          <Input settings={emailOpt} register={register} errors={errors} />
+          <Input settings={passwordOpt} register={register} errors={errors} inputRef={password} />
+					<Input settings={confirmPasswordOpt} register={register} errors={errors} inputRef={password} />
+      
+					<button	className={styles.btn}
 						disabled={!isValid}
-						onClick={handleNextBtn}
-					>
+						onClick={toggleBackBtn}>
 						Next
 					</button>
 				</>
 			)}
 			{nextStep && (
-				<>
-					<div className={styles.inputWrapper}>
-						<input
-							id="name"
-							className={styles.input}
-							type="text"
-							placeholder="Name"
-							{...register('name', {
-								required: {
-									value: true,
-									message: 'Enter your name, please',
-								},
-								pattern: {
-									value: /^[a-zA-Z]+$/i,
-									message: 'Invalid name',
-								},
-							})}
-						/>
-						<label className={styles.label} htmlFor="name">
-							{' '}
-							Name
-						</label>
-						{errors.name && (
-							<p className={styles.error}>{errors.name?.message}</p>
-						)}
-					</div>
-					<div className={styles.inputWrapper}>
-						<input
-							id="city"
-							className={styles.input}
-							type="text"
-							placeholder="City, region"
-							{...register('city', {
-								required: {
-									value: true,
-									message: 'Enter your city and region, please',
-								},
-								pattern: {
-									value: /^\s*(?:\w+\s*,\s*){1,}(?:\w+\s*)$/i,
-									message: 'Format: Brovary, Kyiv',
-								},
-							})}
-						/>
-						<label className={styles.label} htmlFor="city">
-							{' '}
-							City, Region
-						</label>
-						{errors.city && (
-							<p className={styles.error}>{errors.city?.message}</p>
-						)}
-					</div>
-					<div className={styles.inputWrapper}>
-						<input
-							id="phone"
-							className={styles.input}
-							type="tel"
-							placeholder="Phone"
-							{...register('phone', {
-								required: {
-									value: true,
-									message: 'Enter your phone, please',
-								},
-                pattern: {               
-									value: /^\+?3?8?(0[5-9][0-9]\d{7})$/i,
-									message: 'Phone format: +380971234567',
-								},
-							})}
-						/>
-						<label className={styles.label} htmlFor="phone">
-							{' '}
-							Phone
-						</label>
-						{errors.phone && (
-							<p className={styles.error}>{errors.phone?.message}</p>
-						)}
-					</div>
+        <>
+          <Input settings={nameOpt} register={register} errors={errors} />
+          <Input settings={cityOpt} register={register} errors={errors} />
+          <Input settings={phoneOpt} register={register} errors={errors} />
 
 					<button className={styles.btn} type="submit">
 						Register
 					</button>
 					<button
-						onClick={handleBackBtn}
+						onClick={toggleBackBtn}
 						className={styles.lightBtn}
-						type="button"
-					>
+						type="button">
 						Back
 					</button>
 				</>
