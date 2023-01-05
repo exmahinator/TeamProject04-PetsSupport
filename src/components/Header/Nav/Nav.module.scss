@@ -7,30 +7,64 @@
 
 
 .menu{
-    display: flex;
-    gap: 80px;
-    
+        display: flex;
+            gap: 40px;
+            margin: 60px;
+            flex-direction: column;
+@include media(tablet) {
+    margin: 0;
+    margin-top: 48px;
 }
-// .item {
-//     :active {
-//         font-weight: 700;
-//         color: $accent-color;
-//         text-decoration: underline;
-//             }
-// }
+
+@include media(desktop) 
+{display: flex;
+    gap: 80px;
+margin: 0;
+            flex-direction: inherit;}
+
+}
+.item {
+    :active {
+        font-weight: 700;
+        color: $accent-color;
+        text-decoration: underline;
+            }
+}
 
 .link {
+
     font-weight: 500;
-    font-size: 20px;
-    line-height: 27px;
-    color: $third-text-color;
-    text-decoration: none;
-    & .active {
+        font-size: 32px;
+        line-height: 44px;
+        color: $third-text-color;
+        text-decoration: none;
+    
+        & .active {
             color: red;
         }
     
         :hover:not(.active),
         :focus:not(.active) {
             color: green;
-            } 
+        }
+@include media(tablet) {
+    font-weight: 500;
+        font-size: 48px;
+        line-height: 66px;
+}
+@include media(desktop) {font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    color: $third-text-color;
+    text-decoration: none;
+
+    & .active {
+        color: red;
+    }
+
+    :hover:not(.active),
+    :focus:not(.active) {
+        color: green;
+    }}
+  
 }
