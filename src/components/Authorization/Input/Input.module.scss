@@ -11,12 +11,15 @@
 }
 
 .input:focus~.label,
-.input:not(:placeholder-shown)~.label {
+.input:not(:placeholder-shown)~.label,
+.input:not(:placeholder-shown):valid ~.label,
+.input:not(:placeholder-shown):invalid~.label {
     top: 0;
     font-size: 14px;
 }
 
 .input::placeholder {
+    opacity: 0;
     visibility: hidden;
 }
 
@@ -39,6 +42,7 @@
     width: 280px;
     height: 40px;
     padding: 0 30px;
+    
 
     border: 1px solid $accent-color;
     background-color: $primary-bg-color;
@@ -50,8 +54,26 @@
         height: 50px;
     }
 }
+.input:not(:placeholder-shown):not(:focus):valid{
+    background-color: $primary-bg-color;
+}
 
+.phoneCode{
+    position: absolute;
+        top: 50%;
+            left: 30px;
+            transform: translateY(-50%);
+            opacity: 0;
 
+                transition: 0.2s all ease-in-out;
+
+}
+.input:focus~.phoneCode,
+.input:not(:placeholder-shown)~.phoneCode,
+.input:not(:placeholder-shown):valid~.phoneCode,
+.input:not(:placeholder-shown):invalid~.phoneCode {
+  opacity: 1;
+}
 .error {
     position: absolute;
     bottom: -15px;
@@ -60,4 +82,8 @@
 
     font-size: 12px;
     color: red;
+}
+.inputTel{
+    @extend .input;
+    padding-left: 60px;
 }
