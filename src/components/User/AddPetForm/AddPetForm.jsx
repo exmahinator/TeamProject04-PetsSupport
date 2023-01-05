@@ -9,7 +9,12 @@ import { useDispatch } from 'react-redux';
 import { addUserPet } from 'redux/user/user-operations';
 
 export const AddPetForm = () => {
-	const { register, handleSubmit } = useForm();
+	const { register, handleSubmit } = useForm({
+		defaultValues: {
+			petBirth: '01.01.2020',
+			petUpload: '',
+		},
+	});
 	const dispatch = useDispatch();
 	const [isfirstPage, setIsFirstPage] = useState(true);
 
@@ -25,11 +30,10 @@ export const AddPetForm = () => {
 		const newPet = new FormData();
 		newPet.append('name', petName);
 		newPet.append('birthday', petBirth);
-		console.log('newPet', newPet);
 		newPet.append('breed', petBreed);
 		newPet.append('comments', petComment);
-		newPet.append('avatarURL', petUpload[0]);
-		console.log(petName, petBirth, petBreed, petUpload, petComment);
+		petUpload && newPet.append('avatar', petUpload[0]);
+
 		dispatch(addUserPet(newPet));
 	};
 

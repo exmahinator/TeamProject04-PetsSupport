@@ -3,7 +3,7 @@ import { ReactComponent as EditIcon } from 'shared/images/user/userChange.svg';
 
 import style from '../UserForm.module.scss';
 
-export const UserPhone = ({ heading, tel, isDisabled, edited }) => {
+export const UserPhone = ({ heading, tel, editUserData, edited }) => {
 	return (
 		<label htmlFor={heading} key={heading} className={style.user__label}>
 			<p className={style.user__text}>{heading}:</p>
@@ -12,9 +12,9 @@ export const UserPhone = ({ heading, tel, isDisabled, edited }) => {
 				type="tel"
 				id={heading}
 				value={tel}
-				disabled={isDisabled}
+		
 			/>
-			<button type="button" className={style.user__button}>
+			<button type="button" className={style.user__button} onClick={editUserData}>
 				{edited ? (
 					<ApproveIcon fill="currentColor" width="20px" height="20px" />
 				) : (

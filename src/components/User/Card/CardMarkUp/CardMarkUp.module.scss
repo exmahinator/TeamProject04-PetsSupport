@@ -15,8 +15,9 @@
 }
 
 .card__metaInfo {
+	overflow-wrap: break-word;
 	@include flex(flex-start, center);
-
+	flex-wrap: nowrap;
 	width: 100%;
 
 	@include media('tablet') {
@@ -39,6 +40,7 @@
 }
 
 .card__metaText {
+	overflow-wrap: break-word;
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 1.35;

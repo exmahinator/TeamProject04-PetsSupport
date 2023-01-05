@@ -1,36 +1,32 @@
 import { Container } from 'components/Reuse/Container/Container';
 import { CardImg } from './CardImg/CardImg';
 import { TrashButton } from './TrashButton/TrashButton';
-
-import style from './Card.module.scss';
 import { CardMarkUp } from './CardMarkUp/CardMarkUp';
 
-const data = [
+import style from './Card.module.scss';
+
+const sapmle = [
 	{
-		name: 'Vasilek',
-		birthday: '25.06.1979',
-		breed: 'Kitaiskaya Gonchaya',
-		comments: 'Lubit lizat yaica, a potom hozyaina ',
-	},
-	{
-		name: 'Petya',
-		birthday: '25.06.2021',
-		breed: 'Drakonopodobnii',
-		comments: 'Smotrit anime i igraet v doty s drygimi sobakami ',
+		name: 'Here can be your pet',
+		birthday: '00.00.0000',
+		breed: 'your pets breed',
+		comments: 'Simply add your pet by clicking the button above ;) ',
 	},
 ];
 
-export const Card = ({ onDeletePet }) => {
+export const Card = ({ userPets, onDeletePet }) => {
 	return (
 		<Container>
 			<ul className={style.card__list}>
-				{data?.map((petInfo, idx) => (
-					<li key={idx} className={style.card__item}>
-						<CardImg />
-						<TrashButton onClick={{ onDeletePet }} />
-						<CardMarkUp cardData={petInfo} />
-					</li>
-				))}
+				{(userPets?.length ? userPets : sapmle)?.map(
+					({ avatarURL, _id, owner, createdAt, updatedAt, ...userPets }) => (
+						<li key={_id} className={style.card__item}>
+							<CardImg petImg={avatarURL} />
+							<TrashButton id={_id} onDeletePet={onDeletePet} />
+							<CardMarkUp cardData={userPets} id={_id} />
+						</li>
+					)
+				)}
 			</ul>
 		</Container>
 	);
