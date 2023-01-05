@@ -1,37 +1,15 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React from 'react';
+// import { useState } from 'react';
 
 import style from './Modal.module.scss';
 
-export const Modal = ({ children, btnType }) => {
-	const [isShowModal, setIsShowModal] = useState(false);
-
-	localStorage.setItem('isModalOpen', '0');
-
-	const onClose = () => {
-		setIsShowModal(false);
-		localStorage.setItem('isModalOpen', '0');
-	};
-
-	useEffect(() => {
-		const handeleClickDown = e => {
-			if (e.code === 'Escape') {
-				onClose();
-			}
-		};
-		window.addEventListener('keydown', handeleClickDown);
-		return () => {
-			window.removeEventListener('keydown', handeleClickDown);
-		};
-		// eslint-disable-next-line
-	}, []);
-
-	const handleBackdropClick = e => {
-		if (e.currentTarget === e.target) {
-			onClose();
-		}
-	};
-
+export const Modal = ({
+	children,
+	btnType,
+	setIsShowModal,
+	handleBackdropClick,
+	isShowModal,
+}) => {
 	switch (btnType) {
 		case 'circle':
 			return (
@@ -117,24 +95,77 @@ export const Modal = ({ children, btnType }) => {
 // !=============EXEMPLES==============
 
 /*   
- <Modal btnType={'circle'}>
+
+ <Modal 
+ btnType={'circle'} 
+ isShowModal={isShowModal}
+ setIsShowModal={setIsShowModal}
+ handleBackdropClick={handleBackdropClick}
+ >
     <h2>Heloooooo</h2>
   </Modal>
   
-  <Modal  btnType={'long'}>
+<Modal 
+ btnType={'long'}
+ isShowModal={isShowModal}
+ setIsShowModal={setIsShowModal}
+ handleBackdropClick={handleBackdropClick}
+>
     <h2>WOW</h2>
     <ul>
       <li>Cool</li>
       <li>Nice</li>
       <li>Kill me</li>
     </ul>
-  </Modal> 
+</Modal> 
 
-  <Modal btnType={'circle-info'}>
+  <Modal 
+  btnType={'circle-info'}
+   isShowModal={isShowModal}
+  setIsShowModal={setIsShowModal}
+  handleBackdropClick={handleBackdropClick}
+  >
     <h2>Info for Paul</h2>
   </Modal> 
   
-  <Modal btnType={'empty'}>
+  <Modal 
+  btnType={'empty'}
+   isShowModal={isShowModal}
+ setIsShowModal={setIsShowModal}
+ handleBackdropClick={handleBackdropClick}
+ >
     <h2>Empty BTN</h2>
   </Modal>
   */
+
+//   !===============CHANGES-----------------
+
+// ? Add this in your component code!!!!!!!!!!!!!!!!!
+
+// import React, { useEffect } from 'react';
+// import { useState } from 'react';
+
+// const [isShowModal, setIsShowModal] = useState(false);
+
+// const onClose = () => {
+// 	setIsShowModal(false);
+// };
+
+// useEffect(() => {
+// 	const handeleClickDown = e => {
+// 		if (e.code === 'Escape') {
+// 			onClose();
+// 		}
+// 	};
+// 	window.addEventListener('keydown', handeleClickDown);
+// 	return () => {
+// 		window.removeEventListener('keydown', handeleClickDown);
+// 	};
+// 	// eslint-disable-next-line
+// }, []);
+
+// const handleBackdropClick = e => {
+// 	if (e.currentTarget === e.target) {
+// 		onClose();
+// 	}
+// };
