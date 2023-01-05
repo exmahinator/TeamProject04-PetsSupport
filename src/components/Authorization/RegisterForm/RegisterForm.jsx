@@ -33,13 +33,14 @@ export const RegisterForm = () => {
 	password.current = watch('password', '');
 
 	const onSubmit = ({ email, password, city, phone, name }) => {
+    phone= '+38'+ phone
 		let res = {
 			name,
 			email,
 			password,
 			city,
 			phone,
-		};
+    };
 		console.log(res);
 		dispatch(reg(res));
 	};

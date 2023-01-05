@@ -20,9 +20,10 @@ export const Input = ({ settings, register, errors, inputRef = null, }) => {
 
 	return (
 		<div className={styles.inputWrapper}>
-			<input
+            <input
+                
 				id={name}
-				className={styles.input}
+				className={type=== 'tel' ? styles.inputTel: styles.input}
 				type={inputType}
 				placeholder={placeholder}
 				ref={inputRef}
@@ -39,7 +40,8 @@ export const Input = ({ settings, register, errors, inputRef = null, }) => {
                   return value === inputRef.current || 'Passwords do not match'}),
                     
 				})}
-			/>
+            />
+            {name === 'phone' &&<span className={styles.phoneCode}>+38</span>}
 			{type === 'password' && (
 				<PasswordBtn
 					type={passwordBtnType}
