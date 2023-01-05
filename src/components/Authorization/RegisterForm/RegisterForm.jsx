@@ -3,8 +3,12 @@ import styles from '../Authorization.module.scss';
 
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+
 import { Input } from '../Input/Input';
 import { inputOptions } from '../Input/inputOptions';
+
+import { useDispatch } from 'react-redux';
+import { register as reg } from "../../../redux/auth/auth-operations";
 
 export const RegisterForm = () => {
 	const [nextStep, setNextStep] = useState(false);
@@ -12,7 +16,10 @@ export const RegisterForm = () => {
   const { emailOpt, passwordOpt, confirmPasswordOpt, nameOpt, cityOpt, phoneOpt} = inputOptions;
 
 	const password = useRef({});
-  password.current = watch('password', '');
+
+	const dispatch = useDispatch();
+
+	password.current = watch('password', '');
 
 	const onSubmit = ({ email, password, city, phone, name }) => {
 		let res = {
@@ -23,11 +30,15 @@ export const RegisterForm = () => {
 			phone,
 		};
 		console.log(res);
-  };
+		dispatch(reg(res));
+	};
   
   const toggleBackBtn = () => {
     setNextStep(prevState => !prevState)
   }
+
+
+
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

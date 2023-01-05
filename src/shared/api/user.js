@@ -11,11 +11,11 @@ export const updateUserData = async data => {
 };
 
 export const addUserPet = async data => {
-	const { data: result } = await instance.post('/pets', data);
+	const { data: result } = await instance.post('/user/pets', data);
 	return result;
 };
 
 export const removeUserPet = async id => {
-	const { data: result } = await instance.delete(`/pets/${id}`);
-	return result;
+	const { data } = await instance.delete(`/user/pets/${id}`);
+	return data;
 };
