@@ -8,7 +8,7 @@ import {
 } from './user-operations';
 
 const initialState = {
-	user: null,
+	user: {},
 	loading: false,
 	error: null,
 };
