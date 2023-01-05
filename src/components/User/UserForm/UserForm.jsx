@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import { LogOut } from '../LogOut/LogOut';
 
-// import { UserPhoto } from './UserPhoto/UserPhoto';
+import { UserPhoto } from './UserPhoto/UserPhoto';
 import { UserEmail } from './UserEmail/UserEmail';
 import { UserPhone } from './UserPhone/UserPhone';
 import { UserCityBirthday } from './UserCityBirthday/UserCityBirthday';
 
 import s from './UserForm.module.scss';
 
-export const UserForm = ({ userWithPets, handleLogOut }) => {
+export const UserForm = ({
+	userWithPets,
+	handleLogOut,
+	userInfo,
+	userAvatar,
+}) => {
 	const [userInput, setUserInput] = useState('');
 	const [isDisabled, setIsDisabled] = useState(false);
 	const [edited, setEdited] = useState(false);
@@ -23,51 +28,53 @@ export const UserForm = ({ userWithPets, handleLogOut }) => {
 	const editUserData = e => {
 		setIsDisabled(!isDisabled);
 		setEdited(prevValue => !prevValue);
-
-		e.currentTarget.disabled = false;
-		console.log('currentTarget', e.currentTarget.disabled);
 	};
 
 	return (
 		<div className={s.user}>
 			<form className={s.user__form}>
-				{/* <UserPhoto avtar={value} /> */}
-				<div className={s.user__meta}>
-					{Object.entries([])?.map(([key, value]) => {
+				<UserPhoto avtar={userAvatar} />
+				<ul className={s.user__meta}>
+					{Object.entries(userInfo)?.map(([key, value], idx) => {
 						switch (key) {
 							case 'email':
 								return (
-									<UserEmail
-										heading={key}
-										email={value}
-										userInput={userInput}
-										isDisabled={isDisabled}
-										editUserData={editUserData}
-										editet={edited}
-										onChange={onChange}
-									/>
+									<li key={idx}>
+										<UserEmail
+											heading={key}
+											email={value}
+											userInput={userInput}
+											editUserData={editUserData}
+											edited={edited}
+											onChange={onChange}
+										/>
+									</li>
 								);
 							case 'phone':
 								return (
-									<UserPhone
-										heading={key}
-										tel={value}
-										isDisabled={isDisabled}
-										edited={edited}
-									/>
+									<li key={idx}>
+										<UserPhone
+											heading={key}
+											editUserData={editUserData}
+											tel={value}
+											edited={edited}
+										/>
+									</li>
 								);
 							default:
 								return (
-									<UserCityBirthday
-										heading={key}
-										data={value}
-										edited={edited}
-										isDisabled={isDisabled}
-									/>
+									<li key={idx}>
+										<UserCityBirthday
+											heading={key}
+											editUserData={editUserData}
+											data={value}
+											edited={edited}
+										/>
+									</li>
 								);
 						}
 					})}
-				</div>
+				</ul>
 			</form>
 
 			<LogOut handleLogOut={handleLogOut} />
