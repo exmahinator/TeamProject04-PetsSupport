@@ -1,16 +1,16 @@
-import styles from './NoticesAddPet.module.scss';
 import { Modal } from 'components/Reuse/Modal/Modal';
 import { AddPetForm } from '../addPetForm/NoticesAddPetForm';
+import styles from './NoticesAddPet.module.scss';
 
 const NoticesAddPet = () => {
 
   return (
-    <div className={styles.wrapper}>
-        <Modal textBtn={'Add pet'} btnType={'circle'}>
-        <h2>Add pet</h2>
+    <>
+      <Modal textBtn={'Add pet'} btnType={'circle'}>
+        <h2 className={styles.heading}>Add pet</h2>
         <AddPetForm/>
       </Modal>
-    </div>
+    </>
   )
 }
 

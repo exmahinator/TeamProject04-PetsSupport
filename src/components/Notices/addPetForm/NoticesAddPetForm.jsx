@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FirstStep, SecondStep } from './steps';
+import styles from './NoticesAddPetForm.module.scss';
 
 export const AddPetForm = () => {
 	const { handleSubmit, register } = useForm();
@@ -38,11 +39,12 @@ export const AddPetForm = () => {
 			petImg,
 			comments,
 		};
-		console.log('mydata', data);
+		console.log('data', data);
 	};
-
+	
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
+		<div className={styles.wrapper}>
+			<form onSubmit={handleSubmit(onSubmit)}>
 			{step ? (
 				<FirstStep
 					register={register}
@@ -57,5 +59,6 @@ export const AddPetForm = () => {
 				/>
 			)}
 		</form>
+		</div>
 	);
 };

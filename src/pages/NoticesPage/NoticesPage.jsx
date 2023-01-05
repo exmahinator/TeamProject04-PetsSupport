@@ -14,7 +14,7 @@ const NoticesPage = () => {
     <NoticesHeading/>
     <NoticesSearch/>
       <div className={styles.wrapper}>
-        <NoticesCategories text1={'lost/found'}/>
+        <NoticesCategories categories={'long'}/>
         <NoticesAddPet/>
       </div>
     <NoticesList/>
