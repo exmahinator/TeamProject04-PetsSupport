@@ -5,22 +5,32 @@ import { AddPetFormFirstPage } from './FirstPage/AddPetFormFirstPage';
 import { AddPetFormSecondPage } from './SecondPage/AddPetFormSecondPage';
 
 import style from './AddPetForm.module.scss';
+import { useDispatch } from 'react-redux';
+import { addUserPet } from 'redux/user/user-operations';
 
 export const AddPetForm = () => {
 	const { register, handleSubmit } = useForm();
-
+	const dispatch = useDispatch();
 	const [isfirstPage, setIsFirstPage] = useState(true);
 
 	const onTogglePage = () => {
 		setIsFirstPage(prev => !prev);
 	};
 
-	const onCloseModal = e => {
+	const onCloseModal = () => {
 		console.log('nado global state zakritie modalki');
 	};
+
 	const onSubmit = ({ petName, petBirth, petBreed, petUpload, petComment }) => {
-		let data = { petName, petBirth, petBreed, petUpload, petComment };
-		console.log('mydata', data);
+		const newPet = new FormData();
+		newPet.append('name', petName);
+		newPet.append('birthday', petBirth);
+		console.log('newPet', newPet);
+		newPet.append('breed', petBreed);
+		newPet.append('comments', petComment);
+		newPet.append('avatarURL', petUpload[0]);
+		console.log(petName, petBirth, petBreed, petUpload, petComment);
+		dispatch(addUserPet(newPet));
 	};
 
 	return (
