@@ -51,8 +51,8 @@ export const inputOptions = {
 		placeholder: 'Phone',
 		required: true,
 		requiredMessage: 'Enter your phone, please',
-		pattern: /^\+?3?8?(0[5-9][0-9]\d{7})$/i,
-		patternMessage: 'Phone format: +38 0971234567',
+		pattern: /^(0[5-9][0-9]\d{7})$/i,
+		patternMessage: 'Phone format: 0971234567',
 	},
 };
 

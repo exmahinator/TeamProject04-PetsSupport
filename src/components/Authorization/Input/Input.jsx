@@ -20,8 +20,7 @@ export const Input = ({ settings, register, errors, inputRef = null, }) => {
 
 	return (
 		<div className={styles.inputWrapper}>
-            <input
-                
+            <input               
 				id={name}
 				className={type=== 'tel' ? styles.inputTel: styles.input}
 				type={inputType}
