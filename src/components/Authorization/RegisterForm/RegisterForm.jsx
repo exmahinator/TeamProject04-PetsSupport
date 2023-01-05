@@ -32,10 +32,7 @@ export const RegisterForm = () => {
 		handleSubmit,
 		watch,
 		formState: { errors, isValid },
-	} = useForm({
-		mode: 'onBlur',
-		defaultValues: defaultValuesFromSessionStorage,
-	});
+	} = useForm({mode: 'onBlur',defaultValues: defaultValuesFromSessionStorage,});
 
 	const password = useRef({});
 	password.current = watch('password', '');
