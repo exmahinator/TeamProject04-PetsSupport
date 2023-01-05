@@ -6,7 +6,11 @@
 
   @include media(tablet) {
     flex-direction: row;
-    flex-wrap: wrap;
     gap: 32px;
+  }
+
+  @include media(desktop) {
+    flex-direction: row;
+    gap: 16px;
   }
 }
