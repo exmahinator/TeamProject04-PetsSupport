@@ -21,14 +21,14 @@ export const UserEmail = ({
 				placeholder={email}
 				id={heading}
 				value={userInput}
-				disabled={isDisabled}
+			
 				onChange={onChange}
 			/>
 			<button
 				className={style.user__button}
 				type="button"
 				onClick={editUserData}
-				disabled={isDisabled}
+			
 			>
 				{edited ? (
 					<ApproveIcon fill="currentColor" width="20px" height="20px" />
