@@ -22,7 +22,7 @@ export const inputOptions = {
 		type: 'password',
 		placeholder: 'Confirm Password',
 		required: true,
-		requiredMessage: 'Confirm your password, please',
+		requiredMessage: 'Confirm your password',
 		confirmPassword: true,
 		// pattern: /^\S{7,32}$/i,
 		// patternMessage: 'Min 7 max 32 symbols'
