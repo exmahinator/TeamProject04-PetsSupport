@@ -1,0 +1,120 @@
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
+
+.heading{
+  margin-bottom: 20px;
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: -0.01em;
+
+  /* Черный */
+
+  color: #111111;
+}
+.paragraph{
+  font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 26px;
+
+color: #111111;
+}
+
+.input{
+  margin-bottom: 16px;
+  width: 100%;
+  height: 40px;
+
+	padding: 10px 15px;
+
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 19px;
+
+	border: 1px solid $accent-color;
+	color: $primary-text-color;
+	background-color: $primary-bg-color;
+	border-radius: 40px;
+	outline-color: $accent-color;
+}
+
+.label{
+	@include flex(flex-start, flex-start);
+	flex-direction: column;
+	gap: 8px;
+
+	&__text {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 1.4;
+		color: $primary-text-color;
+	}
+
+}
+
+.radioWraper{
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.radioLabel{
+  @include flex(flex-start, flex-start);
+  flex-direction: column;
+  margin-right: 40px;
+}
+
+.radioP{
+  margin-bottom: 16px;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 26px;
+
+color: #000000;
+}
+
+
+.customLabel {
+  cursor: pointer;
+}
+
+.customInput {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.customSpan{
+  margin-top: 12px;
+  font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 26px;
+
+color: #000000;
+}
+
+.crossWrapper{
+  @include flex(center, center);
+  margin-bottom: 28px;
+
+	width: 116px;
+	height: 116px;
+	border-radius: 20px;
+	background-color: $primary-bg-color;
+}
+
+.buttonWrap{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px;
+}
