@@ -142,7 +142,7 @@ export const Modal = ({
 
 // ? Add this in your component code!!!!!!!!!!!!!!!!!
 
-// import React, { useEffect } from 'react';
+// import React, { useEffect ,useState} from 'react';
 // import { useState } from 'react';
 
 // const [isShowModal, setIsShowModal] = useState(false);
