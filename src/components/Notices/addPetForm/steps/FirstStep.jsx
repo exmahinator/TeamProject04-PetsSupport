@@ -8,7 +8,7 @@ export const FirstStep = ({ register, nextPage, onCloseModal }) => {
 			<p className={styles.heading}>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur </p>
 			<NoticesCategories categories={'short'}/>
 			<label htmlFor="petTitle" className={styles.label}>
-				<p className={styles.paragraph}>Tittle of ad</p>
+				<p className={styles.label__text}>Tittle of ad</p>
 				<input
 					{...register('petTitle')}
 					type="text"
@@ -18,7 +18,7 @@ export const FirstStep = ({ register, nextPage, onCloseModal }) => {
 				/>
 			</label>
 			<label htmlFor="petName" className={styles.label}>
-				<p className={styles.paragraph}>Name pet</p>
+				<p className={styles.label__text}>Name pet</p>
 				<input
 					type="text"
 					{...register('petName')}
@@ -28,7 +28,7 @@ export const FirstStep = ({ register, nextPage, onCloseModal }) => {
 				/>
 			</label>
 			<label htmlFor="petBirth" className={styles.label}>
-				<p className={styles.paragraph}>Date of birth</p>
+				<p className={styles.label__text}>Date of birth</p>
 				<input
 					type="text"
 					{...register('petBirth')}
@@ -38,7 +38,7 @@ export const FirstStep = ({ register, nextPage, onCloseModal }) => {
 				/>
 			</label>
 			<label htmlFor="petname" className={styles.label}>
-				<p className={styles.paragraph}>Breed</p>
+				<p className={styles.label__text}>Breed</p>
 				<input
 					type="text"
 					{...register('petBreed')}

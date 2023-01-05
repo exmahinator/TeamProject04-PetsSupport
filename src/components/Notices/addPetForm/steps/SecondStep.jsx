@@ -2,11 +2,11 @@ import { ReactComponent as MaleSvg } from 'shared/images/Notices/el_male.svg';
 import { ReactComponent as FemaleSvg } from 'shared/images/Notices/el_female.svg';
 import { ReactComponent as UploadCross } from 'shared/images/user/uploadCross.svg';
 import { Button } from 'components/Reuse/Button/Button';
-import styles from '../NoticesAddPetForm.module.scss';
+import styles from '../NoticesAddPetForm.module.scss'
 
 export const SecondStep = ({ register, onSubmit, downPage }) => {
 	return (
-		<>
+		<div>
 			<div>
 				<p className={styles.radioP}>The sex*:</p>
 				<div className={styles.radioWraper}>
@@ -33,7 +33,7 @@ export const SecondStep = ({ register, onSubmit, downPage }) => {
 				</div>
 			</div>
 			<label htmlFor="petLocation" className={styles.label}>
-				<p className={styles.paragraph}>Location*:</p>
+				<p className={styles.label__text}>Location*:</p>
 				<input
 					type="text"
 					{...register('petLocation')}
@@ -43,7 +43,7 @@ export const SecondStep = ({ register, onSubmit, downPage }) => {
 				/>
 			</label>
 			<label htmlFor="petPrice" className={styles.label}>
-				<p className={styles.paragraph}>Price*:</p>
+				<p className={styles.label__text}>Price*:</p>
 				<input
 					type="text"
 					{...register('petPrice')}
@@ -53,7 +53,7 @@ export const SecondStep = ({ register, onSubmit, downPage }) => {
 				/>
 			</label>
 			<label htmlFor="petImg" className={styles.customLabel}>
-				<p className={styles.paragraph}>Load the pets image</p>
+				<p className={styles.label__text}>Load the pets image</p>
 				<input
 					type="file"
 					{...register('petImg')}
@@ -65,7 +65,7 @@ export const SecondStep = ({ register, onSubmit, downPage }) => {
 				</div>
 			</label>
 			<label htmlFor="comments" className={styles.label}>
-				<p className={styles.paragraph}>Comments</p>
+				<p className={styles.label__text}>Comments</p>
 				<input
 					type="text"
 					{...register('comments')}
@@ -92,6 +92,6 @@ export const SecondStep = ({ register, onSubmit, downPage }) => {
 					onClickFunc={downPage}
 				/>
 			</div>
-		</>
+		</div>
 	);
 };
