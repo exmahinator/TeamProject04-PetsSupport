@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from 'redux/auth/auth-operations';
 import { getUserData, removeUserPet } from 'redux/user/user-operations';
@@ -20,7 +20,30 @@ const UserPage = () => {
 	const dispatch = useDispatch();
 
 	useMemo(() => dispatch(getUserData()), [dispatch]);
+	const [isShowModal, setIsShowModal] = useState(false);
 
+	const onClose = () => {
+		setIsShowModal(false);
+	};
+
+	useEffect(() => {
+		const handeleClickDown = e => {
+			if (e.code === 'Escape') {
+				onClose();
+			}
+		};
+		window.addEventListener('keydown', handeleClickDown);
+		return () => {
+			window.removeEventListener('keydown', handeleClickDown);
+		};
+		// eslint-disable-next-line
+	}, []);
+
+	const handleBackdropClick = e => {
+		if (e.currentTarget === e.target) {
+			onClose();
+		}
+	};
 	const onLogOut = () => {
 		dispatch(logout());
 		console.log('logout success');
@@ -52,9 +75,15 @@ const UserPage = () => {
 			<div className={style.desktop}>
 				<div className={style.tablet}>
 					<Title title="My pets:" className={style.title} />
-					<Modal textBtn={'Add pet'} btnType={'circle-info'}>
-						<Title title={'Add pet'} className={style.titleUpload} />
-						<AddPetForm />
+
+					<Modal
+						btnType={userPets?.length ? 'circle-info' : 'empty'}
+						isShowModal={isShowModal}
+						setIsShowModal={setIsShowModal}
+						handleBackdropClick={handleBackdropClick}
+					>
+						<Title title={'Add Pet'} className={style.titleUpload} />
+						<AddPetForm onCloseModal={onClose} />
 					</Modal>
 				</div>
 				<Card userPets={userPets} onDeletePet={onDeletePet} />
