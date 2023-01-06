@@ -2,78 +2,107 @@
 
 @import 'src/shared/styles/mixins.scss';
 
-@include media(mobile) {}
-
-@include media(tablet) {}
-
-@include media(desktop) {}
-
-.backImg{
-	position: relative;
-    // height: 100vh;
-	height: calc(100vh - 58px);
-    width: 100vw;
-    background: url(../../shared/images/Home/phoneFone.png) center/contain no-repeat;
-    background-position: bottom;
-
-    @include media(tablet) {
-	height:calc(100vh - 68px);
-        background: url(../../shared/images/Home/Vector.png) center/contain no-repeat;
-        background-position: bottom;
+@include media(mobile) {
 }
-@media (min-width: 1000px) {
-            // height: 100px;
-        background-size: 70%
-        }
 
-@include media(desktop) {background: url(../../shared/images/Home/desktopFone.png) center/contain no-repeat;
-    background-position: bottom;}
-}
-.img{
-    position: absolute;
-    // height: 100vh;
-    width: 100vw;
-	height: calc(100vh - 58px);
-    background: url(../../shared/images/Home/desktopImg.png) center/contain no-repeat;
-    background-position: bottom;
 @include media(tablet) {
-	height: calc(100vh - 68px);
-    background: url(../../shared/images/Home/desktopImg.png) center/contain no-repeat;
-    background-position: bottom center;
-    height: 100vh;
-    width: 100vw;
-        // background-size: 80%
-    }
-
-        @media (min-width: 1000px) {
-            // height: 100px;
-            background-size: 50%;
-            background-position: bottom right;
-        }
+}
 
 @include media(desktop) {
-    background: url(../../shared/images/Home/desktopImg.png) center/contain no-repeat;
-        background-position: bottom;
 }
-}
-.text{
-    font-weight: 700;
-        font-size: 32px;
-        line-height: 44px;
-        color: #000000;
 
-            text-align: initial;
-                padding-top: 62px;
-@include media(tablet) {
-    font-weight: 700;
-    font-size: 68px;
-    line-height: 100px;
-    margin-right: 115px;
-    padding-top: 92px;
+.headerSection {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
 }
-                
+
+.headerImgBox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 58px;
+}
+
+.headerImg {
+	display: inline-flex;
+}
+
+.bckgImg {
+	position: absolute;
+	height: 100vh;
+	height: calc(100vh - 58px);
+	width: 100vw;
+	max-width: 620px;
+	width: 100%;
+	background: url(../../shared/images/Home/phoneFone.png) center/contain
+		no-repeat;
+	background-position: bottom;
+
+	@include media(tablet) {
+		height: calc(100vh - 68px);
+		background: url(../../shared/images/Home/Vector.png) center/contain
+			no-repeat;
+		background-position: bottom;
+	}
+	@media (min-width: 1000px) {
+		// height: 100px;
+		background-size: 70%;
+	}
+
+	@include media(desktop) {
+		background: url(../../shared/images/Home/desktopFone.png) center/contain
+			no-repeat;
+		background-position: bottom;
+	}
+}
+// .img {
+// 	// position: absolute;
+// 	width: 100vw;
+// 	max-width: 320px;
+// 	height: calc(100vh - 58px);
+// 	background: url(../../shared/images/Home/desktopImg.png) center/contain
+// 		no-repeat;
+// 	// bottom: 0;
+// 	// left: 0;
+// 	@include media(tablet) {
+// 		height: calc(100vh - 68px);
+// 		background: url(../../shared/images/Home/desktopImg.png) center/contain
+// 			no-repeat;
+// 		background-position: bottom center;
+// 		width: 100vw;
+// 	}
+
+// 	@media (min-width: 1000px) {
+// 		background-size: 50%;
+// 		background-position: bottom right;
+// 	}
+
+// 	@include media(desktop) {
+// 		background: url(../../shared/images/Home/desktopImg.png) center/contain
+// 			no-repeat;
+// 		background-position: bottom;
+// 	}
+// }
+.text {
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 44px;
+	color: #000000;
+
+	text-align: initial;
+	padding-top: 62px;
+	@include media(tablet) {
+		font-weight: 700;
+		font-size: 68px;
+		line-height: 100px;
+		margin-right: 115px;
+		padding-top: 92px;
+	}
 }
 
 // .heart{
-    
+
 // }
