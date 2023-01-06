@@ -2,7 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { Modal } from 'components/Reuse/Modal/Modal';
 import styles from './LearnMore.module.scss';
 
-const LearnMore = ({ imageURL, title, comments, category }) => {
+const LearnMore = ({
+	imageURL,
+	title,
+	comments,
+	category,
+	name,
+	birthday,
+	breed,
+	location,
+	sex,
+  email,
+  phone,
+}) => {
 	const [isShowModal, setIsShowModal] = useState(false);
 
 	const onClose = () => {
@@ -36,60 +48,62 @@ const LearnMore = ({ imageURL, title, comments, category }) => {
 				handleBackdropClick={handleBackdropClick}
 			>
 				<div className={styles.wrapper}>
-        <div className={styles.flexBox}>
-					<div className={styles.pctWrap}>
-						<img
-							className={styles.pictures}
-							src={imageURL}
-							alt={title}
-							title={title}
-						/>
-						<div className={styles.categoriesWrap}>
-							<p className={styles.categories}>{category}</p>
-						</div>
-					</div>
-					<div>
-						<div className={styles.heading}>
-							<h2>{title}</h2>
+					<div className={styles.flexBox}>
+						<div className={styles.wrap}>
+							<img
+								className={styles.wrap__pictures}
+								src={imageURL}
+								alt={title}
+								title={title}
+							/>
+							<div className={styles.catWrap}>
+								<p className={styles.catWrap__categories}>{category}</p>
+							</div>
 						</div>
 						<div>
-							<ul className={styles.list}>
-								<li className={styles.item}>
-									<p className={styles.desc}>Name:</p>
-									<p>name</p>
-								</li>
-								<li className={styles.item}>
-									<p className={styles.desc}>Birthday:</p>
-									<p>birthday</p>
-								</li>
-								<li className={styles.item}>
-									<p className={styles.desc}>Breed:</p>
-									<p>breed</p>
-								</li>
-								<li className={styles.item}>
-									<p className={styles.desc}>Place:</p>
-									<p>location</p>
-								</li>
-								<li className={styles.item}>
-									<p className={styles.desc}>The sex:</p>
-									<p>sex</p>
-								</li>
-								<li className={styles.item}>
-									<p className={styles.desc}>Email:</p>
-									<p>price</p>
-								</li>
-								<li className={styles.item}>
-									<p className={styles.desc}>Phone:</p>
-									<p>price</p>
-								</li>
-							</ul>
+							<div className={styles.heading}>
+								<h2 className={styles.heading__title}>{title}</h2>
+							</div>
+							<div>
+								<ul className={styles.list}>
+									<li className={styles.list__item}>
+										<p className={styles.desc}>Name:</p>
+										<p className={styles.desc__paragraph}>{name}</p>
+									</li>
+									<li className={styles.list__item}>
+										<p className={styles.desc}>Birthday:</p>
+										<p className={styles.desc__paragraph}>{birthday}</p>
+									</li>
+									<li className={styles.list__item}>
+										<p className={styles.desc}>Breed:</p>
+										<p className={styles.desc__paragraph}>{breed}</p>
+									</li>
+									<li className={styles.list__item}>
+										<p className={styles.desc}>Place:</p>
+										<p className={styles.desc__paragraph}>{location}</p>
+									</li>
+									<li className={styles.list__item}>
+										<p className={styles.desc}>The sex:</p>
+										<p className={styles.desc__paragraph}>{sex}</p>
+									</li>
+									<li className={styles.list__item}>
+										<p className={styles.desc}>Email:</p>
+										<p className={styles.desc__paragraph}>{email ?? '-'}</p>
+									</li>
+									<li className={styles.list__item}>
+										<p className={styles.desc}>Phone:</p>
+										<p className={styles.desc__paragraph}>{phone ?? '-'}</p>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				<div className={styles.commen}>
-          <h2>`Comments: ${comments}`</h2>
-        </div>
+					<div className={styles.commen}>
+						<p className={styles.commen__paragraph}>
+              <span className={styles.commen__span}>Comments: </span>{comments}
+            </p>
+					</div>
 				</div>
-        </div>
 			</Modal>
 		</>
 	);

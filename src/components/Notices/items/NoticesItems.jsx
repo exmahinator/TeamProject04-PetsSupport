@@ -15,6 +15,8 @@ const NoticesItems = ({
 	imageURL,
 	comments,
 	owner,
+  email,
+  phone,
 }) => {
 	return (
 		<div className={styles.wrapper}>
@@ -60,7 +62,20 @@ const NoticesItems = ({
 				</div>
 				<ul className={styles.btnContainer}>
 					<li>
-						<LearnMore imageURL={imageURL} title={title} comments={comments} category={category}/>
+						<LearnMore
+							imageURL={imageURL}
+							title={title}
+							comments={comments}
+							category={category}
+							name={name}
+							birthday={birthday}
+							breed={breed}
+							location={location}
+              sex={sex}
+              price={price}
+              email={email}
+              phone={phone}
+						/>
 					</li>
 					<li>
 						<Button text={'Delete'} type={'white'} />
