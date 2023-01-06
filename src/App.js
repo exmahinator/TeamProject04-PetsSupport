@@ -1,4 +1,5 @@
 // import { PrivateRoute } from 'components/Routes/PrivateRoute/PrivateRoute';
+import NoticesList from 'components/Notices/list/NoticesList';
 import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -35,16 +36,31 @@ function App() {
 				<Route path="/" element={<SharedLayout />}>
 					<Route index element={<HomePage />} />
 					<Route path="news" element={<NewsPage />} />
-					<Route path="notices" element={<NoticesPage />} />
 					<Route path="friends" element={<OurFriendsPage />} />
 					<Route path="register" element={<RegisterPage />} />
 					<Route path="login" element={<LoginPage />} />
 					<Route path="user" element={<UserPage />} />
 
+					<Route path="notices" element={<NoticesPage />}>
+						<Route path="sell" element={<NoticesList category="sell" />} />
+						<Route
+							path="lost-found"
+							element={<NoticesList category="lost" />}
+						/>
+						<Route
+							path="for-free"
+							element={<NoticesList category="goodhands" />}
+						/>
+						<Route
+							path="favorite"
+							element={<NoticesList category="favorite" />}
+						/>
+						<Route path="own" element={<NoticesList category="own" />} />
+					</Route>
+
 					{/* <Route element={<PrivateRoute />}>
 						<Route path="user" element={<UserPage />} />
 					</Route> */}
-
 					<Route path="*" element={<Navigate to="/" />} />
 				</Route>
 			</Routes>
