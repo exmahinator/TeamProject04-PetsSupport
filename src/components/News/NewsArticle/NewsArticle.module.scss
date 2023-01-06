@@ -1,0 +1,22 @@
+@import 'shared/styles/_variables.scss';
+@import 'shared/styles/_mixins.scss';
+
+.article::before {
+	content: '';
+	display: block;
+	width: 200px;
+	height: 10px;
+	margin-bottom: 5px;
+
+	border-radius: 40px;
+	background-image: linear-gradient(
+		(to right, rgba(255, 99, 78, 1), rgba(255, 223, 72, 1))
+	);
+
+	@include media(tablet) {
+		width: 280px;
+	}
+	@include media(desktop) {
+		width: 340px;
+	}
+}

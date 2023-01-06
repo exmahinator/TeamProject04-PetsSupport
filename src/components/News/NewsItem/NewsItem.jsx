@@ -1,18 +1,16 @@
-import { NewsLink } from "../NewsLink/NewsLink"
-import styles from './NewsItem.module.scss'
+import { NewsArticle } from "../NewsArticle/NewsArticle"
+import { NewsDetails } from "../NewsDetails/NewsDetails"
+import { NewsHeading } from "../NewsHeading/NewsHeading"
+
 
 export const NewsItem = ({ data: {title, text, link, date} }) => {
     return (
         <div>
-            <article>
-                <h4>{ title}</h4>
+            <NewsArticle>
+                <NewsHeading>{title}</NewsHeading>
                 <p>{text}</p>
-                <div className={styles.details}>
-
-                <span >{ date}</span>
-                <NewsLink link={link}/>
-                </div>
-            </article>
+                <NewsDetails date={ date} link={link} />
+            </NewsArticle>
         </div>
     )
 }
