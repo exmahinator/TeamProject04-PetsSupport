@@ -9,7 +9,6 @@ const NoticesList = ({notices}) => {
 
 	return (
 		<ul className={styles.wrapper}>
-			{/* <NoticesItems/> */}
 			{notices.map(
 				({
 					_id : id,
