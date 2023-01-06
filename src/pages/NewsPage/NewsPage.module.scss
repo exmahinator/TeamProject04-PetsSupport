@@ -1,0 +1,12 @@
+@import 'shared/styles/mixins.scss';
+
+.section {
+	padding: 40px 0;
+
+	@include media(tablet) {
+		padding: 90px 0;
+	}
+	@include media(desktop) {
+		padding: 60px 0;
+	}
+}

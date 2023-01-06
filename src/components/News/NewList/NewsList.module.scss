@@ -1,0 +1,33 @@
+@import 'shared/styles/mixins.scss';
+
+.wrapper {
+	width: 100%;
+	max-width: 280px;
+    margin: 0 auto;
+	@include media(tablet) {
+		width: 704px;
+		max-width: 704px;
+	}
+
+	@include media(desktop) {
+		width: 1248px;
+		max-width: 1248px;
+	}
+}
+
+.list {
+	display: grid;
+	grid-template-columns: 280px;
+	row-gap: 40px;
+    margin-top: 40px;
+	@include media(tablet) {
+        margin-top: 60px;
+		grid-template-columns: 336px 336px;
+		row-gap: 60px;
+		column-gap: 32px;
+	}
+	@include media(desktop) {
+		display: grid;
+		grid-template-columns: 395px 395px 395px;
+	}
+}

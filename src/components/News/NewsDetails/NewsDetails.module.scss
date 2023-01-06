@@ -1,0 +1,10 @@
+@import 'shared/styles/_variables.scss';
+
+.details {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.date{
+    color: $third-bg-color;
+}

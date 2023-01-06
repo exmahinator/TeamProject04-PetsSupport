@@ -49,6 +49,7 @@
 	}
 }
 .wrapper {
+	text-align: center;
 	@include media(tablet) {
 		position: absolute;
 		top: 45%;
@@ -73,7 +74,12 @@
 }
 
 .form {
+	width: 280px;
 	padding: 40px 0;
+
+		@include media('tablet') {
+				width: 460px;
+			}
 }
 
 .linkText {
