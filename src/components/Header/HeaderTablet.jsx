@@ -8,7 +8,7 @@ import { ReactComponent as Strips } from 'shared/images/Burger/Strips.svg';
 import { ReactComponent as Cross } from 'shared/images/Burger/Cross.svg';
 
 export const HeaderTablet = () => {
-	const isAuth = false;
+	const isAuth = true;
 	const [isOpen, setIsOpen] = useState(false);
 	const toggleMenu = () => {
 		setIsOpen(isOpen => !isOpen);

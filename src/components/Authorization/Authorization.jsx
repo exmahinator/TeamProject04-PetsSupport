@@ -6,6 +6,7 @@ import { Subtitle } from 'components/Reuse/Title/Subtitle';
 import { LoginForm } from './LoginForm/LoginForm';
 import { RegisterForm } from './RegisterForm/RegisterForm';
 import { getAuthFormContent } from './getAuthFormContent';
+// import { Container } from 'components/Reuse/Container/Container';
 
 export const Authorization = ({ type}) => {
 
@@ -13,6 +14,8 @@ export const Authorization = ({ type}) => {
 
   return (
     <section className={styles.section}>
+      {/* <Container> */}
+
           <div className={styles.container}>
               <div className={styles.wrapper}>
                   
@@ -21,6 +24,7 @@ export const Authorization = ({ type}) => {
               <span className={styles.linkText}>{ content.navigateMessage}</span>
               <Link className={styles.link} to={content.navigatePath}>{ content.linkText}</Link>
               </div>
+      {/* </Container> */}
       </div>
     </section>
   );
