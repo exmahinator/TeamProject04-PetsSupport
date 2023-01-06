@@ -1,0 +1,91 @@
+@import 'src/shared/styles/mixins.scss';
+
+
+.wrapper {
+  @include flex(center, center);
+  width: 240px;
+  outline: 2px solid tomato;
+
+  @include media(tablet) {
+    width: 336px;
+  }
+
+  @include media(desktop) {
+    width: 288px;
+  }
+}
+
+
+.flexBox{
+  margin-bottom: 28px;
+
+  @include media(tablet) {
+    display: flex;
+  }
+}
+
+.pctWrap {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  padding-top: 20px;
+
+  @include media(tablet) {
+    width: 288px;
+    height: 328px;
+    margin-right: 20px;
+  }
+}
+
+.pictures {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+
+.categoriesWrap{
+  @include flex(center, center);
+  position: absolute;
+  left: 0;
+  top: 20px;
+
+  padding: 6px 50px 6px 20px;
+
+  border: none;
+  border-radius: 0px 100px 100px 0px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.categories{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+
+  color: #111111;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.item {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.desc{
+  outline: 2px solid tomato;
+  width: 120px;
+}

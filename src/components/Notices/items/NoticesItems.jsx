@@ -1,7 +1,6 @@
 import styles from './NoticesItems.module.scss';
 import { ReactComponent as NoticesHartSvg } from 'shared/images/Notices/Notices-hart.svg';
 import { Button } from 'components/Reuse/Button/Button';
-import { Modal } from 'components/Reuse/Modal/Modal';
 import LearnMore from '../learnMore/LearnMore';
 
 const NoticesItems = ({
@@ -61,7 +60,7 @@ const NoticesItems = ({
 				</div>
 				<ul className={styles.btnContainer}>
 					<li>
-						<LearnMore imageURL={imageURL} title={title} />
+						<LearnMore imageURL={imageURL} title={title} comments={comments} category={category}/>
 					</li>
 					<li>
 						<Button text={'Delete'} type={'white'} />

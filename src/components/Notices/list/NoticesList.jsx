@@ -37,7 +37,7 @@ const NoticesList = ({notices}) => {
 						imageURL={imageURL}
 						comments={comments}
 						owner={owner}
-					/>;
+					/>
 					</li>
 				)
 			)}
