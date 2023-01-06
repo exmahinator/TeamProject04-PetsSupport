@@ -34,9 +34,8 @@ const userSlice = createSlice({
 			store.error = null;
 		},
 		[updateUserData.fulfilled]: (store, { payload }) => {
-			const { user } = payload;
 			store.loading = false;
-			store.user = { ...store.user, user };
+			store.user = { ...store.user, ...payload.user };
 		},
 		[updateUserData.rejected]: (store, { payload }) => {
 			store.loading = false;

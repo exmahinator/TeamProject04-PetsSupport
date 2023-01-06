@@ -11,7 +11,7 @@ export const Card = ({ userPets, onDeletePet }) => {
 			<ul className={style.card__list}>
 				{userPets?.map(
 					({ avatarURL, _id, owner, createdAt, updatedAt, ...userPets }) => (
-						<li key={_id} className={style.card__item}>
+						<li key={createdAt} className={style.card__item}>
 							<CardImg petImg={avatarURL} />
 							<TrashButton id={_id} onDeletePet={onDeletePet} />
 							<CardMarkUp cardData={userPets} id={_id} />
