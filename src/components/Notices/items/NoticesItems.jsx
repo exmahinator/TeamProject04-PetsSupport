@@ -15,52 +15,73 @@ const NoticesItems = ({
 	imageURL,
 	comments,
 	owner,
+	email,
+	phone,
 }) => {
+
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.pctWrap}>
 				<img
-					className={styles.pictures}
+					className={styles.pctWrap__pictures}
 					src={imageURL}
 					alt={title}
 					title={title}
 				/>
-				<button className={styles.svgWrap}>
-					<NoticesHartSvg />
-				</button>
-				<div className={styles.categoriesWrap}>
-					<p className={styles.categories}>{category}</p>
+
+				<div className={styles.likeWrap}>
+					<button className={styles.likeWrap__button}>
+						<NoticesHartSvg className={styles.likeWrap__svg}/>
+					</button>
 				</div>
+
+				<div className={styles.categor}>
+					<p className={styles.categor__paragraph}>{category}</p>
+				</div>
+
 			</div>
-			<div>
+			<div className={styles.boxWrap}>
 				<div className={styles.heading}>
-					<h2>{title}</h2>
+					<h2 className={styles.heading__title}>{title}</h2>
 				</div>
-				<div className={styles.paragraph}>
+
+				<div>
 					<ul className={styles.list}>
-						<li className={styles.item}>
-							<p className={styles.desc}>Breed:</p>
-							<p>{breed}</p>
+						<li className={styles.list__item}>
+							<p className={styles.list__paragraph}>Breed:</p>
+							<p className={styles.list__span}>{breed}</p>
 						</li>
-						<li className={styles.item}>
-							<p className={styles.desc}>Place:</p>
-							<p>{location}</p>
+						<li className={styles.list__item}>
+							<p className={styles.list__paragraph}>Place:</p>
+							<p className={styles.list__span}>{location}</p>
 						</li>
-						<li className={styles.item}>
-							<p className={styles.desc}>Age:</p>
-							<span>&nbsp;&nbsp;&nbsp;</span>
-							<p>{birthday}</p>
+						<li className={styles.list__item}>
+							<p className={styles.list__paragraph}>Age:</p>
+							<p className={styles.list__span}>{birthday}</p>
 						</li>
-						<li className={styles.item}>
-							<p className={styles.desc}>Price:</p>
-							<span>&nbsp;</span>
-							<p>{price}</p>
+						<li className={styles.list__item}>
+							<p className={styles.list__paragraph}>Price:</p>
+							<p className={styles.list__span}>{price ?? '-'}</p>
 						</li>
 					</ul>
 				</div>
+
 				<ul className={styles.btnContainer}>
 					<li>
-						<LearnMore imageURL={imageURL} title={title} comments={comments} category={category}/>
+						<LearnMore
+							imageURL={imageURL}
+							title={title}
+							comments={comments}
+							category={category}
+							name={name}
+							birthday={birthday}
+							breed={breed}
+							location={location}
+							sex={sex}
+							price={price}
+							email={email}
+							phone={phone}
+						/>
 					</li>
 					<li>
 						<Button text={'Delete'} type={'white'} />

@@ -8,7 +8,6 @@ import NoticesItems from '../items/NoticesItems';
 import styles from './NoticesList.module.scss';
 
 
-
 const NoticesList = ({ category }) => {
 	const isLogin = useAuth();
 	const dispatch = useDispatch();
@@ -50,9 +49,9 @@ const NoticesList = ({ category }) => {
 	//ну и дальше пишите логику на удаление, добавление и тд по тз, вам осталось играться и сравнивать info, notices и favorite 
 
 	console.log('notices', notices[0])
+
 	return (
 		<ul className={styles.wrapper}>
-			{/* <NoticesItems/> */}
 			{notices.map(
 				({
 					_id : id,
@@ -67,6 +66,8 @@ const NoticesList = ({ category }) => {
 					imageURL,
 					comments,
 					owner,
+					email,
+					phone,
 				}) => (
 					<li key={id}>
 						<NoticesItems
@@ -81,6 +82,8 @@ const NoticesList = ({ category }) => {
 						imageURL={imageURL}
 						comments={comments}
 						owner={owner}
+						email={email}
+						phone={phone}
 					/>
 					</li>
 				)
