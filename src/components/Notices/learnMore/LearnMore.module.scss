@@ -1,9 +1,10 @@
 @import 'src/shared/styles/mixins.scss';
 
+
 .wrapper {
-  width: 280px;
-  height: 606px;
-  margin-bottom: 32px;
+  @include flex(center, center);
+  width: 240px;
+  outline: 2px solid tomato;
 
   @include media(tablet) {
     width: 336px;
@@ -14,57 +15,34 @@
   }
 }
 
-.heading {
-  padding: 20px;
-}
 
-.paragraph {
-  padding-left: 20px;
-}
+.flexBox{
+  margin-bottom: 28px;
 
-.list {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
-}
-
-.item {
-  display: flex;
-}
-
-.desc {
-  margin-right: 40px;
+  @include media(tablet) {
+    display: flex;
+  }
 }
 
 .pctWrap {
   position: relative;
-  height: 288px;
+  width: 240px;
+  height: 240px;
+  padding-top: 20px;
 
+  @include media(tablet) {
+    width: 288px;
+    height: 328px;
+    margin-right: 20px;
+  }
 }
 
 .pictures {
-  width: 100%;
+  display: block;
+  position: relative;
   height: 100%;
-}
-
-.btnContainer {
-  @include flex(center, center);
-  gap: 10px;
-}
-
-.svgWrap{
-  @include flex(center, center);
-  position: absolute;
-  top: 12px;
-  right: 12px;
-
-  width: 44px;
-  height: 44px;
-
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(2px);
+  width: 100%;
+  object-fit: fill;
 }
 
 .categoriesWrap{
@@ -94,4 +72,20 @@
   letter-spacing: 0.04em;
 
   color: #111111;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.item {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.desc{
+  outline: 2px solid tomato;
+  width: 120px;
 }
