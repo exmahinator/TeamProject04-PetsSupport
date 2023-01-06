@@ -1,11 +1,9 @@
-import {useSelector} from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { isAuth } from "../../redux/auth/auth-selectors";
+import { isAuth } from '../../redux/auth/auth-selectors';
 
-const useAuth = () => {
-    const result = useSelector(isAuth);
+export const useAuth = () => {
+	const result = useSelector(isAuth);
 
-    return result;
-}
-
-export default useAuth;
+	return result;
+};
