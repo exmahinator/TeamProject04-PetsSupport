@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a19d7762.css",
-    "main.js": "/static/js/main.14ce8321.js",
+    "main.css": "/static/css/main.68ca266e.css",
+    "main.js": "/static/js/main.285b8229.js",
     "static/css/483.c66b5614.chunk.css": "/static/css/483.c66b5614.chunk.css",
     "static/js/483.28df1439.chunk.js": "/static/js/483.28df1439.chunk.js",
     "static/css/664.7494dfcd.chunk.css": "/static/css/664.7494dfcd.chunk.css",
@@ -13,20 +13,18 @@
     "static/js/589.a5bd612c.chunk.js": "/static/js/589.a5bd612c.chunk.js",
     "static/css/620.8c9c8ce4.chunk.css": "/static/css/620.8c9c8ce4.chunk.css",
     "static/js/620.0eb82778.chunk.js": "/static/js/620.0eb82778.chunk.js",
-    "static/css/156.6783d542.chunk.css": "/static/css/156.6783d542.chunk.css",
-    "static/js/156.1e18a482.chunk.js": "/static/js/156.1e18a482.chunk.js",
+    "static/css/156.27f07c66.chunk.css": "/static/css/156.27f07c66.chunk.css",
+    "static/js/156.331136d0.chunk.js": "/static/js/156.331136d0.chunk.js",
     "static/js/134.fdba3697.chunk.js": "/static/js/134.fdba3697.chunk.js",
     "static/media/anonymousCat.png": "/static/media/anonymousCat.6457419bd698bcac29a6.png",
     "static/media/desktop2x.png": "/static/media/desktop2x.33626cecb2a0b44c9282.png",
-    "static/media/tabletImg.png": "/static/media/tabletImg.c5391ec107cfb889c0ca.png",
-    "static/media/tabletFone.png": "/static/media/tabletFone.a820b862fcbb7ed75b85.png",
     "static/media/tablet2x.png": "/static/media/tablet2x.756639c67fb95f73dc0f.png",
     "static/media/desktopImg.png": "/static/media/desktopImg.f85fa7e542ac37519dfe.png",
+    "static/media/Vector.png": "/static/media/Vector.e2343cb67e5d07a62066.png",
     "static/media/anonymous.png": "/static/media/anonymous.fa54d86a79ecfaa0ec18.png",
     "static/media/desktop1x.png": "/static/media/desktop1x.529c3e8d17a0921a8839.png",
     "static/media/desktopFone.png": "/static/media/desktopFone.5052c39856040b625bda.png",
     "static/media/tablet1x.png": "/static/media/tablet1x.96b4ce279949e23c3403.png",
-    "static/media/phoneImg.png": "/static/media/phoneImg.1c7375b6924c0b2fef4d.png",
     "static/media/phoneFone.png": "/static/media/phoneFone.9f3ea92703de6e6ca988.png",
     "static/media/mobile2x.png": "/static/media/mobile2x.b9c95571829bbac69816.png",
     "static/media/mobile1x.png": "/static/media/mobile1x.f03cdf02d18bd79ab74d.png",
@@ -46,8 +44,8 @@
     "static/media/Strips.svg": "/static/media/Strips.bae7f4bb473254b8936094c436b34bd1.svg",
     "static/media/userApprove.svg": "/static/media/userApprove.971b81c11f94a02a5c9cd325a3d10d94.svg",
     "static/media/uploadCross.svg": "/static/media/uploadCross.9de411e96b1ce46c8028dbd57487ed39.svg",
-    "main.a19d7762.css.map": "/static/css/main.a19d7762.css.map",
-    "main.14ce8321.js.map": "/static/js/main.14ce8321.js.map",
+    "main.68ca266e.css.map": "/static/css/main.68ca266e.css.map",
+    "main.285b8229.js.map": "/static/js/main.285b8229.js.map",
     "483.c66b5614.chunk.css.map": "/static/css/483.c66b5614.chunk.css.map",
     "483.28df1439.chunk.js.map": "/static/js/483.28df1439.chunk.js.map",
     "664.7494dfcd.chunk.css.map": "/static/css/664.7494dfcd.chunk.css.map",
@@ -59,12 +57,12 @@
     "589.a5bd612c.chunk.js.map": "/static/js/589.a5bd612c.chunk.js.map",
     "620.8c9c8ce4.chunk.css.map": "/static/css/620.8c9c8ce4.chunk.css.map",
     "620.0eb82778.chunk.js.map": "/static/js/620.0eb82778.chunk.js.map",
-    "156.6783d542.chunk.css.map": "/static/css/156.6783d542.chunk.css.map",
-    "156.1e18a482.chunk.js.map": "/static/js/156.1e18a482.chunk.js.map",
+    "156.27f07c66.chunk.css.map": "/static/css/156.27f07c66.chunk.css.map",
+    "156.331136d0.chunk.js.map": "/static/js/156.331136d0.chunk.js.map",
     "134.fdba3697.chunk.js.map": "/static/js/134.fdba3697.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a19d7762.css",
-    "static/js/main.14ce8321.js"
+    "static/css/main.68ca266e.css",
+    "static/js/main.285b8229.js"
   ]
 }

@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkpets_support=self.webpackChunkpets_support||[]).push([[156],{6156:function(e,s,a){a.r(s),a.d(s,{default:function(){return o}});var c=a(7475),r=(a(2791),"HomePage_backImg__ocNaj"),t="HomePage_img__+gzTP",n="HomePage_text__XGIBu",u=a(3329),o=function(){return(0,u.jsx)("div",{className:r,children:(0,u.jsx)("div",{className:t,children:(0,u.jsx)(c.W,{children:(0,u.jsx)("h1",{className:n,children:"Take good care of your small pets"})})})})}}}]);
-//# sourceMappingURL=156.1e18a482.chunk.js.map
