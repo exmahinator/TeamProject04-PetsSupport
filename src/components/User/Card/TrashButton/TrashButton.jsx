@@ -3,18 +3,18 @@ import { useMediaQuery } from 'react-responsive';
 
 import style from './TrashButton.module.scss';
 
-export const TrashButton = () => {
+export const TrashButton = ({ id, onDeletePet }) => {
 	const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
-
-	const onDeletePet = e => {
-		e.preventDefault();
-		console.log('first');
-	};
 
 	return (
 		<>
 			{isTablet ? (
-				<button type="button" className={style.iconThumb} onClick={onDeletePet}>
+				<button
+					id={id}
+					type="button"
+					className={style.iconThumb}
+					onClick={id => onDeletePet(id)}
+				>
 					<TrashIcon
 						className={style.trashIcon}
 						fill="rgba(17, 17, 17, 0.6)"
@@ -23,7 +23,12 @@ export const TrashButton = () => {
 					/>
 				</button>
 			) : (
-				<button onClick={onDeletePet} type="button" className={style.iconThumb}>
+				<button
+					id={id}
+					onClick={id => onDeletePet(id)}
+					type="button"
+					className={style.iconThumb}
+				>
 					<TrashIcon
 						className={style.trashIcon}
 						fill="rgba(17, 17, 17, 0.6)"

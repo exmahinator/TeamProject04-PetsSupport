@@ -15,8 +15,12 @@
 11. Нагадую, що перед кожним своїм пушем:
 
 - спочатку прописуємо команди "git add .", "git commit -m '.....'", "git pull
-    origin main", "git push";
-    
+  origin main", "git push";
 - після цього тегаємо в чаті або в личку мене, щоб я знала, хто і що мені здав
 
 Для дотримання версій пишемо команду npm ci
+
+.env.local
+
+- REACT_APP_API_URL=http://localhost:3001/api
+- REACT_APP_BASE_URL=""
