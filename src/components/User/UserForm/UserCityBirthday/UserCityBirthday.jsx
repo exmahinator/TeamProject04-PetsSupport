@@ -36,14 +36,9 @@ export const UserCityBirthday = ({
 					<Galocka fill="currentColor" width="20px" height="20px" />
 				</button>
 			) : (
-				<button
-					type="button"
-					id="karadash"
-					className={style.user__button}
-					onClick={editUserData}
-				>
+				<div className={style.user__button} onClick={editUserData}>
 					<Karandash fill="currentColor" width="20px" height="20px" />
-				</button>
+				</div>
 			)}
 		</label>
 	);
