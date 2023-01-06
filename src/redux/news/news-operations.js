@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as api from '../../shared/api/news';
 
 export const getAllNews = createAsyncThunk(
-	'user/getAllNews',
+	'news/getAllNews',
 	async (_, { rejectWithValue }) => {
 		try {
 			const result = await api.getAllNews();

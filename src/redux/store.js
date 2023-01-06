@@ -15,6 +15,7 @@ import authReducer from './auth/auth-slice';
 import userReducer from './user/user-slice';
 import noticesReducer from './notices/notices-slice';
 import newsReducer from './news/news-slice';
+import servicesReducer from './services/services-slice';
 
 const persistConfig = {
 	key: 'token',
@@ -30,6 +31,7 @@ export const store = configureStore({
 		user: userReducer,
 		notices: noticesReducer,
 		news: newsReducer,
+		services: servicesReducer,
 	},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware({

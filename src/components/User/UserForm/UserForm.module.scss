@@ -35,15 +35,15 @@
 	margin-top: 20px;
 	padding: 0px 20px;
 	margin-bottom: 44px;
-
+	padding: 20px 16px 86px 12px;
 	background-color: $secondary-bg-color;
 	box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 	border-radius: 20px;
 
 	@include media('tablet') {
 		width: 736px;
-		margin: 0px 0px;
-		padding: 0px 0px;
+		margin-top: 0px;
+		padding: 40px 40px 54px 0px;
 		margin-bottom: 20px;
 		border-bottom-left-radius: 0px;
 		border-top-left-radius: 0px;
@@ -52,8 +52,10 @@
 	}
 
 	@include media('desktop') {
-		width: 411px;
-		margin-bottom: 0px;
+		width: 450px;
+		min-height: 500px;
+		margin-bottom: 40px;
+		padding: 20px 16px 64px 16px;
 	}
 
 	&__uploadThumb {
@@ -98,7 +100,6 @@
 		@include flex(center, center);
 		flex-direction: column;
 		gap: 12px;
-		padding: 20px 16px 86px 12px;
 
 		@include media('tablet') {
 			width: 736px;
@@ -115,7 +116,6 @@
 
 			width: 411px;
 			margin-left: 0px;
-			padding: 20px 16px 64px 16px;
 		}
 	}
 	&__meta {
