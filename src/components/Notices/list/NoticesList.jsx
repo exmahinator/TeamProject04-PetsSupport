@@ -4,9 +4,6 @@ import styles from './NoticesList.module.scss';
 
 
 const NoticesList = ({notices}) => {
-
-	console.log('notices', notices)
-
 	return (
 		<ul className={styles.wrapper}>
 			{notices.map(
