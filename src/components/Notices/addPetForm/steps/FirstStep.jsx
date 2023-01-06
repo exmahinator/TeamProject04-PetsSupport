@@ -1,12 +1,45 @@
-import NoticesCategories from 'components/Notices/categories/NoticesCategories';
 import { Button } from 'components/Reuse/Button/Button';
-import styles from '../NoticesAddPetForm.module.scss'
+import styles from '../NoticesAddPetForm.module.scss';
 
 export const FirstStep = ({ register, nextPage, onCloseModal }) => {
 	return (
 		<div>
-			<p className={styles.heading}>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur </p>
-			<NoticesCategories categories={'short'}/>
+			<p className={styles.heading}>
+				Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
+				consectetur{' '}
+			</p>
+			<ul>
+				<li>
+					<label htmlFor="petCategories" className={styles.label}>
+						<input
+							{...register('petCategories')}
+							type="button"
+							id="petCategories"
+							value="lost/found"
+						/>
+					</label>
+				</li>
+				<li>
+					<label htmlFor="petCategories" className={styles.label}>
+						<input
+							{...register('petCategories')}
+							type="button"
+							id="petCategories"
+							value="in good hands"
+						/>
+					</label>
+				</li>
+				<li>
+					<label htmlFor="petCategories" className={styles.label}>
+						<input
+							{...register('petCategories')}
+							type="button"
+							id="petCategories"
+							value="sell"
+						/>
+					</label>
+				</li>
+			</ul>
 			<label htmlFor="petTitle" className={styles.label}>
 				<p className={styles.paragraph}>Tittle of ad</p>
 				<input

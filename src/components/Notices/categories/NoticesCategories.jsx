@@ -3,12 +3,14 @@ import styles from './NoticesCategories.module.scss';
 
 const NoticesCategories = ({categories}) => {
 
+	const categori = () => {console.log('what category')}
+
 	switch (categories) {
 		case 'short':
 			return (
 				<ul className={styles.wrapper}>
 					<li>
-						<Button text={'lost/found'} colorType={'white'} />
+						<Button text={'lost/found'} colorType={'white'} onClickFunc={categori}/>
 					</li>
 					<li>
 						<Button text={'in good hands'} colorType={'white'} />
