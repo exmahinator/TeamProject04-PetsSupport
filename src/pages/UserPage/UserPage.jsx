@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from 'redux/auth/auth-operations';
 import { getUserData, removeUserPet } from 'redux/user/user-operations';
@@ -19,7 +19,7 @@ import style from './UserPage.module.scss';
 const UserPage = () => {
 	const dispatch = useDispatch();
 
-	useMemo(() => dispatch(getUserData()), [dispatch]);
+	useEffect(() => dispatch(getUserData()), [dispatch]);
 	const [isShowModal, setIsShowModal] = useState(false);
 
 	const onClose = () => {
