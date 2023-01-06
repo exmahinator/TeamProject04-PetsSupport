@@ -6,11 +6,17 @@ const initialState = {
 	news: [],
 	loading: false,
 	error: null,
+	filter: '',
 };
 
 const newsSlice = createSlice({
 	name: 'news',
 	initialState,
+	reducers: {
+		setFilter: (state, {payload}) => {
+			state.filter = payload
+		}
+	},
 	extraReducers: {
 		[getAllNews.pending]: store => {
 			store.loading = true;
@@ -26,5 +32,7 @@ const newsSlice = createSlice({
 		},
 	},
 });
+
+export const { setFilter } = newsSlice.actions;
 
 export default newsSlice.reducer;

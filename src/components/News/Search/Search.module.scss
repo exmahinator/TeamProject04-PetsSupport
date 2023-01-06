@@ -18,7 +18,7 @@
 	box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
 	border-radius: 20px;
 	border: 1px solid transparent;
-	padding: 9px 12px;
+	padding: 9px 12px 9px 20px;
 	transition: $transition;
 	width: 100%;
 
@@ -31,7 +31,7 @@
 
 .btn {
 	position: absolute;
-	@include flex(center, center);
+	// @include flex(center, center);
 
 	top: 50%;
 	transform: translateY(-50%);
@@ -44,12 +44,21 @@
 	border-radius: 50%;
 }
 
-.btn svg {
-	transform: scale(1.2);
+.search {
+	position: absolute;
+
+	top: 50%;
+	transform: translateY(-50%);
+	right: 10px;
+
 	fill: black;
-	transition: $transition;
 }
 .btn:hover svg {
-	transform: scale(1.2);
-	fill: $accent-color;
+	// fill: $accent-color;
+	stroke: $accent-color;
+}
+
+.clear {
+	stroke: black;
+	transition: $transition;
 }
