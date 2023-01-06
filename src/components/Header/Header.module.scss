@@ -2,16 +2,18 @@
 
 
 .wrapper {
-    width: 320px;
+    width: 100%;
     @include flex(space-between, center);
     position: relative;
+    margin: 0px auto;
+    padding: 16px 0px;
     
 @include media(tablet) {
-    width: 756px;
+    // width: 756px;
 }
 
         @include media(desktop) {
-    width: 1280px;
+    // width: 1280px;
         }
 }
 
