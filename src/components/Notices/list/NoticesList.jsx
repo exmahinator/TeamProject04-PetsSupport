@@ -5,10 +5,10 @@ import styles from './NoticesList.module.scss';
 
 const NoticesList = ({notices}) => {
 
-	console.log('notices', notices[0])
+	console.log('notices', notices)
+
 	return (
 		<ul className={styles.wrapper}>
-			{/* <NoticesItems/> */}
 			{notices.map(
 				({
 					_id : id,
@@ -23,6 +23,8 @@ const NoticesList = ({notices}) => {
 					imageURL,
 					comments,
 					owner,
+					email,
+					phone,
 				}) => (
 					<li key={id}>
 						<NoticesItems
@@ -37,6 +39,8 @@ const NoticesList = ({notices}) => {
 						imageURL={imageURL}
 						comments={comments}
 						owner={owner}
+						email={email}
+						phone={phone}
 					/>
 					</li>
 				)
