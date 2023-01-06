@@ -8,11 +8,10 @@ const HomePage = () => {
 	return (
 		// <div className={style.heart}></div>
 		<div className={style.backImg}>
-			<div className={style.img}>
-				<Container>
-					<h1 className={style.text}>Take good care of your small pets</h1>
-				</Container>
-			</div>
+			<div className={style.img}></div>
+			<Container>
+				<h1 className={style.text}>Take good care of your small pets</h1>
+			</Container>
 		</div>
 	);
 };
