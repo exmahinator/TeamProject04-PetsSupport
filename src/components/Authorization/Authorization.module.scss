@@ -3,7 +3,7 @@
 
 .section {
 	padding: 40px 0;
-	height: calc(100vh - 60px);
+	height: calc(100vh - 58px);
 	position: relative;
 
 	background-image: url(../../shared/images/auth/mobile1x.png);
@@ -17,6 +17,7 @@
 		background-image: url(../../shared/images/auth/mobile2x.png);
 	}
 	@include media(tablet) {
+		height: calc(100vh - 68px);
 		background-image: url(../../shared/images/auth/tablet1x.png);
 		@media (min-device-pixel-ratio: 2),
 			(-webkit-min-device-pixel-ratio: 2),
