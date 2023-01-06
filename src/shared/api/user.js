@@ -6,7 +6,7 @@ export const getUserData = async () => {
 };
 
 export const updateUserData = async data => {
-	const { data: result } = await instance.put('/user', data);
+	const { data: result } = await instance.patch('/user', data);
 	return result;
 };
 
