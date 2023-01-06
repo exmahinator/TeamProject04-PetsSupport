@@ -9,16 +9,18 @@
 @include media(desktop) {}
 
 .backImg{
-    // position: absolute;
-    // background-image: url(../../shared/images/Home/phoneFone.png );
-    height: 100vh;
+	position: relative;
+    // height: 100vh;
+	height: calc(100vh - 58px);
     width: 100vw;
     background: url(../../shared/images/Home/phoneFone.png) center/contain no-repeat;
     background-position: bottom;
 
-@include media(tablet) {background: url(../../shared/images/Home/tabletFone.png) center/contain no-repeat;
-    background-position: bottom;
-background-size: 140%;}
+    @include media(tablet) {
+	height:calc(100vh - 68px);
+        background: url(../../shared/images/Home/Vector.png) center/contain no-repeat;
+        background-position: bottom;
+}
 @media (min-width: 1000px) {
             // height: 100px;
         background-size: 70%
@@ -28,17 +30,19 @@ background-size: 140%;}
     background-position: bottom;}
 }
 .img{
-    // position: absolute;
-    height: 100vh;
+    position: absolute;
+    // height: 100vh;
     width: 100vw;
-    background: url(../../shared/images/Home/phoneImg.png) center/contain no-repeat;
+	height: calc(100vh - 58px);
+    background: url(../../shared/images/Home/desktopImg.png) center/contain no-repeat;
     background-position: bottom;
 @include media(tablet) {
-    background: url(../../shared/images/Home/tabletImg.png) center/contain no-repeat;
+	height: calc(100vh - 68px);
+    background: url(../../shared/images/Home/desktopImg.png) center/contain no-repeat;
     background-position: bottom center;
     height: 100vh;
     width: 100vw;
-        background-size: 80%
+        // background-size: 80%
     }
 
         @media (min-width: 1000px) {
@@ -58,7 +62,7 @@ background-size: 140%;}
         line-height: 44px;
         color: #000000;
 
-            text-align: justify;
+            text-align: initial;
                 padding-top: 62px;
 @include media(tablet) {
     font-weight: 700;

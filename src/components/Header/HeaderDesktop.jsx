@@ -6,7 +6,7 @@ import { AuthNav } from './AuthNav/AuthNav';
 import style from './Header.module.scss';
 
 export const HeaderDesktop = () => {
-	const isAuth = true;
+	const isAuth = false;
 	// };
 	return (
 		<div className={style.wrapper}>

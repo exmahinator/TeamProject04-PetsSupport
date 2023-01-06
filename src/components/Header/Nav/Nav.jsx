@@ -6,13 +6,19 @@ export const Nav = () => {
 	return (
 		<ul className={style.menu}>
 			<li className={style.item}>
-				<NavLink className={style.link}>News</NavLink>
+				<NavLink to="/news" className={style.link}>
+					News
+				</NavLink>
 			</li>
 			<li className={style.item}>
-				<NavLink className={style.link}>Find pet</NavLink>
+				<NavLink to="/notices" className={style.link}>
+					Find pet
+				</NavLink>
 			</li>
 			<li className={style.item}>
-				<NavLink className={style.link}>Our friend</NavLink>
+				<NavLink to="/friends" className={style.link}>
+					Our friend
+				</NavLink>
 			</li>
 		</ul>
 	);

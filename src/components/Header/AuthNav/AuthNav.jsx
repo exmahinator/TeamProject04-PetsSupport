@@ -6,10 +6,14 @@ export const AuthNav = () => {
 	return (
 		<div className={style.btn}>
 			<div className={style.login}>
-				<Link className={style.linkLogo}>Login</Link>
+				<Link to="/login" className={style.linkLogo}>
+					Login
+				</Link>
 			</div>
 			<div className={style.registration}>
-				<Link className={style.linkRegistration}>Registration</Link>
+				<Link to="/register" className={style.linkRegistration}>
+					Registration
+				</Link>
 			</div>
 		</div>
 	);
