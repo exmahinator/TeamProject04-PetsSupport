@@ -32,7 +32,7 @@ const NewsPage = () => {
       <Container>
       <Title text='News' />
       <NoticesSearch/>
-      <NewsList/>
+        <NewsList data={ news} />
       </Container>
     </section>
   )

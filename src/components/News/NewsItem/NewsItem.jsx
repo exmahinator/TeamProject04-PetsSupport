@@ -3,13 +3,13 @@ import { NewsDetails } from "../NewsDetails/NewsDetails"
 import { NewsHeading } from "../NewsHeading/NewsHeading"
 
 
-export const NewsItem = ({ data: {title, text, link, date} }) => {
+export const NewsItem = ({ data: {title, description, url, date} }) => {
     return (
         <div>
             <NewsArticle>
                 <NewsHeading>{title}</NewsHeading>
-                <p>{text}</p>
-                <NewsDetails date={ date} link={link} />
+                <p>{description}</p>
+                <NewsDetails date={ date} link={url} />
             </NewsArticle>
         </div>
     )
