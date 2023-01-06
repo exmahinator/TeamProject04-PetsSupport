@@ -12,17 +12,19 @@ export const UserPhone = ({ heading, tel, editUserData, edited }) => {
 			) : (
 				<p>{tel}</p>
 			)}
-			<button
-				type="button"
-				className={style.user__button}
-				onClick={editUserData}
-			>
-				{edited ? (
+			{edited ? (
+				<button
+					type="button"
+					className={style.user__button}
+					onClick={editUserData}
+				>
 					<ApproveIcon fill="currentColor" width="20px" height="20px" />
-				) : (
+				</button>
+			) : (
+				<div className={style.user__button} onClick={editUserData}>
 					<EditIcon fill="currentColor" width="20px" height="20px" />
-				)}
-			</button>
+				</div>
+			)}
 		</label>
 	);
 };

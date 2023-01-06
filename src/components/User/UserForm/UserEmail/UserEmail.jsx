@@ -18,17 +18,19 @@ export const UserEmail = ({
 			) : (
 				<p>{email}</p>
 			)}
-			<button
-				className={style.user__button}
-				type="button"
-				onClick={editUserData}
-			>
-				{edited ? (
+			{edited ? (
+				<button
+					className={style.user__button}
+					type="button"
+					onClick={editUserData}
+				>
 					<ApproveIcon fill="currentColor" width="20px" height="20px" />
-				) : (
+				</button>
+			) : (
+				<div className={style.user__button} onClick={editUserData}>
 					<EditIcon fill="currentColor" width="20px" height="20px" />
-				)}
-			</button>
+				</div>
+			)}
 		</label>
 	);
 };

@@ -32,7 +32,11 @@ export const UserForm = ({ handleLogOut, userInfo, userAvatar }) => {
 		setUploadClicked(clicked => !clicked);
 	};
 
-	const editUserData = () => {
+	const editUserData = e => {
+		console.log(e.target);
+		if (!e.target) {
+			e.currentTarget.disabled = true;
+		}
 		console.log('editUserData clicked karandash');
 
 		setEdited(prevValue => !prevValue);
@@ -112,7 +116,9 @@ export const UserForm = ({ handleLogOut, userInfo, userAvatar }) => {
 					})}
 				</ul>
 			</form>
-
+			<button type="button" onClick={editUserData}>
+				X
+			</button>
 			<LogOut handleLogOut={handleLogOut} />
 		</div>
 	);
