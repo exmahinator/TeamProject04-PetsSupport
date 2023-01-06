@@ -4,9 +4,10 @@ import * as api from '../../shared/api/auth';
 
 export const register = createAsyncThunk(
 	'auth/register',
-	async (data, { rejectWithValue }) => {
+	async (data, { rejectWithValue, dispatch }) => {
 		try {
 			const result = await api.register(data);
+			dispatch(login({ email: data.email, password: data.password }));
 			return result;
 		} catch ({ response }) {
 			const { status, data } = response;

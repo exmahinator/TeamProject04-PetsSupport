@@ -1,3 +1,4 @@
+// import { PrivateRoute } from 'components/Routes/PrivateRoute/PrivateRoute';
 import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -39,6 +40,11 @@ function App() {
 					<Route path="register" element={<RegisterPage />} />
 					<Route path="login" element={<LoginPage />} />
 					<Route path="user" element={<UserPage />} />
+
+					{/* <Route element={<PrivateRoute />}>
+						<Route path="user" element={<UserPage />} />
+					</Route> */}
+
 					<Route path="*" element={<Navigate to="/" />} />
 				</Route>
 			</Routes>
