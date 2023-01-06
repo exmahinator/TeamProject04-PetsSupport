@@ -20,12 +20,7 @@
 		color: $third-bg-color;
 	}
 	@include media('tablet') {
-		left: 44px;
-		bottom: 44px;
-	}
-
-	@include media('desktop') {
-		left: 17px;
-		bottom: 20px;
+		left: 24px;
+		bottom: 24px;
 	}
 }
