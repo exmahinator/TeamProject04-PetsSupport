@@ -8,8 +8,6 @@ import NoticesItems from '../items/NoticesItems';
 import styles from './NoticesList.module.scss';
 
 
-
-
 const NoticesList = ({ category }) => {
 	const isLogin = useAuth();
 	const dispatch = useDispatch();
