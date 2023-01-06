@@ -1,16 +1,17 @@
+import styles from './NewsPage.module.scss';
+
 import { NewsList } from 'components/News/NewList/NewsList';
 import NoticesSearch from 'components/Notices/search/NoticesSearch';
 import { Container } from 'components/Reuse/Container/Container';
 import { Title } from 'components/Reuse/Title/Title';
 import React from 'react'
-<<<<<<< HEAD
-import styles from './NewsPage.module.scss';
-=======
+
+
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getNews, getNewsError, getNewsLoading } from '../../redux/news/news-selectors'
 import { getAllNews } from '../../redux/news/news-operations'
->>>>>>> 128aadff120c147d00126d9b1d8b3675e4b310bb
+
 
 const NewsPage = () => {
   const dispatch = useDispatch()
