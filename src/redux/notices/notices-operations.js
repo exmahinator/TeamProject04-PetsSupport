@@ -53,8 +53,25 @@ export const addNoticeToFavorite = createAsyncThunk(
 	}
 );
 
-export const getFavoriteNotices = createAsyncThunk(
-	'notices/getFavoriteNotices',
+export const getFavoriteNoticeForCategories = createAsyncThunk(
+	'notices/getFavoriteNoticeForCategories',
+	async (_, { rejectWithValue }) => {
+		try {
+			const result = await api.getFavoriteNotices();
+			return result;
+		} catch ({ response }) {
+			const { status, data } = response;
+			const error = {
+				status,
+				message: data.message,
+			};
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const getFavoriteNoticeByUser = createAsyncThunk(
+	'notices/getFavoriteNoticeByUser',
 	async (_, { rejectWithValue }) => {
 		try {
 			const result = await api.getFavoriteNotices();

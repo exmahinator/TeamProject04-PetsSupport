@@ -4,7 +4,8 @@ import {
 	getNoticeByCategory,
 	// getOneNotice,
 	addNoticeToFavorite,
-	getFavoriteNotices,
+	getFavoriteNoticeForCategories,
+	getFavoriteNoticeByUser,
 	removeNoticeFromFavorite,
 	getUserNotices,
 	removeNotice,
@@ -21,6 +22,7 @@ const noticesSlice = createSlice({
 	name: 'notices',
 	initialState,
 	extraReducers: {
+		//! Менять нельзя!
 		[getNoticeByCategory.pending]: store => {
 			store.loading = true;
 			store.error = null;
@@ -33,6 +35,46 @@ const noticesSlice = createSlice({
 			store.loading = false;
 			store.error = payload;
 		},
+		//! Менять нельзя!
+		[getUserNotices.pending]: store => {
+			store.loading = true;
+			store.error = null;
+		},
+		[getUserNotices.fulfilled]: (store, { payload }) => {
+			store.loading = false;
+			store.currentNotices = payload;
+		},
+		[getUserNotices.rejected]: (store, { payload }) => {
+			store.loading = false;
+			store.error = payload;
+		},
+		//! Менять нельзя!
+		[getFavoriteNoticeForCategories.pending]: store => {
+			store.loading = true;
+			store.error = null;
+		},
+		[getFavoriteNoticeForCategories.fulfilled]: (store, { payload }) => {
+			store.loading = false;
+			store.currentNotices = payload;
+		},
+		[getFavoriteNoticeForCategories.rejected]: (store, { payload }) => {
+			store.loading = false;
+			store.error = payload;
+		},
+		//! Менять нельзя!
+		[getFavoriteNoticeByUser.pending]: store => {
+			store.loading = true;
+			store.error = null;
+		},
+		[getFavoriteNoticeByUser.fulfilled]: (store, { payload }) => {
+			store.loading = false;
+			store.favorite = payload;
+		},
+		[getFavoriteNoticeByUser.rejected]: (store, { payload }) => {
+			store.loading = false;
+			store.error = payload;
+		},
+		//! а дальше всё можно, думайте, как нужно лучше:
 		// [getOneNotice.pending]: store => {
 		// 	store.loading = true;
 		// 	store.error = null;
@@ -55,18 +97,6 @@ const noticesSlice = createSlice({
 			//нужен объект favorite вместо id
 		},
 		[addNoticeToFavorite.rejected]: (store, { payload }) => {
-			store.loading = false;
-			store.error = payload;
-		},
-		[getFavoriteNotices.pending]: store => {
-			store.loading = true;
-			store.error = null;
-		},
-		[getFavoriteNotices.fulfilled]: (store, { payload }) => {
-			store.loading = false;
-			store.favorite = payload;
-		},
-		[getFavoriteNotices.rejected]: (store, { payload }) => {
 			store.loading = false;
 			store.error = payload;
 		},
@@ -93,18 +123,6 @@ const noticesSlice = createSlice({
 		// 	store.loading = false;
 		// 	store.error = payload;
 		// },
-		[getUserNotices.pending]: store => {
-			store.loading = true;
-			store.error = null;
-		},
-		[getUserNotices.fulfilled]: (store, { payload }) => {
-			store.loading = false;
-			store.currentNotices = payload;
-		},
-		[getUserNotices.rejected]: (store, { payload }) => {
-			store.loading = false;
-			store.error = payload;
-		},
 		[removeNotice.pending]: store => {
 			store.loading = true;
 			store.error = null;

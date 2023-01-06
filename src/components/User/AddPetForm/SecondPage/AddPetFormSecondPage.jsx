@@ -3,9 +3,8 @@ import { ReactComponent as UploadCross } from 'shared/images/user/uploadCross.sv
 import style from './AddPetFormSecondPage.module.scss';
 
 export const AddPetFormSecondPage = ({ register, watch }) => {
-
 	const newImage = watch('petUpload');
-	
+
 	return (
 		<>
 			<div className={style.uploadThumb}>
@@ -14,13 +13,16 @@ export const AddPetFormSecondPage = ({ register, watch }) => {
 						Add photo and some comments
 					</p>
 					<div className={style.crossWrapper}>
-						{newImage ? <img
-							className={style.image}
-            src={URL.createObjectURL(newImage[0])}
-            alt="poster"
-            // className={style.crossWrapper}
-          /> : <UploadCross width={48} height={48} fill="gba(17, 17, 17, 0.6)" />}
-						
+						{newImage ? (
+							<img
+								className={style.image}
+								src={URL.createObjectURL(newImage[0])}
+								alt="poster"
+								// className={style.crossWrapper}
+							/>
+						) : (
+							<UploadCross width={48} height={48} fill="gba(17, 17, 17, 0.6)" />
+						)}
 					</div>
 					<input
 						type="file"
