@@ -1,7 +1,6 @@
 import { ReactComponent as UploadIcon } from 'shared/images/user/uploadIcon.svg';
 import { ReactComponent as UploadSubmit } from 'shared/images/user/uploadSubmit.svg';
 
-import defaultAvatar from 'shared/images/user/anonymous.png';
 import style from '../UserForm.module.scss';
 
 export const UserPhoto = ({
@@ -12,23 +11,22 @@ export const UserPhoto = ({
 	onUploadClick,
 	onUploadSubmit,
 }) => {
-	// console.log('ava',watch(({ avatar }) => avatar.length === 1));
+	const newImage = watch('avatar');
 
-	// console.log(avatar);
 	return (
 		<>
 			<div className={style.avatar__thumb}>
 				<div className={style.thumb}>
 					<img
 						className={style.user__avatar}
-						src={avatar ? avatar : defaultAvatar}
+						src={newImage ? URL.createObjectURL(newImage[0]) : avatar}
 						alt="default avatar"
 						width={233}
 						height={233}
 					/>
 				</div>
 				<div className={style.user__uploadThumb}>
-					{!avatar ? (
+					{newImage ? (
 						<button type="submit" onSubmit={onUploadSubmit}>
 							<label htmlFor="avatarSubmit" className={style.user__uploadLabel}>
 								<UploadSubmit fill="#F59256" width={18} height={18} />
