@@ -68,8 +68,7 @@ const noticesSlice = createSlice({
 		},
 		[getFavoriteNoticeByUser.fulfilled]: (store, { payload }) => {
 			store.loading = false;
-			store.favorite = payload.map(el => el._id);
-			// здесь довытаскивать id и записать их
+			store.favorite = payload;
 		},
 		[getFavoriteNoticeByUser.rejected]: (store, { payload }) => {
 			store.loading = false;
@@ -107,11 +106,7 @@ const noticesSlice = createSlice({
 		},
 		[removeNoticeFromFavorite.fulfilled]: (store, { payload }) => {
 			store.loading = false;
-
-			store.favorite = store.favorite.filter(el => el !== payload.id);
-			store.currentNotices = store.currentNotices.filter(
-				({ _id }) => _id !== payload.id
-			);
+			store.favorite = store.favorite.filter(({ _id }) => _id !== payload.id);
 		},
 		[removeNoticeFromFavorite.rejected]: (store, { payload }) => {
 			store.loading = false;
