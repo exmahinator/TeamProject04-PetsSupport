@@ -1,0 +1,33 @@
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
+
+.likeWrap {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	@include flex(center, center);
+
+	width: 44px;
+	height: 44px;
+
+	border: none;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.6);
+	border: 2px solid $accent-color;
+	backdrop-filter: blur(2px);
+	backdrop-filter: blur(2px);
+
+	&__button {
+		@include flex(center, center);
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	&__svg {
+		:hover,
+		:active {
+			fill: red;
+		}
+	}
+}
