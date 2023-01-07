@@ -37,14 +37,14 @@
 		}
 	}
 }
-.landscape{
+.landscape {
 	@extend .section;
 	height: auto;
-		background-size: cover;
-			background-position-y: 150px;
-			@include media(tablet){
-					height: 600px;
-			}
+	background-size: cover;
+	background-position-y: 150px;
+	@include media(tablet) {
+		height: 600px;
+	}
 }
 
 .container {
@@ -88,9 +88,9 @@
 	width: 280px;
 	padding: 40px 0;
 
-		@include media('tablet') {
-				width: 460px;
-			}
+	@include media('tablet') {
+		width: 460px;
+	}
 }
 
 .linkText {

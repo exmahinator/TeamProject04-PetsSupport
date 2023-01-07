@@ -10,14 +10,11 @@ import { useMediaQuery } from 'react-responsive'
 
 export const Authorization = ({ type }) => {
   const isPortrait = useMediaQuery({ orientation: 'portrait' })
-  const isProblem = useMediaQuery({ maxHeight: 550 })
-    const isTablet = useMediaQuery({ maxWidth: 550 })
-  
+  const mobileLandscape = useMediaQuery({ maxHeight: 550 })
+  const isTablet = useMediaQuery({ maxWidth: 550 })
 
-  const isMobileLandscape = !isPortrait && isProblem && !isTablet
+  const isMobileLandscape = !isPortrait && mobileLandscape && !isTablet
 
-
-  
   const content = getAuthFormContent(type)
 
   return (
