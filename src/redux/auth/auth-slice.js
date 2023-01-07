@@ -8,6 +8,7 @@ const initialState = {
 	token: '',
 	loading: false,
 	error: null,
+	isFirstQuery: true,
 };
 
 const authSlice = createSlice({
@@ -63,11 +64,13 @@ const authSlice = createSlice({
 			store.user = payload;
 			// store.token = '';
 			store.isLogin = true;
+			store.isFirstQuery = false;
 		},
 		[current.rejected]: (store, { payload }) => {
 			store.loading = false;
 			store.token = '';
 			store.error = payload;
+			store.isFirstQuery = false;
 		},
 	},
 });

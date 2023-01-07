@@ -1,18 +1,9 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
-import { Navigate, Outlet } from 'react-router-dom'
-import { getToken, isAuth } from 'redux/auth/auth-selectors';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from 'shared/hooks/useAuth';
 
-export const PrivateRoute = () => {
-   const isLogin = useSelector(isAuth);
-   const token = useSelector(getToken)
+export const PrivateRoute = ({ children, redirect }) => {
+	const isLogin = useAuth();
 
-console.log(isLogin)
-   if (!token || !isLogin) {
-      return <Navigate to={'/'}/>
-   }
-   
-  return (
-    <Outlet/>
-  )
-}
+	return <>{isLogin ? children : <Navigate to={redirect} />}</>;
+};
