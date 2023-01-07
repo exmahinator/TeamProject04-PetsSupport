@@ -1,35 +1,225 @@
 @import 'shared/styles/variables';
 @import 'shared/styles/mixins';
 
-.heading{
-  margin-bottom: 20px;
+// Form
+.wrapper {
+	margin: 0 auto;
+	width: 240px;
 
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
-  text-align: center;
-  letter-spacing: -0.01em;
-
-  /* Черный */
-
-  color: #111111;
+	@include media(tablet) {
+		width: 448px;
+	}
 }
-.paragraph{
-  font-family: 'Manrope';
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 26px;
+// First step
+.heading {
+	text-align: center;
+	margin-bottom: 20px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+	letter-spacing: -0.01em;
 
-color: #111111;
+	@include media(tablet) {
+		ont-size: 20px;
+		line-height: 27px;
+	}
 }
 
-.input{
-  margin-bottom: 16px;
-  width: 100%;
-  height: 40px;
+.categor {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 32px;
+
+	&__label {
+		@include flex(flex-start, flex-start);
+		flex-direction: column;
+	}
+
+	&__input {
+		width: 100%;
+		outline: none;
+		padding: 8px 24px;
+		border-radius: 40px;
+		cursor: pointer;
+		border: 2px solid $accent-color;
+		transition: $transition;
+
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 19px;
+		display: flex;
+		align-items: center;
+		letter-spacing: 0.04em;
+
+		@include media(tablet) {
+			font-size: 20px;
+			line-height: 27px;
+		}
+
+		background-color: $secondary-bg-color;
+		color: $fifth-text-color;
+
+		&:hover,
+		&:active,
+		&:focus {
+			border-color: $accent-color;
+			background-color: $accent-color;
+			color: $secondary-text-color;
+		}
+	}
+}
+
+// Second step
+
+.sex {
+	@include flex(flex-start, center);
+	gap: 10px;
+	margin-bottom: 32px;
+
+	@include media(tablet) {
+		gap: 80px;
+	}
+
+	&__item {
+		@include flex(center, center);
+		flex-direction: column;
+	}
+
+
+	&__paragraph {
+		margin-bottom: 16px;
+
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 26px;
+
+		@include media(tablet) {
+			margin-bottom: 28px;
+			font-size: 24px;
+			line-height: 26px;
+		}
+	}
+
+	&__input {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 26px;
+		cursor: pointer;
+		border: none;
+		background: none;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: $accent-color;
+		}
+	}
+
+	&__svg {
+		@include media(tablet) {
+			width: 60px;
+			height: 60px;
+		}
+	}
+}
+
+.upload {
+	position: relative;
+	z-index: 10;
+
+	&__label {
+		width: 233px;
+		@include flex(center, flex-start);
+		flex-direction: column;
+		gap: 20px;
+
+		@include media('tablet') {
+			width: 448px;
+		}
+	}
+
+	&__text {
+    text-align: start;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 1.4;
+		color: $primary-text-color;
+
+		@include media('tablet') {
+			font-size: 24px;
+			line-height: 1.1;
+		}
+	}
+
+	&__wrapper {
+		cursor: pointer;
+		@include flex(center, center);
+
+		width: 116px;
+		height: 116px;
+		border-radius: 20px;
+		background-color: $primary-bg-color;
+
+		overflow: hidden;
+	}
+
+	&__input {
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		position: absolute;
+		z-index: -10;
+	}
+}
+
+.buttonWrap {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-top: 20px;
+
+	@include media(tablet) {
+		flex-direction: row;
+	}
+
+	&__done {
+		width: 100%;
+		outline: none;
+		padding: 8px 28px;
+		border-radius: 40px;
+		cursor: pointer;
+		border: 2px solid $accent-color;
+		transition: $transition;
+		background-color: $accent-color;
+		color: $secondary-text-color;
+
+		&:hover {
+			background-color: $hover-color;
+			border-color: $hover-color;
+		}
+
+		@include media(tablet) {
+			padding: 10px 28px;
+		}
+	}
+}
+
+.paragraph {
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 26px;
+	margin-bottom: 8px;
+
+	@include media(tablet) {
+		font-size: 24px;
+	}
+}
+
+.input {
+	margin-bottom: 16px;
+	height: 40px;
+	width: 100%;
 
 	padding: 10px 15px;
 
@@ -44,77 +234,35 @@ color: #111111;
 	outline-color: $accent-color;
 }
 
-.label{
-	@include flex(flex-start, flex-start);
-	flex-direction: column;
-	gap: 8px;
-
-	&__text {
-		font-weight: 500;
-		font-size: 18px;
-		line-height: 1.4;
-		color: $primary-text-color;
-	}
-
-}
-
-.radioWraper{
-  display: flex;
-  margin-bottom: 32px;
-}
-
-.radioLabel{
-  @include flex(flex-start, flex-start);
-  flex-direction: column;
-  margin-right: 40px;
-}
-
-.radioP{
+.commentsInput{
   margin-bottom: 16px;
+	height: 40px;
+	width: 100%;
 
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 26px;
+	padding: 10px 15px;
 
-color: #000000;
-}
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 19px;
 
-
-.customLabel {
-  cursor: pointer;
-}
-
-.customInput {
-  opacity: 0;
-  position: absolute;
-  z-index: -1;
-}
-.customSpan{
-  margin-top: 12px;
-  font-family: 'Manrope';
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 26px;
-
-color: #000000;
-}
-
-.crossWrapper{
-  @include flex(center, center);
-  margin-bottom: 28px;
-
-	width: 116px;
-	height: 116px;
-	border-radius: 20px;
+	border: 1px solid $accent-color;
+	color: $primary-text-color;
 	background-color: $primary-bg-color;
+	border-radius: 40px;
+	outline-color: $accent-color;
+
+  @include media(tablet) {
+		height: 113px;
+    border-radius: 20px;
+    padding-bottom: 75px;
+	}
 }
 
-.buttonWrap{
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 40px;
+.image {
+	width: 100%;
+	object-fit: cover;
+}
+
+.start {
+	color: $accent-color;
 }

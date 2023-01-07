@@ -3,7 +3,7 @@
 
 .section {
 	padding: 40px 0;
-	height: calc(100vh - 60px);
+	height: calc(100vh - 58px);
 	position: relative;
 
 	background-image: url(../../shared/images/auth/mobile1x.png);
@@ -17,6 +17,7 @@
 		background-image: url(../../shared/images/auth/mobile2x.png);
 	}
 	@include media(tablet) {
+		height: calc(100vh - 68px);
 		background-image: url(../../shared/images/auth/tablet1x.png);
 		@media (min-device-pixel-ratio: 2),
 			(-webkit-min-device-pixel-ratio: 2),
@@ -36,6 +37,16 @@
 		}
 	}
 }
+.landscape {
+	@extend .section;
+	height: auto;
+	background-size: cover;
+	background-position-y: 150px;
+	@include media(tablet) {
+		height: 600px;
+	}
+}
+
 .container {
 	width: 100%;
 	max-width: 280px;
@@ -77,9 +88,9 @@
 	width: 280px;
 	padding: 40px 0;
 
-		@include media('tablet') {
-				width: 460px;
-			}
+	@include media('tablet') {
+		width: 460px;
+	}
 }
 
 .linkText {
