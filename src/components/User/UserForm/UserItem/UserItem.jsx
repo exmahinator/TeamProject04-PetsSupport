@@ -7,32 +7,25 @@ import { ReactComponent as EditIcon } from 'shared/images/user/userChange.svg';
 
 import style from '../UserForm.module.scss';
 
-export const UserItem = ({
-	data,
-	type = 'text',
-	register,
-	field,
-	text,
-}) => {
-	
-	const isLoadingUpdate = useSelector(getLoadingUpdate)
-	const isDisabled = useSelector(getDisabledFields)
-	const dispatch = useDispatch()
+export const UserItem = ({ data, type = 'text', register, field, text }) => {
+	const isLoadingUpdate = useSelector(getLoadingUpdate);
+	const isDisabled = useSelector(getDisabledFields);
+	const dispatch = useDispatch();
 
 	const [edited, setEdited] = useState(false);
 
 	useEffect(() => {
-	if (isLoadingUpdate) {
-	setEdited(false)
-}
-	}, [isLoadingUpdate])
-	
+		if (isLoadingUpdate) {
+			setEdited(false);
+		}
+	}, [isLoadingUpdate]);
+
 	const checkDisabled = () => {
 		if (!isDisabled) {
-		dispatch(toggleIsDisablet())
-						setEdited(true)
-					} 
-}
+			dispatch(toggleIsDisablet());
+			setEdited(true);
+		}
+	};
 	return (
 		<label htmlFor={data} className={style.user__label}>
 			<p className={style.user__text}>{text}:</p>
@@ -51,10 +44,12 @@ export const UserItem = ({
 					<ApproveIcon fill="currentColor" width="20px" height="20px" />
 				</button>
 			) : (
-					<div className={style.user__button} onClick={() => checkDisabled()}>
+				<div className={style.user__button} onClick={() => checkDisabled()}>
 					<EditIcon fill="currentColor" width="20px" height="20px" />
 				</div>
 			)}
 		</label>
 	);
 };
+
+//rgba(17, 17, 17, 0.6)
