@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { addUserPet } from 'redux/user/user-operations';
 
 export const AddPetForm = ({ onCloseModal }) => {
-	const { register, handleSubmit } = useForm({
+	const { register, handleSubmit, watch } = useForm({
 		defaultValues: {
 			petBirth: '01.01.2020',
 			petUpload: '',
@@ -44,7 +44,7 @@ export const AddPetForm = ({ onCloseModal }) => {
 			{isfirstPage ? (
 				<AddPetFormFirstPage register={register} />
 			) : (
-				<AddPetFormSecondPage register={register} />
+				<AddPetFormSecondPage watch={watch} register={register} />
 			)}
 			<Buttons
 				onTogglePage={onTogglePage}

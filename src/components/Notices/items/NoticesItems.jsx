@@ -1,67 +1,95 @@
 import styles from './NoticesItems.module.scss';
 import { ReactComponent as NoticesHartSvg } from 'shared/images/Notices/Notices-hart.svg';
 import { Button } from 'components/Reuse/Button/Button';
-import { Modal } from 'components/Reuse/Modal/Modal';
+import LearnMore from '../learnMore/LearnMore';
 
-const posterBg = 'https://via.placeholder.com/350';
-const placeholder = 'https://via.placeholder.com/150';
+const NoticesItems = ({
+	category,
+	title,
+	name,
+	birthday,
+	breed,
+	sex,
+	location,
+	price,
+	imageURL,
+	comments,
+	owner,
+	email,
+	phone,
+}) => {
 
-const NoticesItems = () => {
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.pctWrap}>
-        <img
-          className={styles.pictures}
-          src={posterBg ?? placeholder}
-          alt="pictures dogs"
-          title="title"
-        />
-        <button className={styles.svgWrap}>
-          <NoticesHartSvg />
-        </button>
-        <div className={styles.categoriesWrap}>
-          <p className={styles.categories}>In good hands</p>
-        </div>
-      </div>
-      <div>
-        <div className={styles.heading}>
-          <h2>Сute dog looking for a home</h2>
-        </div>
-        <div className={styles.paragraph}>
-          <ul className={styles.list}>
-            <li className={styles.item}>
-              <p className={styles.desc}>Breed: </p>
-              <p>Pomeranian</p>
-            </li>
-            <li className={styles.item}>
-              <p className={styles.desc}>Place:</p>
-              <p>Lviv</p>
-            </li>
-            <li className={styles.item}>
-              <p className={styles.desc}>Age:</p>
-              <span>&nbsp;&nbsp;&nbsp;</span>
-              <p>one year</p>
-            </li>
-          </ul>
-        </div>
-        <ul className={styles.btnContainer}>
-          <li>
-            <Modal textBtn={'Learn more'} btnType={'long'}>
-              <h2>WOW</h2>
-              <ul>
-                <li>Cool</li>
-                <li>Nice</li>
-                <li>Kill me</li>
-              </ul>
-            </Modal>
-          </li>
-          <li>
-            <Button text={'Delete'} type={'white'} />
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
+	return (
+		<div className={styles.wrapper}>
+			<div className={styles.pctWrap}>
+				<img
+					className={styles.pctWrap__pictures}
+					src={imageURL}
+					alt={title}
+					title={title}
+				/>
+
+				<div className={styles.likeWrap}>
+					<button className={styles.likeWrap__button}>
+						<NoticesHartSvg className={styles.likeWrap__svg}/>
+					</button>
+				</div>
+
+				<div className={styles.categor}>
+					<p className={styles.categor__paragraph}>{category}</p>
+				</div>
+
+			</div>
+			<div className={styles.boxWrap}>
+				<div className={styles.heading}>
+					<h2 className={styles.heading__title}>{title}</h2>
+				</div>
+
+				<div>
+					<ul className={styles.list}>
+						<li className={styles.list__item}>
+							<p className={styles.list__paragraph}>Breed:</p>
+							<p className={styles.list__span}>{breed}</p>
+						</li>
+						<li className={styles.list__item}>
+							<p className={styles.list__paragraph}>Place:</p>
+							<p className={styles.list__span}>{location}</p>
+						</li>
+						<li className={styles.list__item}>
+							<p className={styles.list__paragraph}>Age:</p>
+							<p className={styles.list__span}>{birthday}</p>
+						</li>
+						<li className={styles.list__item}>
+							<p className={styles.list__paragraph}>Price:</p>
+							<p className={styles.list__span}>{price ?? '-'}</p>
+						</li>
+					</ul>
+				</div>
+
+				<ul className={styles.btnContainer}>
+					<li>
+						<LearnMore
+							imageURL={imageURL}
+							title={title}
+							comments={comments}
+							category={category}
+							name={name}
+							birthday={birthday}
+							breed={breed}
+							location={location}
+							sex={sex}
+							price={price}
+							email={email}
+							phone={phone}
+						/>
+					</li>
+					<li>
+						<Button text={'Delete'} type={'white'} />
+					</li>
+				</ul>
+			</div>
+		</div>
+	);
 };
 
 export default NoticesItems;

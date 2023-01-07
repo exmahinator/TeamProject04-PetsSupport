@@ -6,11 +6,13 @@
 	@include flex(center, flex-start);
 	flex-direction: column;
 	gap: 20px;
+
 	&__text {
 		font-weight: 500;
 		font-size: 15px;
 		line-height: 1.4;
 		color: $primary-text-color;
+
 		@include media('tablet') {
 			font-size: 24px;
 			line-height: 1.1;
@@ -54,15 +56,19 @@
 	height: 208px;
 	border-radius: 20px;
 	background-color: $primary-bg-color;
+
+	overflow: hidden;
 }
 
 .petCommentLabel {
 	margin-bottom: 26px;
+
 	&__text {
 		font-weight: 500;
 		font-size: 14px;
 		line-height: 1.5;
 		margin-bottom: 8px;
+
 		@include media('tablet') {
 			margin-bottom: 12px;
 
@@ -83,4 +89,8 @@
 	opacity: 0;
 	position: absolute;
 	z-index: -10;
+}
+
+.image {
+	width: 100%;
 }

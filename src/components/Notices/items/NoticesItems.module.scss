@@ -4,7 +4,9 @@
   width: 280px;
   height: 606px;
   margin-bottom: 32px;
-  outline: 2px solid tomato;
+  background: $secondary-bg-color;
+  box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+  border-radius: 0px 0px 20px 20px;
 
   @include media(tablet) {
     width: 336px;
@@ -16,10 +18,17 @@
 }
 
 .heading {
-  padding: 20px;
+  margin: 20px 0;
+
+  &__title{
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 38px;
+    letter-spacing: -0.01em;
+  }
 }
 
-.paragraph {
+.boxWrap {
   padding-left: 20px;
 }
 
@@ -27,37 +36,45 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
-}
 
-.item {
-  display: flex;
-}
+  &__item {
+    display: flex;
+    margin-bottom: 8px;
+  }
 
-.desc {
-  margin-right: 40px;
+  &__paragraph{
+    width: 90px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &__span{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .pctWrap {
   position: relative;
   height: 288px;
 
+
+  &__pictures {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+  }
 }
 
-.pictures {
-  width: 100%;
-  height: 100%;
-}
 
-.btnContainer {
-  @include flex(center, center);
-  gap: 10px;
-}
-
-.svgWrap{
-  @include flex(center, center);
+.likeWrap{
   position: absolute;
   top: 12px;
   right: 12px;
+  @include flex(center, center);
 
   width: 44px;
   height: 44px;
@@ -65,34 +82,52 @@
   border: none;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.6);
+  border: 2px solid $accent-color;
   backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+
+  &__button {
+    @include flex(center, center);
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+  }
+
+  &__svg{
+    :hover,
+    :active{
+      fill: red;
+    }
+  }
+
 }
 
-.categoriesWrap{
+.categor{
   @include flex(center, center);
+
   position: absolute;
   left: 0;
   top: 20px;
-
-  padding: 6px 50px 6px 20px;
+  width: 158px;
+  height: 28px;
 
   border: none;
   border-radius: 0px 100px 100px 0px;
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(2px);
+
+  &__paragraph{
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.04em;
+  }
 }
 
-.categories{
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 15px;
-  /* identical to box height */
-
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.04em;
-
-  color: #111111;
+.btnContainer {
+  @include flex(center, center);
+  gap: 10px;
+  padding-bottom: 32px;
 }

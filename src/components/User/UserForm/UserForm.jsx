@@ -12,7 +12,7 @@ import { UserCityBirthday } from './UserCityBirthday/UserCityBirthday';
 import s from './UserForm.module.scss';
 
 export const UserForm = ({ handleLogOut, userInfo, userAvatar }) => {
-	const { register, handleSubmit } = useForm({
+	const { register, handleSubmit, watch } = useForm({
 		defaultValues: {
 			name: '',
 			email: '',
@@ -26,21 +26,19 @@ export const UserForm = ({ handleLogOut, userInfo, userAvatar }) => {
 	const dispatch = useDispatch();
 
 	const [uploadClicked, setUploadClicked] = useState(false);
-	const [userInput, setUserInput] = useState('');
-	const [isDisabled, setIsDisabled] = useState(false);
 	const [edited, setEdited] = useState(false);
-
+	console.log('edited', edited);
 	const onUploadClick = () => {
 		setUploadClicked(clicked => !clicked);
 	};
 
-	const onChange = e => {
-		const data = e.target.value;
-		setUserInput(data);
-	};
+	const editUserData = e => {
+		console.log(e.target);
+		if (!e.target) {
+			e.currentTarget.disabled = true;
+		}
+		console.log('editUserData clicked karandash');
 
-	const editUserData = () => {
-		setIsDisabled(!isDisabled);
 		setEdited(prevValue => !prevValue);
 		setUploadClicked(clicked => !clicked);
 	};
@@ -54,9 +52,9 @@ export const UserForm = ({ handleLogOut, userInfo, userAvatar }) => {
 		city && fieldToChange.append('city', city);
 		avatar && fieldToChange.append('avatar', avatar[0]);
 		birthday && fieldToChange.append('birthday', birthday);
-
-		setUploadClicked(clicked => !clicked);
+		console.log('submit clicked');
 		setEdited(prevValue => !prevValue);
+		setUploadClicked(clicked => !clicked);
 
 		dispatch(updateUserData(fieldToChange));
 	};
@@ -65,7 +63,8 @@ export const UserForm = ({ handleLogOut, userInfo, userAvatar }) => {
 		<div className={s.user}>
 			<form className={s.user__form} onSubmit={handleSubmit(onSubmit)}>
 				<UserPhoto
-					avtar={userAvatar}
+					watch={watch}
+					avatar={userAvatar}
 					register={register}
 					uploadClicked={uploadClicked}
 					onUploadSubmit={onSubmit}
@@ -82,10 +81,8 @@ export const UserForm = ({ handleLogOut, userInfo, userAvatar }) => {
 											onUploadSubmit={onSubmit}
 											heading={key}
 											email={value}
-											userInput={userInput}
 											editUserData={editUserData}
 											edited={edited}
-											onChange={onChange}
 										/>
 									</li>
 								);
@@ -119,7 +116,9 @@ export const UserForm = ({ handleLogOut, userInfo, userAvatar }) => {
 					})}
 				</ul>
 			</form>
-
+			<button type="button" onClick={editUserData}>
+				X
+			</button>
 			<LogOut handleLogOut={handleLogOut} />
 		</div>
 	);

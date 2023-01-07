@@ -1,6 +1,6 @@
 import instance from './auth';
 
-export const getNoticeByCategory = async (params = 'goodhands') => {
+export const getNoticeByCategory = async (params = '') => {
 	const { data } = await instance.get(`/notices?category=${params}`);
 	return data;
 };

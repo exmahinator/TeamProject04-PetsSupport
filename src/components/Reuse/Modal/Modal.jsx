@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useState } from 'react';
 
 import style from './Modal.module.scss';
 
@@ -143,7 +142,6 @@ export const Modal = ({
 // ? Add this in your component code!!!!!!!!!!!!!!!!!
 
 // import React, { useEffect ,useState} from 'react';
-// import { useState } from 'react';
 
 // const [isShowModal, setIsShowModal] = useState(false);
 

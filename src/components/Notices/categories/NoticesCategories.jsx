@@ -1,46 +1,35 @@
-import { Button } from 'components/Reuse/Button/Button';
+import { NavLink } from 'react-router-dom';
+import { useAuth } from 'shared/hooks/useAuth';
 import styles from './NoticesCategories.module.scss';
 
-const NoticesCategories = ({categories}) => {
+const NoticesCategories = () => {
 
-	switch (categories) {
-		case 'short':
-			return (
-				<ul className={styles.wrapper}>
+
+	const isLogin = useAuth()
+
+	return (
+		<ul className={styles.wrapper}>
+			<li>
+				<NavLink to="/notices/sell">sell</NavLink>
+			</li>
+			<li>
+				<NavLink to="/notices/lost-found">lost/found</NavLink>
+			</li>
+			<li>
+				<NavLink to="/notices/for-free">in good hands</NavLink>
+			</li>
+			{isLogin && (
+				<>
 					<li>
-						<Button text={'lost/found'} colorType={'white'} />
+						<NavLink to="/notices/favorite">favorite</NavLink>
 					</li>
 					<li>
-						<Button text={'in good hands'} colorType={'white'} />
+						<NavLink to="/notices/own">my ads</NavLink>
 					</li>
-					<li>
-						<Button text={'sell'} colorType={'white'} />
-					</li>
-				</ul>
-			);
-		case 'long':
-			return (
-				<ul className={styles.wrapper}>
-					<li>
-						<Button text={'lost/found'} colorType={'white'} />
-					</li>
-					<li>
-						<Button text={'in good hands'} colorType={'white'} />
-					</li>
-					<li>
-						<Button text={'sell'} colorType={'white'} />
-					</li>
-					<li>
-						<Button text={'favorite ads'} colorType={'white'} />
-					</li>
-					<li>
-						<Button text={'my ads'} colorType={'white'} />
-					</li>
-				</ul>
-			);
-		default:
-			return;
-	}
+				</>
+			)}
+		</ul>
+	);
 };
 
 export default NoticesCategories;

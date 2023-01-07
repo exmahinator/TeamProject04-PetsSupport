@@ -1,0 +1,144 @@
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
+
+.wrapper {
+  margin: 0 auto;
+  width: 240px;
+
+  @include media(tablet) {
+    width: 660px;
+  }
+}
+
+.flexBox{
+  margin-bottom: 16px;
+
+  @include media(tablet) {
+    display: flex;
+    margin-bottom: 28px;
+  }
+}
+
+.wrap {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  padding-top: 20px;
+
+  @include media(tablet) {
+    width: 288px;
+    height: 328px;
+    margin-right: 20px;
+  }
+
+  &__pictures {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+    border-radius: 0px 0px 40px 40px;
+  }
+}
+
+.catWrap{
+  @include flex(center, center);
+  position: absolute;
+  left: 0;
+  top: 40px;
+
+  padding: 6px 50px 6px 20px;
+
+  border: none;
+  border-radius: 0px 100px 100px 0px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+
+  &__categories{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+
+    @include media(tablet) {
+      line-height: 16px;
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  &__item {
+    display: flex;
+    margin-bottom: 8px;
+  }
+}
+
+.heading{
+  margin-top: 16px;
+
+  &__title{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: -0.01em;
+
+    @include media(tablet) {
+      font-size: 28px;
+      line-height: 38px;
+    }
+  }
+}
+
+.desc{
+  width: 120px;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+
+  @include media(tablet) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &__paragraph{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+
+  @include media(tablet) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  }
+}
+
+.commen{
+  &__paragraph{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+
+    @include media(tablet) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__span{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.04em;
+
+    @include media(tablet) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}

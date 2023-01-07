@@ -7,6 +7,7 @@ export const AddPetForm = () => {
 	const { handleSubmit, register } = useForm();
 	const [step, setStep] = useState(true);
 
+
 	const onToggleStep = () => {
 		setStep(prev => !prev);
 	};
@@ -15,9 +16,11 @@ export const AddPetForm = () => {
 		console.log('close');
 	};
 
+
 	const onSubmit = ({
-		petTitle,
+		petCategories,
 		petName,
+		petTitle,
 		petBirth,
 		petBreed,
 		petMale,
@@ -28,6 +31,7 @@ export const AddPetForm = () => {
 		comments,
 	}) => {
 		let data = {
+			petCategories,
 			petTitle,
 			petName,
 			petBirth,
@@ -41,6 +45,8 @@ export const AddPetForm = () => {
 		};
 		console.log('data', data);
 	};
+
+
 	
 	return (
 		<div className={styles.wrapper}>
