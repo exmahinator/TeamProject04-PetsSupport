@@ -10,58 +10,104 @@ import { UserPhone } from './UserPhone/UserPhone';
 import { UserCityBirthday } from './UserCityBirthday/UserCityBirthday';
 
 import s from './UserForm.module.scss';
+import { UserItem } from './UserItem/UserItem';
 
 export const UserForm = ({ handleLogOut, userInfo, userAvatar }) => {
 	const { register, handleSubmit, watch } = useForm({
-		defaultValues: {
-			name: '',
-			email: '',
-			phone: '',
-			city: '',
-			avatar: '',
-			birthday: '',
-		},
+		// defaultValues: {
+		// 	name: '',
+		// 	email: '',
+		// 	phone: '',
+		// 	city: '',
+		// 	avatar: '',
+		// 	birthday: '',
+		// },
 	});
+
+	console.log(userInfo);
 
 	const dispatch = useDispatch();
 
-	const [uploadClicked, setUploadClicked] = useState(false);
-	const [edited, setEdited] = useState(false);
-	console.log('edited', edited);
-	const onUploadClick = () => {
-		setUploadClicked(clicked => !clicked);
-	};
+	// const [uploadClicked, setUploadClicked] = useState(false);
+	// const [edited, setEdited] = useState(false);
 
-	const editUserData = e => {
-		console.log(e.target);
-		if (!e.target) {
-			e.currentTarget.disabled = true;
+	// const onUploadClick = () => {
+	// 	setUploadClicked(clicked => !clicked);
+	// };
+
+	// const editUserData = e => {
+	// 	console.log(e.target);
+	// 	if (!e.target) {
+	// 		e.currentTarget.disabled = true;
+	// 	}
+	// 	console.log('editUserData clicked karandash');
+
+	// 	setEdited(prevValue => !prevValue);
+	// 	setUploadClicked(clicked => !clicked);
+	// };
+
+	const onSubmit = data => {
+		console.log(data);
+
+		if (data) {
+			const key = Object.keys(data);
+			const value = Object.values(data);
+			const fieldToChange = new FormData();
+
+			for (let index = 0; index < key.length; index++) {
+				fieldToChange.append(key[index], value[index]);
+			}
+
+					dispatch(updateUserData(fieldToChange));
 		}
-		console.log('editUserData clicked karandash');
 
-		setEdited(prevValue => !prevValue);
-		setUploadClicked(clicked => !clicked);
-	};
 
-	const onSubmit = ({ name, email, phone, city, avatar, birthday }) => {
-		const fieldToChange = new FormData();
-
-		name && fieldToChange.append('name', name);
-		email && fieldToChange.append('email', email);
-		phone && fieldToChange.append('phone', phone);
-		city && fieldToChange.append('city', city);
-		avatar && fieldToChange.append('avatar', avatar[0]);
-		birthday && fieldToChange.append('birthday', birthday);
-		console.log('submit clicked');
-		setEdited(prevValue => !prevValue);
-		setUploadClicked(clicked => !clicked);
-
-		dispatch(updateUserData(fieldToChange));
 	};
 
 	return (
 		<div className={s.user}>
-			<form className={s.user__form} onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<UserItem
+					data={userInfo.name}
+					text="Name"
+					field="name"
+					register={register}
+				/>
+			</form>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<UserItem
+					data={userInfo.email}
+					text="Email"
+					type="email"
+					field="email"
+					register={register}
+				/>
+			</form>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<UserItem
+					data={userInfo.birthday}
+					text="Birthday"
+					field="birthday"
+					register={register}
+				/>
+			</form>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<UserItem
+					data={userInfo.phone}
+					text="Phone"
+					field="phone"
+					register={register}
+				/>
+			</form>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<UserItem
+					data={userInfo.city}
+					text="City"
+					field="city"
+					register={register}
+				/>
+			</form>
+			{/* <form className={s.user__form} onSubmit={handleSubmit(onSubmit)}>
 				<UserPhoto
 					watch={watch}
 					avatar={userAvatar}
@@ -118,7 +164,7 @@ export const UserForm = ({ handleLogOut, userInfo, userAvatar }) => {
 			</form>
 			<button type="button" onClick={editUserData}>
 				X
-			</button>
+			</button> */}
 			<LogOut handleLogOut={handleLogOut} />
 		</div>
 	);

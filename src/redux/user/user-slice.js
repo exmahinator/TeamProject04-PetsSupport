@@ -11,6 +11,7 @@ const initialState = {
 	user: { avatarURL: null, userInfo: {} },
 	loading: false,
 	error: null,
+	isLoadingUpdate: false,
 };
 
 const userSlice = createSlice({
@@ -32,14 +33,17 @@ const userSlice = createSlice({
 		[updateUserData.pending]: store => {
 			store.loading = true;
 			store.error = null;
+			store.isLoadingUpdate = true;
 		},
 		[updateUserData.fulfilled]: (store, { payload }) => {
 			store.loading = false;
 			store.user = { ...store.user, ...payload.user };
+			store.isLoadingUpdate = false;
 		},
 		[updateUserData.rejected]: (store, { payload }) => {
 			store.loading = false;
 			store.error = payload;
+			store.isLoadingUpdate = false;
 		},
 		[addUserPet.pending]: store => {
 			store.loading = true;

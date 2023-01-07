@@ -19,7 +19,7 @@ export const UserPhoto = ({
 				<div className={style.thumb}>
 					<img
 						className={style.user__avatar}
-						src={newImage ? URL.createObjectURL(newImage[0]) : avatar}
+						// src={newImage ? URL.createObjectURL(newImage[0]) : avatar}
 						alt="default avatar"
 						width={233}
 						height={233}
