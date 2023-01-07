@@ -37,6 +37,16 @@
 		}
 	}
 }
+.landscape{
+	@extend .section;
+	height: auto;
+		background-size: cover;
+			background-position-y: 150px;
+			@include media(tablet){
+					height: 600px;
+			}
+}
+
 .container {
 	width: 100%;
 	max-width: 280px;
