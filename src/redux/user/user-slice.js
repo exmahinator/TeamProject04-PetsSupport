@@ -12,11 +12,17 @@ const initialState = {
 	loading: false,
 	error: null,
 	isLoadingUpdate: false,
+	isDisabledFields: false,
 };
 
 const userSlice = createSlice({
 	name: 'user',
 	initialState,
+	reducers: {
+		toggleIsDisablet(store) {
+			store.isDisabledFields = true;
+		},
+	},
 	extraReducers: {
 		[getUserData.pending]: store => {
 			store.loading = true;
@@ -34,6 +40,7 @@ const userSlice = createSlice({
 			store.loading = true;
 			store.error = null;
 			store.isLoadingUpdate = true;
+			store.isDisabledFields = false;
 		},
 		[updateUserData.fulfilled]: (store, { payload }) => {
 			store.loading = false;
@@ -72,4 +79,5 @@ const userSlice = createSlice({
 	},
 });
 
+export const { toggleIsDisablet } = userSlice.actions;
 export default userSlice.reducer;

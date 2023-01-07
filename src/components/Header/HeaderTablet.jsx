@@ -6,9 +6,10 @@ import { AuthNav } from './AuthNav/AuthNav';
 import style from './Header.module.scss';
 import { ReactComponent as Strips } from 'shared/images/Burger/Strips.svg';
 import { ReactComponent as Cross } from 'shared/images/Burger/Cross.svg';
+import { useAuth } from 'shared/hooks/useAuth';
 
 export const HeaderTablet = () => {
-	const isAuth = true;
+	const isAuth = useAuth();
 	const [isOpen, setIsOpen] = useState(false);
 	const toggleMenu = () => {
 		setIsOpen(isOpen => !isOpen);
@@ -38,7 +39,7 @@ export const HeaderTablet = () => {
 						</>
 					) : (
 						<>
-							{' '}
+							
 							<button
 								type="button"
 								className={style.btnBurger}

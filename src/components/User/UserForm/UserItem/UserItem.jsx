@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { getLoadingUpdate } from 'redux/user/user-selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDisabledFields, getLoadingUpdate } from 'redux/user/user-selectors';
+import { toggleIsDisablet } from 'redux/user/user-slice';
 import { ReactComponent as ApproveIcon } from 'shared/images/user/userApprove.svg';
 import { ReactComponent as EditIcon } from 'shared/images/user/userChange.svg';
 
@@ -12,11 +13,11 @@ export const UserItem = ({
 	register,
 	field,
 	text,
-	// edited,
-	// setEdited
 }) => {
-	console.log(data);
+	
 	const isLoadingUpdate = useSelector(getLoadingUpdate)
+	const isDisabled = useSelector(getDisabledFields)
+	const dispatch = useDispatch()
 
 	const [edited, setEdited] = useState(false);
 
@@ -26,7 +27,12 @@ export const UserItem = ({
 }
 	}, [isLoadingUpdate])
 	
-
+	const checkDisabled = () => {
+		if (!isDisabled) {
+		dispatch(toggleIsDisablet())
+						setEdited(true)
+					} 
+}
 	return (
 		<label htmlFor={data} className={style.user__label}>
 			<p className={style.user__text}>{text}:</p>
@@ -45,7 +51,7 @@ export const UserItem = ({
 					<ApproveIcon fill="currentColor" width="20px" height="20px" />
 				</button>
 			) : (
-				<div className={style.user__button} onClick={() => setEdited(true)}>
+					<div className={style.user__button} onClick={() => checkDisabled()}>
 					<EditIcon fill="currentColor" width="20px" height="20px" />
 				</div>
 			)}
