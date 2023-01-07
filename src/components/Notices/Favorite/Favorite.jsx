@@ -1,30 +1,23 @@
-import { ReactComponent as NoticesHartSvg } from 'shared/images/Notices/Notices-hart.svg';
+import { HeartLoader } from '../HeartLoader/HeartLoader';
+import { Added } from './Added/Added';
 
-import style from './Favorite.module.scss';
+import { NotAdded } from './NotAdded/NotAdded';
 
 export const Favorite = ({
 	onAddToFavorite,
 	onRemoveFromFavorite,
 	id,
 	favNotices,
+	isFavLoading,
 }) => {
-	// console.log(favNotices.includes(id));
-	console.log('favNotices', favNotices);
-	console.log('id', id);
 	return (
 		<>
-			{favNotices.includes(id) ? (
-				<button onClick={onRemoveFromFavorite} id={id}>
-					remove
-				</button>
+			{isFavLoading ? (
+				<HeartLoader />
+			) : favNotices.includes(id) ? (
+				<Added onRemoveFromFavorite={onRemoveFromFavorite} id={id} />
 			) : (
-				<button
-					className={style.likeWrap__button}
-					onClick={onAddToFavorite}
-					id={id}
-				>
-					<NoticesHartSvg className={style.likeWrap__svg} />
-				</button>
+				<NotAdded onAddToFavorite={onAddToFavorite} id={id} />
 			)}
 		</>
 	);

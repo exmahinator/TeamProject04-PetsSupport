@@ -4,6 +4,7 @@ import { useOutletContext } from 'react-router-dom';
 import {
 	getCurrentNotices,
 	getFavoriteNotices,
+	getNoticesLoading,
 } from 'redux/notices/notices-selectors';
 import { useAuth } from 'shared/hooks/useAuth';
 import {
@@ -28,6 +29,8 @@ const NoticesList = ({ category }) => {
 
 	// здесь будут лежать наши фейвориты
 	const favNotices = useSelector(getFavoriteNotices);
+
+	const isFavLoading = useSelector(getNoticesLoading);
 
 	useEffect(() => {
 		// тут мы получаем каррент нотисы
@@ -73,6 +76,7 @@ const NoticesList = ({ category }) => {
 				}) => (
 					<li key={id}>
 						<NoticesItems
+							isFavLoading={isFavLoading}
 							favNotices={favNotices}
 							category={category}
 							id={id}

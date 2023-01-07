@@ -11,6 +11,7 @@ import styles from './NoticesItems.module.scss';
 
 const NoticesItems = ({
 	favNotices,
+	isFavLoading,
 	category,
 	id,
 	title,
@@ -52,6 +53,7 @@ const NoticesItems = ({
 
 				<div className={styles.likeWrap}>
 					<Favorite
+						isFavLoading={isFavLoading}
 						onAddToFavorite={onAddToFavorite}
 						onRemoveFromFavorite={onRemoveFromFavorite}
 						id={id}

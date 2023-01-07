@@ -74,6 +74,33 @@ const noticesSlice = createSlice({
 			store.loading = false;
 			store.error = payload;
 		},
+		//! Менять нельзя!
+		[addNoticeToFavorite.pending]: store => {
+			store.loading = true;
+			store.error = null;
+		},
+		[addNoticeToFavorite.fulfilled]: (store, { payload }) => {
+			store.loading = false;
+			const addedNotice = payload.favorite.length - 1;
+			store.favorite.push(payload.favorite[addedNotice]);
+		},
+		[addNoticeToFavorite.rejected]: (store, { payload }) => {
+			store.loading = false;
+			store.error = payload;
+		},
+		//! Менять нельзя!
+		[removeNoticeFromFavorite.pending]: store => {
+			store.loading = true;
+			store.error = null;
+		},
+		[removeNoticeFromFavorite.fulfilled]: (store, { payload }) => {
+			store.loading = false;
+			store.favorite = store.favorite.filter(id => id !== payload.id);
+		},
+		[removeNoticeFromFavorite.rejected]: (store, { payload }) => {
+			store.loading = false;
+			store.error = payload;
+		},
 		//! а дальше всё можно, думайте, как нужно лучше:
 		// [getOneNotice.pending]: store => {
 		// 	store.loading = true;
@@ -87,33 +114,6 @@ const noticesSlice = createSlice({
 		// 	store.loading = false;
 		// 	store.error = payload;
 		// },
-		[addNoticeToFavorite.pending]: store => {
-			store.loading = true;
-			store.error = null;
-		},
-		[addNoticeToFavorite.fulfilled]: (store, { payload }) => {
-			store.loading = false;
-			store.favorite.push(payload.favorite[0]);
-		},
-		[addNoticeToFavorite.rejected]: (store, { payload }) => {
-			store.loading = false;
-			store.error = payload;
-		},
-		[removeNoticeFromFavorite.pending]: store => {
-			store.loading = true;
-			store.error = null;
-		},
-		[removeNoticeFromFavorite.fulfilled]: (store, { payload }) => {
-			store.loading = false;
-			store.favorite = store.favorite.filter(id => id !== payload.id);
-			store.currentNotices = store.currentNotices.filter(
-				({ _id }) => _id !== payload.id
-			);
-		},
-		[removeNoticeFromFavorite.rejected]: (store, { payload }) => {
-			store.loading = false;
-			store.error = payload;
-		},
 		// [addNotice.pending]: store => {
 		// 	store.loading = true;
 		// 	store.error = null;
