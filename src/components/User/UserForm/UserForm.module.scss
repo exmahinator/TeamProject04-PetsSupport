@@ -1,6 +1,9 @@
 @import 'shared/styles/variables';
 @import 'shared/styles/mixins';
-
+*:disabled {
+	color: $third-bg-color;
+	background-color: green;
+}
 .dimentions {
 	@media (min-width: 768px) {
 		width: 80%;
@@ -37,7 +40,6 @@
 	margin-bottom: 44px;
 	margin: 0px auto;
 
-	// padding: 0px 20px;
 	padding: 20px 16px 86px 12px;
 	background-color: $secondary-bg-color;
 	box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
@@ -88,6 +90,21 @@
 		}
 	}
 
+	&__uploadSubmit {
+		@include flex(center, center);
+		gap: 4px;
+		width: 100px;
+		background-color: transparent;
+		border: none;
+		font-weight: 500;
+		font-size: 18px;
+
+		&:hover,
+		:focus {
+			cursor: pointer;
+		}
+	}
+
 	&__uploadInput {
 		width: 0.1px;
 		height: 0.1px;
@@ -131,13 +148,11 @@
 		width: 100%;
 		@include media('tablet') {
 			width: 380px;
-			margin-top: 40px;
 			gap: 8px;
 		}
 
 		@include media('desktop') {
 			gap: 15px;
-			margin-top: 0px;
 		}
 	}
 	&__avatar {
@@ -191,6 +206,7 @@
 
 	&__button {
 		@include flex(center, center);
+		cursor: pointer;
 		width: 20px;
 		height: 20px;
 		padding: 1px;

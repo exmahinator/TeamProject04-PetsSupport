@@ -3,9 +3,10 @@
 
 .iconThumb {
 	position: absolute;
-	top: 57%;
+	top: 65%;
 	right: 0;
 	transform: translate(-100%, -50%);
+	cursor: pointer;
 	@include flex(center, center);
 	width: 20px;
 	height: 20px;
