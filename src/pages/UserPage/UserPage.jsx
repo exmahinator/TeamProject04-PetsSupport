@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from 'redux/auth/auth-operations';
 import { getUserData, removeUserPet } from 'redux/user/user-operations';
 import {
 	getUserAvatar,
 	getUserInfo,
 	getUserPets,
-	getUserWithPets,
+	// getUserWithPets,
 } from 'redux/user/user-selectors';
 import { Card } from 'components/User/Card/Card';
 import { Title } from 'components/User/Title/Title';
@@ -17,10 +16,12 @@ import { AddPetForm } from 'components/User/AddPetForm/AddPetForm';
 import style from './UserPage.module.scss';
 
 const UserPage = () => {
-	const dispatch = useDispatch();
-
-	useEffect(() => dispatch(getUserData()), [dispatch]);
 	const [isShowModal, setIsShowModal] = useState(false);
+	
+	const dispatch = useDispatch();
+	
+	useEffect(() => {dispatch(getUserData())}
+	, [dispatch]);
 
 	const onClose = () => {
 		setIsShowModal(false);
@@ -33,6 +34,7 @@ const UserPage = () => {
 			}
 		};
 		window.addEventListener('keydown', handeleClickDown);
+		
 		return () => {
 			window.removeEventListener('keydown', handeleClickDown);
 		};
@@ -44,12 +46,9 @@ const UserPage = () => {
 			onClose();
 		}
 	};
-	const onLogOut = () => {
-		dispatch(logout());
-		console.log('logout success');
-	};
 
-	const userWithPets = useSelector(getUserWithPets);
+
+	// const userWithPets = useSelector(getUserWithPets);
 	const userInfo = useSelector(getUserInfo);
 	const userAvatar = useSelector(getUserAvatar);
 	const userPets = useSelector(getUserPets);
@@ -66,8 +65,7 @@ const UserPage = () => {
 			<div>
 				<Title title="My information:" className={style.titleUser} />
 				<UserForm
-					userWithPets={userWithPets}
-					handleLogOut={onLogOut}
+					// userWithPets={userWithPets}					
 					userInfo={userInfo}
 					userAvatar={userAvatar}
 				/>
