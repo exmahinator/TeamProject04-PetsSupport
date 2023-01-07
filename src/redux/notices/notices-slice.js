@@ -68,9 +68,36 @@ const noticesSlice = createSlice({
 		},
 		[getFavoriteNoticeByUser.fulfilled]: (store, { payload }) => {
 			store.loading = false;
-			store.favorite = payload;
+			store.favorite = payload.map(el => el._id);
 		},
 		[getFavoriteNoticeByUser.rejected]: (store, { payload }) => {
+			store.loading = false;
+			store.error = payload;
+		},
+		//! Менять нельзя!
+		[addNoticeToFavorite.pending]: store => {
+			store.loading = true;
+			store.error = null;
+		},
+		[addNoticeToFavorite.fulfilled]: (store, { payload }) => {
+			store.loading = false;
+			const addedNotice = payload.favorite.length - 1;
+			store.favorite.push(payload.favorite[addedNotice]);
+		},
+		[addNoticeToFavorite.rejected]: (store, { payload }) => {
+			store.loading = false;
+			store.error = payload;
+		},
+		//! Менять нельзя!
+		[removeNoticeFromFavorite.pending]: store => {
+			store.loading = true;
+			store.error = null;
+		},
+		[removeNoticeFromFavorite.fulfilled]: (store, { payload }) => {
+			store.loading = false;
+			store.favorite = store.favorite.filter(id => id !== payload.id);
+		},
+		[removeNoticeFromFavorite.rejected]: (store, { payload }) => {
 			store.loading = false;
 			store.error = payload;
 		},
@@ -87,31 +114,6 @@ const noticesSlice = createSlice({
 		// 	store.loading = false;
 		// 	store.error = payload;
 		// },
-		[addNoticeToFavorite.pending]: store => {
-			store.loading = true;
-			store.error = null;
-		},
-		[addNoticeToFavorite.fulfilled]: (store, { payload }) => {
-			store.loading = false;
-			store.favorite.push(payload.favorite.id[0]);
-			//нужен объект favorite вместо id
-		},
-		[addNoticeToFavorite.rejected]: (store, { payload }) => {
-			store.loading = false;
-			store.error = payload;
-		},
-		[removeNoticeFromFavorite.pending]: store => {
-			store.loading = true;
-			store.error = null;
-		},
-		[removeNoticeFromFavorite.fulfilled]: (store, { payload }) => {
-			store.loading = false;
-			store.favorite = store.favorite.filter(({ _id }) => _id !== payload.id);
-		},
-		[removeNoticeFromFavorite.rejected]: (store, { payload }) => {
-			store.loading = false;
-			store.error = payload;
-		},
 		// [addNotice.pending]: store => {
 		// 	store.loading = true;
 		// 	store.error = null;

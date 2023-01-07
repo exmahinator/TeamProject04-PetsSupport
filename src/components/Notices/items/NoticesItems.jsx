@@ -1,10 +1,19 @@
-import styles from './NoticesItems.module.scss';
-import { ReactComponent as NoticesHartSvg } from 'shared/images/Notices/Notices-hart.svg';
 import { Button } from 'components/Reuse/Button/Button';
+import { useDispatch } from 'react-redux';
+import {
+	addNoticeToFavorite,
+	removeNoticeFromFavorite,
+} from 'redux/notices/notices-operations';
+import { Favorite } from '../Favorite/Favorite';
+
 import LearnMore from '../learnMore/LearnMore';
+import styles from './NoticesItems.module.scss';
 
 const NoticesItems = ({
+	favNotices,
+	isFavLoading,
 	category,
+	id,
 	title,
 	name,
 	birthday,
@@ -18,6 +27,19 @@ const NoticesItems = ({
 	email,
 	phone,
 }) => {
+	const dispatch = useDispatch();
+
+	const onAddToFavorite = e => {
+		const cardId = e.currentTarget.id;
+
+		dispatch(addNoticeToFavorite(cardId));
+	};
+
+	const onRemoveFromFavorite = e => {
+		const cardId = e.currentTarget.id;
+
+		dispatch(removeNoticeFromFavorite(cardId));
+	};
 
 	return (
 		<div className={styles.wrapper}>
@@ -30,15 +52,18 @@ const NoticesItems = ({
 				/>
 
 				<div className={styles.likeWrap}>
-					<button className={styles.likeWrap__button}>
-						<NoticesHartSvg className={styles.likeWrap__svg}/>
-					</button>
+					<Favorite
+						isFavLoading={isFavLoading}
+						onAddToFavorite={onAddToFavorite}
+						onRemoveFromFavorite={onRemoveFromFavorite}
+						id={id}
+						favNotices={favNotices}
+					/>
 				</div>
 
 				<div className={styles.categor}>
 					<p className={styles.categor__paragraph}>{category}</p>
 				</div>
-
 			</div>
 			<div className={styles.boxWrap}>
 				<div className={styles.heading}>
