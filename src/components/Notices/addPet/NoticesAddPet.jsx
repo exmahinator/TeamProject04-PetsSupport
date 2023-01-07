@@ -38,7 +38,7 @@ const handleBackdropClick = e => {
         handleBackdropClick={handleBackdropClick}
       >
         <h2 className={styles.heading}>Add pet</h2>
-        <AddPetForm/>
+        <AddPetForm onClose={onClose}/>
       </Modal>
     </>
   )
