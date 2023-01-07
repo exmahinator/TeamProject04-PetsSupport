@@ -55,8 +55,8 @@ export const UserPhoto = ({ avatar, watch, register }) => {
 				</div>
 				<div className={style.user__uploadThumb}>
 					{newImage && newImage[0] && edited ? (
-						<button type="submit">
-							<UploadSubmit fill="#F59256" width={18} height={18} />
+						<button type="submit" className={style.user__uploadSubmit}>
+							<UploadSubmit fill="#F59256" width={23} height={23} />
 							<p className={style.user__uploadText}>submit</p>
 						</button>
 					) : (

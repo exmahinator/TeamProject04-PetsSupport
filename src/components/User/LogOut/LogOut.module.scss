@@ -3,6 +3,7 @@
 
 .LogOut {
 	position: absolute;
+	cursor: pointer;
 	@include flex(flex-end, center);
 	gap: 8px;
 	bottom: 16px;
