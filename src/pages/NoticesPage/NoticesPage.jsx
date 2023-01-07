@@ -4,16 +4,22 @@ import NoticesCategories from 'components/Notices/categories/NoticesCategories';
 import NoticesAddPet from 'components/Notices/addPet/NoticesAddPet';
 import { Container } from 'components/Reuse/Container/Container';
 import styles from './NoticesPage.module.scss';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const NoticesPage = () => {
-// Пример как передавать пропсы в Outlet: пример того, что введут в инпут
-const info = 'Your info'
+	// Пример как передавать пропсы в Outlet: пример того, что введут в инпут
+	const info = 'Your info';
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		navigate('/notices/sell');
+	}, [navigate]);
 
 	return (
 		<Container>
 			<NoticesHeading />
-		{/* если вы не придумаете переиспользованный инпут, просто сделайте здесь инпут втупую не компонентом, прилепите на него onChange и useState */}
+			{/* если вы не придумаете переиспользованный инпут, просто сделайте здесь инпут втупую не компонентом, прилепите на него onChange и useState */}
 			<NoticesSearch />
 			<div className={styles.wrapper}>
 				{/* Это нужно просто достилизовать */}
@@ -22,7 +28,7 @@ const info = 'Your info'
 				<NoticesAddPet />
 			</div>
 			{/* А здесь у нас отрисовывается нотис лист, на который мы кликнули */}
-			<Outlet context={info}/>
+			<Outlet context={info} />
 		</Container>
 	);
 };
