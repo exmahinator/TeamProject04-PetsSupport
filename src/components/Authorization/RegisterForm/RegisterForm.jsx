@@ -56,6 +56,7 @@ export const RegisterForm = () => {
 	};
 
 	const toggleBackBtn = () => {
+		if(!nextStep && !isValid)return
 		setNextStep(prevState => !prevState);
 	};
 
@@ -79,7 +80,6 @@ export const RegisterForm = () => {
 
 					<button
 						className={styles.btn}
-						disabled={!isValid}
 						onClick={toggleBackBtn}
 					>
 						Next
