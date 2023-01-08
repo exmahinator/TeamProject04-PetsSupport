@@ -16,11 +16,17 @@ const initialState = {
 	favorite: [],
 	loading: false,
 	error: null,
+	filter: '',
 };
 
 const noticesSlice = createSlice({
 	name: 'notices',
 	initialState,
+	reducers: {
+		setFilter: (state, {payload}) => {
+			state.filter = payload
+		}
+	},
 	extraReducers: {
 		//! Менять нельзя!
 		[getNoticeByCategory.pending]: store => {
@@ -141,5 +147,7 @@ const noticesSlice = createSlice({
 		},
 	},
 });
+
+export const { setFilter } = noticesSlice.actions;
 
 export default noticesSlice.reducer;

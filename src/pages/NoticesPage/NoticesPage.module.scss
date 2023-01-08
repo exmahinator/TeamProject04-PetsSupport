@@ -2,9 +2,12 @@
 
 
 .wrapper {
+  padding-top: 28px;
+  padding-bottom: 30px;
 
   @include media(tablet) {
-    display: flex;
-    justify-content: space-between;
+    @include flex(space-between, center);
+    padding-top: 40px;
+    padding-bottom: 60px;
   }
 }

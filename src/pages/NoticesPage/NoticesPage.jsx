@@ -6,11 +6,14 @@ import { Container } from 'components/Reuse/Container/Container';
 import styles from './NoticesPage.module.scss';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux'
+import {getFilteredNotices} from 'redux/notices/notices-selectors'
 
 const NoticesPage = () => {
 	// Пример как передавать пропсы в Outlet: пример того, что введут в инпут
-	const info = 'Your info';
+	const info = useSelector(getFilteredNotices);
 	const navigate = useNavigate();
+
 
 	useEffect(() => {
 		navigate('/notices/sell');
