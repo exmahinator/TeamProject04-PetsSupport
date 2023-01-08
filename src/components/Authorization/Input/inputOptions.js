@@ -62,7 +62,9 @@ export const petName = {
 	required: true,
 	requiredMessage: "Enter your pet's name",
 	pattern: /^[A-Za-z0-9\s!@#$%^&*()_+=-`~\\\][{}|';:/.,?><]*$/i,	
-	patternMessage: 'Latin symbols only',
+	patternMessage: 'Latin only, min 2, max 16',
+	maxLength: 16,
+	minLength: 2, 
 };
 export const petBirth = {
 	label: 'Date of Birth',
@@ -82,5 +84,7 @@ export const petBreed = {
 	required: true,
 	requiredMessage: "Enter your pet's breed",
 	pattern: /^[A-Za-z0-9\s!@#$%^&*()_+=-`~\\\][{}|';:/.,?><]*$/i,	
-	patternMessage: 'Latin symbols only',
+	patternMessage: 'Latin only, min 2, max 16',
+	maxLength: 16,
+	minLength: 2, 
 };
