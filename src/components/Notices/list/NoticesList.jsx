@@ -16,6 +16,8 @@ import {
 import NoticesItems from '../items/NoticesItems';
 import styles from './NoticesList.module.scss';
 
+import {getFilteredNotices} from 'redux/notices/notices-selectors'
+
 const NoticesList = ({ category }) => {
 	const isLogin = useAuth();
 	const dispatch = useDispatch();
@@ -25,12 +27,13 @@ const NoticesList = ({ category }) => {
 	console.log(info);
 
 	// здесь будут лежать наши каррент нотисы, с которыми надо работать
-	const notices = useSelector(getCurrentNotices);
+	const notices = useSelector(getFilteredNotices || getCurrentNotices);
 
 	// здесь будут лежать наши фейвориты
 	const favNotices = useSelector(getFavoriteNotices);
 
 	const isFavLoading = useSelector(getNoticesLoading);
+
 
 	useEffect(() => {
 		// тут мы получаем каррент нотисы

@@ -1,7 +1,64 @@
-@import "src/shared/styles/mixins.scss";
+@import 'src/shared/styles/mixins.scss';
+@import '../../../shared/styles/variables';
 
-.wrapper{
-  @include flex(center, center);
-  margin-top: 28px;
-  margin-bottom: 28px;
+.wrapper {
+	position: relative;
+	width: 280px;
+	height: 44px;
+	margin: 28px auto 0;
+
+	@include media(tablet) {
+		margin: 40px auto 0;
+		width: 608px;
+	}
+}
+
+.input {
+	background: $secondary-bg-color;
+	box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+	border-radius: 20px;
+	border: 1px solid transparent;
+	padding: 9px 12px 9px 20px;
+	transition: $transition;
+	width: 100%;
+
+	&:focus,
+	&:hover {
+		border: 1px solid $sixth-bg-color;
+		outline: none;
+	}
+}
+
+.btn {
+	position: absolute;
+	// @include flex(center, center);
+
+	top: 50%;
+	transform: translateY(-50%);
+	right: 10px;
+	outline: none;
+	background-color: transparent;
+	width: 24px;
+	height: 24px;
+	border: none;
+	border-radius: 50%;
+}
+
+.search {
+	position: absolute;
+
+	top: 50%;
+	transform: translateY(-50%);
+	right: 10px;
+
+	fill: black;
+}
+.btn:hover svg {
+	// fill: $accent-color;
+	stroke: $accent-color;
+}
+
+.clear {
+	stroke: black;
+	transition: $transition;
 }
