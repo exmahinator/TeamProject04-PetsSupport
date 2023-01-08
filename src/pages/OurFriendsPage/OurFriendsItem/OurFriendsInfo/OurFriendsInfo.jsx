@@ -10,7 +10,6 @@ export const OurFriendsInfo = ({
 	sliceAdress,
 	workDays,
 }) => {
-	// console.log('workDays :>> ', workDays);
 	return (
 		<div className={styles.info}>
 			<div>
