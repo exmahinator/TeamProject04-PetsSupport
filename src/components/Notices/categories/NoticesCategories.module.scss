@@ -1,8 +1,42 @@
-@import "src/shared/styles/mixins.scss";
+@import '../../../shared/styles/mixins';
+@import '../../../shared/styles/variables';
 
-.wrapper{
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-  gap: 5px;
+.nav {
+	margin: 0 auto;
+	width: 280px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+
+	@include media(tablet) {
+		width: 70%;
+		margin-left: 5%;
+	}
+
+	&__item {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	&__link {
+		width: 100%;
+		outline: none;
+		padding: 8px 28px;
+		border-radius: 40px;
+		cursor: pointer;
+		border: 2px solid $accent-color;
+		transition: $transition;
+		background-color: $secondary-bg-color;
+		text-decoration: none;
+
+		&:hover {
+			background-color: $hover-color;
+			border-color: $hover-color;
+		}
+
+		@include media(tablet) {
+			padding: 10px 28px;
+		}
+	}
 }

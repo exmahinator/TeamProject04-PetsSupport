@@ -3,4 +3,21 @@
 	border: 1px solid #f59256;
 	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 	border-radius: 4px;
+
+	&__item {
+		display: flex;
+		justify-content: space-between;
+
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 16px;
+	}
+
+	&__day {
+		margin-right: 15px;
+	}
+
+	&__time {
+		text-align: center;
+	}
 }

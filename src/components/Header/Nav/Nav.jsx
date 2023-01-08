@@ -19,7 +19,7 @@ export const Nav = () => {
 			</li>
 			<li className={style.item}>
 				<NavLink
-					to="/notices"
+					to="/notices/sell"
 					className={style.link}
 					style={({ isActive }) => (isActive ? active : noActive)}
 				>

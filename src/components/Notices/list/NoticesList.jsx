@@ -1,18 +1,22 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAuth } from 'shared/hooks/useAuth';
 import { useOutletContext } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import {
 	getCurrentNotices,
 	getFavoriteNotices,
 	getNoticesLoading,
+	getFilteredNotices,
 } from 'redux/notices/notices-selectors';
-import { useAuth } from 'shared/hooks/useAuth';
+import { getUserId } from 'redux/auth/auth-selectors';
 import {
 	getFavoriteNoticeByUser,
 	getFavoriteNoticeForCategories,
 	getNoticeByCategory,
 	getUserNotices,
-} from '../../../redux/notices/notices-operations';
+	removeNotice,
+} from 'redux/notices/notices-operations';
+
 import NoticesItems from '../items/NoticesItems';
 import styles from './NoticesList.module.scss';
 
@@ -24,8 +28,10 @@ const NoticesList = ({ category }) => {
 	const info = useOutletContext();
 	console.log(info);
 
+	const ownerId = useSelector(getUserId);
+
 	// здесь будут лежать наши каррент нотисы, с которыми надо работать
-	const notices = useSelector(getCurrentNotices);
+	const notices = useSelector(getFilteredNotices || getCurrentNotices);
 
 	// здесь будут лежать наши фейвориты
 	const favNotices = useSelector(getFavoriteNotices);
@@ -53,45 +59,52 @@ const NoticesList = ({ category }) => {
 		}
 	}, [category, dispatch, isLogin]);
 
+	const onDeleteNotice = e => {
+		const noticeId = e.currentTarget.id;
+
+		dispatch(removeNotice(noticeId));
+	};
 	//ну и дальше пишите логику на удаление, добавление и тд по тз, вам осталось играться и сравнивать info, notices и favorite
 
 	return (
 		<ul className={styles.wrapper}>
 			{notices.map(
 				({
-					_id: id,
-					category,
-					name,
-					title,
-					birthday,
-					breed,
 					sex,
-					location,
+					name,
 					price,
-					imageURL,
-					comments,
+					breed,
+					title,
 					owner,
 					email,
 					phone,
+					_id: id,
+					category,
+					birthday,
+					location,
+					imageURL,
+					comments,
 				}) => (
 					<li key={id}>
 						<NoticesItems
-							isFavLoading={isFavLoading}
-							favNotices={favNotices}
-							category={category}
 							id={id}
-							title={title}
-							name={name}
-							birthday={birthday}
-							breed={breed}
 							sex={sex}
-							location={location}
-							price={price}
-							imageURL={imageURL}
-							comments={comments}
+							name={name}
 							owner={owner}
 							email={email}
 							phone={phone}
+							price={price}
+							breed={breed}
+							title={title}
+							ownerId={ownerId}
+							category={category}
+							birthday={birthday}
+							location={location}
+							imageURL={imageURL}
+							comments={comments}
+							favNotices={favNotices}
+							isFavLoading={isFavLoading}
+							onDeleteNotice={onDeleteNotice}
 						/>
 					</li>
 				)
