@@ -41,8 +41,7 @@ export const AddPetForm = ({ onCloseModal }) => {
 			setUploadError(false)
 			newPet.append('avatar', petUpload[0]);
 		}
-
-
+		
 		dispatch(addUserPet(newPet));
 
 		onCloseModal();
