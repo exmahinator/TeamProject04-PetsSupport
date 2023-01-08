@@ -60,7 +60,7 @@ function App() {
 					<Route
 						path="register"
 						element={
-							<PublicRouter restricted>
+							<PublicRouter restricted redirect="/user">
 								<RegisterPage />
 							</PublicRouter>
 						}
@@ -68,7 +68,7 @@ function App() {
 					<Route
 						path="login"
 						element={
-							<PublicRouter restricted>
+							<PublicRouter restricted redirect="/user">
 								<LoginPage />
 							</PublicRouter>
 						}
