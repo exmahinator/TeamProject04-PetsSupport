@@ -9,6 +9,8 @@ import { useDispatch } from 'react-redux';
 import { addUserPet } from 'redux/user/user-operations';
 
 export const AddPetForm = ({ onCloseModal }) => {
+	const [uploadError, setUploadError] = useState(false);
+
 	const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm({
 		mode: 'onBlur',
 		defaultValues: {
@@ -25,12 +27,21 @@ export const AddPetForm = ({ onCloseModal }) => {
 	};
 
 	const onSubmit = ({ petName, petBirth, petBreed, petUpload, petComment }) => {
+
 		const newPet = new FormData();
 		newPet.append('name', petName);
 		newPet.append('birthday', petBirth);
 		newPet.append('breed', petBreed);
 		newPet.append('comments', petComment);
-		petUpload && newPet.append('avatar', petUpload[0]);
+
+		if (!petUpload) {
+			setUploadError(true);
+			return;
+		} else {
+			setUploadError(false)
+			newPet.append('avatar', petUpload[0]);
+		}
+
 
 		dispatch(addUserPet(newPet));
 
@@ -46,7 +57,7 @@ export const AddPetForm = ({ onCloseModal }) => {
 			{isfirstPage ? (
 				<AddPetFormFirstPage errors={errors} register={register} />
 			) : (
-				<AddPetFormSecondPage  errors={errors}  watch={watch} register={register} />
+				<AddPetFormSecondPage  errors={errors} uploadError={uploadError}  watch={watch} register={register} />
 			)}
 			<Buttons
 				onTogglePage={onTogglePage}
