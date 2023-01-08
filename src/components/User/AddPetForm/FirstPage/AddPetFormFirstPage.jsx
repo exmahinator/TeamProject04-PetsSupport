@@ -1,6 +1,6 @@
 import style from './AddPetFormFirstPage.module.scss';
 
-export const AddPetFormFirstPage = ({ register }) => {
+export const AddPetFormFirstPage = ({ register, errors }) => {
 
 	return (
 		<>
