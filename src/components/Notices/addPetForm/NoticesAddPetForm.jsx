@@ -18,6 +18,7 @@ export const AddPetForm = ({ onClose }) => {
 			const newNotice = createFormData(data);
 
 			dispatch(addNotice(newNotice));
+			onClose();
 		}
 	};
 

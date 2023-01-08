@@ -1,31 +1,33 @@
-import { Button } from 'components/Reuse/Button/Button';
 import { useDispatch } from 'react-redux';
 import {
 	addNoticeToFavorite,
 	removeNoticeFromFavorite,
 } from 'redux/notices/notices-operations';
 import { Favorite } from '../Favorite/Favorite';
+import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
 
 import LearnMore from '../learnMore/LearnMore';
 import styles from './NoticesItems.module.scss';
 
 const NoticesItems = ({
-	favNotices,
-	isFavLoading,
-	category,
 	id,
-	title,
-	name,
-	birthday,
-	breed,
 	sex,
-	location,
+	name,
 	price,
-	imageURL,
-	comments,
+	breed,
+	title,
 	owner,
 	email,
 	phone,
+	ownerId,
+	location,
+	imageURL,
+	comments,
+	category,
+	birthday,
+	favNotices,
+	isFavLoading,
+	onDeleteNotice,
 }) => {
 	const dispatch = useDispatch();
 
@@ -66,57 +68,64 @@ const NoticesItems = ({
 				</div>
 			</div>
 			<div className={styles.boxWrap}>
-				<div className={styles.heading}>
-					<h2 className={styles.heading__title}>{title}</h2>
-				</div>
+				<h2 className={styles.heading__title}>{title}</h2>
 
-				<div>
-					<ul className={styles.list}>
-						<li className={styles.list__item}>
-							<p className={styles.list__paragraph}>Breed:</p>
-							<p className={styles.list__span}>{breed}</p>
-						</li>
-						<li className={styles.list__item}>
-							<p className={styles.list__paragraph}>Place:</p>
-							<p className={styles.list__span}>{location}</p>
-						</li>
-						<li className={styles.list__item}>
-							<p className={styles.list__paragraph}>Age:</p>
-							<p className={styles.list__span}>{birthday}</p>
-						</li>
-						<li className={styles.list__item}>
-							<p className={styles.list__paragraph}>Price:</p>
-							<p className={styles.list__span}>{price ?? '-'}</p>
-						</li>
-					</ul>
-				</div>
-
-				<ul className={styles.btnContainer}>
-					<li>
-						<LearnMore
-							id={id}
-							sex={sex}
-							name={name}
-							phone={phone}
-							breed={breed}
-							price={price}
-							title={title}
-							email={email}
-							imageURL={imageURL}
-							birthday={birthday}
-							category={category}
-							comments={comments}
-							location={location}
-							favNotices={favNotices}
-							isFavLoading={isFavLoading}
-							onAddToFavorite={onAddToFavorite}
-							onRemoveFromFavorite={onRemoveFromFavorite}
-						/>
+				<ul className={styles.list}>
+					<li className={styles.list__item}>
+						<p className={styles.list__paragraph}>Breed:</p>
+						<p className={styles.list__span}>{breed}</p>
 					</li>
-					<li>
-						<Button text={'Delete'} type={'white'} />
+					<li className={styles.list__item}>
+						<p className={styles.list__paragraph}>Place:</p>
+						<p className={styles.list__span}>{location}</p>
+					</li>
+					<li className={styles.list__item}>
+						<p className={styles.list__paragraph}>Age:</p>
+						<p className={styles.list__span}>{birthday}</p>
+					</li>
+					<li className={styles.list__item}>
+						<p className={styles.list__paragraph}>Price:</p>
+						<p className={styles.list__span}>{price ?? '-'}</p>
 					</li>
 				</ul>
+
+				<div className={styles.btnContainer}>
+					<LearnMore
+						id={id}
+						sex={sex}
+						name={name}
+						phone={phone}
+						breed={breed}
+						price={price}
+						title={title}
+						email={email}
+						imageURL={imageURL}
+						birthday={birthday}
+						category={category}
+						comments={comments}
+						location={location}
+						favNotices={favNotices}
+						isFavLoading={isFavLoading}
+						onAddToFavorite={onAddToFavorite}
+						onRemoveFromFavorite={onRemoveFromFavorite}
+					/>
+
+					{ownerId === owner && (
+						<button
+							id={id}
+							type="button"
+							onClick={e => onDeleteNotice(e)}
+							className={styles.deleteOwnNotice}
+						>
+							Delete
+							{
+								<div className={styles.deleteOwnNotice__trash}>
+									<TrashIcon fill="currentColor" width={16} height={17} />
+								</div>
+							}
+						</button>
+					)}
+				</div>
 			</div>
 		</div>
 	);
