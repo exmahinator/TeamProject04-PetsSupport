@@ -20,6 +20,7 @@ export const AddPetForm = ({ onCloseModal }) => {
 	const [isfirstPage, setIsFirstPage] = useState(true);
 
 	const onTogglePage = () => {
+		if (!isValid && isfirstPage) return;
 		setIsFirstPage(prev => !prev);
 	};
 
@@ -48,7 +49,6 @@ export const AddPetForm = ({ onCloseModal }) => {
 				<AddPetFormSecondPage  errors={errors}  watch={watch} register={register} />
 			)}
 			<Buttons
-				isFirstStepValid={isValid}
 				onTogglePage={onTogglePage}
 				onSubmit={onSubmit}
 				onCloseModal={onCloseModal}
