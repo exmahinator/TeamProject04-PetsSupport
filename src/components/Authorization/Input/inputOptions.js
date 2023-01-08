@@ -88,3 +88,15 @@ export const petBreed = {
 	maxLength: 16,
 	minLength: 2, 
 };
+export const petComment = {
+	label: 'Comments',
+	name: 'petComment',
+	type: 'text',
+	placeholder: 'Type comments',
+	required: true,
+	requiredMessage: "Enter your comment",
+	pattern: /^[A-Za-z0-9\s!@#$%^&*()_+=-`~\\\][{}|';:/.,?><]*$/i,	
+	patternMessage: 'Latin only, min 8, max 120',
+	maxLength: 120,
+	minLength: 8, 
+};
