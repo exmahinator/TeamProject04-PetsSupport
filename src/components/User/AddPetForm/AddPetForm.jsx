@@ -10,6 +10,7 @@ import { addUserPet } from 'redux/user/user-operations';
 
 export const AddPetForm = ({ onCloseModal }) => {
 	const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm({
+		mode: 'onBlur',
 		defaultValues: {
 			petBirth: '01.01.2020',
 			petUpload: '',
