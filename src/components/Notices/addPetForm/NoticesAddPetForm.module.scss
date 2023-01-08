@@ -213,9 +213,12 @@
 	font-size: 18px;
 	line-height: 26px;
 	margin-bottom: 8px;
-
+	transition: $transition;
 	@include media(tablet) {
 		font-size: 24px;
+	}
+	&:hover {
+		color: $hover-color;
 	}
 }
 

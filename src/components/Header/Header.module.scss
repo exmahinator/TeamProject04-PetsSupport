@@ -36,15 +36,17 @@
 	}
 }
 
-.open {
-	@include flex(center, center);
-	flex-wrap: wrap-reverse;
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	background-color: #fdf7f2;
+.open{
+    @include flex(center);
+    flex-wrap: wrap-reverse;
+    position: absolute;
+top: 100%;
+    left: 0;
+    text-align: center;
+    background-color: #FDF7F2;;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh
 }
 
 .logoLink {
