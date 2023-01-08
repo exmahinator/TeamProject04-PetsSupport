@@ -82,10 +82,12 @@
 	}
 
 	&__item {
+		position: relative;
+		z-index: 10;
+
 		@include flex(center, center);
 		flex-direction: column;
 	}
-
 
 	&__paragraph {
 		margin-bottom: 16px;
@@ -117,6 +119,7 @@
 	}
 
 	&__svg {
+		@include flex(center, center);
 		@include media(tablet) {
 			width: 60px;
 			height: 60px;
@@ -140,7 +143,7 @@
 	}
 
 	&__text {
-    text-align: start;
+		text-align: start;
 		font-weight: 500;
 		font-size: 18px;
 		line-height: 1.4;
@@ -234,8 +237,8 @@
 	outline-color: $accent-color;
 }
 
-.commentsInput{
-  margin-bottom: 16px;
+.commentsInput {
+	margin-bottom: 16px;
 	height: 40px;
 	width: 100%;
 
@@ -251,10 +254,10 @@
 	border-radius: 40px;
 	outline-color: $accent-color;
 
-  @include media(tablet) {
+	@include media(tablet) {
 		height: 113px;
-    border-radius: 20px;
-    padding-bottom: 75px;
+		border-radius: 20px;
+		padding-bottom: 75px;
 	}
 }
 
@@ -265,4 +268,77 @@
 
 .start {
 	color: $accent-color;
+}
+
+.sexLabel {
+	width: 90px;
+	@include flex(center, center);
+	flex-direction: column;
+}
+
+.sexInput {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	position: absolute;
+	z-index: -10;
+
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 26px;
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+.sexInput:checked + .sexLabel,
+.sexInput:focus + .sexLabel {
+	border-radius: 20px;
+	outline: 3px solid $accent-color;
+}
+
+.category__label {
+	width: fit-content;
+	@include flex(center, center);
+	flex-direction: column;
+
+	width: 100%;
+	outline: none;
+	padding: 8px 28px;
+	border-radius: 40px;
+	cursor: pointer;
+	border: 3px solid $accent-color;
+	transition: $transition;
+
+	background-color: $secondary-bg-color;
+	color: $fifth-text-color;
+
+	@include media(tablet) {
+		padding: 10px 28px;
+	}
+}
+
+.category__input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	position: absolute;
+	z-index: -10;
+
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 26px;
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+
+.category__input:checked + .category__label,
+.category__input:focus + .category__label {
+	background-color: $accent-color;
+	color: $secondary-text-color;
+}
+
+.category__paragraph {
+	@extend .paragraph;
+	margin-bottom: 0px;
 }

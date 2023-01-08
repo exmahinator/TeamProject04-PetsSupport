@@ -1,110 +1,76 @@
 import { Button } from 'components/Reuse/Button/Button';
+import { AddPetItem } from '../AddPetItem/AddPetItem';
+import { AddPetCategory } from '../AddPetRadioItem/AddPetCategory';
 import styles from '../NoticesAddPetForm.module.scss';
 
-export const FirstStep = ({
-	register,
-	nextPage,
-	onCloseModal,
-	handlCategory,
-}) => {
+export const FirstStep = ({ register, nextPage, onCloseModal }) => {
 	return (
 		<div>
 			<p className={styles.heading}>
 				Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
-				consectetur{' '}
+				consectetur
 			</p>
 			<ul className={styles.categor}>
 				<li className={styles.categor__item}>
-					<label htmlFor="petCategoriesLost" className={styles.categor__label}>
-						<input
-							{...register('petCategoriesLost')}
-							type="button"
-							id="petCategoriesLost"
-							value="lost"
-							onClick={handlCategory}
-							className={styles.categor__input}
-						/>
-					</label>
+					<AddPetCategory
+						data="petCategoriesLost"
+						text="lost"
+						value="lost"
+						field="category"
+						register={register}
+					/>
 				</li>
 				<li className={styles.categor__item}>
-					<label
-						htmlFor="petCategoriesGoodHands"
-						className={styles.categor__label}
-					>
-						<input
-							{...register('petCategoriesGoodHands')}
-							type="button"
-							id="petCategoriesGoodHands"
-							value="goodhands"
-							onClick={handlCategory}
-							className={styles.categor__input}
-						/>
-					</label>
+					<AddPetCategory
+						data="petCategoriesGoodHands"
+						text="goodhands"
+						value="goodhands"
+						field="category"
+						register={register}
+					/>
 				</li>
 				<li className={styles.categor__item}>
-					<label htmlFor="petCategoriesSell" className={styles.categor__label}>
-						<input
-							{...register('petCategoriesSell')}
-							type="button"
-							id="petCategoriesSell"
-							value="sell"
-							onClick={handlCategory}
-							className={styles.categor__input}
-						/>
-					</label>
+					<AddPetCategory
+						data="petCategoriesSell"
+						text="sell"
+						value="sell"
+						field="category"
+						register={register}
+					/>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<label htmlFor="petTitle" className={styles.label}>
-						<p className={styles.paragraph}>
-							Tittle of ad
-							<span className={styles.start}>&#42;</span>
-						</p>
-						<input
-							{...register('petTitle')}
-							type="text"
-							id="petTitle"
-							placeholder="Type name pet"
-							className={styles.input}
-						/>
-					</label>
+					<AddPetItem
+						data="title"
+						text="Tittle of ad"
+						field="title"
+						register={register}
+					/>
 				</li>
 				<li>
-					<label htmlFor="petName" className={styles.label}>
-						<p className={styles.paragraph}>Name pet</p>
-						<input
-							type="text"
-							{...register('petName')}
-							id="petName"
-							placeholder="Type name pet"
-							className={styles.input}
-						/>
-					</label>
+					<AddPetItem
+						data="name"
+						text="Name pet"
+						field="name"
+						register={register}
+					/>
 				</li>
 				<li>
-					<label htmlFor="petBirth" className={styles.label}>
-						<p className={styles.paragraph}>Date of birth</p>
-						<input
-							type="text"
-							{...register('petBirth')}
-							id="petBirth"
-							placeholder="Type date of birth"
-							className={styles.input}
-						/>
-					</label>
+					<AddPetItem
+						data="birthday"
+						text="Date of birth"
+						field="birthday"
+						register={register}
+					/>
 				</li>
 				<li>
-					<label htmlFor="petname" className={styles.label}>
-						<p className={styles.paragraph}>Breed</p>
-						<input
-							type="text"
-							{...register('petBreed')}
-							id="petBreed"
-							placeholder="Type breed"
-							className={styles.input}
-						/>
-					</label>
+					<AddPetItem
+						data="breed"
+						text="Breed"
+						field="breed"
+						register={register}
+					/>
 				</li>
 			</ul>
 
@@ -119,7 +85,7 @@ export const FirstStep = ({
 					type={'button'}
 					text={'Cancel'}
 					colorType={'white'}
-					onClickFunc={() => onCloseModal()}
+					onClickFunc={onCloseModal}
 				/>
 			</div>
 		</div>

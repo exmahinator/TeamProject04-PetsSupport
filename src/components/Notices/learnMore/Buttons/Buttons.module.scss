@@ -1,0 +1,86 @@
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
+
+.infoModal__buttons {
+	@include flex(center, center);
+	flex-direction: column;
+	gap: 12px;
+	width: 240px;
+
+	@include media('tablet') {
+		flex-direction: row-reverse;
+		flex-wrap: nowrap;
+		margin-left: auto;
+		gap: 20px;
+		width: 380px;
+	}
+
+	@include media('desktop') {
+		gap: 24px;
+		width: 384px;
+	}
+}
+
+.infoModal__contact {
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+	outline: none;
+	padding: 8px 28px;
+	border-radius: 40px;
+	cursor: pointer;
+	border: 2px solid $accent-color;
+	transition: $transition;
+
+	@include media(tablet) {
+		padding: 10px 28px;
+	}
+
+	background-color: $accent-color;
+	color: $secondary-text-color;
+	&:hover {
+		background-color: $hover-color;
+		border-color: $hover-color;
+	}
+}
+
+.infoModal__addTo {
+	position: relative;
+	height: 40px;
+	@include flex(center, center);
+	gap: 8px;
+	width: 100%;
+	outline: none;
+	padding: 8px 28px;
+	border-radius: 40px;
+	cursor: pointer;
+	border: 2px solid $accent-color;
+	transition: $transition;
+
+	background-color: $secondary-bg-color;
+	color: $fifth-text-color;
+	&:hover {
+		border-color: $hover-color;
+	}
+	@include media(tablet) {
+		padding: 10px 28px;
+		height: 48px;
+	}
+}
+
+.infoModal__removeFrom {
+	@extend .infoModal__addTo;
+
+	@include media('tablet') {
+		gap: 5px;
+	}
+}
+
+.infoModal__addToIcon {
+	stroke: $accent-color;
+	fill: transparent;
+}
+
+.infoModal__removeIcon {
+	fill: $accent-color;
+}
