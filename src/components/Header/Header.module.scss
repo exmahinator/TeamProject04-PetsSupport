@@ -1,60 +1,58 @@
 @import 'src/shared/styles/mixins.scss';
 
-
 .wrapper {
-    width: 100%;
-    @include flex(space-between, center);
-    position: relative;
-    margin: 0px auto;
-    padding-top: 16px;
-    
-@include media(tablet) {
-    // width: 756px;
-}
+	width: 100%;
+	@include flex(space-between, center);
+	position: relative;
+	margin: 0px auto;
+	padding-top: 16px;
 
-        @include media(desktop) {
-    // width: 1280px;
-        }
-}
+	@include media(tablet) {
+		padding-top: 22px;
+	}
 
+	@include media(desktop) {
+		padding-top: 20px;
+	}
+}
 
 .mainNav {
-    gap: 80px;
-    @include flex(space-between, center);
+	gap: 80px;
+	@include flex(space-between, center);
 }
-.btnBurger{
-    display: inline-flex;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background-color: transparent;
-}
-
-.btns{
-    display: contents;
-    // @include flex(center, center);
-    @include media(tablet) {
-        // width: 100%
-    }
+.btnBurger {
+	display: inline-flex;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: transparent;
 }
 
-.open{
-    @include flex(center, center);
-    flex-wrap: wrap-reverse;
-    position: absolute;
-top: 100%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    background-color: #FDF7F2;;
+.btns {
+	display: contents;
+	// @include flex(center, center);
+	@include media(tablet) {
+		// width: 100%
+	}
+}
+
+.open {
+	@include flex(center, center);
+	flex-wrap: wrap-reverse;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	background-color: #fdf7f2;
 }
 
 .logoLink {
-@include media(tablet) {
-    @include flex(space-between, center);
-}
+	@include media(tablet) {
+		@include flex(space-between, center);
+	}
 }
 .logoBtn {
-    @include flex(space-between, center);
-    gap: 20px;
+	@include flex(space-between, center);
+	gap: 20px;
 }

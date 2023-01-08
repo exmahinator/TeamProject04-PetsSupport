@@ -2,21 +2,57 @@ import { Container } from 'components/Reuse/Container/Container';
 import React from 'react';
 import style from './HomePage.module.scss';
 import girlPhoneUrl from '../../shared/images/Home/phoneImg.png';
+import girlPhoneUrl2x from '../../shared/images/Home/phoneImg2x.png';
+import girlTabletUrl from '../../shared/images/Home/tabletImg.png';
+import girlTabletUrl2x from '../../shared/images/Home/tabletImg2x.png';
+import girlDesktopUrl from '../../shared/images/Home/desktopImg.png';
+import girlDesktopUrl2x from '../../shared/images/Home/desktopImg2x.png';
 
 const HomePage = () => {
 	return (
 		<>
 			<section className={style.headerSection}>
 				<Container>
-					<h1 className={style.text}>Take good care of your small pets</h1>
+					<div className={style.headerControlBox}>
+						<h1 className={style.text}>Take good care of your small pets</h1>
+						<div className={style.headerImgBox}>
+							<picture>
+								<source
+									srcset={`${girlDesktopUrl} 1x,
+                                    ${girlDesktopUrl2x} 2x`}
+									media="(min-width: 1280px)"
+								/>
+								<source
+									srcset={`${girlTabletUrl} 1x,
+                                    ${girlTabletUrl2x} 2x`}
+									media="(min-width: 768px)"
+								/>
+
+								<img
+									className={style.headerImg}
+									src={girlPhoneUrl}
+									alt={'Girl with her beloved pet'}
+									width={645}
+								/>
+							</picture>
+						</div>
+					</div>
 				</Container>
-				<div className={style.headerImgBox}>
-					<img
-						className={style.headerImg}
-						src={girlPhoneUrl}
-						alt={'Girl with her beloved pet'}
-						width={320}
-					/>
+				<div className={style.headerImgBoxMobile}>
+					<picture>
+						<source
+							srcset={`${girlPhoneUrl} 1x,
+                                    ${girlPhoneUrl2x} 2x`}
+							media="(min-width: 320px)"
+						/>
+
+						<img
+							className={style.headerImg}
+							src={girlPhoneUrl}
+							alt={'Girl with her beloved pet'}
+							width={320}
+						/>
+					</picture>
 				</div>
 			</section>
 		</>
