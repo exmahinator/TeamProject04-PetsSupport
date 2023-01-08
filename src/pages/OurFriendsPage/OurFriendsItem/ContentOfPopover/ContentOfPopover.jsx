@@ -1,5 +1,5 @@
 import styles from './ContentOfPopover.module.scss';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 
 export const ContentOfPopover = ({ workDays }) => {
 	console.log('workDays :>> ', workDays);
