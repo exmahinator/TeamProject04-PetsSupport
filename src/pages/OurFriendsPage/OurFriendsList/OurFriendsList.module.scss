@@ -1,0 +1,22 @@
+@import 'shared/styles/mixins.scss';
+
+.list {
+	margin-top: 28px;
+	display: flex;
+	flex-wrap: wrap;
+	// justify-content: center;
+	gap: 12px;
+	max-width: 500px;
+	margin: 0 auto;
+
+	@include media(tablet) {
+		margin-top: 40px;
+		justify-content: space-around;
+		gap: 32px;
+		max-width: 100%;
+	}
+
+	@include media(desktop) {
+		margin-top: 60px;
+	}
+}
