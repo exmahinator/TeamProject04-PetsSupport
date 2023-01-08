@@ -3,6 +3,8 @@ import { styled } from '@mui/material/styles';
 import { ContentOfPopover } from '../ContentOfPopover/ContentOfPopover';
 import { Button, Popover } from '@mui/material';
 
+// import { nanoid } from 'nanoid';
+
 // import styles from './OurFriendPopover.module.scss';
 
 const CustomizedBtn = styled(Button)`
@@ -45,7 +47,8 @@ export const OurFriendsPopover = ({ workDays }) => {
 
 	const open = Boolean(anchorEl);
 	const id = open ? 'simple-popover' : undefined;
-	// console.log('workDays :>> ', workDays);
+	const from = workDays.find(({ from }) => from);
+	const to = workDays.find(({ to }) => to);
 	return (
 		<div>
 			<CustomizedBtn
@@ -53,8 +56,10 @@ export const OurFriendsPopover = ({ workDays }) => {
 				variant="contained"
 				onClick={handleClick}
 			>
-				Time:
+				Time: <br />
+				{from.from} - {to.to}
 			</CustomizedBtn>
+
 			<Popover
 				id={id}
 				open={open}
