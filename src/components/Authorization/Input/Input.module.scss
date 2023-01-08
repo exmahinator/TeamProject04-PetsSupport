@@ -74,15 +74,7 @@
 .input:not(:placeholder-shown):invalid~.phoneCode {
   opacity: 1;
 }
-.error {
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
 
-    font-size: 12px;
-    color: red;
-}
 .inputTel{
     @extend .input;
     padding-left: 60px;
