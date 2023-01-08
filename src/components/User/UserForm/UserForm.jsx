@@ -6,6 +6,7 @@ import { UserPhoto } from './UserPhoto/UserPhoto';
 import { UserItem } from './UserItem/UserItem';
 
 import style from './UserForm.module.scss';
+import { createFormData } from 'shared/functions/createFormData';
 
 export const UserForm = ({ userInfo, userAvatar }) => {
 	const { register, handleSubmit, watch } = useForm({});
@@ -14,21 +15,7 @@ export const UserForm = ({ userInfo, userAvatar }) => {
 
 	const onSubmit = data => {
 		if (data) {
-			const key = Object.keys(data);
-			const value = Object.values(data);
-			const fieldToChange = new FormData();
-
-			for (let index = 0; index < key.length; index++) {
-				if (key[index] !== 'avatar') {
-					if (value[index].trim()) {
-						fieldToChange.append(key[index], value[index]);
-					}
-				} else {
-					if (value[index][0] !== undefined) {
-						fieldToChange.append(key[index], value[index][0]);
-					}
-				}
-			}
+			const fieldToChange = createFormData(data);
 
 			dispatch(updateUserData(fieldToChange));
 		}

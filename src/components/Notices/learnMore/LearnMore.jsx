@@ -1,19 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal } from 'components/Reuse/Modal/Modal';
+
 import styles from './LearnMore.module.scss';
+import { Buttons } from './Buttons/Buttons';
 
 const LearnMore = ({
-	imageURL,
+	id,
+	sex,
+	name,
+	breed,
+	email,
+	phone,
 	title,
+	location,
+	imageURL,
+	birthday,
 	comments,
 	category,
-	name,
-	birthday,
-	breed,
-	location,
-	sex,
-  email,
-  phone,
+	favNotices,
+	isFavLoading,
+	onAddToFavorite,
+	onRemoveFromFavorite,
 }) => {
 	const [isShowModal, setIsShowModal] = useState(false);
 
@@ -39,6 +46,7 @@ const LearnMore = ({
 			onClose();
 		}
 	};
+
 	return (
 		<>
 			<Modal
@@ -100,9 +108,20 @@ const LearnMore = ({
 					</div>
 					<div className={styles.commen}>
 						<p className={styles.commen__paragraph}>
-              <span className={styles.commen__span}>Comments: </span>{comments}
-            </p>
+							<span className={styles.commen__span}>Comments: </span>
+							{comments}
+						</p>
 					</div>
+
+					<Buttons
+						id={id}
+						phone={phone}
+						onCloseModal={onClose}
+						favNotices={favNotices}
+						isFavLoading={isFavLoading}
+						onAddToFavorite={onAddToFavorite}
+						onRemoveFromFavorite={onRemoveFromFavorite}
+					/>
 				</div>
 			</Modal>
 		</>

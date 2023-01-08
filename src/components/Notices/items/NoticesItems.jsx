@@ -53,11 +53,11 @@ const NoticesItems = ({
 
 				<div className={styles.likeWrap}>
 					<Favorite
+						id={id}
+						favNotices={favNotices}
 						isFavLoading={isFavLoading}
 						onAddToFavorite={onAddToFavorite}
 						onRemoveFromFavorite={onRemoveFromFavorite}
-						id={id}
-						favNotices={favNotices}
 					/>
 				</div>
 
@@ -94,18 +94,23 @@ const NoticesItems = ({
 				<ul className={styles.btnContainer}>
 					<li>
 						<LearnMore
-							imageURL={imageURL}
-							title={title}
-							comments={comments}
-							category={category}
-							name={name}
-							birthday={birthday}
-							breed={breed}
-							location={location}
+							id={id}
 							sex={sex}
-							price={price}
-							email={email}
+							name={name}
 							phone={phone}
+							breed={breed}
+							price={price}
+							title={title}
+							email={email}
+							imageURL={imageURL}
+							birthday={birthday}
+							category={category}
+							comments={comments}
+							location={location}
+							favNotices={favNotices}
+							isFavLoading={isFavLoading}
+							onAddToFavorite={onAddToFavorite}
+							onRemoveFromFavorite={onRemoveFromFavorite}
 						/>
 					</li>
 					<li>

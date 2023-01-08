@@ -32,7 +32,7 @@ export const AddPetForm = ({ onCloseModal }) => {
 
 		dispatch(addUserPet(newPet));
 
-		onCloseModal()
+		onCloseModal();
 	};
 
 	return (
