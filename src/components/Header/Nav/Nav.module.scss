@@ -1,18 +1,18 @@
 @import 'src/shared/styles/variables.scss';
 @import 'src/shared/styles/mixins.scss';
 
-@include media(mobile) {
-}
-@include media(tablet) {
-}
-@include media(desktop) {
-}
+@include media(mobile) {}
+
+@include media(tablet) {}
+
+@include media(desktop) {}
 
 .menu {
 	@include flex();
 	gap: 40px;
 	margin: 60px;
 	flex-direction: column;
+
 	@include media(tablet) {
 		margin: 0;
 		margin-top: 48px;
@@ -36,6 +36,7 @@
 	line-height: 1.38;
 	color: $third-text-color;
 	text-decoration: none;
+	letter-spacing: 0.04em;
 	transition: $transition;
 
 	&:hover {
@@ -51,6 +52,7 @@
 		font-size: 48px;
 		line-height: 1.38;
 	}
+
 	@include media(desktop) {
 		font-weight: 500;
 		font-size: 20px;

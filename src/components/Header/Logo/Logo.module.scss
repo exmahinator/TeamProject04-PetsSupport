@@ -1,23 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 @import 'src/shared/styles/variables.scss';
 @import 'src/shared/styles/mixins.scss';
 
 @include media(mobile) {}
+
 @include media(tablet) {}
+
 @include media(desktop) {}
 
 
-
-.span { 
+.span {
     color: $accent-color;
 }
+
 .link {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.07em;
     font-weight: 700;
     font-size: 28px;
     line-height: 171%;
     color: $primary-text-color;
     text-decoration: none;
-@include media(tablet) {
-    font-size: 32px;
+
+    @include media(tablet) {
+        font-size: 32px;
         line-height: 150%;
-}
+    }
 }

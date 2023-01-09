@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import style from './Nav.module.scss';
 
-export const Nav = () => {
+export const Nav = ({ setIsOpen}) => {
 	const active = { color: '#F59256', textDecoration: 'underline' };
 	const noActive = {};
 	return (
@@ -12,6 +12,7 @@ export const Nav = () => {
 					to="/news"
 					className={style.link}
 					style={({ isActive }) => (isActive ? active : noActive)}
+					onClick={()=>setIsOpen(false)}
 				>
 					News
 				</NavLink>
@@ -21,6 +22,7 @@ export const Nav = () => {
 					to="/notices/sell"
 					className={style.link}
 					style={({ isActive }) => (isActive ? active : noActive)}
+					onClick={()=>setIsOpen(false)}
 				>
 					Find pet
 				</NavLink>
@@ -30,6 +32,7 @@ export const Nav = () => {
 					to="/friends"
 					className={style.link}
 					style={({ isActive }) => (isActive ? active : noActive)}
+					onClick={()=>setIsOpen(false)}
 				>
 					Our friend
 				</NavLink>
