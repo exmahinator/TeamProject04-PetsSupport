@@ -2,32 +2,35 @@
 @import 'src/shared/styles/mixins.scss';
 
 @include media(mobile) {}
+
 @include media(tablet) {}
+
 @include media(desktop) {}
 
+.menu {
+    display: flex;
+    gap: 40px;
+    margin: 60px;
+    flex-direction: column;
 
-.menu{
+    @include media(tablet) {
+        margin: 0;
+        margin-top: 48px;
+    }
+
+    @include media(desktop) {
         display: flex;
-            gap: 40px;
-            margin: 60px;
-            flex-direction: column;
-@include media(tablet) {
-    margin: 0;
-    margin-top: 48px;
-}
-
-@include media(desktop) 
-{display: flex;
-    gap: 80px;
-margin: 0;
-            flex-direction: inherit;}
-
+        gap: 80px;
+        margin: 0;
+        flex-direction: inherit;
+    }
 }
 
 
-.item { 
-        
-    font-weight: 700;
+.item {
+    :active {
+        font-weight: 700;
+
         color: $accent-color;
         text-decoration: none;
     // :active {
@@ -49,39 +52,14 @@ margin: 0;
 }
 .item :active{
         text-decoration: underline;
-}
+    }
+
 
 .link {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 44px;
 
-    font-weight: 500;
-        font-size: 32px;
-        line-height: 44px;
-        color: $third-text-color;
-        :active{text-decoration: underline;}
-        
-        // :hover:not(.active),
-        // :focus:not(.active) {
-        //     color: green;
-        // }
-        // :visited{
-        //     color: blue   ;
-        // }
-        // & .active {
-        //     color: red;
-        // }
-    
-        // :hover:not(.active),
-        // :focus:not(.active) {
-        //     color: green;
-        // }
-@include media(tablet) {
-    font-weight: 500;
-        font-size: 48px;
-        line-height: 66px;
-}
-@include media(desktop) {font-weight: 500;
-    font-size: 20px;
-    line-height: 27px;
     color: $third-text-color;
     text-decoration: none;
 
@@ -92,6 +70,28 @@ margin: 0;
     :hover:not(.active),
     :focus:not(.active) {
         color: green;
-    }}
-  
+    }
+
+    @include media(tablet) {
+        font-weight: 500;
+        font-size: 48px;
+        line-height: 66px;
+    }
+
+    @include media(desktop) {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 27px;
+        color: $third-text-color;
+        text-decoration: none;
+
+        & .active {
+            color: red;
+        }
+
+        :hover:not(.active),
+        :focus:not(.active) {
+            color: green;
+        }
+    }
 }
