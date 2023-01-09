@@ -1,3 +1,5 @@
+@import 'shared/styles/_variables.scss';
+
 .heading{
     display: -webkit-box;
     height: 66px;
@@ -9,4 +11,23 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.tooltip{
+    position: absolute;
+    top: -100px;
+    left: 40%;
+    width: 300px;
+    display: none;
+    padding: 10px;
+
+    font-size: 14px;
+    background-color: $accent-color;
+    border-radius: 20px;
+
+}
+.heading:hover ~ .tooltip{
+    display: block;
+}
+.heading:focus~.tooltip {
+    display: block;
 }

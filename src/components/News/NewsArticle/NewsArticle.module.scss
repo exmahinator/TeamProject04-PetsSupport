@@ -1,6 +1,10 @@
 @import 'shared/styles/_variables.scss';
 @import 'shared/styles/_mixins.scss';
 
+.article{
+	position: relative;
+}
+
 .article::before {
 	content: '';
 	display: block;
