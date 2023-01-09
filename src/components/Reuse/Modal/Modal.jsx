@@ -1,5 +1,5 @@
-import React from 'react';
-
+import { useMediaQuery } from 'react-responsive';
+import { ReactComponent as CrossIcon } from 'shared/images/user/uploadCross.svg';
 import style from './Modal.module.scss';
 
 export const Modal = ({
@@ -9,6 +9,8 @@ export const Modal = ({
 	handleBackdropClick,
 	isShowModal,
 }) => {
+	const isBigScreen = useMediaQuery({ query: '(min-width: 768px)' });
+
 	switch (btnType) {
 		case 'circle':
 			return (
@@ -70,8 +72,9 @@ export const Modal = ({
 		case 'empty':
 			return (
 				<>
+					<p className={style.empty__text}>Add pet {isBigScreen && ':'}</p>
 					<button className={style.empty} onClick={() => setIsShowModal(true)}>
-						<span>Add pet</span>
+						<CrossIcon stroke="#ffffff" width={44} height={44} />
 					</button>
 					{isShowModal && (
 						<div onClick={handleBackdropClick} className={style.backdrop}>
