@@ -2,9 +2,9 @@ import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
 import { useMediaQuery } from 'react-responsive';
 
 import style from './TrashButton.module.scss';
-import { Spinner } from 'components/Reuse/Spinner/Spinner';
+import { Spinner } from 'components/Reuse/Loaders/Spinner/Spinner';
 
-export const TrashButton = ({ id, onDeletePet, isUserLoading }) => {
+export const TrashButton = ({ id, onDeletePet, isPetsLoading }) => {
 	const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
 
 	return (
@@ -16,7 +16,7 @@ export const TrashButton = ({ id, onDeletePet, isUserLoading }) => {
 					className={style.iconThumb}
 					onClick={id => onDeletePet(id)}
 				>
-					{isUserLoading ? (
+					{isPetsLoading ? (
 						<Spinner />
 					) : (
 						<TrashIcon
@@ -34,7 +34,7 @@ export const TrashButton = ({ id, onDeletePet, isUserLoading }) => {
 					type="button"
 					className={style.iconThumb}
 				>
-					{isUserLoading ? (
+					{isPetsLoading ? (
 						<Spinner />
 					) : (
 						<TrashIcon

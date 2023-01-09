@@ -5,8 +5,13 @@ import { AddPetInput } from '../AddPetInput/AddPetInput';
 
 import style from './AddPetFormSecondPage.module.scss';
 
-export const AddPetFormSecondPage = ({ register, watch, errors, uploadError }) => {
-	const newImage = watch('petUpload');
+export const AddPetFormSecondPage = ({
+	register,
+	watch,
+	errors,
+	uploadError,
+}) => {
+	const newImage = watch('avatar');
 	return (
 		<>
 			<div className={style.uploadThumb}>
@@ -15,28 +20,38 @@ export const AddPetFormSecondPage = ({ register, watch, errors, uploadError }) =
 						Add photo and some comments
 					</p>
 					<div className={style.crossWrapper}>
-						{newImage ? (
+						{newImage[0] ? (
 							<img
 								className={style.image}
 								src={URL.createObjectURL(newImage[0])}
 								alt="poster"
 							/>
 						) : (
-							<UploadCross width={48} height={48} stroke="rgba(17, 17, 17, 0.6)" />
+							<UploadCross
+								width={48}
+								height={48}
+								stroke="rgba(17, 17, 17, 0.6)"
+							/>
 						)}
 					</div>
 					<input
 						type="file"
-						{...register('petUpload')}
+						{...register('avatar')}
 						id="petUpload"
 						placeholder="Type name pet"
 						className={style.uploadInput}
 					/>
-					{(uploadError && !newImage[0]) && <ValidationError>Add an image</ValidationError>}
+					{uploadError && !newImage[0] && (
+						<ValidationError>Add an image</ValidationError>
+					)}
 				</label>
 			</div>
-			<AddPetInput register={register} textarea errors={errors} settings={petComment } />
-
+			<AddPetInput
+				register={register}
+				textarea
+				errors={errors}
+				settings={petComment}
+			/>
 		</>
 	);
 };

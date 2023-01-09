@@ -3,16 +3,18 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserData, removeUserPet } from 'redux/user/user-operations';
 import {
-	getUserAvatar,
-	getUserInfo,
-	getUserLoading,
 	getUserPets,
+	getUserInfo,
+	getUserAvatar,
+	getPetsLoading,
+	getUserLoading,
 } from 'redux/user/user-selectors';
 import { Card } from 'components/User/Card/Card';
 import { Title } from 'components/User/Title/Title';
 import { Modal } from 'components/Reuse/Modal/Modal';
+import { getIsLoading } from 'redux/auth/auth-selectors';
 import { UserForm } from 'components/User/UserForm/UserForm';
-import { BigSpinner } from 'components/Reuse/Spinner/BigSpinner';
+import { BigSpinner } from 'components/Reuse/Loaders/Spinner/BigSpinner';
 import { AddPetForm } from 'components/User/AddPetForm/AddPetForm';
 
 import style from './UserPage.module.scss';
@@ -55,7 +57,9 @@ const UserPage = () => {
 	const userInfo = useSelector(getUserInfo);
 	const userAvatar = useSelector(getUserAvatar);
 	const userPets = useSelector(getUserPets);
+	const isPetsLoading = useSelector(getPetsLoading);
 	const isUserLoading = useSelector(getUserLoading);
+	const isCurrentLoading = useSelector(getIsLoading);
 
 	const isUserPets = !!userPets?.length;
 	const onDeletePet = e => {
@@ -68,12 +72,16 @@ const UserPage = () => {
 		<div className={style.general}>
 			<div className={style.user__wrapper}>
 				<Title title="My information:" className={style.titleUser} />
-				<UserForm userInfo={userInfo} userAvatar={userAvatar} />
+				<UserForm
+					userInfo={userInfo}
+					userAvatar={userAvatar}
+					isUserLoading={isUserLoading}
+					isCurrentLoading={isCurrentLoading}
+				/>
 			</div>
 			<div className={style.desktop}>
 				<div className={style.tablet}>
 					{isUserPets && <Title title="My pets:" className={style.title} />}
-
 					{isUserPets ? (
 						<Modal
 							btnType={'circle-info'}
@@ -93,7 +101,7 @@ const UserPage = () => {
 							)}
 
 							<div className={style.addPetModalWrapper}>
-								{isUserLoading ? (
+								{isPetsLoading ? (
 									<BigSpinner />
 								) : (
 									<Modal
@@ -113,7 +121,7 @@ const UserPage = () => {
 				<Card
 					userPets={userPets}
 					onDeletePet={onDeletePet}
-					isUserLoading={isUserLoading}
+					isPetsLoading={isPetsLoading}
 				/>
 			</div>
 		</div>

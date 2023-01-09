@@ -117,9 +117,11 @@
 		@include flex(center, center);
 		flex-direction: column;
 		gap: 12px;
+		// min-height: 470px;
 
 		@include media('tablet') {
 			width: 665px;
+			// min-height: 264px;
 			flex-direction: row-reverse;
 			justify-content: flex-end;
 			gap: 52px;
@@ -128,6 +130,7 @@
 
 		@include media('desktop') {
 			width: 411px;
+			// min-height: 497px;
 			flex-direction: column;
 			gap: 36px;
 		}
