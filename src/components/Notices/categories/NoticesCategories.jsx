@@ -3,7 +3,7 @@ import { useAuth } from 'shared/hooks/useAuth';
 import style from './NoticesCategories.module.scss';
 
 const NoticesCategories = () => {
-	const activ = { color: '#FFFFFF', background: '#ff6101' };
+	const activ = { color: '#FFFFFF', background: '#F59256' };
 	const notActive = { color: '#111111'};
 
 	const isLogin = useAuth();
