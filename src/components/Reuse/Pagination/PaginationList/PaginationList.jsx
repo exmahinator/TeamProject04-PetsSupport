@@ -1,7 +1,7 @@
 import { PaginationBtn } from '../PaginationBtn/PaginationBtn';
-import style from './Pagination.module.scss';
+import style from './PaginationList.module.scss';
 
-export const Pagination = ({ pages, setPage }) => {
+export const PaginationList = ({ pages, setPage }) => {
 	const arr = Array(pages).fill('*')
 
 	return (

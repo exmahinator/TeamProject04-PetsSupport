@@ -12,7 +12,7 @@ import {
 } from '../../redux/news/news-selectors'
 import { getAllNews } from '../../redux/news/news-operations'
 import { Search } from 'components/News/Search/Search';
-import { Pagination } from 'components/News/Pagiantion/Pagination';
+import { PaginationList } from 'components/Reuse/Pagination/PaginationList/PaginationList';
 
 
 const NewsPage = () => {
@@ -38,7 +38,7 @@ const NewsPage = () => {
         <Search setFilter={ setQuery} />
         
         <NewsList data={news} />
-        <Pagination setPage={setPage} pages={ totalPages} />
+        <PaginationList setPage={setPage} pages={ totalPages} />
       </Container>
     </section>
   )
