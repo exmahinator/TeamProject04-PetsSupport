@@ -1,0 +1,24 @@
+@import 'shared/styles/mixins.scss';
+@import 'shared/styles/variables.scss';
+
+.btn {
+	width: 45px;
+	height: 45px;
+	outline: none;
+	border-radius: 50%;
+	cursor: pointer;
+	border: 2px solid $accent-color;
+	transition: $transition;
+
+	background-color: $accent-color;
+	color: $secondary-text-color;
+	&:hover {
+		background-color: $hover-color;
+		border-color: $hover-color;
+	}
+
+	@include media(tablet) {
+		width: 50px;
+		height: 50px;
+	}
+}

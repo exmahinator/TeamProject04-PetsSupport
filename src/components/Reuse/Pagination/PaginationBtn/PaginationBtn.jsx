@@ -1,5 +1,7 @@
-export const PaginationBtn = ({value, setPage}) => {
+import style from './PaginationBtn.module.scss'
+
+export const PaginationBtn = ({ value, setPage }) => {
     return (
-        <button onClick={()=>setPage(value)}>{value }</button>
+        <button className={style.btn} onClick={()=>setPage(value)}>{value }</button>
     )
 }

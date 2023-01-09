@@ -5,6 +5,7 @@
 	max-width: 280px;
     margin: 40px auto 0;
 	@include media(tablet) {
+		// min-height: 400px;
 			margin: 60px auto 0;
 		width: 704px;
 		max-width: 704px;
@@ -13,6 +14,7 @@
 	@include media(desktop) {
 		width: 1248px;
 		max-width: 1248px;
+		// min-height: 617px;
 	}
 }
 
