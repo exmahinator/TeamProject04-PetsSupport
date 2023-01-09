@@ -6,6 +6,7 @@ const initialState = {
 	user: {},
 	isLogin: false,
 	token: '',
+	userId: '',
 	loading: false,
 	error: null,
 	isFirstQuery: true,
@@ -66,6 +67,7 @@ const authSlice = createSlice({
 			// store.token = '';
 			store.isLogin = true;
 			store.isFirstQuery = false;
+			store.userId = payload._id;
 		},
 		[current.rejected]: (store, { payload }) => {
 			store.loading = false;

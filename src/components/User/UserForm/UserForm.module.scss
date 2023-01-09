@@ -1,17 +1,5 @@
 @import 'shared/styles/variables';
 @import 'shared/styles/mixins';
-*:disabled {
-	color: $third-bg-color;
-	background-color: green;
-}
-.dimentions {
-	@media (min-width: 768px) {
-		width: 80%;
-	}
-	@media (min-width: 1280px) {
-		width: 600px;
-	}
-}
 
 .thumb {
 	width: 233px;
@@ -46,24 +34,21 @@
 	border-radius: 20px;
 
 	@include media('tablet') {
-		width: 736px;
+		width: 704px;
 
 		margin-left: 0px;
 		margin-right: 0px;
 		margin-bottom: 20px;
 
-		padding: 40px 40px 54px 0px;
-		border-bottom-left-radius: 0px;
-		border-top-left-radius: 0px;
-		border-bottom-right-radius: 40px;
-		border-top-right-radius: 40px;
+		padding: 40px 40px 54px 32px;
+		border-radius: 40px;
 	}
 
 	@include media('desktop') {
 		width: 450px;
 		min-height: 500px;
 		margin-bottom: 40px;
-		padding: 20px 16px 64px 16px;
+		padding: 20px 16px 84px 16px;
 	}
 
 	&__uploadThumb {
@@ -112,7 +97,16 @@
 		position: absolute;
 		z-index: -10;
 	}
+	&__data {
+		width: 150px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 
+		@include media('tablet') {
+			width: 200px;
+		}
+	}
 	&__uploadText {
 		font-weight: 400;
 		font-size: 12px;
@@ -125,20 +119,17 @@
 		gap: 12px;
 
 		@include media('tablet') {
-			width: 736px;
+			width: 665px;
 			flex-direction: row-reverse;
 			justify-content: flex-end;
 			gap: 52px;
-			margin-left: 32px;
 			margin-bottom: 0px;
 		}
 
 		@include media('desktop') {
+			width: 411px;
 			flex-direction: column;
 			gap: 36px;
-
-			width: 411px;
-			margin-left: 0px;
 		}
 	}
 	&__meta {
@@ -170,7 +161,7 @@
 	}
 	&__text {
 		@include flex(flex-start, center);
-		width: 25%;
+		width: 15%;
 		font-weight: 500;
 		font-size: 12px;
 		letter-spacing: 0.04em;
