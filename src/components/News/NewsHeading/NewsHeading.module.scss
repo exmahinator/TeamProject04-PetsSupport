@@ -1,4 +1,5 @@
 @import 'shared/styles/_variables.scss';
+@import 'shared/styles/_mixins.scss';
 
 .heading{
     display: -webkit-box;
@@ -15,14 +16,21 @@
 .tooltip{
     position: absolute;
     top: -100px;
-    left: 40%;
-    width: 300px;
+    left: 5%;
+    width: 280px;
     display: none;
     padding: 10px;
 
     font-size: 14px;
     background-color: $accent-color;
     border-radius: 20px;
+        @include media(tablet) {
+                left: 20%;
+            }
+        
+            @include media(desktop) {
+                left: 30%;
+            }
 
 }
 .heading:hover ~ .tooltip{

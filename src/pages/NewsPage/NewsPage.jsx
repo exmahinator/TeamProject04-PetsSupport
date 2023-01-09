@@ -38,7 +38,7 @@ const NewsPage = () => {
       <Title text='News' />
         <Search   />
         
-        <NewsList data={ news.slice(0,6)} />
+        <NewsList data={ news.slice(0)} />
       </Container>
     </section>
   )
