@@ -1,5 +1,6 @@
 import { usePasswordBtn } from 'shared/hooks/auth/usePasswordBtn';
 import { PasswordBtn } from '../PasswordBtn/PasswordBtn';
+import { ValidationError } from '../ValidationError/ValidationError';
 import styles from './Input.module.scss';
 
 export const Input = ({ settings, register, errors, inputRef = null, }) => {
@@ -51,7 +52,7 @@ export const Input = ({ settings, register, errors, inputRef = null, }) => {
 				{' '}
 				{placeholder}
 			</label>
-			{errors[name] && <p className={styles.error}>{errors[name]?.message}</p>}
+			{errors[name] && <ValidationError>{errors[name]?.message}</ValidationError>}
 		</div>
 	);
 };

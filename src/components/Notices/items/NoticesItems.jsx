@@ -46,12 +46,7 @@ const NoticesItems = ({
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.pctWrap}>
-				<img
-					className={styles.pctWrap__pictures}
-					src={imageURL}
-					alt={title}
-					title={title}
-				/>
+				<img className={styles.pctWrap__pictures} src={imageURL} alt={name} />
 
 				<div className={styles.likeWrap}>
 					<Favorite
@@ -68,7 +63,9 @@ const NoticesItems = ({
 				</div>
 			</div>
 			<div className={styles.boxWrap}>
-				<h2 className={styles.heading__title}>{title}</h2>
+				<div className={styles.heading}>
+					<h2 className={styles.heading__title}>{title}</h2>
+				</div>
 
 				<ul className={styles.list}>
 					<li className={styles.list__item}>

@@ -2,9 +2,13 @@ import React, { useEffect ,useState} from 'react';
 import { Modal } from 'components/Reuse/Modal/Modal';
 import { AddPetForm } from '../addPetForm/NoticesAddPetForm';
 import styles from './NoticesAddPet.module.scss';
+import { useAuth } from 'shared/hooks/useAuth';
+import { toast } from 'react-toastify';
 
 const NoticesAddPet = () => {
   const [isShowModal, setIsShowModal] = useState(false);
+
+  const isLogin = useAuth()
 
 const onClose = () => {
 	setIsShowModal(false);
@@ -34,7 +38,7 @@ const handleBackdropClick = e => {
       <Modal 
         btnType={'circle'} 
         isShowModal={isShowModal}
-        setIsShowModal={setIsShowModal}
+        setIsShowModal={isLogin ? setIsShowModal : () => toast.error('Please login!')}
         handleBackdropClick={handleBackdropClick}
       >
         <h2 className={styles.heading}>Add pet</h2>

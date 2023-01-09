@@ -20,7 +20,7 @@ import {
 import NoticesItems from '../items/NoticesItems';
 import styles from './NoticesList.module.scss';
 
-const NoticesList = ({ category }) => {
+export const NoticesList = ({ category }) => {
 	const isLogin = useAuth();
 	const dispatch = useDispatch();
 
@@ -67,50 +67,50 @@ const NoticesList = ({ category }) => {
 	//ну и дальше пишите логику на удаление, добавление и тд по тз, вам осталось играться и сравнивать info, notices и favorite
 
 	return (
-		<ul className={styles.wrapper}>
-			{notices.map(
-				({
-					sex,
-					name,
-					price,
-					breed,
-					title,
-					owner,
-					email,
-					phone,
-					_id: id,
-					category,
-					birthday,
-					location,
-					imageURL,
-					comments,
-				}) => (
-					<li key={id}>
-						<NoticesItems
-							id={id}
-							sex={sex}
-							name={name}
-							owner={owner}
-							email={email}
-							phone={phone}
-							price={price}
-							breed={breed}
-							title={title}
-							ownerId={ownerId}
-							category={category}
-							birthday={birthday}
-							location={location}
-							imageURL={imageURL}
-							comments={comments}
-							favNotices={favNotices}
-							isFavLoading={isFavLoading}
-							onDeleteNotice={onDeleteNotice}
-						/>
-					</li>
-				)
-			)}
-		</ul>
+		<div className={styles.wrapper}>
+			<ul className={styles.galery}>
+				{notices.map(
+					({
+						sex,
+						name,
+						price,
+						breed,
+						title,
+						owner,
+						email,
+						phone,
+						_id: id,
+						category,
+						birthday,
+						location,
+						imageURL,
+						comments,
+					}) => (
+						<li key={id}>
+							<NoticesItems
+								id={id}
+								sex={sex}
+								name={name}
+								owner={owner}
+								email={email}
+								phone={phone}
+								price={price}
+								breed={breed}
+								title={title}
+								ownerId={ownerId}
+								category={category}
+								birthday={birthday}
+								location={location}
+								imageURL={imageURL}
+								comments={comments}
+								favNotices={favNotices}
+								isFavLoading={isFavLoading}
+								onDeleteNotice={onDeleteNotice}
+							/>
+						</li>
+					)
+				)}
+			</ul>
+		</div>
 	);
 };
-
-export default NoticesList;

@@ -29,14 +29,6 @@ export const UserPhoto = ({ avatar, watch, register }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [newImage]);
 
-	const checkAvatar = avatar => {
-		if (!avatar) {
-			return 'https://icdn.kiwico.com/site/reviews/avatar-sailor.png';
-		}
-
-		return avatar;
-	};
-
 	return (
 		<>
 			<div className={style.avatar__thumb}>
@@ -46,7 +38,7 @@ export const UserPhoto = ({ avatar, watch, register }) => {
 						src={
 							newImage && newImage[0]
 								? URL.createObjectURL(newImage[0])
-								: checkAvatar(avatar)
+								: avatar
 						}
 						alt="default avatar"
 						width={233}

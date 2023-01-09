@@ -37,7 +37,7 @@ export const UserItem = ({ data, type = 'text', register, field, text }) => {
 					id={data}
 				/>
 			) : (
-				<p>{data}</p>
+				<p className={style.user__data}>{data}</p>
 			)}
 			{edited ? (
 				<button className={style.user__button} type="submit">

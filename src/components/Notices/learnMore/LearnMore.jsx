@@ -55,17 +55,16 @@ const LearnMore = ({
 				setIsShowModal={setIsShowModal}
 				handleBackdropClick={handleBackdropClick}
 			>
-				<div className={styles.wrapper}>
-					<div className={styles.flexBox}>
+				<div className={styles.box}>
+					<div className={styles.box__flexBox}>
 						<div className={styles.wrap}>
 							<img
 								className={styles.wrap__pictures}
 								src={imageURL}
-								alt={title}
-								title={title}
+								alt={name}
 							/>
-							<div className={styles.catWrap}>
-								<p className={styles.catWrap__categories}>{category}</p>
+							<div className={styles.wrapCategories}>
+								<p className={styles.wrapCategories__categories}>{category}</p>
 							</div>
 						</div>
 						<div>
