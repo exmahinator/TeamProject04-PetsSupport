@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+ import { toast } from 'react-toastify';
 
 import { Input } from '../Input/Input';
 import {
@@ -51,7 +52,10 @@ export const RegisterForm = () => {
 			phone,
 		};
 		console.log(res);
-		dispatch(reg(res));
+		dispatch(reg(res)).unwrap().catch((e) => {
+			const errorMessage = e.status === 409 ? 'This email is already in use' : 'Oops, something went wrong... Try again, please'
+			return toast(errorMessage)
+		});
 		setSessionData({});
 	};
 

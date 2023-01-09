@@ -1,5 +1,4 @@
 
-  // !to make a hook
 export const getAuthFormContent = (type) => {
     
     return type === "login"
@@ -16,4 +15,3 @@ export const getAuthFormContent = (type) => {
             linkText: 'Login',
         };
 }
-  // !!
