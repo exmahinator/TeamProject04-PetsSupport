@@ -6,10 +6,10 @@ import { Title } from 'components/Reuse/Title/Title';
 
 
 
-import {  useEffect } from 'react'
+import {  useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  getFilteredNews,
+  getNews,
   // getNewsError, getNewsLoading
 } from '../../redux/news/news-selectors'
 import { getAllNews } from '../../redux/news/news-operations'
@@ -17,15 +17,18 @@ import { Search } from 'components/News/Search/Search';
 
 
 const NewsPage = () => {
+  const [query, setQuery] = useState('')
+    const [page, setPage] = useState(1)
 
   const dispatch = useDispatch()
-  const news = useSelector(getFilteredNews)
-
+  const news = useSelector(getNews)
 
   useEffect(() => {
-  dispatch(getAllNews())
-  }, [dispatch])
+  dispatch(getAllNews({page, query}))
+  }, [dispatch, page, query])
    
+
+
     
 
   // console.log(news)
@@ -36,7 +39,7 @@ const NewsPage = () => {
     <section className={styles.section}>
       <Container>
       <Title text='News' />
-        <Search   />
+        <Search setFilter={ setQuery} />
         
         <NewsList data={ news.slice(0)} />
       </Container>

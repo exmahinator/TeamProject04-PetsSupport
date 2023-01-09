@@ -1,23 +1,21 @@
 import React, { useRef, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-import { setFilter } from 'redux/news/news-slice';
 import { ReactComponent as SearchIcon } from 'shared/images/overused/NewsSearch.svg';
 import { ReactComponent as ClearIcon } from 'shared/images/overused/x-circle.svg';
 
 import debounce from 'lodash.debounce';
 import styles from './Search.module.scss';
 
-export const Search = () => {
-	const dispatch = useDispatch();
+export const Search = ({setFilter}) => {
 	const input = useRef();
 
 	const clearBtnHandler = () => {
 		input.current.value = '';
-		dispatch(setFilter(''));
+		setFilter('');
 	};
 
 	const changeHandler = event => {
-		dispatch(setFilter(event.target.value));
+		setFilter(event.target.value)
+
 	};
 
 	// eslint-disable-next-line
