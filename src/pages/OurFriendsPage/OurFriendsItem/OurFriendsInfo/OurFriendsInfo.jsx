@@ -16,7 +16,7 @@ export const OurFriendsInfo = ({
 				{workDays?.length ? (
 					<OurFriendsPopover workDays={workDays} />
 				) : (
-					<p>
+					<p className={styles.time}>
 						Time: <br />
 						_____________
 					</p>
