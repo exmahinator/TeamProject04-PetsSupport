@@ -1,11 +1,10 @@
-// import { red } from '@mui/material/colors';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import style from './Nav.module.scss';
 
 export const Nav = () => {
-	const active = { color: '#F59256', 'text-decoration': 'underline' };
-	const noActive = { color: '#181C27' };
+	const active = { color: '#F59256', textDecoration: 'underline' };
+	const noActive = {};
 	return (
 		<ul className={style.menu}>
 			<li className={style.item}>

@@ -2,72 +2,55 @@
 
 @import 'src/shared/styles/mixins.scss';
 
-@include media(mobile) {}
-@include media(tablet) {}
-@include media(desktop) {}
-
-
-.svg{
-    fill: $secondary-text-color;
-    width: 20px;
-    height: 20px;
+@include media(mobile) {
+}
 @include media(tablet) {
-    width: 28px;
-        height: 28px;
 }
-}
-.link{
-    font-weight: 500;
-        font-size: 14px;
-        line-height: 19px;
-        color: $secondary-text-color;
-        text-decoration: none;
-@include media(tablet) {font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    color: $secondary-text-color;
-    text-decoration: none;}
-@include media(desktop) {font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    color: $secondary-text-color;
-    text-decoration: none;}
-
+@include media(desktop) {
 }
 
+.svg {
+	fill: $secondary-text-color;
+	width: 20px;
+	height: 20px;
+	@include media(tablet) {
+		width: 28px;
+		height: 28px;
+	}
+}
+.link {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 1.35;
+	color: $secondary-text-color;
+	text-decoration: none;
+	@include media(tablet) {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 1.38;
+		color: $secondary-text-color;
+		text-decoration: none;
+	}
+	@include media(desktop) {
+	}
+}
 
-.container{
-    width: 164px;
-        height: 35px;
-    
-        background: $accent-color;
-        border-radius: 40px;
-        display: flex;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        gap: 14px;
-        margin-top: 46px;
-@include media(tablet) {width: 164px;
-    height: 44px;
+.container {
+	width: 164px;
+	height: 35px;
 
-    background: $accent-color;
-    border-radius: 40px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0;
-    gap: 14px;}
-@include media(desktop) {width: 164px;
-    height: 44px;
-
-    background: $accent-color;
-    border-radius: 40px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;}
-   
+	background: $accent-color;
+	border-radius: 40px;
+    @include flex(center, center);
+	gap: 14px;
+	margin-top: 46px;
+	@include media(tablet) {
+		width: 164px;
+		height: 44px;
+		margin-top: 0;
+		gap: 14px;
+	}
+	@include media(desktop) {
+		gap: 12px;
+	}
 }

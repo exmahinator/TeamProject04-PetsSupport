@@ -1,97 +1,61 @@
 @import 'src/shared/styles/variables.scss';
 @import 'src/shared/styles/mixins.scss';
 
-@include media(mobile) {}
-@include media(tablet) {}
-@include media(desktop) {}
-
-
-.menu{
-        display: flex;
-            gap: 40px;
-            margin: 60px;
-            flex-direction: column;
+@include media(mobile) {
+}
 @include media(tablet) {
-    margin: 0;
-    margin-top: 48px;
+}
+@include media(desktop) {
 }
 
-@include media(desktop) 
-{display: flex;
-    gap: 80px;
-margin: 0;
-            flex-direction: inherit;}
+.menu {
+	@include flex();
+	gap: 40px;
+	margin: 60px;
+	flex-direction: column;
+	@include media(tablet) {
+		margin: 0;
+		margin-top: 48px;
+	}
 
+	@include media(desktop) {
+		@include flex();
+		gap: 80px;
+		margin: 0;
+		flex-direction: inherit;
+	}
 }
 
-
-.item { 
-        
-    font-weight: 700;
-        color: $accent-color;
-        text-decoration: none;
-    // :active {
-    //     font-weight: 700;
-    //     color: $accent-color;
-    //     text-decoration: underline;
-    //         }
-    // :hover{
-    //     color: red;
-    // }
-    //     :hover:not(.active),
-    //     :focus:not(.active) {
-    //         color: green;
-    //     }
-    //             :hover(.active),
-    //             :focus(.active) {
-    //                 color: blue;
-    //             }
-}
-.item :active{
-        text-decoration: underline;
+.item {
+	font-weight: 700;
 }
 
 .link {
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 1.38;
+	color: $third-text-color;
+	text-decoration: none;
+	transition: $transition;
 
-    font-weight: 500;
-        font-size: 32px;
-        line-height: 44px;
-        color: $third-text-color;
-        :active{text-decoration: underline;}
-        
-        // :hover:not(.active),
-        // :focus:not(.active) {
-        //     color: green;
-        // }
-        // :visited{
-        //     color: blue   ;
-        // }
-        // & .active {
-        //     color: red;
-        // }
-    
-        // :hover:not(.active),
-        // :focus:not(.active) {
-        //     color: green;
-        // }
-@include media(tablet) {
-    font-weight: 500;
-        font-size: 48px;
-        line-height: 66px;
-}
-@include media(desktop) {font-weight: 500;
-    font-size: 20px;
-    line-height: 27px;
-    color: $third-text-color;
-    text-decoration: none;
+	&:hover {
+		color: $accent-color;
+	}
 
-    & .active {
-        color: red;
-    }
+	&:focus {
+		color: $accent-color;
+	}
 
-    :hover:not(.active),
-    :focus:not(.active) {
-        color: green;
-    }}
-  
+	@include media(tablet) {
+		font-weight: 500;
+		font-size: 48px;
+		line-height: 1.38;
+	}
+	@include media(desktop) {
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 1.35;
+		color: $third-text-color;
+		text-decoration: none;
+	}
 }
