@@ -10,7 +10,7 @@ export const getAuthFormContent = (type) => {
             linkText: 'Register',
         }
         : {
-            title: 'Register',
+            title: 'Registration',
             navigatePath: '/login',
             navigateMessage: 'Already have an account?',
             linkText: 'Login',
