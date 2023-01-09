@@ -3,7 +3,6 @@
 
 .LogOut {
 	position: absolute;
-	cursor: pointer;
 	@include flex(flex-end, center);
 	gap: 8px;
 	bottom: 16px;
@@ -11,6 +10,13 @@
 	width: 102px;
 	background-color: transparent;
 	border: none;
+	cursor: pointer;
+
+	&:hover > &__text,
+	&:focus > &__text {
+		color: $hover-color;
+		scale: 1.1;
+	}
 
 	&__text {
 		font-weight: 500;
@@ -19,6 +25,7 @@
 		letter-spacing: 0.04em;
 
 		color: $third-bg-color;
+		transition: $transition;
 	}
 	@include media('tablet') {
 		left: 24px;

@@ -1,10 +1,12 @@
+import { petComment } from 'components/Authorization/Input/inputOptions';
+import { ValidationError } from 'components/Authorization/ValidationError/ValidationError';
 import { ReactComponent as UploadCross } from 'shared/images/user/uploadCross.svg';
+import { AddPetInput } from '../AddPetInput/AddPetInput';
 
 import style from './AddPetFormSecondPage.module.scss';
 
-export const AddPetFormSecondPage = ({ register, watch }) => {
+export const AddPetFormSecondPage = ({ register, watch, errors, uploadError }) => {
 	const newImage = watch('petUpload');
-
 	return (
 		<>
 			<div className={style.uploadThumb}>
@@ -18,10 +20,9 @@ export const AddPetFormSecondPage = ({ register, watch }) => {
 								className={style.image}
 								src={URL.createObjectURL(newImage[0])}
 								alt="poster"
-								// className={style.crossWrapper}
 							/>
 						) : (
-							<UploadCross width={48} height={48} fill="gba(17, 17, 17, 0.6)" />
+							<UploadCross width={48} height={48} stroke="rgba(17, 17, 17, 0.6)" />
 						)}
 					</div>
 					<input
@@ -31,19 +32,11 @@ export const AddPetFormSecondPage = ({ register, watch }) => {
 						placeholder="Type name pet"
 						className={style.uploadInput}
 					/>
+					{(uploadError && !newImage[0]) && <ValidationError>Add an image</ValidationError>}
 				</label>
 			</div>
+			<AddPetInput register={register} textarea errors={errors} settings={petComment } />
 
-			<label htmlFor="petComment" className={style.petCommentLabel}>
-				<p className={style.petCommentLabel__text}>Comments</p>
-				<textarea
-					type="text"
-					{...register('petComment')}
-					id="petComment"
-					placeholder="Type comments"
-					className={style.petCommentInput}
-				></textarea>
-			</label>
 		</>
 	);
 };

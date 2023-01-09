@@ -26,18 +26,40 @@
     }
 }
 
+
 .item {
     :active {
         font-weight: 700;
+
         color: $accent-color;
+        text-decoration: none;
+    // :active {
+    //     font-weight: 700;
+    //     color: $accent-color;
+    //     text-decoration: underline;
+    //         }
+    // :hover{
+    //     color: red;
+    // }
+    //     :hover:not(.active),
+    //     :focus:not(.active) {
+    //         color: green;
+    //     }
+    //             :hover(.active),
+    //             :focus(.active) {
+    //                 color: blue;
+    //             }
+}
+.item :active{
         text-decoration: underline;
     }
-}
+
 
 .link {
     font-weight: 500;
     font-size: 32px;
     line-height: 44px;
+
     color: $third-text-color;
     text-decoration: none;
 

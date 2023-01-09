@@ -5,7 +5,7 @@ import { CardMarkUp } from './CardMarkUp/CardMarkUp';
 
 import style from './Card.module.scss';
 
-export const Card = ({ userPets, onDeletePet }) => {
+export const Card = ({ userPets, onDeletePet, isUserLoading }) => {
 	return (
 		<Container>
 			<ul className={style.card__list}>
@@ -13,7 +13,11 @@ export const Card = ({ userPets, onDeletePet }) => {
 					({ avatarURL, _id, owner, createdAt, updatedAt, ...userPets }) => (
 						<li key={createdAt} className={style.card__item}>
 							<CardImg petImg={avatarURL} />
-							<TrashButton id={_id} onDeletePet={onDeletePet} />
+							<TrashButton
+								id={_id}
+								onDeletePet={onDeletePet}
+								isUserLoading={isUserLoading}
+							/>
 							<CardMarkUp cardData={userPets} id={_id} />
 						</li>
 					)

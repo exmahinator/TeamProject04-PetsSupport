@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import {
 	getNoticeByCategory,
+	addNotice,
 	// getOneNotice,
 	addNoticeToFavorite,
 	getFavoriteNoticeForCategories,
@@ -23,9 +24,9 @@ const noticesSlice = createSlice({
 	name: 'notices',
 	initialState,
 	reducers: {
-		setFilter: (state, {payload}) => {
-			state.filter = payload
-		}
+		setFilter: (state, { payload }) => {
+			state.filter = payload;
+		},
 	},
 	extraReducers: {
 		//! Менять нельзя!
@@ -102,6 +103,9 @@ const noticesSlice = createSlice({
 		[removeNoticeFromFavorite.fulfilled]: (store, { payload }) => {
 			store.loading = false;
 			store.favorite = store.favorite.filter(id => id !== payload.id);
+			store.currentNotices = store.currentNotices.filter(
+				({ _id }) => _id !== payload.id
+			);
 		},
 		[removeNoticeFromFavorite.rejected]: (store, { payload }) => {
 			store.loading = false;
@@ -120,17 +124,18 @@ const noticesSlice = createSlice({
 		// 	store.loading = false;
 		// 	store.error = payload;
 		// },
-		// [addNotice.pending]: store => {
-		// 	store.loading = true;
-		// 	store.error = null;
-		// },
-		// [addNotice.fulfilled]: (store, { payload }) => {
-		// 	store.loading = false;
-		// },
-		// [addNotice.rejected]: (store, { payload }) => {
-		// 	store.loading = false;
-		// 	store.error = payload;
-		// },
+		[addNotice.pending]: store => {
+			store.loading = true;
+			store.error = null;
+		},
+		[addNotice.fulfilled]: (store, { payload }) => {
+			store.loading = false;
+			store.currentNotices = [payload, ...store.currentNotices];
+		},
+		[addNotice.rejected]: (store, { payload }) => {
+			store.loading = false;
+			store.error = payload;
+		},
 		[removeNotice.pending]: store => {
 			store.loading = true;
 			store.error = null;

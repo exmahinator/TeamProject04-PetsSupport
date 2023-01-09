@@ -43,6 +43,7 @@ function App() {
 	}
 
 	return (
+
 		<>
 			<Suspense>
 				<Routes>
@@ -56,6 +57,7 @@ function App() {
 								</PublicRouter>
 							}
 						/>
+
 						<Route
 							path="friends"
 							element={

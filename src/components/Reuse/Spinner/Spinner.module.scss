@@ -1,0 +1,48 @@
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
+
+$loader-weight: 2px;
+$large-loader-size: 36px;
+
+.center_content {
+	@include flex(center, center);
+	color: $accent-color;
+}
+
+.loader {
+	position: relative;
+	svg {
+		padding: $loader-weight / 2;
+		display: block;
+		animation: rotate 1.5s ease-in-out infinite;
+		* {
+			fill: transparent;
+			stroke-dasharray: 1%, 320%;
+			stroke-dashoffset: 0;
+			animation: loader-dash 1.5s ease-in-out infinite;
+
+			stroke: currentcolor;
+		}
+	}
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes loader-dash {
+	0% {
+		stroke-dasharray: 1%, 320%;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 235%, 420%;
+		stroke-dashoffset: -85%;
+	}
+	100% {
+		stroke-dasharray: 235%, 420%;
+		stroke-dashoffset: -310%;
+	}
+}
