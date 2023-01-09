@@ -15,11 +15,10 @@ export const Search = ({setFilter}) => {
 
 	const changeHandler = event => {
 		setFilter(event.target.value)
-
 	};
-
+	
 	// eslint-disable-next-line
-	const debouncedChangeHandler = useCallback(debounce(changeHandler, 600), []);
+	const debouncedChangeHandler = useCallback(debounce(changeHandler, 500), []);
 
 	return (
 		<div className={styles.wrapper}>

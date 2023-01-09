@@ -6,6 +6,7 @@ const initialState = {
 	news: [],
 	loading: false,
 	error: null,
+	totalPages: 4,
 	filter: '',
 };
 
