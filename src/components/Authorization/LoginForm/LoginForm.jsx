@@ -7,7 +7,7 @@ import  { emailOpt, passwordOpt} from '../Input/inputOptions';
 import { useDispatch } from 'react-redux';
 import { login } from "../../../redux/auth/auth-operations";
 import { useFormSession } from 'shared/hooks/auth/useFormSession';
-
+ import { toast } from 'react-toastify';
 
 const SESSION_STORAGE_NAME = 'loginFrom'
 
@@ -27,8 +27,8 @@ export const LoginForm = () => {
 			email,
 			password,
 		};
-		console.log(res);
-        dispatch(login(res))
+
+        dispatch(login(res)).unwrap().then(()=> toast('Welcome!')).catch(()=> toast('Invalid password or email'));
         setSessionData({});
 
 	};
