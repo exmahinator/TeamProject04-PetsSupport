@@ -18,10 +18,9 @@ export const AddPetFormSecondPage = ({ register, watch }) => {
 								className={style.image}
 								src={URL.createObjectURL(newImage[0])}
 								alt="poster"
-								// className={style.crossWrapper}
 							/>
 						) : (
-							<UploadCross width={48} height={48} fill="gba(17, 17, 17, 0.6)" />
+							<UploadCross width={48} height={48} stroke="rgba(17, 17, 17, 0.6)" />
 						)}
 					</div>
 					<input

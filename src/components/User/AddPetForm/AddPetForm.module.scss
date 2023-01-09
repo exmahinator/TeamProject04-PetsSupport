@@ -3,7 +3,6 @@
 
 .form {
 	margin: 0px auto;
-	width: 280px;
 	@include flex(center, center);
 	flex-direction: column;
 	gap: 16px;

@@ -68,7 +68,7 @@ function App() {
 					<Route
 						path="login"
 						element={
-							<PublicRouter restricted redirect="/user">
+							<PublicRouter redirect="/user">
 								<LoginPage />
 							</PublicRouter>
 						}
