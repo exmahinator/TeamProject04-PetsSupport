@@ -38,7 +38,7 @@ const NewsPage = () => {
         <Search setFilter={ setQuery} />
         
         <NewsList data={news} />
-        <PaginationList setPage={setPage} pages={ totalPages} />
+        {totalPages > 1 && <PaginationList setPage={setPage} pages={ totalPages} />}
       </Container>
     </section>
   )
