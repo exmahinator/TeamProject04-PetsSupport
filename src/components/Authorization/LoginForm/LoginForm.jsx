@@ -28,7 +28,7 @@ export const LoginForm = () => {
 			password,
 		};
 
-        dispatch(login(res)).unwrap().catch(()=> toast('Invalid password or email'));
+        dispatch(login(res)).unwrap().then(()=> toast('Welcome!')).catch(()=> toast('Invalid password or email'));
         setSessionData({});
 
 	};

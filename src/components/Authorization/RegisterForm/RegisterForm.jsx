@@ -52,7 +52,7 @@ export const RegisterForm = () => {
 			phone,
 		};
 		console.log(res);
-		dispatch(reg(res)).unwrap().catch((e) => {
+		dispatch(reg(res)).unwrap().then(()=> toast('Welcome!')).catch((e) => {
 			const errorMessage = e.status === 409 ? 'This email is already in use' : 'Oops, something went wrong... Try again, please'
 			return toast(errorMessage)
 		});
