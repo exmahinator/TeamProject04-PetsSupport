@@ -5,7 +5,7 @@
 	content: '';
 	display: block;
 	width: 200px;
-	height: 10px;
+	height: 4px;
 	margin-bottom: 5px;
 
 	border-radius: 40px;
@@ -14,6 +14,7 @@
 	);
 
 	@include media(tablet) {
+			height: 8px;
 		width: 280px;
 	}
 	@include media(desktop) {
