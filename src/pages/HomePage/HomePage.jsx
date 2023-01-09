@@ -7,6 +7,7 @@ import girlTabletUrl from '../../shared/images/Home/tabletImg.png';
 import girlTabletUrl2x from '../../shared/images/Home/tabletImg2x.png';
 import girlDesktopUrl from '../../shared/images/Home/desktopImg.png';
 import girlDesktopUrl2x from '../../shared/images/Home/desktopImg2x.png';
+// import { Title } from 'components/Reuse/Title/Title';
 
 const HomePage = () => {
 	return (
@@ -14,16 +15,17 @@ const HomePage = () => {
 			<section className={style.headerSection}>
 				<Container>
 					<div className={style.headerControlBox}>
+						{/* <Title text="Take good care of your small pets" /> */}
 						<h1 className={style.text}>Take good care of your small pets</h1>
 						<div className={style.headerImgBox}>
 							<picture>
 								<source
-									srcset={`${girlDesktopUrl} 1x,
+									srcSet={`${girlDesktopUrl} 1x,
                                     ${girlDesktopUrl2x} 2x`}
 									media="(min-width: 1280px)"
 								/>
 								<source
-									srcset={`${girlTabletUrl} 1x,
+									srcSet={`${girlTabletUrl} 1x,
                                     ${girlTabletUrl2x} 2x`}
 									media="(min-width: 768px)"
 								/>
@@ -41,7 +43,7 @@ const HomePage = () => {
 				<div className={style.headerImgBoxMobile}>
 					<picture>
 						<source
-							srcset={`${girlPhoneUrl} 1x,
+							srcSet={`${girlPhoneUrl} 1x,
                                     ${girlPhoneUrl2x} 2x`}
 							media="(min-width: 320px)"
 						/>

@@ -28,11 +28,11 @@
 	background-color: transparent;
 }
 
+// !Может быть лишний*****
+
 .btns {
 	display: contents;
-	// @include flex(center, center);
 	@include media(tablet) {
-		// width: 100%
 	}
 }
 
@@ -40,13 +40,15 @@
     @include flex(center);
     flex-wrap: wrap-reverse;
     position: absolute;
-top: 100%;
+    top: 100%;
     left: 0;
     text-align: center;
     background-color: #FDF7F2;;
-    z-index: 1;
-    width: 100vw;
-    height: 100vh
+    z-index: 99;
+@include media(tablet) {
+	width:100%;
+}
+
 }
 
 .logoLink {
