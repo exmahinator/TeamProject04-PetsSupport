@@ -20,9 +20,6 @@ import {
 import NoticesItems from '../items/NoticesItems';
 import styles from './NoticesList.module.scss';
 
-
-import {getFilteredNotices} from 'redux/notices/notices-selectors'
-
 export const NoticesList = ({ category }) => {
 
 
