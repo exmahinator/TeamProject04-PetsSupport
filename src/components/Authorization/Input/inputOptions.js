@@ -74,7 +74,7 @@ export const petBirth = {
 	required: true,
 	requiredMessage: 'Enter the date of birth',
 	pattern: /^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$/i,
-	patternMessage: 'Latin symbols only',
+	patternMessage: '01.01.2020',
 };
 export const petBreed = {
 	label: 'Breed',

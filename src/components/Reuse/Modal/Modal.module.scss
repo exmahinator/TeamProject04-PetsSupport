@@ -30,8 +30,7 @@ body.modal {
 
 	@include media(tablet) {
 		width: fit-content;
-
-		padding: 40px 80px;
+		padding: 32px 20px;
 	}
 	@include media(desktop) {
 	}
@@ -49,6 +48,7 @@ body.modal {
 	background-size: 19px;
 	border-radius: 50%;
 	transition: $transition;
+	cursor: pointer;
 
 	&:hover {
 		transform: scale(1.1);
@@ -124,6 +124,7 @@ body.modal {
 	transition: $transition;
 	background-color: $secondary-bg-color;
 	color: $accent-color;
+
 	// ???  box-shadow: 7px 4px 16px rgba(0, 0, 0, 0.08);
 
 	&:hover {

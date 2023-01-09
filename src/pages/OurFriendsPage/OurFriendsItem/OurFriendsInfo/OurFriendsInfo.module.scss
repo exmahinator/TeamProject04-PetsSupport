@@ -2,8 +2,7 @@
 @import 'shared/styles/_variables.scss';
 
 .info {
-	display: flex;
-	align-items: flex-start;
+	@include flex();
 	flex-direction: column;
 	text-align: start;
 	margin-left: 10px;
@@ -13,8 +12,8 @@
 	font-style: normal;
 	font-weight: 500;
 	font-size: 12px;
-	line-height: 16px;
-
+	line-height: 1.3;
+	word-break: break-all;
 	width: 55%;
 
 	color: $fifth-text-color;
@@ -26,9 +25,32 @@
 
 	@include media(tablet) {
 		font-size: 14px;
-		line-height: 19px;
+		line-height: 1.35;
 	}
 
 	@include media(desktop) {
+	}
+}
+
+.time {
+	font-family: 'Manrope';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 1.3;
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	outline: none;
+	box-shadow: none;
+	margin: 0;
+	padding: 0;
+	text-transform: capitalize;
+	text-align: start;
+	min-width: 0;
+	color: #000000;
+	@include media(tablet) {
+		font-size: 14px;
+		line-height: 1.35;
 	}
 }

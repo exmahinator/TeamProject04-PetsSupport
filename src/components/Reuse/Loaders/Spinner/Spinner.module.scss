@@ -13,6 +13,7 @@ $large-loader-size: 36px;
 	position: relative;
 	svg {
 		padding: calc($loader-weight / 2);
+
 		display: block;
 		animation: rotate 1.5s ease-in-out infinite;
 		* {

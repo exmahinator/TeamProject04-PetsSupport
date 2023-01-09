@@ -13,8 +13,11 @@
 .link {
     font-weight: 700;
     font-size: 28px;
-    line-height: 42px;
-    
+    line-height: 171%;
     color: $primary-text-color;
     text-decoration: none;
+@include media(tablet) {
+    font-size: 32px;
+        line-height: 150%;
+}
 }

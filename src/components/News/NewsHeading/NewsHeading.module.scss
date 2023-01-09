@@ -1,12 +1,40 @@
-.heading{
-    display: -webkit-box;
-    height: 66px;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.35;
-    
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+@import 'shared/styles/_variables.scss';
+@import 'shared/styles/_mixins.scss';
+
+.heading {
+	display: -webkit-box;
+	height: 66px;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.35;
+
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.tooltip {
+	position: absolute;
+	top: -90px;
+	left: 5%;
+	width: 280px;
+	display: none;
+	padding: 10px;
+
+	font-size: 14px;
+	background-color: $accent-color;
+	border-radius: 20px;
+	@include media(tablet) {
+		left: 20%;
+	}
+
+	@include media(desktop) {
+		left: 30%;
+	}
+}
+.heading:hover ~ .tooltip {
+	display: block;
+}
+.heading:focus ~ .tooltip {
+	display: block;
 }

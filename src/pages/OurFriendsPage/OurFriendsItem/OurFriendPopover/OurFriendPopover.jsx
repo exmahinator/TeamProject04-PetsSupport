@@ -11,8 +11,8 @@ const CustomizedBtn = styled(Button)`
 	font-family: 'Manrope';
 	font-style: normal;
 	font-weight: 500;
-	font-size: 16px;
-	line-height: 22px;
+	font-size: 12px;
+	line-height: 1.3;
 	display: flex;
 	align-items: center;
 	background-color: transparent;
@@ -31,6 +31,11 @@ const CustomizedBtn = styled(Button)`
 		box-shadow: none;
 		margin: 0;
 		padding: 0;
+	}
+
+	@media (min-width: 768px) {
+		font-size: 14px;
+		line-height: 1.35;
 	}
 `;
 
