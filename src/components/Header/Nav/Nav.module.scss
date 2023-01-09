@@ -23,12 +23,32 @@ margin: 0;
             flex-direction: inherit;}
 
 }
-.item {
-    :active {
-        font-weight: 700;
+
+
+.item { 
+        
+    font-weight: 700;
         color: $accent-color;
+        text-decoration: none;
+    // :active {
+    //     font-weight: 700;
+    //     color: $accent-color;
+    //     text-decoration: underline;
+    //         }
+    // :hover{
+    //     color: red;
+    // }
+    //     :hover:not(.active),
+    //     :focus:not(.active) {
+    //         color: green;
+    //     }
+    //             :hover(.active),
+    //             :focus(.active) {
+    //                 color: blue;
+    //             }
+}
+.item :active{
         text-decoration: underline;
-            }
 }
 
 .link {
@@ -37,16 +57,23 @@ margin: 0;
         font-size: 32px;
         line-height: 44px;
         color: $third-text-color;
-        text-decoration: none;
+        :active{text-decoration: underline;}
+        
+        // :hover:not(.active),
+        // :focus:not(.active) {
+        //     color: green;
+        // }
+        // :visited{
+        //     color: blue   ;
+        // }
+        // & .active {
+        //     color: red;
+        // }
     
-        & .active {
-            color: red;
-        }
-    
-        :hover:not(.active),
-        :focus:not(.active) {
-            color: green;
-        }
+        // :hover:not(.active),
+        // :focus:not(.active) {
+        //     color: green;
+        // }
 @include media(tablet) {
     font-weight: 500;
         font-size: 48px;

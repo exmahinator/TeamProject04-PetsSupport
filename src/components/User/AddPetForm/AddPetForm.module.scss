@@ -3,11 +3,13 @@
 
 .form {
 	margin: 0px auto;
+	width: 100%;
+	max-width: 280px;
 	@include flex(center, center);
 	flex-direction: column;
 	gap: 16px;
 	@include media('tablet') {
-		width: 448px;
+		min-width: 448px;
 		gap: 28px;
 	}
 }
