@@ -1,16 +1,27 @@
 @import 'src/shared/styles/mixins.scss';
 
-.wrapper {
+
+.wrapper{
 	@include flex(center, center);
-	flex-direction: column;
+	width: 280px;
+	margin: 0 auto;
+
+	@include media(tablet) {
+		width: 705px;
+	}
+
+	@include media(desktop) {
+		width: 1248px;
+	}
+}
+
+.galery {
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
 	gap: 32px;
 
 	@include media(tablet) {
 		flex-direction: row;
-	}
-
-	@include media(desktop) {
-		flex-direction: row;
-		gap: 16px;
 	}
 }
