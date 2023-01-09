@@ -1,0 +1,11 @@
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
+
+.skeleton {
+	@include flex(center, center);
+	flex-direction: column;
+	gap: 8px;
+
+	width: 255px;
+	height: 470px;
+}
