@@ -36,6 +36,7 @@ const authSlice = createSlice({
 			store.user = payload.user;
 			store.token = payload.accessToken;
 			store.isLogin = true;
+			store.isFirstQuery = false;
 		},
 		[login.rejected]: (store, { payload }) => {
 			store.loading = false;

@@ -18,7 +18,7 @@ import styles from './NoticesList.module.scss';
 
 import {getFilteredNotices} from 'redux/notices/notices-selectors'
 
-const NoticesList = ({ category }) => {
+export const NoticesList = ({ category }) => {
 	const isLogin = useAuth();
 	const dispatch = useDispatch();
 
@@ -103,4 +103,3 @@ const NoticesList = ({ category }) => {
 	);
 };
 
-export default NoticesList;
