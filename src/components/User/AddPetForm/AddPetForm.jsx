@@ -57,7 +57,7 @@ export const AddPetForm = ({ onCloseModal }) => {
 	};
 	// isAddPetError && toast.error('ooops an error occured please try again');
 	return (
-		<form
+		<form 
 			onSubmit={handleSubmit(onSubmit)}
 			autoComplete="off"
 			className={style.form}

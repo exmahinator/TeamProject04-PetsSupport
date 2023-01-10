@@ -1,9 +1,16 @@
+import {
+	petAdTitle,
+	petBirth,
+	petBreed,
+	petName,
+} from 'components/Authorization/Input/inputOptions';
 import { Button } from 'components/Reuse/Button/Button';
-import { AddPetItem } from '../AddPetItem/AddPetItem';
+import { AddPetInput } from 'components/User/AddPetForm/AddPetInput/AddPetInput';
+// import { AddPetItem } from '../AddPetItem/AddPetItem';
 import { AddPetCategory } from '../AddPetRadioItem/AddPetCategory';
 import styles from '../NoticesAddPetForm.module.scss';
 
-export const FirstStep = ({ register, nextPage, onCloseModal }) => {
+export const FirstStep = ({ register, errors, nextPage, onCloseModal }) => {
 	return (
 		<div>
 			<p className={styles.heading}>
@@ -39,7 +46,14 @@ export const FirstStep = ({ register, nextPage, onCloseModal }) => {
 					/>
 				</li>
 			</ul>
-			<ul>
+			<div className={styles.inputWrapper}>
+
+			<AddPetInput register={register} errors={errors} settings={petAdTitle} />
+			<AddPetInput register={register} errors={errors} settings={petName} />
+			<AddPetInput register={register} errors={errors} settings={petBirth} />
+			<AddPetInput register={register} errors={errors} settings={petBreed} />
+			</div>
+			{/* <ul>
 				<li>
 					<AddPetItem
 						data="title"
@@ -73,7 +87,7 @@ export const FirstStep = ({ register, nextPage, onCloseModal }) => {
 						register={register}
 					/>
 				</li>
-			</ul>
+			</ul> */}
 
 			<div className={styles.buttonWrap}>
 				<Button

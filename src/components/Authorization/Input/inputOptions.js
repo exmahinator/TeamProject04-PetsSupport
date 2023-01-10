@@ -43,6 +43,7 @@ export const cityOpt = {
 	requiredMessage: 'Enter your city and region, please',
 	pattern: /^\s*(?:\w+\s*,\s*){1,}(?:\w+\s*)$/i,
 	patternMessage: 'Format: Brovary, Kyiv',
+	label: 'Location'
 };
 export const phoneOpt = {
 	name: 'phone',
@@ -99,4 +100,28 @@ export const petComment = {
 	patternMessage: 'Latin only, min 8, max 120',
 	maxLength: 120,
 	minLength: 8, 
+};
+export const petAdTitle = {
+	label: 'Tittle of ad',
+	name: 'titleAd',
+	type: 'text',
+	placeholder: 'Type name',
+	required: true,
+	requiredMessage: "Enter your title name",
+	pattern: /^[A-Za-z0-9\s!@#$%^&*()_+=-`~\\\][{}|';:/.,?><]*$/i,	
+	patternMessage: 'Latin only, min 8, max 120',
+	maxLength: 48,
+	minLength: 2, 
+};
+export const petPrice = {
+	label: 'Price',
+	name: 'price',
+	type: 'number',
+	placeholder: 'Type price',
+	required: true,
+	requiredMessage: "Enter the price",
+	pattern: /^[1-9]{1,10}$/i,	
+	// ^[1-9]{1,10}$
+	patternMessage: "Price can't start with 0",
+
 };
