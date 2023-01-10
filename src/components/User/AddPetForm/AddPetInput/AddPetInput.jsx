@@ -13,12 +13,14 @@ export const AddPetInput = ({ register, errors, settings, textarea, notices= fal
 		patternMessage = null,
 		maxLength = null,
 		minLength = null,
+		zero = null,
 	} = settings;
 
 	return (
 		<label className={styles.label}>
 			<p className={(textarea && !notices) ? styles.label__textarea : styles.label__text}>
 				{label}
+				{zero && <span className={styles.star} >*</span>}
 			</p>
 			{!textarea ? (
 				<input

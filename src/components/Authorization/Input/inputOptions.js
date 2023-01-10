@@ -43,7 +43,8 @@ export const cityOpt = {
 	requiredMessage: 'Enter your city and region, please',
 	pattern: /^\s*(?:\w+\s*,\s*){1,}(?:\w+\s*)$/i,
 	patternMessage: 'Format: Brovary, Kyiv',
-	label: 'Location'
+	label: 'Location',
+	zero:true,
 };
 export const phoneOpt = {
 	name: 'phone',
@@ -112,16 +113,18 @@ export const petAdTitle = {
 	patternMessage: 'Latin only, min 8, max 120',
 	maxLength: 48,
 	minLength: 2, 
+	zero:true,
 };
 export const petPrice = {
 	label: 'Price',
 	name: 'price',
-	type: 'number',
+	type: 'text',
 	placeholder: 'Type price',
 	required: true,
 	requiredMessage: "Enter the price",
-	pattern: /^[1-9]{1,10}$/i,	
-	// ^[1-9]{1,10}$
+	pattern: /^[1-9][0-9]*$/i,	
+	
+	zero:true,
 	patternMessage: "Price can't start with 0",
 
 };
