@@ -3,9 +3,9 @@
 .wrapper {
 	width: 100%;
 	max-width: 280px;
-    margin: 40px auto 0;
+	margin: 40px auto 0;
 	@include media(tablet) {
-			margin: 60px auto 0;
+		margin: 60px auto 0;
 		width: 704px;
 		max-width: 704px;
 	}
@@ -21,7 +21,6 @@
 	grid-template-columns: 280px;
 	row-gap: 40px;
 	@include media(tablet) {
-
 		grid-template-columns: 336px 336px;
 		row-gap: 60px;
 		column-gap: 32px;

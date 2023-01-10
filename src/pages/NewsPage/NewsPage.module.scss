@@ -1,12 +1,16 @@
 @import 'shared/styles/mixins.scss';
 
 .section {
-	padding: 40px 0;
+	position: relative;
+	min-height: calc(100vh - 58px);
+	padding: 40px 0 140px;
 
 	@include media(tablet) {
-		padding: 90px 0;
+		min-height: calc(100vh - 64px);
+		padding: 90px 0 150px;
 	}
 	@include media(desktop) {
-		padding: 60px 0;
+		min-height: calc(100vh - 68px);
+		padding: 60px 0 150px;
 	}
 }
