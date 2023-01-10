@@ -5,6 +5,9 @@ export const getNoticesLoading = ({ notices }) => notices.loading;
 export const getCurrentNotices = ({ notices }) => notices.currentNotices;
 export const getFavoriteNotices = ({ notices }) => notices.favorite;
 export const getFilter = ({ notices }) => notices.filter;
+export const getPage = ({ notices }) => notices.page;
+export const getTotalPages = ({ notices }) => notices.totalPages;
+export const getQueryParams = ({ notices }) => notices.queryParams;
 
 export const getFilteredNotices = createSelector(
 	[getCurrentNotices, getFilter],

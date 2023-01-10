@@ -20,7 +20,6 @@ const NoticesSearch = () => {
 
 	const changeHandler = event => {
 		dispatch(setFilter(event.target.value));
-    console.log('event ==>', event.target.value)
 	};
 
 	// eslint-disable-next-line
