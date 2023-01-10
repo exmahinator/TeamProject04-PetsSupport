@@ -15,8 +15,8 @@ export const UserForm = ({
 	isUserLoading,
 	isCurrentLoading,
 }) => {
-	const { register, handleSubmit, watch } = useForm({});
-
+	console.log()
+	const { register, handleSubmit, watch , setValue} = useForm({});
 	const dispatch = useDispatch();
 
 	const onSubmit = data => {
@@ -48,6 +48,7 @@ export const UserForm = ({
 									text="Name"
 									field="name"
 									register={register}
+									setValue={setValue}
 								/>
 							</form>
 							<form onSubmit={handleSubmit(onSubmit)}>
@@ -57,6 +58,7 @@ export const UserForm = ({
 									type="email"
 									field="email"
 									register={register}
+									setValue={setValue}
 								/>
 							</form>
 							<form onSubmit={handleSubmit(onSubmit)}>
@@ -64,7 +66,8 @@ export const UserForm = ({
 									data={userInfo.birthday}
 									text="Birthday"
 									field="birthday"
-									register={register}
+										register={register}
+										setValue={setValue}
 								/>
 							</form>
 							<form onSubmit={handleSubmit(onSubmit)}>
@@ -72,7 +75,8 @@ export const UserForm = ({
 									data={userInfo.phone}
 									text="Phone"
 									field="phone"
-									register={register}
+										register={register}
+										setValue={setValue}
 								/>
 							</form>
 							<form onSubmit={handleSubmit(onSubmit)}>
@@ -80,7 +84,8 @@ export const UserForm = ({
 									data={userInfo.city}
 									text="City"
 									field="city"
-									register={register}
+										register={register}
+										setValue={setValue}
 								/>
 							</form>
 						</div>
