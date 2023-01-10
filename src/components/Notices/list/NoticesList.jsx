@@ -6,6 +6,8 @@ import {
 	getFavoriteNotices,
 	getNoticesLoading,
 	getFilteredNotices,
+	getTotalPages,
+	getQueryParams,
 } from 'redux/notices/notices-selectors';
 import { getUserId } from 'redux/auth/auth-selectors';
 import {
@@ -18,6 +20,7 @@ import {
 
 import NoticesItems from '../items/NoticesItems';
 import styles from './NoticesList.module.scss';
+import { NoticesPaginationList } from '../pagination/paginationList/PaginationList';
 
 export const NoticesList = ({ category }) => {
 	const isLogin = useAuth();
@@ -28,6 +31,11 @@ export const NoticesList = ({ category }) => {
 
 	const favNotices = useSelector(getFavoriteNotices);
 	const isFavLoading = useSelector(getNoticesLoading);
+
+
+	const totalPages = useSelector(getTotalPages);
+	const queryParams = useSelector(getQueryParams);
+
 
 	useEffect(() => {
 		switch (category) {
@@ -46,13 +54,18 @@ export const NoticesList = ({ category }) => {
 		if (isLogin) {
 			dispatch(getFavoriteNoticeByUser());
 		}
+
+		
 	}, [category, dispatch, isLogin]);
 
 	const onDeleteNotice = e => {
 		const noticeId = e.currentTarget.id;
-
 		dispatch(removeNotice(noticeId));
 	};
+
+	useEffect(() => {
+		dispatch(getNoticeByCategory(queryParams));
+	}, [dispatch, queryParams]);
 
 	return (
 		<div className={styles.wrapper}>
@@ -100,6 +113,7 @@ export const NoticesList = ({ category }) => {
 					)
 				)}
 			</ul>
+			{totalPages > 1 && <NoticesPaginationList pages={totalPages} />}
 		</div>
 	);
 };

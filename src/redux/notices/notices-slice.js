@@ -18,6 +18,8 @@ const initialState = {
 	loading: false,
 	error: null,
 	filter: '',
+	totalPages: 4,
+	queryParams: { page: 1}
 };
 
 const noticesSlice = createSlice({
@@ -27,6 +29,12 @@ const noticesSlice = createSlice({
 		setFilter: (state, { payload }) => {
 			state.filter = payload;
 		},
+		setQueryParams: (state, { payload: { page = 1} }) => {
+			state.queryParams = {page}
+		},
+		setTotalPages: (state, {payload}) => {
+			state.totalPages = payload
+		}
 	},
 	extraReducers: {
 		//! Менять нельзя!
@@ -155,6 +163,6 @@ const noticesSlice = createSlice({
 	},
 });
 
-export const { setFilter } = noticesSlice.actions;
+export const { setFilter,setQueryParams, setTotalPages } = noticesSlice.actions;
 
 export default noticesSlice.reducer;
