@@ -5,7 +5,6 @@ import * as api from '../../shared/api/news';
 export const getAllNews = createAsyncThunk(
 	'news/getAllNews',
 	async (options, { rejectWithValue }) => {
-
 		try {
 			const result = await api.getAllNews(options);
 			return result;

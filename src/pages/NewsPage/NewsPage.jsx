@@ -15,7 +15,6 @@ import { Search } from 'components/News/Search/Search';
 import { PaginationList } from 'components/Reuse/Pagination/PaginationList/PaginationList';
 
 
-
 const NewsPage = () => {
 
   const dispatch = useDispatch()
@@ -36,8 +35,7 @@ const NewsPage = () => {
     <section className={styles.section}>
       <Container>
       <Title text='News' />
-        <Search  />
-        
+        <Search />      
         <NewsList data={news} />
         {totalPages > 1 && <PaginationList pages={ totalPages} />}
       </Container>
