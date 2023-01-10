@@ -3,7 +3,8 @@
 
 .item {
 	min-height: 200px;
-	margin: 0 auto;
+	width: 80%;
+	// margin: 0 auto;
 	background: $secondary-bg-color;
 	box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
 	border-radius: 40px;
@@ -16,7 +17,8 @@
 
 	@include media(desktop) {
 		height: 287px;
-		width: calc(30%);
+		// width: calc(30%);
+		width: 100%;
 	}
 
 	&__title {

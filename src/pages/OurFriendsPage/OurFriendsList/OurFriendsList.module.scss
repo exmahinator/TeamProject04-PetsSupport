@@ -1,7 +1,7 @@
 @import 'shared/styles/mixins.scss';
 
 .list {
-	@include flex();
+	@include flex(center);
 	gap: 12px;
 	max-width: 500px;
 	margin: 0 auto;
@@ -15,7 +15,9 @@
 
 	@include media(desktop) {
 		margin-top: 60px;
-		justify-content: flex-start;
-		margin-left: 32px;
+		// justify-content: flex-start;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		// margin-left: 32px;
 	}
 }
