@@ -5,6 +5,8 @@ export const getNewsLoading = ({ news }) => news.loading;
 export const getNews = ({ news }) => news.news;
 export const getFilter = ({ news }) => news.filter;
 export const getTotalPages = ({ news }) => news.totalPages;
+export const getPage = ({ news }) => news.page;
+export const getQueryParams = ({ news }) => news.queryParams;
 
 export const getFilteredNews = createSelector([getNews, getFilter], (data, filter='') => {
     const optimizedFilter = filter.toLowerCase();

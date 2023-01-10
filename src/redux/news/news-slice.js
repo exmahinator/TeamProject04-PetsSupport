@@ -7,7 +7,12 @@ const initialState = {
 	loading: false,
 	error: null,
 	totalPages: 4,
+	queryParams: {
+		page: 1,
+		filter: ''
+	},
 	filter: '',
+	page:1,
 };
 
 const newsSlice = createSlice({
@@ -16,6 +21,13 @@ const newsSlice = createSlice({
 	reducers: {
 		setFilter: (state, {payload}) => {
 			state.filter = payload
+		},
+		setQueryParams: (state, { payload: { page = 1, query = '' } }) => {
+			console.log(page, query)
+			state.queryParams = {page, query}
+		},
+		setTotalPages: (state, {payload}) => {
+			state.totalPages = payload
 		}
 	},
 	extraReducers: {
@@ -34,6 +46,6 @@ const newsSlice = createSlice({
 	},
 });
 
-export const { setFilter } = newsSlice.actions;
+export const {  setTotalPages, setQueryParams } = newsSlice.actions;
 
 export default newsSlice.reducer;

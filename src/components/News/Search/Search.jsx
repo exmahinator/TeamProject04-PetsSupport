@@ -4,19 +4,25 @@ import { ReactComponent as ClearIcon } from 'shared/images/overused/x-circle.svg
 
 import debounce from 'lodash.debounce';
 import styles from './Search.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { getQueryParams } from 'redux/news/news-selectors';
+import { setQueryParams } from 'redux/news/news-slice';
 
-export const Search = ({setFilter}) => {
+export const Search = () => {
+	const { query } = useSelector(getQueryParams);
+
+	const dispatch = useDispatch();
 	const input = useRef();
+	if (input.current) input.current.value = query ?? '';
 
 	const clearBtnHandler = () => {
 		input.current.value = '';
-		setFilter('');
+		dispatch(setQueryParams({}));
 	};
 
-	const changeHandler = event => {
-		setFilter(event.target.value)
+	const changeHandler = ({ target: { value } }) => {
+		dispatch(setQueryParams({ query: value }));
 	};
-	
 	// eslint-disable-next-line
 	const debouncedChangeHandler = useCallback(debounce(changeHandler, 500), []);
 

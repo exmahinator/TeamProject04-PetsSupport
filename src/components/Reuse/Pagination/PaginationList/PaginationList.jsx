@@ -1,7 +1,7 @@
 import { PaginationBtn } from '../PaginationBtn/PaginationBtn';
 import style from './PaginationList.module.scss';
 
-export const PaginationList = ({ pages, setPage }) => {
+export const PaginationList = ({ pages }) => {
 	const arr = Array(pages).fill('*')
 
 	return (
@@ -9,7 +9,7 @@ export const PaginationList = ({ pages, setPage }) => {
 			<ul className={style.list}>
 				{arr.map((el, index) => {
                     return <li key={index}>
-                        <PaginationBtn setPage={setPage} value={index+1 } />
+                        <PaginationBtn  value={index+1 } />
                     </li>;
 				})}
 			</ul>
