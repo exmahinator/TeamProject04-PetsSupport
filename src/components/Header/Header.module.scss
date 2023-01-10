@@ -20,6 +20,7 @@
 	gap: 80px;
 	@include flex(space-between, center);
 }
+
 .btnBurger {
 	display: inline-flex;
 	margin: 0;
@@ -28,25 +29,31 @@
 	background-color: transparent;
 }
 
+// !Может быть лишний*****
+
 .btns {
 	display: contents;
-	// @include flex(center, center);
-	@include media(tablet) {
-		// width: 100%
-	}
+
+	@include media(tablet) {}
 }
 
-.open{
-    @include flex(center);
-    flex-wrap: wrap-reverse;
-    position: absolute;
-top: 100%;
-    left: 0;
-    text-align: center;
-    background-color: #FDF7F2;;
-    z-index: 1;
-    width: 100vw;
-    height: 100vh
+
+.open {
+	@include flex(flex-end, center);
+
+	flex-direction: column-reverse;
+	position: fixed;
+	top: 64px;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	text-align: center;
+	background-color: #fdf7f2;
+	z-index: 99;
+
+	@include media(tablet) {
+		margin-top: 40px;
+	}
 }
 
 .logoLink {
@@ -54,6 +61,7 @@ top: 100%;
 		@include flex(space-between, center);
 	}
 }
+
 .logoBtn {
 	@include flex(space-between, center);
 	gap: 20px;

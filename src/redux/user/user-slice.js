@@ -10,7 +10,9 @@ import {
 const initialState = {
 	user: { avatarURL: null, userInfo: {} },
 	loading: false,
+	userLoading: false,
 	error: null,
+	addPetError: null,
 	isLoadingUpdate: false,
 	isDisabledFields: false,
 };
@@ -26,14 +28,17 @@ const userSlice = createSlice({
 	extraReducers: {
 		[getUserData.pending]: store => {
 			store.loading = true;
+			store.userLoading = true;
 			store.error = null;
 		},
 		[getUserData.fulfilled]: (store, { payload }) => {
 			store.loading = false;
+			store.userLoading = false;
 			store.user = payload.user;
 		},
 		[getUserData.rejected]: (store, { payload }) => {
 			store.loading = false;
+			store.userLoading = false;
 			store.error = payload;
 		},
 		[updateUserData.pending]: store => {
@@ -55,14 +60,17 @@ const userSlice = createSlice({
 		[addUserPet.pending]: store => {
 			store.loading = true;
 			store.error = null;
+			store.addPetError = null;
 		},
 		[addUserPet.fulfilled]: (store, { payload }) => {
 			store.loading = false;
+			store.addPetError = null;
 			store.user.pets = [payload, ...store.user.pets];
 		},
 		[addUserPet.rejected]: (store, { payload }) => {
 			store.loading = false;
 			store.error = payload;
+			store.addPetError = true;
 		},
 		[removeUserPet.pending]: store => {
 			store.loading = true;

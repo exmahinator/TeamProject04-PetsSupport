@@ -1,53 +1,61 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Buttons } from './Buttons/Buttons';
+import { addUserPet } from 'redux/user/user-operations';
+import { createFormData } from 'shared/functions/createFormData';
 import { AddPetFormFirstPage } from './FirstPage/AddPetFormFirstPage';
 import { AddPetFormSecondPage } from './SecondPage/AddPetFormSecondPage';
 
 import style from './AddPetForm.module.scss';
-import { useDispatch } from 'react-redux';
-import { addUserPet } from 'redux/user/user-operations';
+// import { getAddPetError, getPetsLoading } from 'redux/user/user-selectors';
 
 export const AddPetForm = ({ onCloseModal }) => {
 	const [uploadError, setUploadError] = useState(false);
-
-	const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm({
+	// const isAddPetError = useSelector(getAddPetError);
+	// const isPetsLoading = useSelector(getPetsLoading);
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors, isValid },
+	} = useForm({
 		mode: 'onBlur',
 		defaultValues: {
-			petBirth: '01.01.2020',
-			petUpload: '',
+			birthday: '01.01.2020',
+			avatar: '',
 		},
 	});
 	const dispatch = useDispatch();
 	const [isfirstPage, setIsFirstPage] = useState(true);
+	const petName = watch('name');
 
 	const onTogglePage = () => {
 		if (!isValid && isfirstPage) return;
 		setIsFirstPage(prev => !prev);
 	};
 
-	const onSubmit = ({ petName, petBirth, petBreed, petUpload, petComment }) => {
-
-		const newPet = new FormData();
-		newPet.append('name', petName);
-		newPet.append('birthday', petBirth);
-		newPet.append('breed', petBreed);
-		newPet.append('comments', petComment);
-
-		if (!petUpload) {
+	const onSubmit = data => {
+		if (data) {
+			const newPet = createFormData(data);
+			dispatch(addUserPet(newPet));
+		}
+		if (!data.avatar) {
 			setUploadError(true);
 			return;
 		} else {
-			setUploadError(false)
-			newPet.append('avatar', petUpload[0]);
+			setUploadError(false);
 		}
-
-
-		dispatch(addUserPet(newPet));
-
 		onCloseModal();
-	};
 
+		// isPetsLoading &&
+		// (isAddPetError
+		// ? toast.error('ooops an error occured please try again'):
+		toast.success(`${petName} added `);
+		// )
+	};
+	// isAddPetError && toast.error('ooops an error occured please try again');
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
@@ -57,13 +65,18 @@ export const AddPetForm = ({ onCloseModal }) => {
 			{isfirstPage ? (
 				<AddPetFormFirstPage errors={errors} register={register} />
 			) : (
-				<AddPetFormSecondPage  errors={errors} uploadError={uploadError}  watch={watch} register={register} />
+				<AddPetFormSecondPage
+					errors={errors}
+					uploadError={uploadError}
+					watch={watch}
+					register={register}
+				/>
 			)}
 			<Buttons
-				onTogglePage={onTogglePage}
 				onSubmit={onSubmit}
-				onCloseModal={onCloseModal}
 				isFirstPage={isfirstPage}
+				onTogglePage={onTogglePage}
+				onCloseModal={onCloseModal}
 			/>
 		</form>
 	);

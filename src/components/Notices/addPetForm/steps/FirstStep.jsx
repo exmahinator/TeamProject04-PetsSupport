@@ -46,6 +46,7 @@ export const FirstStep = ({ register, nextPage, onCloseModal }) => {
 						text="Tittle of ad"
 						field="title"
 						register={register}
+						req={true}
 					/>
 				</li>
 				<li>

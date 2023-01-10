@@ -7,10 +7,16 @@
 *::after {
 	box-sizing: border-box;
 }
+label:hover,
+input:hover,
+button:hover {
+	cursor: pointer;
+}
 
 textarea {
 	resize: none;
 }
+
 /* Убираем внутренние отступы */
 ul,
 ol {
@@ -53,7 +59,7 @@ img {
 }
 
 /* Указываем понятную периодичность в потоке данных у article*/
-article > * + * {
+article>*+* {
 	margin-top: 1em;
 }
 

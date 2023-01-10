@@ -63,7 +63,7 @@
 		&:hover,
 		&:active,
 		&:focus {
-			border-color: $accent-color;
+			border-color: $hover-color;
 			background-color: $accent-color;
 			color: $secondary-text-color;
 		}
@@ -112,7 +112,6 @@
 		background: none;
 
 		&:hover,
-		&:active,
 		&:focus {
 			color: $accent-color;
 		}
@@ -217,9 +216,6 @@
 	@include media(tablet) {
 		font-size: 24px;
 	}
-	&:hover {
-		color: $hover-color;
-	}
 }
 
 .input {
@@ -315,6 +311,9 @@
 	background-color: $secondary-bg-color;
 	color: $fifth-text-color;
 
+	&:hover {
+		border-color: $hover-color;
+	}
 	@include media(tablet) {
 		padding: 10px 28px;
 	}
@@ -335,10 +334,15 @@
 	background: none;
 }
 
-.category__input:checked + .category__label,
-.category__input:focus + .category__label {
+.category__input:checked + .category__label {
 	background-color: $accent-color;
 	color: $secondary-text-color;
+}
+.category__input:focus + .category__label,
+.category__input:hover + .category__label {
+	background-color: $hover-color;
+
+	// color: $secondary-text-color;
 }
 
 .category__paragraph {

@@ -56,7 +56,7 @@ export const phoneOpt = {
 
 export const petName = {
 	label: 'Name pet',
-	name: 'petName',
+	name: 'name',
 	type: 'text',
 	placeholder: 'Type pet name',
 	required: true,
@@ -68,7 +68,7 @@ export const petName = {
 };
 export const petBirth = {
 	label: 'Date of Birth',
-	name: 'petBirth',
+	name: 'birthday',
 	type: 'text',
 	placeholder: 'Type date of birth',
 	required: true,
@@ -78,7 +78,7 @@ export const petBirth = {
 };
 export const petBreed = {
 	label: 'Breed',
-	name: 'petBreed',
+	name: 'breed',
 	type: 'text',
 	placeholder: 'Type breed',
 	required: true,
@@ -90,7 +90,7 @@ export const petBreed = {
 };
 export const petComment = {
 	label: 'Comments',
-	name: 'petComment',
+	name: 'comments',
 	type: 'text',
 	placeholder: 'Type comments',
 	required: true,

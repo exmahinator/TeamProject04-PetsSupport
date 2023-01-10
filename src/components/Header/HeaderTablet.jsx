@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Logo } from './Logo/Logo';
 import { Nav } from './Nav/Nav';
 import { UserNav } from './UserNav/UserNav';
@@ -7,10 +7,16 @@ import style from './Header.module.scss';
 import { ReactComponent as Strips } from 'shared/images/Burger/Strips.svg';
 import { ReactComponent as Cross } from 'shared/images/Burger/Cross.svg';
 import { useAuth } from 'shared/hooks/useAuth';
+import { toggleBodyHidden } from 'shared/functions/toggleBodyHidden';
 
 export const HeaderTablet = () => {
 	const isAuth = useAuth();
 	const [isOpen, setIsOpen] = useState(false);
+
+	useEffect(() => {
+	  toggleBodyHidden(isOpen)	
+	}, [isOpen])
+	
 	const toggleMenu = () => {
 		setIsOpen(isOpen => !isOpen);
 	};
@@ -18,7 +24,7 @@ export const HeaderTablet = () => {
 		<div className={style.wrapper}>
 			<div className={style.btns}>
 				<div className={style.logoLink}>
-					<Logo />
+					<Logo setIsOpen={setIsOpen}/>
 				</div>
 				<div className={style.logoBtn}>
 					{!isOpen && (isAuth ? <UserNav /> : <AuthNav />)}
@@ -58,7 +64,7 @@ export const HeaderTablet = () => {
 			</div>
 			{isOpen && (
 				<div className={style.open}>
-					<Nav />
+					<Nav setIsOpen={setIsOpen} />
 				</div>
 			)}
 		</div>

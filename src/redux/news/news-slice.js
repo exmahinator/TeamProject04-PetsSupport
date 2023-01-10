@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import storage from 'redux-persist/lib/storage';
 import storageSession from 'redux-persist/lib/storage/session'
 import { persistReducer } from 'redux-persist';
 import { getAllNews } from './news-operations';
