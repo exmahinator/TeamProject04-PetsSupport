@@ -9,20 +9,14 @@ import style from './UserForm.module.scss';
 import { createFormData } from 'shared/functions/createFormData';
 import { UserSkeletonMobile } from 'components/Reuse/Loaders/Skeleton/UserSkeletonMobile';
 
-export const UserForm = ({
-	userInfo,
-	userAvatar,
-	isUserLoading,
-	isCurrentLoading,
-}) => {
-	console.log()
-	const { register, handleSubmit, watch , setValue} = useForm({});
+export const UserForm = ({ formData }) => {
+	const { userInfo, userAvatar, isUserLoading, isCurrentLoading } = formData;
+	const { register, handleSubmit, watch, setValue } = useForm({});
 	const dispatch = useDispatch();
 
 	const onSubmit = data => {
 		if (data) {
 			const fieldToChange = createFormData(data);
-
 			dispatch(updateUserData(fieldToChange));
 		}
 	};
@@ -66,8 +60,8 @@ export const UserForm = ({
 									data={userInfo.birthday}
 									text="Birthday"
 									field="birthday"
-										register={register}
-										setValue={setValue}
+									register={register}
+									setValue={setValue}
 								/>
 							</form>
 							<form onSubmit={handleSubmit(onSubmit)}>
@@ -75,8 +69,8 @@ export const UserForm = ({
 									data={userInfo.phone}
 									text="Phone"
 									field="phone"
-										register={register}
-										setValue={setValue}
+									register={register}
+									setValue={setValue}
 								/>
 							</form>
 							<form onSubmit={handleSubmit(onSubmit)}>
@@ -84,15 +78,15 @@ export const UserForm = ({
 									data={userInfo.city}
 									text="City"
 									field="city"
-										register={register}
-										setValue={setValue}
+									register={register}
+									setValue={setValue}
 								/>
 							</form>
 						</div>
 					</>
 				)}
 			</div>
-			{(!isUserLoading && !isCurrentLoading) && <LogOut />}
+			{!isUserLoading && !isCurrentLoading && <LogOut />}
 		</div>
 	);
 };

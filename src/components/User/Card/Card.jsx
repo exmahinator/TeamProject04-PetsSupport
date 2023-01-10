@@ -5,7 +5,8 @@ import { CardMarkUp } from './CardMarkUp/CardMarkUp';
 
 import style from './Card.module.scss';
 
-export const Card = ({ userPets, onDeletePet, isPetsLoading }) => {
+export const Card = ({ cardData }) => {
+	const { userPets, onDeletePet, isPetsLoading } = cardData;
 	return (
 		<Container>
 			<ul className={style.card__list}>
