@@ -32,6 +32,7 @@ export const LoginForm = () => {
 	});
 
 	const onSubmit = ({ email, password }) => {
+		if (!isValid) return;
 		let res = {
 			email,
 			password,
@@ -48,7 +49,7 @@ export const LoginForm = () => {
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 			<Input settings={emailOpt} register={register} errors={errors} />
 			<Input settings={passwordOpt} register={register} errors={errors} />
-			<button className={styles.btn} disabled={!isValid} type="submit">
+			<button className={styles.btn}  type="submit">
 				Login
 			</button>
 		</form>
