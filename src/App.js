@@ -43,7 +43,7 @@ function App() {
 	}
 
 	return (
-
+		// удалить потом
 		<>
 			<Suspense>
 				<Routes>
