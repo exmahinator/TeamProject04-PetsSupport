@@ -16,14 +16,14 @@ export const Buttons = ({
 					colorType={'white'}
 					type={'button'}
 					onClickFunc={onCloseModal}
-				></Button>
+				/>
 			)}
 			<Button
 				text={isFirstPage ? 'next' : 'back'}
 				colorType="orange"
 				type="button"
 				onClickFunc={onTogglePage}
-			></Button>
+			/>
 			{!isFirstPage && (
 				<button type="submit" onSubmit={onSubmit} className={style.submitBtn}>
 					Done

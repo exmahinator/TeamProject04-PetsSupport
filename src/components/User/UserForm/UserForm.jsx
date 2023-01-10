@@ -1,28 +1,24 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { LogOut } from '../LogOut/LogOut';
 import { updateUserData } from 'redux/user/user-operations';
-import { UserPhoto } from './UserPhoto/UserPhoto';
-import { UserItem } from './UserItem/UserItem';
-
-import style from './UserForm.module.scss';
 import { createFormData } from 'shared/functions/createFormData';
+
+import { itemInfo } from './itemInfo';
+import { UserItem } from './UserItem/UserItem';
+import { UserPhoto } from './UserPhoto/UserPhoto';
+import { LogOut } from '../LogOut/LogOut';
 import { UserSkeletonMobile } from 'components/Reuse/Loaders/Skeleton/UserSkeletonMobile';
 
-export const UserForm = ({
-	userInfo,
-	userAvatar,
-	isUserLoading,
-	isCurrentLoading,
-}) => {
-	console.log()
-	const { register, handleSubmit, watch , setValue} = useForm({});
+import style from './UserForm.module.scss';
+
+export const UserForm = ({ formData }) => {
+	const { userInfo, userAvatar, isUserLoading, isCurrentLoading } = formData;
+	const { register, handleSubmit, watch, setValue } = useForm({});
 	const dispatch = useDispatch();
 
 	const onSubmit = data => {
 		if (data) {
 			const fieldToChange = createFormData(data);
-
 			dispatch(updateUserData(fieldToChange));
 		}
 	};
@@ -34,65 +30,31 @@ export const UserForm = ({
 					<UserSkeletonMobile />
 				) : (
 					<>
-						<form onSubmit={handleSubmit(onSubmit)}>
-							<UserPhoto
-								watch={watch}
-								avatar={userAvatar}
-								register={register}
-							/>
-						</form>
+						<UserPhoto
+							onSubmit={handleSubmit(onSubmit)}
+							watch={watch}
+							avatar={userAvatar}
+							register={register}
+						/>
+
 						<div className={style.user__meta}>
-							<form onSubmit={handleSubmit(onSubmit)}>
+							{itemInfo.map((info, idx) => (
 								<UserItem
-									data={userInfo.name}
-									text="Name"
-									field="name"
+									onSubmit={handleSubmit(onSubmit)}
+									data={Object.values(userInfo)[idx]}
+									text={info.text}
+									type={info.type}
+									field={info.field}
 									register={register}
 									setValue={setValue}
+									key={idx}
 								/>
-							</form>
-							<form onSubmit={handleSubmit(onSubmit)}>
-								<UserItem
-									data={userInfo.email}
-									text="Email"
-									type="email"
-									field="email"
-									register={register}
-									setValue={setValue}
-								/>
-							</form>
-							<form onSubmit={handleSubmit(onSubmit)}>
-								<UserItem
-									data={userInfo.birthday}
-									text="Birthday"
-									field="birthday"
-										register={register}
-										setValue={setValue}
-								/>
-							</form>
-							<form onSubmit={handleSubmit(onSubmit)}>
-								<UserItem
-									data={userInfo.phone}
-									text="Phone"
-									field="phone"
-										register={register}
-										setValue={setValue}
-								/>
-							</form>
-							<form onSubmit={handleSubmit(onSubmit)}>
-								<UserItem
-									data={userInfo.city}
-									text="City"
-									field="city"
-										register={register}
-										setValue={setValue}
-								/>
-							</form>
+							))}
 						</div>
 					</>
 				)}
 			</div>
-			{(!isUserLoading && !isCurrentLoading) && <LogOut />}
+			{!isUserLoading && !isCurrentLoading && <LogOut />}
 		</div>
 	);
 };

@@ -7,7 +7,7 @@ import { ReactComponent as UploadSubmit } from 'shared/images/user/uploadSubmit.
 
 import style from '../UserForm.module.scss';
 
-export const UserPhoto = ({ avatar, watch, register }) => {
+export const UserPhoto = ({ avatar, watch, register, onSubmit }) => {
 	const [edited, setEdited] = useState(false);
 
 	const isLoadingUpdate = useSelector(getLoadingUpdate);
@@ -30,7 +30,7 @@ export const UserPhoto = ({ avatar, watch, register }) => {
 	}, [newImage]);
 
 	return (
-		<>
+		<form onSubmit={onSubmit}>
 			<div className={style.avatar__thumb}>
 				<div className={style.thumb}>
 					<img
@@ -68,6 +68,6 @@ export const UserPhoto = ({ avatar, watch, register }) => {
 					)}
 				</div>
 			</div>
-		</>
+		</form>
 	);
 };
