@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { FirstStep, SecondStep } from './steps';
-import { useDispatch } from 'react-redux';
 import { addNotice } from 'redux/notices/notices-operations';
 import { createFormData } from 'shared/functions/createFormData';
 
@@ -19,6 +20,7 @@ export const AddPetForm = ({ onClose }) => {
 
 			dispatch(addNotice(newNotice));
 			onClose();
+			toast.success('Notice added ');
 		}
 	};
 
