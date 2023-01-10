@@ -23,6 +23,8 @@ export const AddPetForm = ({ onClose }) => {
 			avatar: '',
 		},
 	});
+
+	console.log(errors)
 	
 	const dispatch = useDispatch();
 	const [isFirstPage, setIsFirstPage] = useState(true);

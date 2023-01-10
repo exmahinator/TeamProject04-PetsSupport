@@ -7,6 +7,7 @@ import styles from '../NoticesAddPetForm.module.scss';
 import { AddPetRadioItem } from '../AddPetRadioItem/AddPetSex';
 import { AddPetInput } from 'components/User/AddPetForm/AddPetInput/AddPetInput';
 import { cityOpt,petComment,petPrice  } from 'components/Authorization/Input/inputOptions';
+import { ValidationError } from 'components/Authorization/ValidationError/ValidationError';
 
 export const SecondStep = ({
 	register,
@@ -50,7 +51,7 @@ export const SecondStep = ({
 			</ul>
 
 			<AddPetInput register={register} errors={errors} settings={cityOpt} />
-			
+
 			{isSellCategorySelected && <AddPetInput register={register} errors={errors} settings={petPrice} />}
 
 			<div className={styles.upload}>
@@ -74,6 +75,9 @@ export const SecondStep = ({
 						placeholder="Type name pet"
 						className={styles.upload__input}
 					/>
+					{uploadError && !newImage[0] && (
+						<ValidationError>Add an image</ValidationError>
+					)}
 				</label>
 			</div>
 			<AddPetInput
