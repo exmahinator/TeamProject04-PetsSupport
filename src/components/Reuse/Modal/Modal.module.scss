@@ -19,7 +19,9 @@ body.modal {
 	z-index: 1200;
 }
 
-.modal {
+//* circle btn modal
+
+.modal_circle {
 	position: relative;
 	width: 90%;
 	padding: 40px 20px;
@@ -30,11 +32,45 @@ body.modal {
 
 	@include media(tablet) {
 		width: fit-content;
-		padding: 32px 20px;
-	}
-	@include media(desktop) {
+		padding: 40px 80px;
 	}
 }
+
+//* long btn modal
+
+.modal_long {
+	position: relative;
+	width: 90%;
+	padding: 50px 20px;
+	margin: 0 auto;
+	box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+	border-radius: 40px;
+	background-color: $secondary-bg-color;
+
+	@include media(tablet) {
+		width: fit-content;
+		padding: 32px 20px;
+	}
+}
+
+//* info btn modal
+
+.modal_info {
+	position: relative;
+	width: 90%;
+	padding: 40px 20px;
+	margin: 0 auto;
+	box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+	border-radius: 40px;
+	background-color: $secondary-bg-color;
+
+	@include media(tablet) {
+		width: fit-content;
+		padding: 40px 80px;
+	}
+}
+
+// * BTN styles
 
 .close {
 	position: absolute;
