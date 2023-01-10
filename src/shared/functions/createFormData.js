@@ -15,6 +15,5 @@ export const createFormData = data => {
 			}
 		}
 	}
-
 	return formDataToSend;
 };

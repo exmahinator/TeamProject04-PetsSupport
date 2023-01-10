@@ -9,36 +9,62 @@ import { createFormData } from 'shared/functions/createFormData';
 import styles from './NoticesAddPetForm.module.scss';
 
 export const AddPetForm = ({ onClose }) => {
-	const dispatch = useDispatch();
-	const { handleSubmit, register, watch } = useForm();
+	const [uploadError, setUploadError] = useState(false);
+	
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors, isValid },
+	} = useForm({
+		mode: 'onBlur',
+		defaultValues: {
+			birthday: '01.01.2020',
+			avatar: '',
+		},
+	});
 
-	const [step, setStep] = useState(true);
+	console.log(errors)
+	
+	const dispatch = useDispatch();
+	const [isFirstPage, setIsFirstPage] = useState(true);
+	const petName = watch('name');
+	
+	const onToggleStep = () => {
+		if (!isValid && isFirstPage) return;
+		setIsFirstPage(prev => !prev);
+	};
 
 	const onSubmit = data => {
 		if (data) {
 			const newNotice = createFormData(data);
-
 			dispatch(addNotice(newNotice));
-			onClose();
-			toast.success('Notice added ');
 		}
+		if (!data.avatar) {
+			setUploadError(true);
+			return;
+		} else {
+			setUploadError(false);
+		}
+		onClose();
+		toast.success(`${petName} added `);
 	};
 
-	const onToggleStep = () => {
-		setStep(prev => !prev);
-	};
 
 	return (
 		<div className={styles.wrapper}>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				{step ? (
+				{isFirstPage ? (
 					<FirstStep
+						errors={errors}
 						register={register}
 						nextPage={onToggleStep}
 						onCloseModal={() => onClose()}
 					/>
 				) : (
-					<SecondStep
+						<SecondStep
+						errors={errors}
+						uploadError={uploadError}
 						register={register}
 						downPage={onToggleStep}
 						onSubmit={onSubmit}
