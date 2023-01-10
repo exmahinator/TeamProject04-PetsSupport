@@ -7,7 +7,7 @@ const initialState = {
 	news: [],
 	loading: false,
 	error: null,
-	totalPages: 4,
+	totalPages: 1,
 	queryParams: {
 		page: 1,
 		filter: ''
@@ -31,9 +31,10 @@ const newsSlice = createSlice({
 			store.loading = true;
 			store.error = null;
 		},
-		[getAllNews.fulfilled]: (store, { payload }) => {
+		[getAllNews.fulfilled]: (store, { payload:{news, totalPages} }) => {
 			store.loading = false;
-			store.news = payload;
+			store.news = news;
+			store.totalPages = totalPages;
 		},
 		[getAllNews.rejected]: (store, { payload }) => {
 			store.loading = false;

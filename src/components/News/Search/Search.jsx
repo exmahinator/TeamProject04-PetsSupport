@@ -24,7 +24,7 @@ export const Search = () => {
 		dispatch(setQueryParams({ query: value }));
 	};
 	// eslint-disable-next-line
-	const debouncedChangeHandler = useCallback(debounce(changeHandler, 500), []);
+	const debouncedChangeHandler = useCallback(debounce(changeHandler, 700), []);
 
 	return (
 		<div className={styles.wrapper}>
