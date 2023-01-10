@@ -14,6 +14,7 @@ export const UserItem = ({
 	field,
 	text,
 	setValue,
+	onSubmit,
 }) => {
 	const [edited, setEdited] = useState(false);
 
@@ -35,39 +36,41 @@ export const UserItem = ({
 	};
 
 	return (
-		<label htmlFor={data} className={style.user__label}>
-			<p className={style.user__text}>{text}:</p>
-			{edited ? (
-				<input
-					{...register(field)}
-					className={style.user__input}
-					type={type}
-					id={data}
-				/>
-			) : (
-				<p className={style.user__data}>{data}</p>
-			)}
-			{edited ? (
-				<button className={style.user__button} type="submit">
-					<ApproveIcon fill="currentColor" width="20px" height="20px" />
-				</button>
-			) : (
-				<div
-					className={
-						isDisabled ? style.user__button__disabled : style.user__button
-					}
-					onClick={() => {
-						setValue(field, data);
-						checkDisabled();
-					}}
-				>
-					<EditIcon
-						fill={isDisabled ? 'rgba(17, 17, 17, 0.6)' : 'currentColor'}
-						width="20px"
-						height="20px"
+		<form onSubmit={onSubmit}>
+			<label htmlFor={data} className={style.user__label}>
+				<p className={style.user__text}>{text}:</p>
+				{edited ? (
+					<input
+						{...register(field)}
+						className={style.user__input}
+						type={type}
+						id={data}
 					/>
-				</div>
-			)}
-		</label>
+				) : (
+					<p className={style.user__data}>{data}</p>
+				)}
+				{edited ? (
+					<button className={style.user__button} type="submit">
+						<ApproveIcon fill="currentColor" width="20px" height="20px" />
+					</button>
+				) : (
+					<div
+						className={
+							isDisabled ? style.user__button__disabled : style.user__button
+						}
+						onClick={() => {
+							setValue(field, data);
+							checkDisabled();
+						}}
+					>
+						<EditIcon
+							fill={isDisabled ? 'rgba(17, 17, 17, 0.6)' : 'currentColor'}
+							width="20px"
+							height="20px"
+						/>
+					</div>
+				)}
+			</label>
+		</form>
 	);
 };
