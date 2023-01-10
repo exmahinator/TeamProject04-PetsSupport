@@ -1,7 +1,7 @@
 import { ValidationError } from 'components/Authorization/ValidationError/ValidationError';
 import styles from './AddPetInput.module.scss';
 
-export const AddPetInput = ({ register, errors, settings, textarea }) => {
+export const AddPetInput = ({ register, errors, settings, textarea, notices= false }) => {
 	const {
 		label,
 		name,
@@ -13,12 +13,14 @@ export const AddPetInput = ({ register, errors, settings, textarea }) => {
 		patternMessage = null,
 		maxLength = null,
 		minLength = null,
+		zero = null,
 	} = settings;
 
 	return (
 		<label className={styles.label}>
-			<p className={!textarea ? styles.label__text : styles.label__textarea}>
+			<p className={(textarea && !notices) ? styles.label__textarea : styles.label__text}>
 				{label}
+				{zero && <span className={styles.star} >*</span>}
 			</p>
 			{!textarea ? (
 				<input
@@ -45,7 +47,7 @@ export const AddPetInput = ({ register, errors, settings, textarea }) => {
 					className={styles.input}
 				/>
 			) : (
-				<div className={styles.textarea__wrapper}>
+				<div className={!notices ? styles.textarea__wrapper : styles.textarea__wrapperNotices}>
 					<textarea
 						type={type}
 						{...register(name, {

@@ -1,0 +1,21 @@
+@import 'shared/styles/mixins.scss';
+
+.wrapper {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+	margin: 50px auto 0;
+	width: fit-content;
+
+	@include media(tablet) {
+		margin: 90px auto 0;
+	}
+	@include media(desktop) {
+		margin: 70px auto 0;
+	}
+}
+.list {
+	display: flex;
+	gap: 10px;
+}

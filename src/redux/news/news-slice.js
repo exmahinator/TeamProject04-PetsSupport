@@ -1,20 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import storageSession from 'redux-persist/lib/storage/session'
+import { persistReducer } from 'redux-persist';
 import { getAllNews } from './news-operations';
 
 const initialState = {
 	news: [],
 	loading: false,
 	error: null,
-	filter: '',
+	totalPages: 4,
+	queryParams: {
+		page: 1,
+		filter: ''
+	}
 };
 
 const newsSlice = createSlice({
 	name: 'news',
 	initialState,
 	reducers: {
-		setFilter: (state, {payload}) => {
-			state.filter = payload
+		setQueryParams: (state, { payload: { page = 1, query = '' } }) => {
+			console.log(page, query)
+			state.queryParams = {page, query}
+		},
+		setTotalPages: (state, {payload}) => {
+			state.totalPages = payload
 		}
 	},
 	extraReducers: {
@@ -33,6 +42,16 @@ const newsSlice = createSlice({
 	},
 });
 
-export const { setFilter } = newsSlice.actions;
+export const { setTotalPages, setQueryParams } = newsSlice.actions;
 
-export default newsSlice.reducer;
+const newsReducer = newsSlice.reducer;
+
+const persistConfig = {
+	key: 'newsQueryParams',
+	storage: storageSession,
+	whitelist: ['queryParams'],
+};
+
+const persistedNewsReducer = persistReducer(persistConfig, newsReducer);
+
+export default persistedNewsReducer;

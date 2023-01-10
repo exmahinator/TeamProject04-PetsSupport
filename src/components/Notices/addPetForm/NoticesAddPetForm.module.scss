@@ -10,6 +10,7 @@
 		width: 448px;
 	}
 }
+
 // First step
 .heading {
 	text-align: center;
@@ -67,6 +68,19 @@
 			background-color: $accent-color;
 			color: $secondary-text-color;
 		}
+	}
+}
+.inputWrapper {
+	margin: 0px auto;
+	width: 100%;
+	max-width: 280px;
+	@include flex(center, center);
+	flex-direction: column;
+	gap: 16px;
+
+	@include media('tablet') {
+		min-width: 448px;
+		gap: 28px;
 	}
 }
 

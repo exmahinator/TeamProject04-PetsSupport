@@ -4,10 +4,16 @@ export const AddPetCategory = ({ data, register, field, text, value }) => {
 	return (
 		<>
 			<input
-				{...register(field)}
+				{...register(field, {
+					// required: {
+					// 		value: true,
+					// 		message: `${field} is  required`,
+					// 	},
+				})}
 				type="radio"
 				value={value}
 				id={data}
+				name={field}
 				placeholder="Type name pet"
 				className={styles.category__input}
 			/>

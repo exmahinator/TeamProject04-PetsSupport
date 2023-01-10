@@ -20,7 +20,7 @@ export const Modal = ({
 					</button>
 					{isShowModal && (
 						<div onClick={handleBackdropClick} className={style.backdrop}>
-							<div className={style.modal}>
+							<div className={style.modal_circle}>
 								<div
 									onClick={handleBackdropClick}
 									className={style.close}
@@ -39,7 +39,7 @@ export const Modal = ({
 					</button>
 					{isShowModal && (
 						<div onClick={handleBackdropClick} className={style.backdrop}>
-							<div className={style.modal}>
+							<div className={style.modal_long}>
 								<div
 									onClick={handleBackdropClick}
 									className={style.close}
@@ -58,7 +58,7 @@ export const Modal = ({
 					</button>
 					{isShowModal && (
 						<div onClick={handleBackdropClick} className={style.backdrop}>
-							<div className={style.modal}>
+							<div className={style.modal_info}>
 								<div
 									onClick={handleBackdropClick}
 									className={style.close}
