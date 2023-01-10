@@ -6,7 +6,6 @@ export const getNoticeByCategory = createAsyncThunk(
 	'notices/getNoticeByCategory',
 	async (params, { rejectWithValue }) => {
 		try {
-			console.log('params ==>', params)
 			const result = await api.getNoticeByCategory(params);
 			return result;
 		} catch ({ response }) {
