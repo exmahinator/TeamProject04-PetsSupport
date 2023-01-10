@@ -32,10 +32,8 @@ export const NoticesList = ({ category }) => {
 	const favNotices = useSelector(getFavoriteNotices);
 	const isFavLoading = useSelector(getNoticesLoading);
 
-
 	const totalPages = useSelector(getTotalPages);
-	const queryParams = useSelector(getQueryParams);
-
+	const {page} = useSelector(getQueryParams);
 
 	useEffect(() => {
 		switch (category) {
@@ -48,7 +46,7 @@ export const NoticesList = ({ category }) => {
 				break;
 
 			default:
-				dispatch(getNoticeByCategory(category));
+				dispatch(getNoticeByCategory({page, category}));
 				break;
 		}
 		if (isLogin) {
@@ -56,16 +54,12 @@ export const NoticesList = ({ category }) => {
 		}
 
 		
-	}, [category, dispatch, isLogin]);
+	}, [category, dispatch, isLogin, page]);
 
 	const onDeleteNotice = e => {
 		const noticeId = e.currentTarget.id;
 		dispatch(removeNotice(noticeId));
 	};
-
-	useEffect(() => {
-		dispatch(getNoticeByCategory(queryParams));
-	}, [dispatch, queryParams]);
 
 	return (
 		<div className={styles.wrapper}>
