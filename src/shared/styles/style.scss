@@ -16,6 +16,7 @@ button:hover {
 textarea {
 	resize: none;
 }
+
 /* Убираем внутренние отступы */
 ul,
 ol {
@@ -58,7 +59,7 @@ img {
 }
 
 /* Указываем понятную периодичность в потоке данных у article*/
-article > * + * {
+article>*+* {
 	margin-top: 1em;
 }
 

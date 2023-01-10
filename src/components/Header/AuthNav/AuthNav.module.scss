@@ -1,12 +1,11 @@
 @import 'src/shared/styles/mixins.scss';
 @import 'src/shared/styles/variables.scss';
 
-@include media(mobile) {
-}
-@include media(tablet) {
-}
-@include media(desktop) {
-}
+@include media(mobile) {}
+
+@include media(tablet) {}
+
+@include media(desktop) {}
 
 .btn {
 	@include flex();
@@ -18,6 +17,7 @@
 		margin-top: 0;
 		height: 100%;
 	}
+
 	@include media(desktop) {
 		gap: 20px;
 		height: 47px;
@@ -49,6 +49,7 @@
 	width: 95px;
 	background: $accent-color;
 	border-radius: 40px;
+	transition: $transition;
 
 	@include media(tablet) {
 		width: 111px;
@@ -60,7 +61,13 @@
 		background: $accent-color;
 		border-radius: 40px;
 		height: 48px;
+
+		&:hover,
+		&:focus {
+			background: #FF6101
+		}
 	}
+
 }
 
 .linkRegistration {
@@ -90,6 +97,9 @@
 	background: $secondary-bg-color;
 	border-radius: 40px;
 	border: 2px solid $accent-color;
+
+	transition: $transition;
+
 	@include media(tablet) {
 		width: 181px;
 		height: 47px;
@@ -100,5 +110,10 @@
 		border-radius: 40px;
 		border: 2px solid $accent-color;
 		height: 48px;
+
+		&:hover,
+		&:focus {
+			border-color: #FF6101;
+		}
 	}
 }
