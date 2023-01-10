@@ -8,7 +8,7 @@ export const AddPetItem = ({
 	text,
 	img,
 	value,
-	req,
+	req = false,
 }) => {
 	return (
 		<>

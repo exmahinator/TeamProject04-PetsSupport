@@ -6,13 +6,10 @@ import styles from '../NoticesAddPetForm.module.scss';
 import { AddPetItem } from '../AddPetItem/AddPetItem';
 import { AddPetRadioItem } from '../AddPetRadioItem/AddPetSex';
 
-export const SecondStep = ({
-	register,
-	onSubmit,
-	downPage,
-	watch,
-}) => {
-	const newImage = watch('petImg');
+export const SecondStep = ({ register, onSubmit, downPage, watch }) => {
+	const newImage = watch('avatar');
+	const categorySelected = watch('category');
+	const isSellCategorySelected = categorySelected === 'sell';
 
 	return (
 		<>
@@ -49,16 +46,20 @@ export const SecondStep = ({
 						text="Location"
 						field="location"
 						register={register}
+						req={true}
 					/>
 				</li>
-				<li>
-					<AddPetItem
-						data="price"
-						text="Price"
-						field="price"
-						register={register}
-					/>
-				</li>
+				{isSellCategorySelected && (
+					<li>
+						<AddPetItem
+							data="price"
+							text="Price"
+							field="price"
+							register={register}
+							req={true}
+						/>
+					</li>
+				)}
 
 				<li className={styles.upload}>
 					<label htmlFor="petImg" className={styles.upload__label}>
@@ -70,7 +71,7 @@ export const SecondStep = ({
 								<UploadCross
 									width={48}
 									height={48}
-									fill="gba(17, 17, 17, 0.6)"
+									stroke="rgba(17, 17, 17, 0.6)"
 								/>
 							)}
 						</div>

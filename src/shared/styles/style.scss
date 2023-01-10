@@ -7,6 +7,11 @@
 *::after {
 	box-sizing: border-box;
 }
+label:hover,
+input:hover,
+button:hover {
+	cursor: pointer;
+}
 
 textarea {
 	resize: none;

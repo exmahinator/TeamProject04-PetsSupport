@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useAuth } from 'shared/hooks/useAuth';
-import { useOutletContext } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	getCurrentNotices,
@@ -24,22 +23,13 @@ export const NoticesList = ({ category }) => {
 	const isLogin = useAuth();
 	const dispatch = useDispatch();
 
-	// тут мы получаем то, что передали пропсом Outlet в компоненте NoticesPage, то, что ввели в наш поисковой инпут
-	const info = useOutletContext();
-	console.log(info);
-
 	const ownerId = useSelector(getUserId);
-
-	// здесь будут лежать наши каррент нотисы, с которыми надо работать
 	const notices = useSelector(getFilteredNotices || getCurrentNotices);
 
-	// здесь будут лежать наши фейвориты
 	const favNotices = useSelector(getFavoriteNotices);
-
 	const isFavLoading = useSelector(getNoticesLoading);
 
 	useEffect(() => {
-		// тут мы получаем каррент нотисы
 		switch (category) {
 			case 'favorite':
 				dispatch(getFavoriteNoticeForCategories());
@@ -53,7 +43,6 @@ export const NoticesList = ({ category }) => {
 				dispatch(getNoticeByCategory(category));
 				break;
 		}
-		// тут мы получаем фейворит
 		if (isLogin) {
 			dispatch(getFavoriteNoticeByUser());
 		}
@@ -64,7 +53,6 @@ export const NoticesList = ({ category }) => {
 
 		dispatch(removeNotice(noticeId));
 	};
-	//ну и дальше пишите логику на удаление, добавление и тд по тз, вам осталось играться и сравнивать info, notices и favorite
 
 	return (
 		<div className={styles.wrapper}>
@@ -97,6 +85,7 @@ export const NoticesList = ({ category }) => {
 								price={price}
 								breed={breed}
 								title={title}
+								isLogin={isLogin}
 								ownerId={ownerId}
 								category={category}
 								birthday={birthday}

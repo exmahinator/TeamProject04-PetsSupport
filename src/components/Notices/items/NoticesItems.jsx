@@ -1,9 +1,12 @@
+import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import {
 	addNoticeToFavorite,
 	removeNoticeFromFavorite,
 } from 'redux/notices/notices-operations';
 import { Favorite } from '../Favorite/Favorite';
+import { getAge } from 'shared/functions/getAge';
+import { numberToWord } from 'shared/functions/numberToWord';
 import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
 
 import LearnMore from '../learnMore/LearnMore';
@@ -19,6 +22,7 @@ const NoticesItems = ({
 	owner,
 	email,
 	phone,
+	isLogin,
 	ownerId,
 	location,
 	imageURL,
@@ -34,7 +38,9 @@ const NoticesItems = ({
 	const onAddToFavorite = e => {
 		const cardId = e.currentTarget.id;
 
-		dispatch(addNoticeToFavorite(cardId));
+		isLogin
+			? dispatch(addNoticeToFavorite(cardId))
+			: toast.error('Authorize please');
 	};
 
 	const onRemoveFromFavorite = e => {
@@ -42,6 +48,9 @@ const NoticesItems = ({
 
 		dispatch(removeNoticeFromFavorite(cardId));
 	};
+
+	const born = getAge(birthday);
+	const age = numberToWord(born);
 
 	return (
 		<div className={styles.wrapper}>
@@ -78,12 +87,14 @@ const NoticesItems = ({
 					</li>
 					<li className={styles.list__item}>
 						<p className={styles.list__paragraph}>Age:</p>
-						<p className={styles.list__span}>{birthday}</p>
+						<p className={styles.list__span}>{age}</p>
 					</li>
-					<li className={styles.list__item}>
-						<p className={styles.list__paragraph}>Price:</p>
-						<p className={styles.list__span}>{price ?? '-'}</p>
-					</li>
+					{category === 'sell' && (
+						<li className={styles.list__item}>
+							<p className={styles.list__paragraph}>Price:</p>
+							<p className={styles.list__span}>{price ?? '-'}</p>
+						</li>
+					)}
 				</ul>
 
 				<div className={styles.btnContainer}>
