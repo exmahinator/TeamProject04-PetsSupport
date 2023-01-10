@@ -14,24 +14,25 @@
 .headerSection {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
 	padding-top: 60px;
 	background: url(../../shared/images/Home/orangeWavesMobile.png);
 	background-position: bottom -15px right calc(50vw - 375px);
 	background-repeat: no-repeat;
+	height: calc(100vh - 58px);
 
 	@include media(tablet) {
 		padding-top: 92px;
 		background: url(../../shared/images/Home/orangeWavesTablet.png);
-		background-position: 20% -75%;
+		background-position: 22% calc(9vh + 100%);
 		background-repeat: no-repeat;
 	}
 	@include media(desktop) {
 		padding-top: 60px;
-		flex-direction: row;
+		flex-direction: column;
 		background: url(../../shared/images/Home/orangeWavesDesktop.png);
-		background-position: 100% 180%;
+		background-position: 100% calc(18vh + 100%);
 		background-repeat: no-repeat;
 	}
 }
@@ -39,11 +40,8 @@
 .headerControlBox {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
 	@include media(desktop) {
 		flex-direction: row;
-		align-items: flex-start;
 	}
 }
 
@@ -86,14 +84,12 @@
 
 .text {
 	display: flex;
-	height: 88px;
 	font-weight: 700;
 	font-size: 32px;
 	line-height: 1.38;
 	color: #000000;
 	text-align: initial;
 	@include media(tablet) {
-		height: 200px;
 		font-size: 68px;
 		line-height: 1.47;
 	}
