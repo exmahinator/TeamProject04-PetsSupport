@@ -6,17 +6,14 @@ import styles from '../NoticesAddPetForm.module.scss';
 // import { AddPetItem } from '../AddPetItem/AddPetItem';
 import { AddPetRadioItem } from '../AddPetRadioItem/AddPetSex';
 import { AddPetInput } from 'components/User/AddPetForm/AddPetInput/AddPetInput';
-import { cityOpt,petComment,petPrice  } from 'components/Authorization/Input/inputOptions';
-import { ValidationError } from 'components/Authorization/ValidationError/ValidationError';
+import {
+	petsLocation,
+	petComment,
+	petPrice,
+} from 'components/Authorization/Input/inputOptions';
+// import { ValidationError } from 'components/Authorization/ValidationError/ValidationError';
 
-export const SecondStep = ({
-	register,
-	onSubmit,
-	downPage,
-	watch,
-	errors,
-	uploadError,
-}) => {
+export const SecondStep = ({ register, onSubmit, downPage, watch, errors }) => {
 	const newImage = watch('avatar');
 	const categorySelected = watch('category');
 	const isSellCategorySelected = categorySelected === 'sell';
@@ -50,9 +47,15 @@ export const SecondStep = ({
 				</li>
 			</ul>
 
-			<AddPetInput register={register} errors={errors} settings={cityOpt} />
+			<AddPetInput
+				register={register}
+				errors={errors}
+				settings={petsLocation}
+			/>
 
-			{isSellCategorySelected && <AddPetInput register={register} errors={errors} settings={petPrice} />}
+			{isSellCategorySelected && (
+				<AddPetInput register={register} errors={errors} settings={petPrice} />
+			)}
 
 			<div className={styles.upload}>
 				<label htmlFor="petImg" className={styles.upload__label}>
@@ -72,12 +75,10 @@ export const SecondStep = ({
 						type="file"
 						{...register('avatar')}
 						id="petImg"
+						name="avatar"
 						placeholder="Type name pet"
 						className={styles.upload__input}
 					/>
-					{uploadError && !newImage[0] && (
-						<ValidationError>Add an image</ValidationError>
-					)}
 				</label>
 			</div>
 			<AddPetInput

@@ -9,8 +9,6 @@ import { createFormData } from 'shared/functions/createFormData';
 import styles from './NoticesAddPetForm.module.scss';
 
 export const AddPetForm = ({ onClose }) => {
-	const [uploadError, setUploadError] = useState(false);
-
 	const {
 		register,
 		handleSubmit,
@@ -38,16 +36,12 @@ export const AddPetForm = ({ onClose }) => {
 	const onSubmit = data => {
 		if (data) {
 			const newNotice = createFormData(data);
+
 			dispatch(addNotice(newNotice));
+
+			toast.success(`${petName} added `);
+			onClose();
 		}
-		if (!data.avatar) {
-			setUploadError(true);
-			return;
-		} else {
-			setUploadError(false);
-		}
-		onClose();
-		toast.success(`${petName} added `);
 	};
 
 	return (
@@ -63,7 +57,6 @@ export const AddPetForm = ({ onClose }) => {
 				) : (
 					<SecondStep
 						errors={errors}
-						uploadError={uploadError}
 						register={register}
 						downPage={onToggleStep}
 						onSubmit={onSubmit}
