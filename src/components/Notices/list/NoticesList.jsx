@@ -33,7 +33,7 @@ export const NoticesList = ({ category }) => {
 	const isFavLoading = useSelector(getNoticesLoading);
 
 	const totalPages = useSelector(getTotalPages);
-	const {page} = useSelector(getQueryParams);
+	const { page } = useSelector(getQueryParams);
 
 	useEffect(() => {
 		switch (category) {
@@ -46,14 +46,12 @@ export const NoticesList = ({ category }) => {
 				break;
 
 			default:
-				dispatch(getNoticeByCategory({page, category}));
+				dispatch(getNoticeByCategory({ page, category }));
 				break;
 		}
 		if (isLogin) {
 			dispatch(getFavoriteNoticeByUser());
 		}
-
-		
 	}, [category, dispatch, isLogin, page]);
 
 	const onDeleteNotice = e => {
@@ -64,48 +62,18 @@ export const NoticesList = ({ category }) => {
 	return (
 		<div className={styles.wrapper}>
 			<ul className={styles.galery}>
-				{notices.map(
-					({
-						sex,
-						name,
-						price,
-						breed,
-						title,
-						owner,
-						email,
-						phone,
-						_id: id,
-						category,
-						birthday,
-						location,
-						imageURL,
-						comments,
-					}) => (
-						<li key={id}>
-							<NoticesItems
-								id={id}
-								sex={sex}
-								name={name}
-								owner={owner}
-								email={email}
-								phone={phone}
-								price={price}
-								breed={breed}
-								title={title}
-								isLogin={isLogin}
-								ownerId={ownerId}
-								category={category}
-								birthday={birthday}
-								location={location}
-								imageURL={imageURL}
-								comments={comments}
-								favNotices={favNotices}
-								isFavLoading={isFavLoading}
-								onDeleteNotice={onDeleteNotice}
-							/>
-						</li>
-					)
-				)}
+				{notices.map(data => (
+					<li key={data._id}>
+						<NoticesItems
+							data={data}
+							isLogin={isLogin}
+							ownerId={ownerId}
+							favNotices={favNotices}
+							isFavLoading={isFavLoading}
+							onDeleteNotice={onDeleteNotice}
+						/>
+					</li>
+				))}
 			</ul>
 			{totalPages > 1 && <NoticesPaginationList pages={totalPages} />}
 		</div>

@@ -13,26 +13,25 @@ import LearnMore from '../learnMore/LearnMore';
 import styles from './NoticesItems.module.scss';
 
 const NoticesItems = ({
-	id,
-	sex,
-	name,
-	price,
-	breed,
-	title,
-	owner,
-	email,
-	phone,
-	isLogin,
+	data,
 	ownerId,
-	location,
-	imageURL,
-	comments,
-	category,
-	birthday,
+	isLogin,
 	favNotices,
 	isFavLoading,
 	onDeleteNotice,
 }) => {
+	const {
+		name,
+		price,
+		breed,
+		title,
+		owner,
+		_id: id,
+		category,
+		birthday,
+		location,
+		imageURL,
+	} = data;
 	const dispatch = useDispatch();
 
 	const onAddToFavorite = e => {
@@ -99,19 +98,20 @@ const NoticesItems = ({
 
 				<div className={styles.btnContainer}>
 					<LearnMore
-						id={id}
-						sex={sex}
-						name={name}
-						phone={phone}
-						breed={breed}
-						price={price}
-						title={title}
-						email={email}
-						imageURL={imageURL}
-						birthday={birthday}
-						category={category}
-						comments={comments}
-						location={location}
+						data={data}
+						// id={id}
+						// sex={sex}
+						// name={name}
+						// phone={phone}
+						// breed={breed}
+						// price={price}
+						// title={title}
+						// email={email}
+						// imageURL={imageURL}
+						// birthday={birthday}
+						// category={category}
+						// comments={comments}
+						// location={location}
 						favNotices={favNotices}
 						isFavLoading={isFavLoading}
 						onAddToFavorite={onAddToFavorite}

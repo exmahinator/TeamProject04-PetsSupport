@@ -5,23 +5,26 @@ import styles from './LearnMore.module.scss';
 import { Buttons } from './Buttons/Buttons';
 
 const LearnMore = ({
-	id,
-	sex,
-	name,
-	breed,
-	email,
-	phone,
-	title,
-	location,
-	imageURL,
-	birthday,
-	comments,
-	category,
+	data,
 	favNotices,
 	isFavLoading,
 	onAddToFavorite,
 	onRemoveFromFavorite,
 }) => {
+	const {
+		id,
+		sex,
+		name,
+		breed,
+		email,
+		phone,
+		title,
+		location,
+		imageURL,
+		birthday,
+		comments,
+		category,
+	} = data;
 	const [isShowModal, setIsShowModal] = useState(false);
 
 	const showModal = () => {

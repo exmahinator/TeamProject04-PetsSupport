@@ -138,7 +138,5 @@ export function numberToWord(n) {
 		return 'One year';
 	}
 
-	console.log('age', age);
 	return `${age} years`;
-	// return (`${words.reverse().join(' ')} years`);
 }
