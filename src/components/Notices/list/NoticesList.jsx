@@ -32,9 +32,12 @@ export const NoticesList = ({ category }) => {
 	const favNotices = useSelector(getFavoriteNotices);
 	const isFavLoading = useSelector(getNoticesLoading);
 
-
 	const totalPages = useSelector(getTotalPages);
 	const { page } = useSelector(getQueryParams);
+
+	// console.log('page :>> ', page);
+
+	// console.log('notices :>> ', notices);
 
 	useEffect(() => {
 		switch (category) {
@@ -76,9 +79,7 @@ export const NoticesList = ({ category }) => {
 					</li>
 				))}
 			</ul>
-			<div>
-			{totalPages && <NoticesPaginationList pages={totalPages} />}
-			</div>
+			<div>{totalPages && <NoticesPaginationList pages={totalPages} />}</div>
 		</div>
 	);
 };
