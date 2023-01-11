@@ -9,19 +9,9 @@ export const CardImg = ({ petImg }) => {
 	return (
 		<div className={style.card__imgThumb}>
 			{isTablet ? (
-				<img
-					src={petImg ? petImg : catImg}
-					alt="cat"
-					width={160}
-					height={160}
-				/>
+				<img src={petImg ? petImg : catImg} alt="cat" />
 			) : (
-				<img
-					src={petImg ? petImg : catImg}
-					alt="cat"
-					width={240}
-					height={240}
-				/>
+				<img src={petImg ? petImg : catImg} alt="cat" />
 			)}
 		</div>
 	);
