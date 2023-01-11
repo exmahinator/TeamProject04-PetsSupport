@@ -14,7 +14,7 @@ export const passwordOpt = {
 	required: true,
 	requiredMessage: 'Password is required',
 	pattern: /^\S{7,32}$/i,
-	patternMessage: 'Min 7 max 32 symbols',
+	patternMessage: 'Min 7 max 32 symbols, no spaces',
 };
 export const confirmPasswordOpt = {
 	name: 'passwordConfirm',

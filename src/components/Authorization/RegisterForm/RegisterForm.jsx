@@ -1,4 +1,4 @@
-import styles from '../Authorization.module.scss';
+import style from '../Authorization.module.scss';
 
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
@@ -52,9 +52,9 @@ export const RegisterForm = () => {
 			phone,
 		};
 		console.log(res);
-		dispatch(reg(res)).unwrap().then(()=> toast('Welcome!')).catch((e) => {
+		dispatch(reg(res)).unwrap().then(()=> toast.success('Welcome!')).catch((e) => {
 			const errorMessage = e.status === 409 ? 'This email is already in use' : 'Oops, something went wrong... Try again, please'
-			return toast(errorMessage)
+			return toast.error(errorMessage)
 		});
 		setSessionData({});
 	};
@@ -65,7 +65,7 @@ export const RegisterForm = () => {
 	};
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+		<form className={style.form} onSubmit={handleSubmit(onSubmit)}>
 			{!nextStep && (
 				<>
 					<Input settings={emailOpt} register={register} errors={errors} />
@@ -83,7 +83,7 @@ export const RegisterForm = () => {
 					/>
 
 					<button
-						className={styles.btn}
+						className={style.btn}
 						onClick={toggleBackBtn}
 					>
 						Next
@@ -96,12 +96,12 @@ export const RegisterForm = () => {
 					<Input settings={cityOpt} register={register} errors={errors} />
 					<Input settings={phoneOpt} register={register} errors={errors} />
 
-					<button className={styles.btn} type="submit">
+					<button className={style.btn} type="submit">
 						Register
 					</button>
 					<button
 						onClick={toggleBackBtn}
-						className={styles.lightBtn}
+						className={style.lightBtn}
 						type="button"
 					>
 						Back

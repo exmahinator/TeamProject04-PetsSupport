@@ -1,7 +1,7 @@
 import { usePasswordBtn } from 'shared/hooks/auth/usePasswordBtn';
 import { PasswordBtn } from '../PasswordBtn/PasswordBtn';
 import { ValidationError } from '../ValidationError/ValidationError';
-import styles from './Input.module.scss';
+import style from './Input.module.scss';
 
 export const Input = ({ settings, register, errors, inputRef = null, }) => {
 	const {
@@ -20,10 +20,10 @@ export const Input = ({ settings, register, errors, inputRef = null, }) => {
 	const inputType = type === 'password' ? passwordBtnType : type;
 
 	return (
-		<div className={styles.inputWrapper}>
+		<div className={style.inputWrapper}>
             <input               
 				id={name}
-				className={type=== 'tel' ? styles.inputTel: styles.input}
+				className={type=== 'tel' ? style.inputTel: style.input}
 				type={inputType}
 				placeholder={placeholder}
 				ref={inputRef}
@@ -41,14 +41,14 @@ export const Input = ({ settings, register, errors, inputRef = null, }) => {
                     
 				})}
             />
-            {name === 'phone' &&<span className={styles.phoneCode}>+38</span>}
+            {name === 'phone' &&<span className={style.phoneCode}>+38</span>}
 			{type === 'password' && (
 				<PasswordBtn
 					type={passwordBtnType}
 					onClickHandler={handlePasswordBtn}
 				/>
 			)}
-			<label className={styles.label} htmlFor={name}>
+			<label className={style.label} htmlFor={name}>
 				{' '}
 				{placeholder}
 			</label>

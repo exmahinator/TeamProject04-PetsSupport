@@ -122,9 +122,10 @@
 		padding: 10px 28px;
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background-color: $hover-color;
-			border-color: $hover-color;
+		border-color: $hover-color;
 	}
 }
 .lightBtn {
