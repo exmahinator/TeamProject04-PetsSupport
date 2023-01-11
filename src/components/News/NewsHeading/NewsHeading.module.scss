@@ -19,11 +19,13 @@
 	left: 5%;
 	width: 280px;
 	display: none;
-	padding: 10px;
+	padding: 10px 25px;
 
 	font-size: 14px;
-	background-color: $accent-color;
-	border-radius: 20px;
+	border-radius: 30px;
+	transition: $transition;
+	background-color: $primary-bg-color;
+	border: 1px solid $sixth-bg-color;
 	@include media(tablet) {
 		left: 20%;
 	}

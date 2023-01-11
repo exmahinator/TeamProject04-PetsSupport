@@ -33,32 +33,8 @@
 	pointer-events: all;
 }
 
-.btn {
-	padding: 0;
-	position: absolute;
-	@include flex(center, center);
-	top: 50%;
-	transform: translateY(-50%);
-	right: 10px;
-	outline: none;
-	background-color: transparent;
-	width: 24px;
-	height: 24px;
-	border: none;
-	border-radius: 50%;
-}
-
 .search {
 	fill: black;
-}
-
-.btn:hover svg {
-	fill: $accent-color;
-	stroke: $accent-color;
-}
-.clear {
-	stroke: black;
-	transition: $transition;
 }
 
 .searchTooltip {
