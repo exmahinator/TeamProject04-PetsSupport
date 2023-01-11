@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { Subtitle } from 'components/Reuse/Title/Subtitle';
 import { LoginForm } from './LoginForm/LoginForm';
 import { RegisterForm } from './RegisterForm/RegisterForm';
-import { getAuthFormContent } from './getAuthFormContent';
 import { useMediaQuery } from 'react-responsive'
+import { getAuthFormContent } from 'shared/functions/getAuthFormContent';
 
 export const Authorization = ({ type }) => {
   const isPortrait = useMediaQuery({ orientation: 'portrait' })
