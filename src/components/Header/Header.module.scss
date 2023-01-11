@@ -1,4 +1,5 @@
-@import 'src/shared/styles/mixins.scss';
+@import 'shared/styles/variables';
+@import 'shared/styles/mixins';
 
 .wrapper {
 	width: 100%;
@@ -34,9 +35,9 @@
 .btns {
 	display: contents;
 
-	@include media(tablet) {}
+	@include media(tablet) {
+	}
 }
-
 
 .open {
 	@include flex(flex-end, center);
@@ -50,10 +51,16 @@
 	text-align: center;
 	background-color: #fdf7f2;
 	z-index: 99;
-
+	transform: translateX(0%);
+	transition: $transition;
 	@include media(tablet) {
 		margin-top: 40px;
 	}
+}
+
+.closed {
+	@extend .open;
+	transform: translateX(100%);
 }
 
 .logoLink {

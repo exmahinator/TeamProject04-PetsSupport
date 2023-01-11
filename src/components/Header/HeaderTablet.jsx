@@ -14,9 +14,9 @@ export const HeaderTablet = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	useEffect(() => {
-	  toggleBodyHidden(isOpen)	
-	}, [isOpen])
-	
+		toggleBodyHidden(isOpen);
+	}, [isOpen]);
+
 	const toggleMenu = () => {
 		setIsOpen(isOpen => !isOpen);
 	};
@@ -24,7 +24,7 @@ export const HeaderTablet = () => {
 		<div className={style.wrapper}>
 			<div className={style.btns}>
 				<div className={style.logoLink}>
-					<Logo setIsOpen={setIsOpen}/>
+					<Logo setIsOpen={setIsOpen} />
 				</div>
 				<div className={style.logoBtn}>
 					{!isOpen && (isAuth ? <UserNav /> : <AuthNav />)}
@@ -45,7 +45,6 @@ export const HeaderTablet = () => {
 						</>
 					) : (
 						<>
-							
 							<button
 								type="button"
 								className={style.btnBurger}
@@ -62,11 +61,10 @@ export const HeaderTablet = () => {
 					)}
 				</div>
 			</div>
-			{isOpen && (
-				<div className={style.open}>
-					<Nav setIsOpen={setIsOpen} />
-				</div>
-			)}
+
+			<div className={isOpen ? `${style.open}` : `${style.closed}`}>
+				<Nav setIsOpen={setIsOpen} />
+			</div>
 		</div>
 	);
 };
