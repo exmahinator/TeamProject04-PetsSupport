@@ -9,12 +9,14 @@ import style from '../UserForm.module.scss';
 
 export const UserItem = ({
 	data,
+	errors,
 	type = 'text',
 	register,
 	field,
 	text,
 	setValue,
 	onSubmit,
+	pattern:{pattern, patternMessage}
 }) => {
 	const [edited, setEdited] = useState(false);
 
@@ -40,15 +42,26 @@ export const UserItem = ({
 			<label htmlFor={data} className={style.user__label}>
 				<p className={style.user__text}>{text}:</p>
 				{edited ? (
+					<>
 					<input
-						{...register(field)}
+						{...register(field, {pattern:{
+						value: pattern,
+						message: patternMessage,
+                    }})}
 						className={style.user__input}
-						type={type}
+							type={type}
+							name={field}
 						id={data}
 					/>
+
+				{errors[field] && <div className={style.error__notify}>{errors[field]?.message}</div>}
+				</>
+				
 				) : (
 					<p className={style.user__data}>{data}</p>
 				)}
+			
+
 				{edited ? (
 					<button className={style.user__button} type="submit">
 						<ApproveIcon fill="currentColor" width="20px" height="20px" />
