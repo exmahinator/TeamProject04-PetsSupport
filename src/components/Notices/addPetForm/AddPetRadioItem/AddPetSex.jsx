@@ -12,7 +12,12 @@ export const AddPetRadioItem = ({
 	return (
 		<>
 			<input
-				{...register(field)}
+				{...register(field, {
+					required: {
+						value: true,
+						message: `${field} is  required`,
+					},
+				})}
 				type="radio"
 				value={value}
 				id={data}

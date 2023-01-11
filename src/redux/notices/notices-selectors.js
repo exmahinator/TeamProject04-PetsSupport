@@ -8,6 +8,7 @@ export const getFilter = ({ notices }) => notices.filter;
 export const getPage = ({ notices }) => notices.page;
 export const getTotalPages = ({ notices }) => notices.totalPages;
 export const getQueryParams = ({ notices }) => notices.queryParams;
+export const getIsAddedSuccess = ({ notices }) => notices.isAddedSuccess;
 
 
 
