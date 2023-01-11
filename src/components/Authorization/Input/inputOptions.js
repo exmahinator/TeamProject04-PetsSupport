@@ -4,8 +4,9 @@ export const emailOpt = {
 	placeholder: 'Email',
 	required: true,
 	requiredMessage: 'Email is required',
-	pattern: /^(?=.{10,63}$)(([0-9A-Za-z]{1}[-0-9A-z.]{1,}[0-9A-Za-z]{1})@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/i,
-	
+	pattern:
+		/^(?=.{10,63}$)(([0-9A-Za-z]{1}[-0-9A-z.]{1,}[0-9A-Za-z]{1})@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/i,
+
 	patternMessage: 'Invalid email address',
 };
 export const passwordOpt = {
@@ -78,7 +79,7 @@ export const petBirth = {
 	// required: true,
 	// requiredMessage: 'Enter the date of birth',
 	pattern:
-		/^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$/i,
+		/^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$/,
 	patternMessage: '01.01.2020',
 };
 export const petBreed = {
@@ -88,7 +89,7 @@ export const petBreed = {
 	placeholder: 'Type breed',
 	// required: true,
 	// requiredMessage: "Enter your pet's breed",
-	pattern: /^[A-Za-z0-9\s!@#$%^&*()_+=-`~\\\][{}|';:/.,?><]*$/i,
+	pattern: /^(?=.{2,16}$)([A-Za-z])*$/,
 	patternMessage: 'Latin only, min 2, max 16',
 	maxLength: 16,
 	minLength: 2,
@@ -100,7 +101,8 @@ export const petComment = {
 	placeholder: 'Type comments',
 	// required: true,
 	// requiredMessage: 'Enter your comment',
-	pattern: /^[A-Za-z0-9\s!@#$%^&*()_+=-`~\\\][{}|';:/.,?><]*$/i,
+	// eslint-disable-next-line no-useless-escape
+	pattern: /^[A-Za-z0-9\s!@#$%^&*()_+=-`~\\\]\[{}|';:/.,?><]*$/,
 	patternMessage: 'Latin only, min 8, max 120',
 	maxLength: 120,
 	minLength: 8,
@@ -112,7 +114,8 @@ export const petAdTitle = {
 	placeholder: 'Type name',
 	required: true,
 	requiredMessage: 'Enter your title name',
-	pattern: /^[A-Za-z0-9\s!@#$%^&*()_+=-`~\\\][{}|';:/.,?><]*$/i,
+	// eslint-disable-next-line no-useless-escape
+	pattern: /^[A-Za-z0-9\s!@#$%^&*()_+=-`~\\\]\[{}|';:/.,?><]*$/,
 	patternMessage: 'Latin only, min 8, max 120',
 	maxLength: 48,
 	minLength: 2,
@@ -125,7 +128,7 @@ export const petPrice = {
 	placeholder: 'Type price',
 	required: true,
 	requiredMessage: 'Enter the price',
-	pattern: /^[1-9][0-9]*$/i,
+	pattern: /^[1-9][0-9]*$/,
 
 	zero: true,
 	patternMessage: "Price can't start with 0",
@@ -137,8 +140,62 @@ export const petsLocation = {
 	placeholder: 'City, Region',
 	required: true,
 	requiredMessage: 'Enter your city and region, please',
-	pattern: /^([A-Za-z]+)([,][ ][A-Za-z]+)*$/i,
+	pattern: /^([A-Za-z]+)([,][ ][A-Za-z]+)*$/,
 	patternMessage: 'Format: Brovary, Kyiv',
 	label: 'Location',
 	zero: true,
+};
+
+// user pets modal form
+
+export const petBirthUser = {
+	label: 'Date of Birth',
+	name: 'birthday',
+	type: 'text',
+	placeholder: 'Type date of birth',
+	required: true,
+	requiredMessage: 'Enter the date of birth',
+	pattern:
+		/^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$/,
+	patternMessage: '01.01.2020',
+};
+
+export const petNameUser = {
+	label: 'Name pet',
+	name: 'name',
+	type: 'text',
+	placeholder: 'Type pet name',
+	required: true,
+	requiredMessage: "Enter your pet's name",
+	pattern: /^(?=.{2,16}$)([A-Za-z])*$/,
+	patternMessage: 'Latin only, min 2, max 16',
+	maxLength: 16,
+	minLength: 2,
+};
+
+export const petBreedUser = {
+	label: 'Breed',
+	name: 'breed',
+	type: 'text',
+	placeholder: 'Type breed',
+	required: true,
+	requiredMessage: "Enter your pet's breed",
+	pattern: /^(?=.{2,16}$)([A-Za-z])*$/,
+	patternMessage: 'Latin only, min 2, max 16',
+	maxLength: 16,
+	minLength: 2,
+};
+
+export const petCommentUser = {
+	label: 'Comments',
+	name: 'comments',
+	type: 'text',
+	placeholder: 'Type comments',
+	required: true,
+	requiredMessage: 'Enter your comment',
+	// eslint-disable-next-line no-useless-escape
+	pattern: /^[A-Za-z0-9\s!@#$%^&*()_+=-`~\\\]\[{}|';:/.,?><]*$/,
+	patternMessage: 'Latin only, min 8, max 120',
+	maxLength: 120,
+	minLength: 8,
 };

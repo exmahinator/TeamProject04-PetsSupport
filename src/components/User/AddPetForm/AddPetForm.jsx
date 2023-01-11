@@ -12,7 +12,7 @@ import style from './AddPetForm.module.scss';
 // import { getAddPetError, getPetsLoading } from 'redux/user/user-selectors';
 
 export const AddPetForm = ({ onCloseModal }) => {
-	const [uploadError, setUploadError] = useState(false);
+	// const [uploadError, setUploadError] = useState(false);
 	// const isAddPetError = useSelector(getAddPetError);
 	// const isPetsLoading = useSelector(getPetsLoading);
 	const {
@@ -37,13 +37,6 @@ export const AddPetForm = ({ onCloseModal }) => {
 	};
 
 	const onSubmit = data => {
-		if (!data.avatar) {
-			setUploadError(true);
-			return;
-		} else {
-			setUploadError(false);
-		}
-
 		if (data) {
 			const newPet = createFormData(data);
 			dispatch(addUserPet(newPet));
@@ -68,7 +61,6 @@ export const AddPetForm = ({ onCloseModal }) => {
 			) : (
 				<AddPetFormSecondPage
 					errors={errors}
-					uploadError={uploadError}
 					watch={watch}
 					register={register}
 				/>

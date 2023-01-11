@@ -70,6 +70,7 @@
 		}
 	}
 }
+
 .inputWrapper {
 	margin: 0px auto;
 	width: 100%;
@@ -93,6 +94,12 @@
 
 	@include media(tablet) {
 		gap: 80px;
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		position: relative;
 	}
 
 	&__item {
@@ -133,6 +140,7 @@
 
 	&__svg {
 		@include flex(center, center);
+
 		@include media(tablet) {
 			width: 60px;
 			height: 60px;
@@ -227,6 +235,7 @@
 	line-height: 26px;
 	margin-bottom: 8px;
 	transition: $transition;
+
 	@include media(tablet) {
 		font-size: 24px;
 	}
@@ -303,8 +312,9 @@
 	border: none;
 	background: none;
 }
-.sexInput:checked + .sexLabel,
-.sexInput:focus + .sexLabel {
+
+.sexInput:checked+.sexLabel,
+.sexInput:focus+.sexLabel {
 	border-radius: 20px;
 	outline: 3px solid $accent-color;
 }
@@ -328,6 +338,7 @@
 	&:hover {
 		border-color: $hover-color;
 	}
+
 	@include media(tablet) {
 		padding: 10px 28px;
 	}
@@ -348,12 +359,13 @@
 	background: none;
 }
 
-.category__input:checked + .category__label {
+.category__input:checked+.category__label {
 	background-color: $accent-color;
 	color: $secondary-text-color;
 }
-.category__input:focus + .category__label,
-.category__input:hover + .category__label {
+
+.category__input:focus+.category__label,
+.category__input:hover+.category__label {
 	background-color: $hover-color;
 
 	// color: $secondary-text-color;
@@ -362,4 +374,10 @@
 .category__paragraph {
 	@extend .paragraph;
 	margin-bottom: 0px;
+}
+
+.input__wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
 }

@@ -1,17 +1,13 @@
-import { petComment } from 'components/Authorization/Input/inputOptions';
+import { petCommentUser } from 'components/Authorization/Input/inputOptions';
 import { ValidationError } from 'components/Authorization/ValidationError/ValidationError';
 import { ReactComponent as UploadCross } from 'shared/images/user/uploadCross.svg';
 import { AddPetInput } from '../AddPetInput/AddPetInput';
 
 import style from './AddPetFormSecondPage.module.scss';
 
-export const AddPetFormSecondPage = ({
-	register,
-	watch,
-	errors,
-	uploadError,
-}) => {
+export const AddPetFormSecondPage = ({ register, watch, errors }) => {
 	const newImage = watch('avatar');
+
 	return (
 		<>
 			<div className={style.uploadThumb}>
@@ -36,21 +32,21 @@ export const AddPetFormSecondPage = ({
 					</div>
 					<input
 						type="file"
-						{...register('avatar')}
+						{...register('avatar', {
+							required: true,
+						})}
 						id="petUpload"
 						placeholder="Type name pet"
 						className={style.uploadInput}
 					/>
-					{uploadError && !newImage[0] && (
-						<ValidationError>Add an image</ValidationError>
-					)}
+					{errors['avatar'] && <ValidationError>Add an image</ValidationError>}
 				</label>
 			</div>
 			<AddPetInput
 				register={register}
 				textarea
 				errors={errors}
-				settings={petComment}
+				settings={petCommentUser}
 			/>
 		</>
 	);
