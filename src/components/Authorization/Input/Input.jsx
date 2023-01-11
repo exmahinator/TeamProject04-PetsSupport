@@ -3,17 +3,16 @@ import { PasswordBtn } from '../PasswordBtn/PasswordBtn';
 import { ValidationError } from '../ValidationError/ValidationError';
 import style from './Input.module.scss';
 
-export const Input = ({ settings, register, errors, inputRef = null, }) => {
+export const Input = ({ settings, register, errors, inputRef = null }) => {
 	const {
 		name,
 		type,
 		placeholder,
 		required,
 		requiredMessage,
-		pattern =null,
-        patternMessage = null,
-        confirmPassword = false,
-	
+		pattern = null,
+		patternMessage = null,
+		confirmPassword = false,
 	} = settings;
 
 	const { passwordBtnType, handlePasswordBtn } = usePasswordBtn();
@@ -35,10 +34,12 @@ export const Input = ({ settings, register, errors, inputRef = null, }) => {
 					pattern: pattern && {
 						value: pattern,
 						message: patternMessage,
-                    },
-                    validate: confirmPassword && (value =>{  
-                  return value === inputRef.current || 'Passwords do not match'}),
-                    
+					},
+					validate:
+						confirmPassword &&
+						(value => {
+							return value === inputRef.current || 'Passwords do not match';
+						}),
 				})}
             />
             {name === 'phone' &&<span className={style.phoneCode}>+38</span>}
@@ -52,7 +53,9 @@ export const Input = ({ settings, register, errors, inputRef = null, }) => {
 				{' '}
 				{placeholder}
 			</label>
-			{errors[name] && <ValidationError>{errors[name]?.message}</ValidationError>}
+			{errors[name] && (
+				<ValidationError>{errors[name]?.message}</ValidationError>
+			)}
 		</div>
 	);
 };

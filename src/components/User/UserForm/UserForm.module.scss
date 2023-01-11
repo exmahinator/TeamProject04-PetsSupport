@@ -20,6 +20,17 @@
 	}
 }
 
+.error__notify {
+	display: flex;
+	position: absolute;
+	bottom: -66%;
+	left: 50%;
+	transform: translateX(-45%);
+
+	font-size: 12px;
+	color: red;
+}
+
 .user {
 	position: relative;
 	width: 280px;
@@ -106,7 +117,7 @@
 		white-space: nowrap;
 
 		@include media('tablet') {
-			width: 200px;
+			width: 227px;
 		}
 	}
 
@@ -162,12 +173,14 @@
 	}
 
 	&__label {
-		@include flex(space-between);
-		align-items: baseline;
+		position: relative;
+
+		@include flex(space-between, center);
 		width: 252px;
 
 		@include media('tablet') {
 			width: 379px;
+			height: 32px;
 		}
 	}
 
@@ -212,8 +225,8 @@
 	&__button {
 		@include flex(center, center);
 		cursor: pointer;
-		width: 20px;
-		height: 20px;
+		width: 24px;
+		height: 24px;
 		padding: 1px;
 		border-radius: 50%;
 		border: none;
@@ -230,8 +243,15 @@
 
 		&__disabled {
 			cursor: auto;
+			width: 24px;
+			height: 24px;
+			padding: 1px;
+
+			@include media('tablet') {
+				width: 32px;
+				height: 32px;
+				padding: 6px;
+			}
 		}
 	}
-
-
 }

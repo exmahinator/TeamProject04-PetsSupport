@@ -23,7 +23,7 @@ export const AddPetForm = ({ onCloseModal }) => {
 	} = useForm({
 		mode: 'onBlur',
 		defaultValues: {
-			birthday: '01.01.2020',
+			birthday: '01.01.2023',
 			avatar: '',
 		},
 	});
@@ -37,15 +37,16 @@ export const AddPetForm = ({ onCloseModal }) => {
 	};
 
 	const onSubmit = data => {
-		if (data) {
-			const newPet = createFormData(data);
-			dispatch(addUserPet(newPet));
-		}
 		if (!data.avatar) {
 			setUploadError(true);
 			return;
 		} else {
 			setUploadError(false);
+		}
+
+		if (data) {
+			const newPet = createFormData(data);
+			dispatch(addUserPet(newPet));
 		}
 		onCloseModal();
 

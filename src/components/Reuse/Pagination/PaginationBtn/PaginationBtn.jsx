@@ -5,10 +5,10 @@ import style from './PaginationBtn.module.scss';
 
 export const PaginationBtn = ({ value }) => {
 	const dispatch = useDispatch();
-    const {page} = useSelector(getQueryParams)
+    const {page, query} = useSelector(getQueryParams)
     const btnStyle = page === value? style.btnActive: style.btn
 	const handleBtnClick = () => {
-		dispatch(setQueryParams({ page: value }));
+		dispatch(setQueryParams({ page: value, query }));
 	};
 
 	return (
