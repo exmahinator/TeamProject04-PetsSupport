@@ -19,7 +19,7 @@ const initialState = {
 	error: null,
 	filter: '',
 	totalPages: 1,
-	queryParams: { page: 1}
+	queryParams: { page: 1 },
 };
 
 const noticesSlice = createSlice({
@@ -29,12 +29,12 @@ const noticesSlice = createSlice({
 		setFilter: (state, { payload }) => {
 			state.filter = payload;
 		},
-		setQueryParams: (state, { payload: { page = 1} }) => {
-			state.queryParams = {page}
+		setQueryParams: (state, { payload: { page = 1 } }) => {
+			state.queryParams = { page };
 		},
-		setTotalPages: (state, {payload}) => {
+		setTotalPages: (state, { payload }) => {
 			state.totalPages = payload;
-		}
+		},
 	},
 	extraReducers: {
 		//! Менять нельзя!
@@ -44,7 +44,8 @@ const noticesSlice = createSlice({
 		},
 		[getNoticeByCategory.fulfilled]: (store, { payload }) => {
 			store.loading = false;
-			store.currentNotices = payload;
+			store.currentNotices = payload.notices;
+			store.totalPages = payload.totalPages;
 		},
 		[getNoticeByCategory.rejected]: (store, { payload }) => {
 			store.loading = false;
@@ -163,6 +164,7 @@ const noticesSlice = createSlice({
 	},
 });
 
-export const { setFilter,setQueryParams, setTotalPages } = noticesSlice.actions;
+export const { setFilter, setQueryParams, setTotalPages } =
+	noticesSlice.actions;
 
 export default noticesSlice.reducer;
