@@ -15,7 +15,7 @@ export const Modal = ({
 		case 'circle':
 			return (
 				<>
-					<button className={style.circle} onClick={() => setIsShowModal(true)}>
+					<button className={style.circle} onClick={() => setIsShowModal()}>
 						<span>Add pet</span>
 					</button>
 					{isShowModal && (
@@ -34,7 +34,7 @@ export const Modal = ({
 		case 'long':
 			return (
 				<>
-					<button className={style.long} onClick={() => setIsShowModal(true)}>
+					<button className={style.long} onClick={() => setIsShowModal()}>
 						Learn more
 					</button>
 					{isShowModal && (
@@ -53,7 +53,7 @@ export const Modal = ({
 		case 'circle-info':
 			return (
 				<>
-					<button className={style.info} onClick={() => setIsShowModal(true)}>
+					<button className={style.info} onClick={() => setIsShowModal()}>
 						<span>Add pet</span>
 					</button>
 					{isShowModal && (
@@ -73,12 +73,12 @@ export const Modal = ({
 			return (
 				<>
 					<p className={style.empty__text}>Add pet {isBigScreen && ':'}</p>
-					<button className={style.empty} onClick={() => setIsShowModal(true)}>
+					<button className={style.empty} onClick={() => setIsShowModal()}>
 						<CrossIcon stroke="#ffffff" width={44} height={44} />
 					</button>
 					{isShowModal && (
 						<div onClick={handleBackdropClick} className={style.backdrop}>
-							<div className={style.modal}>
+							<div className={style.modal_empty}>
 								<div
 									onClick={handleBackdropClick}
 									className={style.close}
@@ -93,80 +93,3 @@ export const Modal = ({
 			<div>Where is props?</div>;
 	}
 };
-
-// !=============EXEMPLES==============
-
-/*   
-
- <Modal 
- btnType={'circle'} 
- isShowModal={isShowModal}
- setIsShowModal={setIsShowModal}
- handleBackdropClick={handleBackdropClick}
- >
-    <h2>Heloooooo</h2>
-  </Modal>
-  
-<Modal 
- btnType={'long'}
- isShowModal={isShowModal}
- setIsShowModal={setIsShowModal}
- handleBackdropClick={handleBackdropClick}
->
-    <h2>WOW</h2>
-    <ul>
-      <li>Cool</li>
-      <li>Nice</li>
-      <li>Kill me</li>
-    </ul>
-</Modal> 
-
-  <Modal 
-  btnType={'circle-info'}
-   isShowModal={isShowModal}
-  setIsShowModal={setIsShowModal}
-  handleBackdropClick={handleBackdropClick}
-  >
-    <h2>Info for Paul</h2>
-  </Modal> 
-  
-  <Modal 
-  btnType={'empty'}
-   isShowModal={isShowModal}
- setIsShowModal={setIsShowModal}
- handleBackdropClick={handleBackdropClick}
- >
-    <h2>Empty BTN</h2>
-  </Modal>
-  */
-
-//   !===============CHANGES-----------------
-
-// ? Add this in your component code!!!!!!!!!!!!!!!!!
-
-// import React, { useEffect ,useState} from 'react';
-
-// const [isShowModal, setIsShowModal] = useState(false);
-
-// const onClose = () => {
-// 	setIsShowModal(false);
-// };
-
-// useEffect(() => {
-// 	const handeleClickDown = e => {
-// 		if (e.code === 'Escape') {
-// 			onClose();
-// 		}
-// 	};
-// 	window.addEventListener('keydown', handeleClickDown);
-// 	return () => {
-// 		window.removeEventListener('keydown', handeleClickDown);
-// 	};
-// 	// eslint-disable-next-line
-// }, []);
-
-// const handleBackdropClick = e => {
-// 	if (e.currentTarget === e.target) {
-// 		onClose();
-// 	}
-// };

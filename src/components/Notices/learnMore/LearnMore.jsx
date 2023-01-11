@@ -24,8 +24,16 @@ const LearnMore = ({
 }) => {
 	const [isShowModal, setIsShowModal] = useState(false);
 
+	const showModal = () => {
+		setIsShowModal(true);
+		if (typeof window != 'undefined' && window.document) {
+			document.body.style.overflow = 'hidden';
+		}
+	};
+
 	const onClose = () => {
 		setIsShowModal(false);
+		document.body.style.overflow = 'unset';
 	};
 
 	useEffect(() => {
@@ -52,7 +60,7 @@ const LearnMore = ({
 			<Modal
 				btnType={'long'}
 				isShowModal={isShowModal}
-				setIsShowModal={setIsShowModal}
+				setIsShowModal={showModal}
 				handleBackdropClick={handleBackdropClick}
 			>
 				<div className={styles.box}>
