@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Buttons } from './Buttons/Buttons';
@@ -29,7 +29,7 @@ export const AddPetForm = ({ onCloseModal }) => {
 	});
 	const dispatch = useDispatch();
 	const [isfirstPage, setIsFirstPage] = useState(true);
-	const petName = watch('name');
+	// const petName = watch('name');
 
 	const onTogglePage = () => {
 		if (!isValid && isfirstPage) return;
@@ -51,11 +51,15 @@ export const AddPetForm = ({ onCloseModal }) => {
 		onCloseModal();
 
 		// isPetsLoading &&
-		// (isAddPetError
-		// ? toast.error('ooops an error occured please try again'):
-		toast.success(`${petName} added `);
-		// )
+		
+		// setTimeout(() => {
+		// 	console.log('isAddPetError', isAddPetError);
+		// 	isAddPetError
+		// 		? toast.error('ooops an error occured please try again')
+		// 		: toast.success(`${petName} added `);
+		// }, 3000);
 	};
+	
 	// isAddPetError && toast.error('ooops an error occured please try again');
 	return (
 		<form
