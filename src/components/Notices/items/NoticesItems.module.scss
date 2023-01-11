@@ -2,14 +2,13 @@
 
 .wrapper {
 	width: 280px;
-	height: 606px;
+	min-height: 625px;
 	background: $secondary-bg-color;
 	box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
 	border-radius: 0px 0px 40px 40px;
 
 	@include media(tablet) {
 		width: 336px;
-		height: 638px;
 	}
 
 	@include media(desktop) {
@@ -48,13 +47,14 @@
 	gap: 8px;
 	width: 100%;
 	margin-bottom: 6px;
+
 	&__item {
 		display: flex;
 		margin-bottom: 8px;
 	}
 
 	&__paragraph {
-		width: 90px;
+		min-width: 90px;
 		font-weight: 500;
 		font-size: 16px;
 		line-height: 22px;
@@ -76,7 +76,7 @@
 		display: block;
 		height: 100%;
 		width: 100%;
-		object-fit: fill;
+		object-fit: cover;
 	}
 }
 

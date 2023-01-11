@@ -18,7 +18,7 @@ const initialState = {
 	loading: false,
 	error: null,
 	filter: '',
-	totalPages: 4,
+	totalPages: 1,
 	queryParams: { page: 1}
 };
 
@@ -33,7 +33,7 @@ const noticesSlice = createSlice({
 			state.queryParams = {page}
 		},
 		setTotalPages: (state, {payload}) => {
-			state.totalPages = payload
+			state.totalPages = payload;
 		}
 	},
 	extraReducers: {

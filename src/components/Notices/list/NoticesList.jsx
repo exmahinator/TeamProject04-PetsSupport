@@ -32,6 +32,7 @@ export const NoticesList = ({ category }) => {
 	const favNotices = useSelector(getFavoriteNotices);
 	const isFavLoading = useSelector(getNoticesLoading);
 
+
 	const totalPages = useSelector(getTotalPages);
 	const { page } = useSelector(getQueryParams);
 
@@ -75,7 +76,9 @@ export const NoticesList = ({ category }) => {
 					</li>
 				))}
 			</ul>
-			{totalPages > 1 && <NoticesPaginationList pages={totalPages} />}
+			<div>
+			{totalPages && <NoticesPaginationList pages={totalPages} />}
+			</div>
 		</div>
 	);
 };
