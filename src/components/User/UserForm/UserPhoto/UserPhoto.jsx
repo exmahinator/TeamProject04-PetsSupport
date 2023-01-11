@@ -41,8 +41,6 @@ export const UserPhoto = ({ avatar, watch, register, onSubmit }) => {
 								: avatar
 						}
 						alt="default avatar"
-						width={233}
-						height={233}
 					/>
 				</div>
 				<div className={style.user__uploadThumb}>

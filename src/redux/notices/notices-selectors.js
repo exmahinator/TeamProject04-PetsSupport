@@ -10,6 +10,10 @@ export const getTotalPages = ({ notices }) => notices.totalPages;
 export const getQueryParams = ({ notices }) => notices.queryParams;
 export const getIsAddedSuccess = ({ notices }) => notices.isAddedSuccess;
 
+
+
+
+
 export const getFilteredNotices = createSelector(
 	[getCurrentNotices, getFilter],
 	(data, filter = '') => {

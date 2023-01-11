@@ -7,6 +7,7 @@
 	border-radius: 20px;
 	overflow: hidden;
 	margin-bottom: 20px;
+	object-fit: cover;
 
 	@include media('tablet') {
 		width: 160px;

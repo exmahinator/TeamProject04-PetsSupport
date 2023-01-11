@@ -3,6 +3,7 @@
 
 .wrapper{
 	@include flex(center, center);
+	flex-direction: column;
 	width: 280px;
 	margin: 0 auto;
 
@@ -20,8 +21,4 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 32px;
-
-	@include media(tablet) {
-		flex-direction: row;
-	}
 }

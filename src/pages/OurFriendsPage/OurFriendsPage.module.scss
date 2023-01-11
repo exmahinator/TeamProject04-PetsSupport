@@ -1,12 +1,12 @@
 @import 'shared/styles/mixins.scss';
 
 .friends_section {
-	margin-top: 42px;
+	margin: 42px 0;
 	@include media(tablet) {
-		margin-top: 92px;
+		margin: 92px 0;
 	}
 
 	@include media(desktop) {
-		margin-top: 63px;
+		margin: 63px 0;
 	}
 }

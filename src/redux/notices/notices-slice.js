@@ -21,6 +21,7 @@ const initialState = {
 	totalPages: 4,
 	queryParams: { page: 1 },
 	isAddedSuccess: false,
+
 };
 
 const noticesSlice = createSlice({
@@ -48,7 +49,8 @@ const noticesSlice = createSlice({
 		},
 		[getNoticeByCategory.fulfilled]: (store, { payload }) => {
 			store.loading = false;
-			store.currentNotices = payload;
+			store.currentNotices = payload.notices;
+			store.totalPages = payload.totalPages;
 		},
 		[getNoticeByCategory.rejected]: (store, { payload }) => {
 			store.loading = false;
