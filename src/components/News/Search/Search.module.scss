@@ -28,37 +28,33 @@
 		outline: none;
 	}
 }
-
-.btn {
-	position: absolute;
-	// @include flex(center, center);
-
-	top: 50%;
-	transform: translateY(-50%);
-	right: 10px;
-	outline: none;
-	background-color: transparent;
-	width: 24px;
-	height: 24px;
-	border: none;
-	border-radius: 50%;
+.input:hover ~ .tooltip {
+	opacity: 1;
+	pointer-events: all;
 }
 
 .search {
-	position: absolute;
-
-	top: 50%;
-	transform: translateY(-50%);
-	right: 10px;
-
 	fill: black;
 }
-.btn:hover svg {
-	// fill: $accent-color;
-	stroke: $accent-color;
-}
 
-.clear {
-	stroke: black;
+.searchTooltip {
+	@extend .search;
+	margin-left: 5px;
+	transform: scale(0.7);
+	vertical-align: middle;
+}
+.tooltip,
+.input:not(:placeholder-shown) ~ .tooltip {
+	position: absolute;
+	top: -50px;
+	left: 0;
+
+	opacity: 0;
+	pointer-events: none;
+	padding: 10px 25px;
+	color: $accent-color;
+	font-size: 14px;
+	border-radius: 30px;
 	transition: $transition;
+	border: 1px solid $sixth-bg-color;
 }

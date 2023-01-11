@@ -10,7 +10,7 @@ const initialState = {
 	totalPages: 1,
 	queryParams: {
 		page: 1,
-		filter: ''
+		query: ''
 	}
 };
 
@@ -19,7 +19,6 @@ const newsSlice = createSlice({
 	initialState,
 	reducers: {
 		setQueryParams: (state, { payload: { page = 1, query = '' } }) => {
-			console.log(page, query)
 			state.queryParams = {page, query}
 		},
 		setTotalPages: (state, {payload}) => {
