@@ -3,7 +3,7 @@ import { ReactComponent as SearchIcon } from 'shared/images/overused/NewsSearch.
 import { ReactComponent as ClearIcon } from 'shared/images/overused/x-circle.svg';
 
 import debounce from 'lodash.debounce';
-import styles from './Search.module.scss';
+import style from './Search.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getQueryParams } from 'redux/news/news-selectors';
 import { setQueryParams } from 'redux/news/news-slice';
@@ -27,20 +27,20 @@ export const Search = () => {
 	const debouncedChangeHandler = useCallback(debounce(changeHandler, 700), []);
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={style.wrapper}>
 			<input
 				ref={input}
 				onChange={debouncedChangeHandler}
-				className={styles.input}
+				className={style.input}
 				type="text"
 				placeholder="Search"
 			/>
 			{input.current?.value ? (
-				<button className={styles.btn} onClick={clearBtnHandler}>
-					<ClearIcon className={styles.clear} />
+				<button className={style.btn} onClick={clearBtnHandler}>
+					<ClearIcon className={style.clear} />
 				</button>
 			) : (
-				<SearchIcon className={styles.search} />
+				<SearchIcon className={style.search} />
 			)}
 		</div>
 	);

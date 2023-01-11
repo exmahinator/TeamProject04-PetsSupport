@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../Authorization.module.scss';
+import style from '../Authorization.module.scss';
 
 import { useForm } from 'react-hook-form';
 import { Input } from '../Input/Input';
@@ -9,13 +9,15 @@ import { login } from '../../../redux/auth/auth-operations';
 import { useFormSession } from 'shared/hooks/auth/useFormSession';
 import { toast } from 'react-toastify';
 
+
 const SESSION_STORAGE_NAME = 'loginFrom';
 
 export const LoginForm = () => {
 	const dispatch = useDispatch();
 	const { getSessionData, setSessionData } =
-		useFormSession(SESSION_STORAGE_NAME);
+	useFormSession(SESSION_STORAGE_NAME);
 	const defaultValuesFromSessionStorage = getSessionData();
+
 
 	const {
 		watch,
@@ -32,6 +34,7 @@ export const LoginForm = () => {
 	});
 
 	const onSubmit = ({ email, password }) => {
+		if (!isValid) return;
 		let res = {
 			email,
 			password,
@@ -39,16 +42,18 @@ export const LoginForm = () => {
 
 		dispatch(login(res))
 			.unwrap()
-			.then(() => toast('Welcome!'))
-			.catch(() => toast('Invalid password or email'));
+			.then((res) => {
+				const {name}= res.user
+			return toast.success(`Welcome, ${name} !`) })
+			.catch(() => toast.error('Invalid password or email'));
 		setSessionData({});
 	};
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+		<form className={style.form} onSubmit={handleSubmit(onSubmit)}>
 			<Input settings={emailOpt} register={register} errors={errors} />
 			<Input settings={passwordOpt} register={register} errors={errors} />
-			<button className={styles.btn} disabled={!isValid} type="submit">
+			<button className={style.btn}  type="submit">
 				Login
 			</button>
 		</form>

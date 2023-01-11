@@ -1,4 +1,4 @@
-import { formatDate } from "../helpers/formatDate"
+import { formatDate } from "shared/functions/formatDate"
 import { NewsArticle } from "../NewsArticle/NewsArticle"
 import { NewsDescription } from "../NewsDescription/NewsDescription"
 import { NewsDetails } from "../NewsDetails/NewsDetails"

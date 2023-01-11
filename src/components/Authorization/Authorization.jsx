@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './Authorization.module.scss';
+import style from './Authorization.module.scss';
 
 import { Link } from 'react-router-dom';
 import { Subtitle } from 'components/Reuse/Title/Subtitle';
 import { LoginForm } from './LoginForm/LoginForm';
 import { RegisterForm } from './RegisterForm/RegisterForm';
-import { getAuthFormContent } from './getAuthFormContent';
 import { useMediaQuery } from 'react-responsive'
+import { getAuthFormContent } from 'shared/functions/getAuthFormContent';
 
 export const Authorization = ({ type }) => {
   const isPortrait = useMediaQuery({ orientation: 'portrait' })
@@ -18,15 +18,15 @@ export const Authorization = ({ type }) => {
   const content = getAuthFormContent(type)
 
   return (
-    <section className={isMobileLandscape ? styles.landscape: styles.section }>
+    <section className={isMobileLandscape ? style.landscape: style.section }>
 
-          <div className={styles.container}>
-              <div className={styles.wrapper}>
+          <div className={style.container}>
+              <div className={style.wrapper}>
                   
               <Subtitle text={content.title} />
               {type === 'login' ? <LoginForm /> : <RegisterForm />}
-              <span className={styles.linkText}>{ content.navigateMessage}</span>
-              <Link className={styles.link} to={content.navigatePath}>{ content.linkText}</Link>
+              <span className={style.linkText}>{ content.navigateMessage}</span>
+              <Link className={style.link} to={content.navigatePath}>{ content.linkText}</Link>
               </div>
       </div>
     </section>

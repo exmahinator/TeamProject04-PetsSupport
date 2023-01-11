@@ -1,3 +1,3 @@
-import styles from './NewsDescription.module.scss'
+import style from './NewsDescription.module.scss'
 
-export const NewsDescription = ({ children }) => <p className={styles.text}>{children}</p>
+export const NewsDescription = ({ children }) => <p className={style.text}>{children}</p>

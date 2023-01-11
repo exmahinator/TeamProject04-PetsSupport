@@ -1,11 +1,11 @@
 import { NewsItem } from '../NewsItem/NewsItem'
 
-import styles from './NewsList.module.scss'
+import style from './NewsList.module.scss'
 
 export const NewsList = ({data}) => {
     return (
-        <div className={styles.wrapper}>
-            <ul className={styles.list}>
+        <div className={style.wrapper}>
+            <ul className={style.list}>
                 {data.map(({ _id, ...details }) => {
                     return <NewsItem key={_id} data={details} />
                 })}

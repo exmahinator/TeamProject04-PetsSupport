@@ -4,7 +4,8 @@ export const emailOpt = {
 	placeholder: 'Email',
 	required: true,
 	requiredMessage: 'Email is required',
-	pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+	pattern: /^(?=.{10,63}$)(([0-9A-Za-z]{1}[-0-9A-z.]{1,}[0-9A-Za-z]{1})@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/i,
+	
 	patternMessage: 'Invalid email address',
 };
 export const passwordOpt = {
@@ -13,8 +14,8 @@ export const passwordOpt = {
 	placeholder: 'Password',
 	required: true,
 	requiredMessage: 'Password is required',
-	pattern: /^\S{7,32}$/i,
-	patternMessage: 'Min 7 max 32 symbols',
+	pattern: /^(?=.{7,32}$)([0-9A-Za-z])*$/i,
+	patternMessage: 'Min 7 max 32 symbols, no spaces',
 };
 export const confirmPasswordOpt = {
 	name: 'passwordConfirm',
@@ -23,8 +24,6 @@ export const confirmPasswordOpt = {
 	required: true,
 	requiredMessage: 'Confirm your password',
 	confirmPassword: true,
-	// pattern: /^\S{7,32}$/i,
-	// patternMessage: 'Min 7 max 32 symbols'
 };
 export const nameOpt = {
 	name: 'name',
@@ -32,8 +31,8 @@ export const nameOpt = {
 	placeholder: 'Name',
 	required: true,
 	requiredMessage: 'Enter your name, please',
-	pattern: /^[a-zA-Z]+$/i,
-	patternMessage: 'Invalid name',
+	pattern: /^(?=.{2,16}$)([A-Za-z])*$/i,
+	patternMessage: 'Latins only min 2, max 16 ',
 };
 
 export const cityOpt = {
@@ -42,7 +41,7 @@ export const cityOpt = {
 	placeholder: 'City, Region',
 	required: true,
 	requiredMessage: 'Enter your city and region, please',
-	pattern: /^\s*(?:\w+\s*,\s*){1,}(?:\w+\s*)$/i,
+	pattern: /^([A-Za-z]+)([,][ ][A-Za-z]+)*$/i,
 	patternMessage: 'Format: Brovary, Kyiv',
 	label: 'Location',
 	zero: true,
@@ -138,7 +137,7 @@ export const petsLocation = {
 	placeholder: 'City, Region',
 	required: true,
 	requiredMessage: 'Enter your city and region, please',
-	pattern: /^\s*(?:\w+\s*,\s*){1,}(?:\w+\s*)$/i,
+	pattern: /^([A-Za-z]+)([,][ ][A-Za-z]+)*$/i,
 	patternMessage: 'Format: Brovary, Kyiv',
 	label: 'Location',
 	zero: true,

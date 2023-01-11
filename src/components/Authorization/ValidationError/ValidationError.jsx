@@ -1,8 +1,8 @@
-import styles from './ValidationError.module.scss'
+import style from './ValidationError.module.scss'
 
 
 export const ValidationError = ({ children }) => {
     return (
-        <p className={styles.error}>{children}</p>
+        <p className={style.error}>{children}</p>
     )
 }

@@ -10,13 +10,16 @@
     margin-bottom: 40px;
 }
 
+// very important set for the floating label
 .input:focus~.label,
 .input:not(:placeholder-shown)~.label,
 .input:not(:placeholder-shown):valid ~.label,
-.input:not(:placeholder-shown):invalid~.label {
+.input:not(:placeholder-shown):invalid~.label,
+.input:-webkit-autofill~.label {
     top: 0;
     font-size: 14px;
 }
+
 
 .input::placeholder {
     opacity: 0;
