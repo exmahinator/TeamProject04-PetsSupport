@@ -7,6 +7,7 @@ import girlTabletUrl from '../../shared/images/Home/tabletImg.png';
 import girlTabletUrl2x from '../../shared/images/Home/tabletImg2x.png';
 import girlDesktopUrl from '../../shared/images/Home/desktopImg.png';
 import girlDesktopUrl2x from '../../shared/images/Home/desktopImg2x.png';
+import Heart from '../../shared/images/Home/desktopHeart.png';
 // import { Title } from 'components/Reuse/Title/Title';
 
 const HomePage = () => {
@@ -36,6 +37,9 @@ const HomePage = () => {
 									alt={'Girl with her beloved pet'}
 									width={645}
 								/>
+								<div className={style.headerHeart}>
+									<img src={Heart} alt="Lovely heart" width={92} />
+								</div>
 							</picture>
 						</div>
 					</div>

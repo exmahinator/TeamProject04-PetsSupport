@@ -59,16 +59,34 @@
 	display: none;
 	@include media(tablet) {
 		display: flex;
+		position: relative;
 		width: 100%;
 		justify-content: center;
 		padding-top: 118px;
 	}
 	@include media(desktop) {
 		padding-top: 0;
-		background: url(../../shared/images/Home/desktopHeart.png);
-		background-position: left 68px top 43px;
-		background-repeat: no-repeat;
+		// background: url(../../shared/images/Home/desktopHeart.png);
+		// background-position: left 68px top 43px;
+		// background-repeat: no-repeat;
+		// animation-name: HeartShow;
+		// animation-duration: 5s;
+		// animation-timing-function: linear;
+		// animation-iteration-count: infinite;
 	}
+}
+
+.headerHeart {
+	position: absolute;
+	left: 68px;
+	top: 43px;
+	transform-origin: center;
+	// transform: rotate(-10deg);
+	// animation-name: HeartShow;
+	// animation-duration: 5000ms;
+	// animation-timing-function: linear;
+	// animation-iteration-count: infinite;
+	animation: HeartShow 5000ms linear infinite;
 }
 
 .headerImg {
@@ -95,5 +113,38 @@
 	}
 	@include media(desktop) {
 		padding-top: 32px;
+	}
+}
+
+@keyframes HeartShow {
+	0% {
+		opacity: 0;
+		transform: translate(20px, 30px) rotate(-10deg);
+	}
+	50% {
+		opacity: 1;
+		transform: translate(0, -15px) rotate(20deg);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(0, -50px) rotate(40deg);
+	}
+}
+
+@keyframes HeartShowMirrored {
+	0% {
+		opacity: 0;
+		transform: scaleX(-1);
+		transform: translate(10px, 30px) rotate(10deg);
+	}
+	50% {
+		opacity: 1;
+		transform: scaleX(-1);
+		transform: translate(0, -15px) rotate(-20deg);
+	}
+	100% {
+		opacity: 0;
+		transform: scaleX(-1);
+		transform: translate(0, -50px) rotate(-40deg);
 	}
 }
