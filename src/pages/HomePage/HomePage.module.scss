@@ -28,7 +28,14 @@
 		background-position: 22% calc(9vh + 100%);
 		background-repeat: no-repeat;
 	}
-	@include media(desktop) {
+	// @include media(desktop) {
+	// 	padding-top: 60px;
+	// 	flex-direction: column;
+	// 	background: url(../../shared/images/Home/orangeWavesDesktop.png);
+	// 	background-position: 100% calc(18vh + 100%);
+	// 	background-repeat: no-repeat;
+	// }
+	@media screen and (min-width: 1180px) {
 		padding-top: 60px;
 		flex-direction: column;
 		background: url(../../shared/images/Home/orangeWavesDesktop.png);
@@ -40,7 +47,10 @@
 .headerControlBox {
 	display: flex;
 	flex-direction: column;
-	@include media(desktop) {
+	// @include media(desktop) {
+	// 	flex-direction: row;
+	// }
+	@media screen and (min-width: 1180px) {
 		flex-direction: row;
 	}
 }
@@ -59,25 +69,51 @@
 	display: none;
 	@include media(tablet) {
 		display: flex;
+		position: relative;
 		width: 100%;
 		justify-content: center;
 		padding-top: 118px;
 	}
-	@include media(desktop) {
+	// @include media(desktop) {
+	// 	padding-top: 0;
+	// 	background: url(../../shared/images/Home/desktopHeart.png);
+	// 	background-position: left 68px top 43px;
+	// 	background-repeat: no-repeat;
+	// }
+	@media screen and (min-width: 1180px) {
 		padding-top: 0;
-		background: url(../../shared/images/Home/desktopHeart.png);
-		background-position: left 68px top 43px;
-		background-repeat: no-repeat;
 	}
+}
+
+.headerHeart {
+	display: none;
+	@media screen and (min-width: 1180px) {
+		display: flex;
+		position: absolute;
+		left: 68px;
+		top: 43px;
+		transform-origin: center;
+		animation: HeartShow 5000ms linear infinite;
+	}
+	// position: absolute;
+	// left: 68px;
+	// top: 43px;
+	// transform-origin: center;
+	// animation: HeartShow 5000ms linear infinite;
 }
 
 .headerImg {
 	display: flex;
 	width: 100%;
+	transform-origin: bottom center;
+	animation: GirlShake 3000ms linear;
 	@include media(tablet) {
 		max-width: 645px;
 	}
-	@include media(desktop) {
+	// @include media(desktop) {
+	// 	max-width: 590px;
+	// }
+	@media screen and (min-width: 1180px) {
 		max-width: 590px;
 	}
 }
@@ -89,11 +125,48 @@
 	line-height: 1.38;
 	color: #000000;
 	text-align: initial;
+	width: 100%;
 	@include media(tablet) {
 		font-size: 68px;
 		line-height: 1.47;
 	}
-	@include media(desktop) {
+	// @include media(desktop) {
+	// 	padding-top: 32px;
+	// }
+	@media screen and (min-width: 1180px) {
 		padding-top: 32px;
+	}
+}
+
+@keyframes HeartShow {
+	0% {
+		opacity: 0;
+		transform: translate(0, 30px) rotate(-10deg);
+	}
+	50% {
+		opacity: 1;
+		transform: translate(-20px, -15px) rotate(20deg);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(0, -50px) rotate(40deg);
+	}
+}
+
+@keyframes GirlShake {
+	0% {
+		transform: rotate(-2deg);
+	}
+	25% {
+		transform: rotate(2deg);
+	}
+	50% {
+		transform: rotate(-2deg);
+	}
+	75% {
+		transform: rotate(2deg);
+	}
+	100% {
+		transform: rotate(0deg);
 	}
 }
