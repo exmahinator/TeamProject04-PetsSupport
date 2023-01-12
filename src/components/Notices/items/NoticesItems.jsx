@@ -71,31 +71,32 @@ const NoticesItems = ({
 				</div>
 			</div>
 			<div className={styles.boxWrap}>
-				<div className={styles.heading}>
-					<h2 className={styles.heading__title}>{title ?? '-'}</h2>
-				</div>
+				<div>
+					<div className={styles.heading}>
+						<h2 className={styles.heading__title}>{title ?? '-'}</h2>
+					</div>
 
-				<ul className={styles.list}>
-					<li className={styles.list__item}>
-						<p className={styles.list__paragraph}>Breed:</p>
-						<p className={styles.list__span}>{breed ?? '-'}</p>
-					</li>
-					<li className={styles.list__item}>
-						<p className={styles.list__paragraph}>Place:</p>
-						<p className={styles.list__span}>{location ?? '-'}</p>
-					</li>
-					<li className={styles.list__item}>
-						<p className={styles.list__paragraph}>Age:</p>
-						<p className={styles.list__span}>{age ?? '-'}</p>
-					</li>
-					{category === 'sell' && (
+					<ul className={styles.list}>
 						<li className={styles.list__item}>
-							<p className={styles.list__paragraph}>Price:</p>
-							<p className={styles.list__span}>{price ?? '-'}</p>
+							<p className={styles.list__paragraph}>Breed:</p>
+							<p className={styles.list__span}>{breed ?? '-'}</p>
 						</li>
-					)}
-				</ul>
-
+						<li className={styles.list__item}>
+							<p className={styles.list__paragraph}>Place:</p>
+							<p className={styles.list__span}>{location ?? '-'}</p>
+						</li>
+						<li className={styles.list__item}>
+							<p className={styles.list__paragraph}>Age:</p>
+							<p className={styles.list__span}>{age ?? '-'}</p>
+						</li>
+						{category === 'sell' && (
+							<li className={styles.list__item}>
+								<p className={styles.list__paragraph}>Price:</p>
+								<p className={styles.list__span}>{price ?? '-'}</p>
+							</li>
+						)}
+					</ul>
+				</div>
 				<div className={styles.btnContainer}>
 					<LearnMore
 						data={data}

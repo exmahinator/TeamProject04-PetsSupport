@@ -10,13 +10,12 @@ import { getIsLoading } from 'redux/auth/auth-selectors';
 import { UserModal } from 'components/User/UserModal/UserModal';
 
 import style from './UserPage.module.scss';
+import { getIsAddedPetSuccess, getUserError } from 'redux/user/user-selectors';
+import { toast } from 'react-toastify';
+import { resetIsAddedPetSuccess } from 'redux/user/user-slice';
 
 const UserPage = () => {
 	const dispatch = useDispatch();
-
-	useEffect(() => {
-		dispatch(getUserData());
-	}, [dispatch]);
 
 	const userInfo = useSelector(selectors.getUserInfo);
 	const userAvatar = useSelector(selectors.getUserAvatar);
@@ -24,6 +23,23 @@ const UserPage = () => {
 	const isPetsLoading = useSelector(selectors.getPetsLoading);
 	const isUserLoading = useSelector(selectors.getUserLoading);
 	const isCurrentLoading = useSelector(getIsLoading);
+	const error = useSelector(getUserError);
+	const isAddedPetSuccess = useSelector(getIsAddedPetSuccess);
+
+	useEffect(() => {
+		dispatch(getUserData());
+	}, [dispatch]);
+
+	useEffect(() => {
+		if (isAddedPetSuccess) {
+			toast.success(`Your pet successfully added.`);
+			dispatch(resetIsAddedPetSuccess());
+		}
+
+		if (error) {
+			toast.error('Oops, something went wrong, please try again.');
+		}
+	}, [dispatch, isAddedPetSuccess, error]);
 
 	const isUserPets = !!userPets?.length;
 	const onDeletePet = e => {

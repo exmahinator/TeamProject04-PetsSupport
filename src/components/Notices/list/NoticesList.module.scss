@@ -1,7 +1,7 @@
 @import 'src/shared/styles/mixins.scss';
 
 
-.wrapper{
+.wrapper {
 	@include flex(center, center);
 	flex-direction: column;
 	width: 280px;
@@ -21,4 +21,8 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 32px;
+
+	&__item {
+		display: flex;
+	}
 }

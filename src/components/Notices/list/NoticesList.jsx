@@ -28,23 +28,26 @@ export const NoticesList = ({ category }) => {
 	const dispatch = useDispatch();
 
 	const ownerId = useSelector(getUserId);
-	const notices = useSelector( getCurrentNotices);
+	const notices = useSelector(getCurrentNotices);
 
 	const favNotices = useSelector(getFavoriteNotices);
 	const isFavLoading = useSelector(getNoticesLoading);
 
 	const totalPages = useSelector(getTotalPages);
-	const showPagination = !!(totalPages > 1 && category !== 'favorite' & category !== 'own')
-	
-	const isLoading = useSelector(getNoticesLoading)
+	const showPagination = !!(
+		totalPages > 1 && (category !== 'favorite') & (category !== 'own')
+	);
 
-	const noResults = !notices.length && !isLoading
-	
-	const params = useSelector(getQueryParams)
-	console.log(params)
+	const isLoading = useSelector(getNoticesLoading);
+
+	const noResults = !notices.length && !isLoading;
+
+	const params = useSelector(getQueryParams);
+	console.log(params);
 
 	useEffect(() => {
-		dispatch(setQueryParams({category}));
+		dispatch(setQueryParams({ category }));
+
 		switch (category) {
 			case 'favorite':
 				dispatch(getFavoriteNoticeForCategories());
@@ -67,23 +70,26 @@ export const NoticesList = ({ category }) => {
 		dispatch(removeNotice(noticeId));
 	};
 
-	return (
-		noResults? <NewsEmpty/>:
+	return noResults ? (
+		<NewsEmpty />
+	) : (
 		<div className={styles.wrapper}>
-			{<ul className={styles.galery}>
-				{notices.map(data => (
-					<li key={data._id}>
-						<NoticesItems
-							data={data}
-							isLogin={isLogin}
-							ownerId={ownerId}
-							favNotices={favNotices}
-							isFavLoading={isFavLoading}
-							onDeleteNotice={onDeleteNotice}
-						/>
-					</li>
-				))}
-			</ul>}
+			{
+				<ul className={styles.galery}>
+					{notices.map(data => (
+						<li className={styles.galery__item} key={data._id}>
+							<NoticesItems
+								data={data}
+								isLogin={isLogin}
+								ownerId={ownerId}
+								favNotices={favNotices}
+								isFavLoading={isFavLoading}
+								onDeleteNotice={onDeleteNotice}
+							/>
+						</li>
+					))}
+				</ul>
+			}
 			<div>
 				{showPagination && <NoticesPaginationList pages={totalPages} />}
 			</div>

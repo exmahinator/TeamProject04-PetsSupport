@@ -1,8 +1,13 @@
 @import 'src/shared/styles/mixins.scss';
 
 .wrapper {
+	display: flex;
+	flex-direction: column;
+
+	// padding-bottom: 12px;
+	min-height: max-content;
 	width: 280px;
-	min-height: 625px;
+	// min-height: 625px;
 	background: $secondary-bg-color;
 	box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
 	border-radius: 0px 0px 40px 40px;
@@ -18,9 +23,9 @@
 
 .heading {
 	width: 250px;
-  max-height: 76px;
+	max-height: 76px;
 	margin-bottom: 16px;
-	
+
 
 	&__title {
 		font-weight: 700;
@@ -35,7 +40,12 @@
 }
 
 .boxWrap {
-	height: 286px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
+
+	// height: 286px;
 	width: 280px;
 	margin: 0px auto;
 	padding: 0px 16px;
@@ -50,6 +60,7 @@
 
 	&__item {
 		display: flex;
+		height: inherit;
 		margin-bottom: 8px;
 	}
 
@@ -141,7 +152,7 @@
 	gap: 8px;
 
 	width: 100%;
-	padding: 8px 28px;
+	padding: 5px 28px;
 	color: $hover-color;
 	background-color: $secondary-bg-color;
 
@@ -152,7 +163,7 @@
 	cursor: pointer;
 
 	@include media(tablet) {
-		padding: 8px 28px;
+		padding: 5px 28px;
 	}
 
 	&__trash {

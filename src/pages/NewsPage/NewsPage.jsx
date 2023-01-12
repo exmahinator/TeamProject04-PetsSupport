@@ -37,13 +37,15 @@ const NewsPage = () => {
 			<Container>
 				<Title text="News" />
 				<Search />
-				{isLoading && (
+				{isLoading ? (
 					<div className={styles.spinner}>
 						<BigSpinner />
 					</div>
+				) : (
+					<NewsList data={news} />
 				)}
 				{noResults && <NewsEmpty />}
-				<NewsList data={news} />
+
 				{totalPages > 1 && <PaginationList pages={totalPages} />}
 			</Container>
 		</section>
