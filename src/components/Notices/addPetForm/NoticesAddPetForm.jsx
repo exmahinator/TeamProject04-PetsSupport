@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { FirstStep, SecondStep } from './steps';
@@ -17,16 +16,15 @@ export const AddPetForm = ({ onClose }) => {
 	} = useForm({
 		mode: 'onBlur',
 		defaultValues: {
+			category: 'sell',
 			birthday: '01.01.2020',
 			avatar: '',
 		},
 	});
-	// console.log('category', watch('category'));
-	console.log(errors);
+
+	const [isFirstPage, setIsFirstPage] = useState(true);
 
 	const dispatch = useDispatch();
-	const [isFirstPage, setIsFirstPage] = useState(true);
-	const petName = watch('name');
 
 	const onToggleStep = () => {
 		if (!isValid && isFirstPage) return;
@@ -38,8 +36,6 @@ export const AddPetForm = ({ onClose }) => {
 			const newNotice = createFormData(data);
 
 			dispatch(addNotice(newNotice));
-
-			toast.success(`${petName} added `);
 			onClose();
 		}
 	};

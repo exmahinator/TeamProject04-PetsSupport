@@ -4,6 +4,7 @@ import { AddPetForm } from '../addPetForm/NoticesAddPetForm';
 import styles from './NoticesAddPet.module.scss';
 import { useAuth } from 'shared/hooks/useAuth';
 import { toast } from 'react-toastify';
+import { toggleBodyHidden } from 'shared/functions/toggleBodyHidden';
 
 const NoticesAddPet = () => {
 	const [isShowModal, setIsShowModal] = useState(false);
@@ -21,6 +22,10 @@ const NoticesAddPet = () => {
 		setIsShowModal(false);
 		document.body.style.overflow = 'unset';
 	};
+
+	useEffect(() => {
+		toggleBodyHidden(isShowModal);
+	}, [isShowModal]);
 
 	useEffect(() => {
 		const handeleClickDown = e => {

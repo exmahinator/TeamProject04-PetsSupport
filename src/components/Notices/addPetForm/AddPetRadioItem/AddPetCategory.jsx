@@ -5,10 +5,10 @@ export const AddPetCategory = ({ data, register, field, text, value }) => {
 		<>
 			<input
 				{...register(field, {
-					// required: {
-					// 		value: true,
-					// 		message: `${field} is  required`,
-					// 	},
+					required: {
+						value: true,
+						message: `${field} is  required`,
+					},
 				})}
 				type="radio"
 				value={value}

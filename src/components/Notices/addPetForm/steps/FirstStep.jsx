@@ -47,11 +47,14 @@ export const FirstStep = ({ register, errors, nextPage, onCloseModal }) => {
 				</li>
 			</ul>
 			<div className={styles.inputWrapper}>
-
-			<AddPetInput register={register} errors={errors} settings={petAdTitle} />
-			<AddPetInput register={register} errors={errors} settings={petName} />
-			<AddPetInput register={register} errors={errors} settings={petBirth} />
-			<AddPetInput register={register} errors={errors} settings={petBreed} />
+				<AddPetInput
+					register={register}
+					errors={errors}
+					settings={petAdTitle}
+				/>
+				<AddPetInput register={register} errors={errors} settings={petName} />
+				<AddPetInput register={register} errors={errors} settings={petBirth} />
+				<AddPetInput register={register} errors={errors} settings={petBreed} />
 			</div>
 			{/* <ul>
 				<li>
