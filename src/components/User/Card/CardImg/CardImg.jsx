@@ -9,9 +9,9 @@ export const CardImg = ({ petImg }) => {
 	return (
 		<div className={style.card__imgThumb}>
 			{isTablet ? (
-				<img src={petImg ? petImg : catImg} alt="cat" />
+				<img src={petImg ? petImg : catImg} alt="big cat" />
 			) : (
-				<img src={petImg ? petImg : catImg} alt="cat" />
+				<img src={petImg ? petImg : catImg} alt="small cat" />
 			)}
 		</div>
 	);
