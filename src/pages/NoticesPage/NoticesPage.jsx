@@ -13,6 +13,8 @@ const NoticesPage = () => {
 
 
 	return (
+		<section className={styles.section}>
+
 		<Container>
 			<NoticesHeading />
 			<NoticesSearch />
@@ -22,6 +24,7 @@ const NoticesPage = () => {
 			</div>
 			<Outlet context={info} />
 		</Container>
+		</section>
 	);
 };
 
