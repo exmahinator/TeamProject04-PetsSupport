@@ -5,7 +5,7 @@ import {
 	getCurrentNotices,
 	getFavoriteNotices,
 	getNoticesLoading,
-	getFilteredNotices,
+	getQueryParams,
 	getTotalPages,
 } from 'redux/notices/notices-selectors';
 import { getUserId } from 'redux/auth/auth-selectors';
@@ -20,23 +20,27 @@ import {
 import NoticesItems from '../items/NoticesItems';
 import styles from './NoticesList.module.scss';
 import { NoticesPaginationList } from '../pagination/paginationList/PaginationList';
-import { setCategory } from 'redux/notices/notices-slice';
+import { setQueryParams } from 'redux/notices/notices-slice';
 
 export const NoticesList = ({ category }) => {
 	const isLogin = useAuth();
 	const dispatch = useDispatch();
 
 	const ownerId = useSelector(getUserId);
-	const notices = useSelector(getFilteredNotices || getCurrentNotices);
+	const notices = useSelector( getCurrentNotices);
 
 	const favNotices = useSelector(getFavoriteNotices);
 	const isFavLoading = useSelector(getNoticesLoading);
 
 	const totalPages = useSelector(getTotalPages);
-	const showPagination= !!(totalPages > 1 && category !== 'favorite' &category !== 'own'
-)
+	const showPagination = !!(totalPages > 1 && category !== 'favorite' & category !== 'own')
+	
+
+	const params = useSelector(getQueryParams)
+	console.log(params)
+
 	useEffect(() => {
-		dispatch(setCategory(category));
+		dispatch(setQueryParams({category}));
 		switch (category) {
 			case 'favorite':
 				dispatch(getFavoriteNoticeForCategories());
