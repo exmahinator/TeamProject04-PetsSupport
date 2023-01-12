@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import {
 	getIsAddedSuccess,
 	getNoticesError,
-	getNoticesLoading,
 } from 'redux/notices/notices-selectors';
 import { Container } from 'components/Reuse/Container/Container';
 import NoticesHeading from 'components/Notices/heading/NoticesHeading';
@@ -14,13 +13,11 @@ import styles from './NoticesPage.module.scss';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { resetIsAddedSuccess } from 'redux/notices/notices-slice';
-import { BigSpinner } from 'components/Reuse/Loaders/Spinner/BigSpinner';
 
 const NoticesPage = () => {
 	const dispatch = useDispatch();
 	const error = useSelector(getNoticesError);
 	const isAddedSuccess = useSelector(getIsAddedSuccess);
-	const isLoading = useSelector(getNoticesLoading);
 
 	useEffect(() => {
 		if (isAddedSuccess) {
@@ -44,7 +41,6 @@ const NoticesPage = () => {
 					<NoticesCategories />
 					<NoticesAddPet />
 				</div>
-				{isLoading && <BigSpinner />}
 				<Outlet />
 			</Container>
 		</section>

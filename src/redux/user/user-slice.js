@@ -15,6 +15,7 @@ const initialState = {
 	addPetError: null,
 	isLoadingUpdate: false,
 	isDisabledFields: false,
+	isAddedPetSuccess: false,
 };
 
 const userSlice = createSlice({
@@ -23,6 +24,9 @@ const userSlice = createSlice({
 	reducers: {
 		toggleIsDisablet(store) {
 			store.isDisabledFields = true;
+		},
+		resetIsAddedPetSuccess: state => {
+			state.isAddedPetSuccess = false;
 		},
 	},
 	extraReducers: {
@@ -66,6 +70,7 @@ const userSlice = createSlice({
 			store.loading = false;
 			store.addPetError = null;
 			store.user.pets = [payload, ...store.user.pets];
+			store.isAddedPetSuccess = true;
 		},
 		[addUserPet.rejected]: (store, { payload }) => {
 			store.loading = false;
@@ -87,5 +92,5 @@ const userSlice = createSlice({
 	},
 });
 
-export const { toggleIsDisablet } = userSlice.actions;
+export const { toggleIsDisablet, resetIsAddedPetSuccess } = userSlice.actions;
 export default userSlice.reducer;

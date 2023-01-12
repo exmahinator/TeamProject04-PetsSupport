@@ -8,3 +8,4 @@ export const getUserInfo = ({ user }) => user.user.userInfo;
 export const getUserAvatar = ({ user }) => user?.user.avatarURL;
 export const getUserPets = ({ user }) => user.user.pets;
 export const getAddPetError = ({ user }) => user.addPetError;
+export const getIsAddedPetSuccess = ({ user }) => user.isAddedPetSuccess;
