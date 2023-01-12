@@ -7,7 +7,6 @@ import {
 	getNoticesLoading,
 	getFilteredNotices,
 	getTotalPages,
-
 } from 'redux/notices/notices-selectors';
 import { getUserId } from 'redux/auth/auth-selectors';
 import {
@@ -34,19 +33,19 @@ export const NoticesList = ({ category }) => {
 	const isFavLoading = useSelector(getNoticesLoading);
 
 	const totalPages = useSelector(getTotalPages);
-
-	
+	const showPagination= !!(totalPages > 1 && category !== 'favorite' &category !== 'own'
+)
 	useEffect(() => {
-		dispatch(setCategory(category))
+		dispatch(setCategory(category));
 		switch (category) {
-			case 'favorite':			
-			dispatch(getFavoriteNoticeForCategories());
-			break;
-			
+			case 'favorite':
+				dispatch(getFavoriteNoticeForCategories());
+				break;
+
 			case 'own':
 				dispatch(getUserNotices());
-				break;				
-				default:
+				break;
+			default:
 				dispatch(getNoticeByCategory());
 				break;
 		}
@@ -76,7 +75,9 @@ export const NoticesList = ({ category }) => {
 					</li>
 				))}
 			</ul>
-			<div>{totalPages > 1 && <NoticesPaginationList pages={totalPages} />}</div>
+			<div>
+				{showPagination && <NoticesPaginationList pages={totalPages} />}
+			</div>
 		</div>
 	);
 };
