@@ -1,48 +1,52 @@
-import React, { useRef, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-import { setFilter } from 'redux/notices/notices-slice';
-import { ReactComponent as SearchIcon } from 'shared/images/overused/NewsSearch.svg';
-import { ReactComponent as ClearIcon } from 'shared/images/overused/x-circle.svg';
-
-
-import debounce from 'lodash.debounce';
-import styles from './NoticesSearch.module.scss';
+import React, { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {   setQueryParams } from 'redux/notices/notices-slice';
+import style from './NoticesSearch.module.scss';
+import { SearchTooltip } from 'components/News/Search/SearchTooltip';
+import { SearchBtns } from 'components/News/Search/SearchBtns/SearchBtns';
+import { getNoticeByCategory } from 'redux/notices/notices-operations';
+import { getQueryParams } from 'redux/notices/notices-selectors';
 
 
 const NoticesSearch = () => {
-  const dispatch = useDispatch();
+	const { filter } = useSelector(getQueryParams);
+
+    const dispatch = useDispatch();
 	const input = useRef();
+	if (input.current) input.current.value = filter ?? '';
+	
+	const [isCloseIcon, setIsCloseIcon] = useState(!!input.current?.value);
 
-	const clearBtnHandler = () => {
-		input.current.value = '';
-		dispatch(setFilter(''));
+	const handleClear = e => {
+		e.preventDefault();
+		setIsCloseIcon(prev => !prev);
+		dispatch(setQueryParams({ filter: '' }));
+				dispatch(getNoticeByCategory());
+		return;
 	};
 
-	const changeHandler = event => {
-		dispatch(setFilter(event.target.value));
+	const handleSearch = e => {
+		e.preventDefault();
+		setIsCloseIcon(prev => !prev);
+			dispatch(setQueryParams({filter: input.current.value}));
+		dispatch(getNoticeByCategory());
 	};
-
-	// eslint-disable-next-line
-	const debouncedChangeHandler = useCallback(debounce(changeHandler, 600), []);
 
 	return (
-		<div className={styles.wrapper}>
-			<input
-				ref={input}
-				onChange={debouncedChangeHandler}
-				className={styles.input}
-				type="text"
-				placeholder="Search"
-			/>
-			{input.current?.value ? (
-				<button className={styles.btn} onClick={clearBtnHandler}>
-					<ClearIcon className={styles.clear} />
-				</button>
-			) : (
-				<SearchIcon className={styles.search} />
-			)}
+		<div className={style.wrapper}>
+			<form>
+				<input
+					ref={input}
+					className={style.input}
+					type="text"
+					placeholder="Search"
+				/>
+				<SearchTooltip />
+				<SearchBtns isCloseIcon={isCloseIcon} handleClear={ handleClear} handleSearch ={handleSearch} />
+			</form>
 		</div>
 	);
-}
+};
+
 
 export default NoticesSearch

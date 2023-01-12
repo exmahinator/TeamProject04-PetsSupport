@@ -5,9 +5,9 @@ import * as api from '../../shared/api/notices';
 export const getNoticeByCategory = createAsyncThunk(
 	'notices/getNoticeByCategory',
 	async (params, { rejectWithValue, getState }) => {
-		const {notices: {page, category}} = getState()
+		const { notices: { queryParams } } = getState()
 		try {
-			const result = await api.getNoticeByCategory({page, category});
+			const result = await api.getNoticeByCategory(queryParams);
 			return result;
 		} catch ({ response }) {
 			const { status, data } = response;

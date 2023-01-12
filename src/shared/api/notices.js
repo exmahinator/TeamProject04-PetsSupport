@@ -4,10 +4,10 @@ import instance from './auth';
 // 	const { data } = await instance.get(`/notices?category=${params}`);
 // 	return data;
 // };
-export const getNoticeByCategory = async ({ page = 1, category = 'sell' }) => {
-	// console.log(page, category)
+export const getNoticeByCategory = async ({ page = 1, category = 'sell', filter ='' }) => {
+	// console.log(page, category, filter)
 	const { data } = await instance.get(
-		`/notices?limit=8&page=${page}&category=${category}`
+		`/notices?limit=8&page=${page}&category=${category}&title=${filter}`
 	);
 	return data;
 };

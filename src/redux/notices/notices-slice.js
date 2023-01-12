@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import storageSession from 'redux-persist/lib/storage/session'
+import { persistReducer } from 'redux-persist';
 
 import {
 	getNoticeByCategory,
@@ -17,29 +19,24 @@ const initialState = {
 	favorite: [],
 	loading: false,
 	error: null,
-	filter: '',
 	totalPages: 1,
 	isAddedSuccess: false,
-	category: 'sell',
-	page: 1,
+	queryParams: {
+		filter: '',
+		category: 'sell',
+		page: 1,
+	}
 };
 
 const noticesSlice = createSlice({
 	name: 'notices',
 	initialState,
 	reducers: {
-		setFilter: (state, { payload }) => {
-			state.filter = payload;
-		},
-		setCategory: (state, { payload }) => {
-			if (state.category !== payload) {
-				state.page = 1;
-			}
-			state.category = payload;
-		},
-		setPage: (state, { payload }) => {
-			state.page = payload
-
+		setQueryParams: (state, { payload }) => {			
+			const { page = 1, filter = '', category = state.queryParams.category } = payload;
+			state.queryParams.filter = filter;
+			state.queryParams.category = category;
+			state.queryParams.page = page;
 		},
 		setTotalPages: (state, { payload }) => {
 			state.totalPages = payload;
@@ -178,7 +175,17 @@ const noticesSlice = createSlice({
 });
 
 
-export const { setFilter, setCategory, setPage,  setTotalPages, resetIsAddedSuccess } =
+export const { setQueryParams,  setTotalPages, resetIsAddedSuccess } =
 	noticesSlice.actions;
 
-export default noticesSlice.reducer;
+const noticesReducer = noticesSlice.reducer
+
+const persistConfig = {
+	key: 'noticesQueryParams',
+	storage: storageSession,
+	whitelist: ['queryParams'],
+};
+
+const persistedNoticesReducer = persistReducer(persistConfig, noticesReducer)
+
+export default persistedNoticesReducer;

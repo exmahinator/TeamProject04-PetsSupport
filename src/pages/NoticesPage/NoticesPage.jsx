@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import {
-	getFilteredNotices,
+	getCurrentNotices,
 	getIsAddedSuccess,
 	getNoticesError,
 } from 'redux/notices/notices-selectors';
@@ -17,9 +17,10 @@ import { resetIsAddedSuccess } from 'redux/notices/notices-slice';
 
 const NoticesPage = () => {
 	const dispatch = useDispatch();
-	const info = useSelector(getFilteredNotices);
+	const info = useSelector(getCurrentNotices);
 	const error = useSelector(getNoticesError);
 	const isAddedSuccess = useSelector(getIsAddedSuccess);
+
 
 	useEffect(() => {
 		if (isAddedSuccess) {
@@ -43,7 +44,8 @@ const NoticesPage = () => {
 			<div className={styles.wrapper}>
 				<NoticesCategories />
 				<NoticesAddPet />
-			</div>
+				</div>
+				{/* what is thid context for? */}
 			<Outlet context={info} />
 		</Container>
 		</section>
