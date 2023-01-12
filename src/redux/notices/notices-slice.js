@@ -18,10 +18,10 @@ const initialState = {
 	loading: false,
 	error: null,
 	filter: '',
-	totalPages: 4,
-	queryParams: { page: 1 },
+	totalPages: 1,
 	isAddedSuccess: false,
-
+	category: 'sell',
+	page: 1,
 };
 
 const noticesSlice = createSlice({
@@ -31,8 +31,15 @@ const noticesSlice = createSlice({
 		setFilter: (state, { payload }) => {
 			state.filter = payload;
 		},
-		setQueryParams: (state, { payload: { page = 1 } }) => {
-			state.queryParams = { page };
+		setCategory: (state, { payload }) => {
+			if (state.category !== payload) {
+				state.page = 1;
+			}
+			state.category = payload;
+		},
+		setPage: (state, { payload }) => {
+			state.page = payload
+
 		},
 		setTotalPages: (state, { payload }) => {
 			state.totalPages = payload;
@@ -170,7 +177,8 @@ const noticesSlice = createSlice({
 	},
 });
 
-export const { setFilter, setQueryParams, setTotalPages, resetIsAddedSuccess } =
+
+export const { setFilter, setCategory, setPage,  setTotalPages, resetIsAddedSuccess } =
 	noticesSlice.actions;
 
 export default noticesSlice.reducer;

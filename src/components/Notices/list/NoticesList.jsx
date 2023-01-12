@@ -7,7 +7,7 @@ import {
 	getNoticesLoading,
 	getFilteredNotices,
 	getTotalPages,
-	getQueryParams,
+
 } from 'redux/notices/notices-selectors';
 import { getUserId } from 'redux/auth/auth-selectors';
 import {
@@ -21,6 +21,7 @@ import {
 import NoticesItems from '../items/NoticesItems';
 import styles from './NoticesList.module.scss';
 import { NoticesPaginationList } from '../pagination/paginationList/PaginationList';
+import { setCategory } from 'redux/notices/notices-slice';
 
 export const NoticesList = ({ category }) => {
 	const isLogin = useAuth();
@@ -33,30 +34,26 @@ export const NoticesList = ({ category }) => {
 	const isFavLoading = useSelector(getNoticesLoading);
 
 	const totalPages = useSelector(getTotalPages);
-	const { page } = useSelector(getQueryParams);
 
-	// console.log('page :>> ', page);
-
-	// console.log('notices :>> ', notices);
-
+	
 	useEffect(() => {
+		dispatch(setCategory(category))
 		switch (category) {
-			case 'favorite':
-				dispatch(getFavoriteNoticeForCategories());
-				break;
-
+			case 'favorite':			
+			dispatch(getFavoriteNoticeForCategories());
+			break;
+			
 			case 'own':
 				dispatch(getUserNotices());
-				break;
-
-			default:
-				dispatch(getNoticeByCategory({ page, category }));
+				break;				
+				default:
+				dispatch(getNoticeByCategory());
 				break;
 		}
 		if (isLogin) {
 			dispatch(getFavoriteNoticeByUser());
 		}
-	}, [category, dispatch, isLogin, page]);
+	}, [category, dispatch, isLogin]);
 
 	const onDeleteNotice = e => {
 		const noticeId = e.currentTarget.id;
@@ -79,7 +76,7 @@ export const NoticesList = ({ category }) => {
 					</li>
 				))}
 			</ul>
-			<div>{totalPages && <NoticesPaginationList pages={totalPages} />}</div>
+			<div>{totalPages > 1 && <NoticesPaginationList pages={totalPages} />}</div>
 		</div>
 	);
 };

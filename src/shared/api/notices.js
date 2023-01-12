@@ -5,6 +5,7 @@ import instance from './auth';
 // 	return data;
 // };
 export const getNoticeByCategory = async ({ page = 1, category = 'sell' }) => {
+	// console.log(page, category)
 	const { data } = await instance.get(
 		`/notices?limit=8&page=${page}&category=${category}`
 	);
