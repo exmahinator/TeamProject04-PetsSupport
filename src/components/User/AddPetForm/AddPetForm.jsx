@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Buttons } from './Buttons/Buttons';
@@ -9,12 +8,8 @@ import { AddPetFormFirstPage } from './FirstPage/AddPetFormFirstPage';
 import { AddPetFormSecondPage } from './SecondPage/AddPetFormSecondPage';
 
 import style from './AddPetForm.module.scss';
-// import { getAddPetError, getPetsLoading } from 'redux/user/user-selectors';
 
 export const AddPetForm = ({ onCloseModal }) => {
-	// const [uploadError, setUploadError] = useState(false);
-	// const isAddPetError = useSelector(getAddPetError);
-	// const isPetsLoading = useSelector(getPetsLoading);
 	const {
 		register,
 		handleSubmit,
@@ -42,18 +37,8 @@ export const AddPetForm = ({ onCloseModal }) => {
 			dispatch(addUserPet(newPet));
 		}
 		onCloseModal();
-
-		// isPetsLoading &&
-		
-		// setTimeout(() => {
-		// 	console.log('isAddPetError', isAddPetError);
-		// 	isAddPetError
-		// 		? toast.error('ooops an error occured please try again')
-		// 		: toast.success(`${petName} added `);
-		// }, 3000);
 	};
-	
-	// isAddPetError && toast.error('ooops an error occured please try again');
+
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
