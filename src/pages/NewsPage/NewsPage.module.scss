@@ -9,8 +9,13 @@
 		min-height: calc(100vh - 64px);
 		padding: 90px 0 150px;
 	}
+
 	@include media(desktop) {
 		min-height: calc(100vh - 68px);
 		padding: 60px 0 150px;
 	}
+}
+
+.spinner {
+	margin-top: 50px;
 }

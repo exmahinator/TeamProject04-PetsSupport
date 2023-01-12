@@ -2,6 +2,7 @@
 
 .friends_section {
 	margin: 42px 0;
+
 	@include media(tablet) {
 		margin: 92px 0;
 	}
@@ -9,4 +10,8 @@
 	@include media(desktop) {
 		margin: 63px 0;
 	}
+}
+
+.spinner {
+	margin-top: 50px;
 }

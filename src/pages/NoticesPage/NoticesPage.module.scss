@@ -1,8 +1,9 @@
 @import 'shared/styles/_mixins.scss';
 
-.section{
+.section {
   margin-bottom: 100px;
-  @include media(desktop){
+
+  @include media(desktop) {
     margin-bottom: 200px;
   }
 }
