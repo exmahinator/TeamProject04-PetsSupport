@@ -4,7 +4,6 @@ import {
 	getCurrentNotices,
 	getIsAddedSuccess,
 	getNoticesError,
-	getNoticesLoading,
 } from 'redux/notices/notices-selectors';
 import { Container } from 'components/Reuse/Container/Container';
 import NoticesHeading from 'components/Notices/heading/NoticesHeading';
