@@ -4,6 +4,7 @@ import {
 	getCurrentNotices,
 	getIsAddedSuccess,
 	getNoticesError,
+	getNoticesLoading,
 } from 'redux/notices/notices-selectors';
 import { Container } from 'components/Reuse/Container/Container';
 import NoticesHeading from 'components/Notices/heading/NoticesHeading';
@@ -20,6 +21,7 @@ const NoticesPage = () => {
 	const info = useSelector(getCurrentNotices);
 	const error = useSelector(getNoticesError);
 	const isAddedSuccess = useSelector(getIsAddedSuccess);
+
 
 	useEffect(() => {
 		if (isAddedSuccess) {
