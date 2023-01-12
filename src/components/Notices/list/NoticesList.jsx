@@ -5,9 +5,8 @@ import {
 	getCurrentNotices,
 	getFavoriteNotices,
 	getNoticesLoading,
-	getFilteredNotices,
-	getTotalPages,
 	getQueryParams,
+	getTotalPages,
 } from 'redux/notices/notices-selectors';
 import { getUserId } from 'redux/auth/auth-selectors';
 import {
@@ -21,25 +20,31 @@ import {
 import NoticesItems from '../items/NoticesItems';
 import styles from './NoticesList.module.scss';
 import { NoticesPaginationList } from '../pagination/paginationList/PaginationList';
+import { setQueryParams } from 'redux/notices/notices-slice';
+import { NewsEmpty } from 'components/News/NewsEmpty/NewsEmpty';
 
 export const NoticesList = ({ category }) => {
 	const isLogin = useAuth();
 	const dispatch = useDispatch();
 
 	const ownerId = useSelector(getUserId);
-	const notices = useSelector(getFilteredNotices || getCurrentNotices);
+	const notices = useSelector( getCurrentNotices);
 
 	const favNotices = useSelector(getFavoriteNotices);
 	const isFavLoading = useSelector(getNoticesLoading);
 
 	const totalPages = useSelector(getTotalPages);
-	const { page } = useSelector(getQueryParams);
+	const showPagination = !!(totalPages > 1 && category !== 'favorite' & category !== 'own')
+	
+	const isLoading = useSelector(getNoticesLoading)
 
-	// console.log('page :>> ', page);
-
-	// console.log('notices :>> ', notices);
+	const noResults = !notices.length && !isLoading
+	
+	const params = useSelector(getQueryParams)
+	console.log(params)
 
 	useEffect(() => {
+		dispatch(setQueryParams({category}));
 		switch (category) {
 			case 'favorite':
 				dispatch(getFavoriteNoticeForCategories());
@@ -48,15 +53,14 @@ export const NoticesList = ({ category }) => {
 			case 'own':
 				dispatch(getUserNotices());
 				break;
-
 			default:
-				dispatch(getNoticeByCategory({ page, category }));
+				dispatch(getNoticeByCategory());
 				break;
 		}
 		if (isLogin) {
 			dispatch(getFavoriteNoticeByUser());
 		}
-	}, [category, dispatch, isLogin, page]);
+	}, [category, dispatch, isLogin]);
 
 	const onDeleteNotice = e => {
 		const noticeId = e.currentTarget.id;
@@ -64,8 +68,9 @@ export const NoticesList = ({ category }) => {
 	};
 
 	return (
+		noResults? <NewsEmpty/>:
 		<div className={styles.wrapper}>
-			<ul className={styles.galery}>
+			{<ul className={styles.galery}>
 				{notices.map(data => (
 					<li key={data._id}>
 						<NoticesItems
@@ -78,8 +83,10 @@ export const NoticesList = ({ category }) => {
 						/>
 					</li>
 				))}
-			</ul>
-			<div>{totalPages && <NoticesPaginationList pages={totalPages} />}</div>
+			</ul>}
+			<div>
+				{showPagination && <NoticesPaginationList pages={totalPages} />}
+			</div>
 		</div>
 	);
 };

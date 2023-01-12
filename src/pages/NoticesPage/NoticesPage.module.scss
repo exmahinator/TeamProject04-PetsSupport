@@ -1,5 +1,11 @@
 @import 'shared/styles/_mixins.scss';
 
+.section{
+  margin-bottom: 100px;
+  @include media(desktop){
+    margin-bottom: 200px;
+  }
+}
 
 .wrapper {
   padding-top: 28px;
