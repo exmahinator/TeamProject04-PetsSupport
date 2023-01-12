@@ -121,9 +121,9 @@ const noticesSlice = createSlice({
 		[removeNoticeFromFavorite.fulfilled]: (store, { payload }) => {
 			store.loading = false;
 			store.favorite = store.favorite.filter(id => id !== payload.id);
-			store.currentNotices = store.currentNotices.filter(
-				({ _id }) => _id !== payload.id
-			);
+			// store.currentNotices = store.currentNotices.filter(
+			// 	({ _id }) => _id !== payload.id
+			// );
 		},
 		[removeNoticeFromFavorite.rejected]: (store, { payload }) => {
 			store.loading = false;
