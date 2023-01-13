@@ -14,13 +14,14 @@ const NoticesSearch = () => {
     const dispatch = useDispatch();
 	const input = useRef();
 	if (input.current) input.current.value = filter ?? '';
-	
-	const [isCloseIcon, setIsCloseIcon] = useState(!!input.current?.value);
+	const isInputValue = input.current ? !!input.current.value : false
+	// const [isCloseIcon, setIsCloseIcon] = useState(isInputValue);
+
 
 
 	const handleClear = e => {
 		e.preventDefault();
-		setIsCloseIcon(prev => !prev);
+		// setIsCloseIcon(prev => !prev);
 		dispatch(setQueryParams({ filter: '' }));
 
 				dispatch(getNoticeByCategory());
@@ -29,7 +30,7 @@ const NoticesSearch = () => {
 
 	const handleSearch = e => {
 		e.preventDefault();
-		setIsCloseIcon(prev => !prev);
+		// setIsCloseIcon(prev => !prev);
 			dispatch(setQueryParams({filter: input.current.value}));
 		dispatch(getNoticeByCategory());
 	};
@@ -44,7 +45,7 @@ const NoticesSearch = () => {
 					placeholder="Search"
 				/>
 				<SearchTooltip />
-				<SearchBtns isCloseIcon={isCloseIcon} handleClear={ handleClear} handleSearch ={handleSearch} />
+				<SearchBtns input={input}  handleClear={ handleClear} handleSearch ={handleSearch} />
 			</form>
 		</div>
 	);

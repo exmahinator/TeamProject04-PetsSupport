@@ -11,7 +11,6 @@ import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
 
 import LearnMore from '../learnMore/LearnMore';
 import styles from './NoticesItems.module.scss';
-import { getNoticeByCategory } from 'redux/notices/notices-operations';
 
 const NoticesItems = ({
 	data,
