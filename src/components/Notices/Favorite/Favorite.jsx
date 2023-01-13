@@ -10,6 +10,8 @@ export const Favorite = ({
 	favNotices,
 	isFavLoading,
 }) => {
+
+	// console.log(favNotices)
 	return (
 		<>
 			{isFavLoading ? (

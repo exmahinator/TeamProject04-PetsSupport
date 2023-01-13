@@ -3,9 +3,12 @@ import { ReactComponent as ClearIcon } from 'shared/images/overused/x-circle.svg
 
 import style from './SearchBtns.module.scss'
 
-export const SearchBtns = ({ isCloseIcon, handleClear, handleSearch }) => {
+export const SearchBtns = ({ input, isCloseIcon, handleClear, handleSearch }) => {
+	// console.log(isCloseIcon, !!input.current?.value)
+	const showClose = input ? !!input.current?.value: isCloseIcon
+
     return (
-        isCloseIcon ? (
+        (showClose)?(
 					<button
 						type="button"
 						className={style.btn}

@@ -20,6 +20,7 @@ const NoticesPage = () => {
 	const isAddedSuccess = useSelector(getIsAddedSuccess);
 
 	useEffect(() => {
+		
 		if (isAddedSuccess) {
 			toast.success(`Ad successfully added.`);
 			dispatch(resetIsAddedSuccess());

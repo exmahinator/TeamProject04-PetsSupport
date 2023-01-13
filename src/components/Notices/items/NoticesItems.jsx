@@ -32,6 +32,8 @@ const NoticesItems = ({
 		location,
 		imageURL,
 	} = data;
+
+
 	const dispatch = useDispatch();
 
 	const onAddToFavorite = e => {
@@ -46,6 +48,7 @@ const NoticesItems = ({
 		const cardId = e.currentTarget.id;
 
 		dispatch(removeNoticeFromFavorite(cardId));
+		// dispatch(getNoticeByCategory())
 	};
 
 	const born = getAge(birthday);
@@ -120,6 +123,7 @@ const NoticesItems = ({
 					/>
 
 					{ownerId === owner && (
+						
 						<button
 							id={id}
 							type="button"
