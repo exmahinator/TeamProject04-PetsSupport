@@ -55,6 +55,9 @@ const noticesSlice = createSlice({
 			store.loading = false;
 			store.currentNotices = payload.notices;
 			store.totalPages = payload.totalPages;
+			// if (store.queryParams.category === 'favorite') {				
+			// 	store.favorite = payload.notices.map(el => el._id);
+			// }
 		},
 		[getNoticeByCategory.rejected]: (store, { payload }) => {
 			store.loading = false;
@@ -81,6 +84,7 @@ const noticesSlice = createSlice({
 		[getFavoriteNoticeForCategories.fulfilled]: (store, { payload }) => {
 			store.loading = false;
 			store.currentNotices = payload;
+			store.favorite = payload.map(el => el._id);
 		},
 		[getFavoriteNoticeForCategories.rejected]: (store, { payload }) => {
 			store.loading = false;
@@ -121,9 +125,9 @@ const noticesSlice = createSlice({
 		[removeNoticeFromFavorite.fulfilled]: (store, { payload }) => {
 			store.loading = false;
 			store.favorite = store.favorite.filter(id => id !== payload.id);
-			// store.currentNotices = store.currentNotices.filter(
-			// 	({ _id }) => _id !== payload.id
-			// );
+			store.currentNotices = store.currentNotices.filter(
+				({ _id }) => _id !== payload.id
+			);
 		},
 		[removeNoticeFromFavorite.rejected]: (store, { payload }) => {
 			store.loading = false;

@@ -11,9 +11,9 @@ import {
 import { getUserId } from 'redux/auth/auth-selectors';
 import {
 	getFavoriteNoticeByUser,
-	getFavoriteNoticeForCategories,
+	// getFavoriteNoticeForCategories,
 	getNoticeByCategory,
-	getUserNotices,
+	// getUserNotices,
 	removeNotice,
 } from 'redux/notices/notices-operations';
 
@@ -29,6 +29,7 @@ export const NoticesList = ({ category }) => {
 
 	const ownerId = useSelector(getUserId);
 	const notices = useSelector(getCurrentNotices);
+	console.log(notices)
 
 	const favNotices = useSelector(getFavoriteNotices);
 	const isFavLoading = useSelector(getNoticesLoading);
@@ -47,22 +48,22 @@ export const NoticesList = ({ category }) => {
 
 	useEffect(() => {
 		dispatch(setQueryParams({ category }));
+		if(isLogin)dispatch(getFavoriteNoticeByUser())
+		// switch (category) {
+		// 	case 'favorite':
+		// 		dispatch(getFavoriteNoticeForCategories());
+		// 		break;
 
-		switch (category) {
-			case 'favorite':
-				dispatch(getFavoriteNoticeForCategories());
-				break;
-
-			case 'own':
-				dispatch(getUserNotices());
-				break;
-			default:
+		// 	case 'own':
+		// 		dispatch(getUserNotices());
+		// 		break;
+		// 	default:
 				dispatch(getNoticeByCategory());
-				break;
-		}
-		if (isLogin) {
-			dispatch(getFavoriteNoticeByUser());
-		}
+		// 		break;
+		// }
+		// if (isLogin) {
+		// 	dispatch(getFavoriteNoticeByUser());
+		// }
 	}, [category, dispatch, isLogin]);
 
 	const onDeleteNotice = e => {

@@ -11,6 +11,7 @@ import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
 
 import LearnMore from '../learnMore/LearnMore';
 import styles from './NoticesItems.module.scss';
+import { getNoticeByCategory } from 'redux/notices/notices-operations';
 
 const NoticesItems = ({
 	data,
@@ -32,6 +33,8 @@ const NoticesItems = ({
 		location,
 		imageURL,
 	} = data;
+
+
 	const dispatch = useDispatch();
 
 	const onAddToFavorite = e => {
@@ -46,6 +49,7 @@ const NoticesItems = ({
 		const cardId = e.currentTarget.id;
 
 		dispatch(removeNoticeFromFavorite(cardId));
+		// dispatch(getNoticeByCategory())
 	};
 
 	const born = getAge(birthday);
@@ -120,6 +124,7 @@ const NoticesItems = ({
 					/>
 
 					{ownerId === owner && (
+						
 						<button
 							id={id}
 							type="button"

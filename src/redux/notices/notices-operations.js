@@ -8,6 +8,9 @@ export const getNoticeByCategory = createAsyncThunk(
 		const { notices: { queryParams } } = getState()
 		try {
 			const result = await api.getNoticeByCategory(queryParams);
+			if (['favorite', 'own'].includes(queryParams.category)) {
+				return{notices: result}
+			}
 			return result;
 		} catch ({ response }) {
 			const { status, data } = response;
@@ -56,7 +59,9 @@ export const addNoticeToFavorite = createAsyncThunk(
 
 export const getFavoriteNoticeForCategories = createAsyncThunk(
 	'notices/getFavoriteNoticeForCategories',
-	async (_, { rejectWithValue }) => {
+	async (_, { rejectWithValue, getState }) => {
+		const { notices: { queryParams } } = getState();
+		console.log(queryParams)
 		try {
 			const result = await api.getFavoriteNotices();
 			return result;
@@ -73,7 +78,9 @@ export const getFavoriteNoticeForCategories = createAsyncThunk(
 
 export const getFavoriteNoticeByUser = createAsyncThunk(
 	'notices/getFavoriteNoticeByUser',
-	async (_, { rejectWithValue }) => {
+	async (_, { rejectWithValue, getState }) => {
+		const { notices: { queryParams } } = getState();
+		console.log(queryParams)
 		try {
 			const result = await api.getFavoriteNotices();
 			return result;

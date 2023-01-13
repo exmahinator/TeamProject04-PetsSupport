@@ -12,7 +12,7 @@ const LearnMore = ({
 	onRemoveFromFavorite,
 }) => {
 	const {
-		id,
+		_id: id,
 		sex,
 		name,
 		breed,
@@ -25,6 +25,7 @@ const LearnMore = ({
 		comments,
 		category,
 	} = data;
+
 	const [isShowModal, setIsShowModal] = useState(false);
 
 	const showModal = () => {

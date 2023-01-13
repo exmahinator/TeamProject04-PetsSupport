@@ -6,9 +6,22 @@ import instance from './auth';
 // };
 export const getNoticeByCategory = async ({ page = 1, category = 'sell', filter ='' }) => {
 	// console.log(page, category, filter)
-	const { data } = await instance.get(
+	let result;
+	switch (category) {
+			case 'favorite':
+				result = await instance.get(`/notices/users/favorite?title=${filter}`);
+				break;
+
+			case 'own':
+				result = await instance.get('/notices/users');
+				break;
+			default:
+				result = await instance.get(
 		`/notices?limit=8&page=${page}&category=${category}&title=${filter}`
 	);
+				break;
+		}
+	const { data } = result;
 	return data;
 };
 
@@ -18,11 +31,13 @@ export const getOneNotice = async id => {
 };
 
 export const addNoticeToFavorite = async id => {
+
 	const { data } = await instance.patch(`/notices/toFavorite/${id}`);
 	return data;
 };
 
-export const getFavoriteNotices = async () => {
+export const getFavoriteNotices = async (params) => {
+	// console.log(params)
 	const { data } = await instance.get(`/notices/users/favorite`);
 	return data;
 };

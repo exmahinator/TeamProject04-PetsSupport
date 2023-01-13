@@ -17,10 +17,12 @@ const NoticesSearch = () => {
 	
 	const [isCloseIcon, setIsCloseIcon] = useState(!!input.current?.value);
 
+
 	const handleClear = e => {
 		e.preventDefault();
 		setIsCloseIcon(prev => !prev);
 		dispatch(setQueryParams({ filter: '' }));
+
 				dispatch(getNoticeByCategory());
 		return;
 	};
