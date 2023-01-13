@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {   setQueryParams } from 'redux/notices/notices-slice';
 import style from './NoticesSearch.module.scss';
