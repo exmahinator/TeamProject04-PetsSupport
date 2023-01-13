@@ -80,6 +80,11 @@
 	// 	background-position: left 68px top 43px;
 	// 	background-repeat: no-repeat;
 	// }
+
+	@media screen and (min-height: 953px) and (max-height: 1108px) {
+		padding-top: 0;
+	}
+
 	@media screen and (min-width: 1180px) {
 		padding-top: 0;
 	}
