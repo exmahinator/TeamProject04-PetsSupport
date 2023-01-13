@@ -14,7 +14,7 @@ const NoticesSearch = () => {
     const dispatch = useDispatch();
 	const input = useRef();
 	if (input.current) input.current.value = filter ?? '';
-	const isInputValue = input.current ? !!input.current.value : false
+	// const isInputValue = input.current ? !!input.current.value : false
 	// const [isCloseIcon, setIsCloseIcon] = useState(isInputValue);
 
 

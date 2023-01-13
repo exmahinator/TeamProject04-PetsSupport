@@ -153,7 +153,7 @@ const noticesSlice = createSlice({
 		[addNotice.fulfilled]: (store, { payload }) => {
 			store.isAddedSuccess = true;
 			store.loading = false;
-			if (store.currentNotices[0].category === payload.category) {
+			if (store.currentNotices[0]?.category === payload.category) {
 				store.currentNotices = [payload, ...store.currentNotices];
 			}
 		},
