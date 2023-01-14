@@ -29,7 +29,7 @@ export const NoticesList = ({ category }) => {
 
 	const ownerId = useSelector(getUserId);
 	const notices = useSelector(getCurrentNotices);
-	console.log(notices)
+	// console.log(notices)
 
 	const favNotices = useSelector(getFavoriteNotices);
 	const isFavLoading = useSelector(getNoticesLoading);
@@ -44,7 +44,7 @@ export const NoticesList = ({ category }) => {
 	const noResults = !notices.length && !isLoading;
 
 	const params = useSelector(getQueryParams);
-	console.log(params);
+	// console.log(params);
 
 	useEffect(() => {
 		dispatch(setQueryParams({ category }));
