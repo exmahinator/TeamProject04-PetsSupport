@@ -13,7 +13,7 @@ export const getNoticeByCategory = async ({ page = 1, category = 'sell', filter 
 				break;
 
 			case 'own':
-				result = await instance.get('/notices/users');
+				result = await instance.get(`/notices/users?title=${filter}`);
 				break;
 			default:
 				result = await instance.get(
