@@ -1,6 +1,5 @@
 import { HeartLoader } from '../HeartLoader/HeartLoader';
-import { Added } from './Added/Added';
-import { NotAdded } from './NotAdded/NotAdded';
+import { Button } from './Button/Button';
 
 export const Favorite = ({
 	onAddToFavorite,
@@ -9,15 +8,14 @@ export const Favorite = ({
 	favNotices,
 	isFavLoading,
 }) => {
-	// console.log(favNotices)
 	return (
 		<>
 			{isFavLoading ? (
 				<HeartLoader />
 			) : favNotices.includes(id) ? (
-				<Added onRemoveFromFavorite={onRemoveFromFavorite} id={id} />
+				<Button func={onRemoveFromFavorite} id={id} btnType={'remove'} />
 			) : (
-				<NotAdded onAddToFavorite={onAddToFavorite} id={id} />
+				<Button func={onAddToFavorite} id={id} />
 			)}
 		</>
 	);
