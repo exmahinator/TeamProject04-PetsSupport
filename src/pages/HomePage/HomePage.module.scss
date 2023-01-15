@@ -20,7 +20,7 @@
 	background: url(../../shared/images/Home/orangeWavesMobile.png);
 	background-position: bottom -15px right calc(50vw - 375px);
 	background-repeat: no-repeat;
-	// height: calc(100vh - 58px);
+	height: calc(100vh - 58px);
 
 	@include media(tablet) {
 		padding-top: 72px;
