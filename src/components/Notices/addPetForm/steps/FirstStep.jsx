@@ -29,8 +29,8 @@ export const FirstStep = ({ register, errors, nextPage, onCloseModal }) => {
 				<li className={styles.categor__item}>
 					<AddPetCategory
 						data="petCategoriesGoodHands"
-						text="goodhands"
-						value="goodhands"
+						text="in good hands"
+						value="in good hands"
 						field="category"
 						register={register}
 					/>
