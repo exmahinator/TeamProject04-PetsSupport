@@ -2,8 +2,6 @@
 
 
 .wrapper {
-	@include flex(center, center);
-	flex-direction: column;
 	width: 280px;
 	margin: 0 auto;
 
@@ -25,4 +23,9 @@
 	&__item {
 		display: flex;
 	}
+}
+
+.pagination{
+	@include flex(center, center);
+	padding-top: 45px;
 }

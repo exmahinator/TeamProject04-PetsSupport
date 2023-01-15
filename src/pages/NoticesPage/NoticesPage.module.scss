@@ -8,10 +8,10 @@
   }
 }
 
-.wrapper {
+.categories {
+  @include flex(space-between, baseline);
   padding-top: 28px;
   padding-bottom: 30px;
-  margin: 0 auto;
 
   @include media(tablet) {
     @include flex(space-between, baseline);

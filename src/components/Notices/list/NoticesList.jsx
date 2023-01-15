@@ -5,15 +5,12 @@ import {
 	getCurrentNotices,
 	getFavoriteNotices,
 	getNoticesLoading,
-	// getQueryParams,
 	getTotalPages,
 } from 'redux/notices/notices-selectors';
 import { getUserId } from 'redux/auth/auth-selectors';
 import {
 	getFavoriteNoticeByUser,
-	// getFavoriteNoticeForCategories,
 	getNoticeByCategory,
-	// getUserNotices,
 	removeNotice,
 } from 'redux/notices/notices-operations';
 
@@ -29,7 +26,6 @@ export const NoticesList = ({ category }) => {
 
 	const ownerId = useSelector(getUserId);
 	const notices = useSelector(getCurrentNotices);
-	// console.log(notices)
 
 	const favNotices = useSelector(getFavoriteNotices);
 	const isFavLoading = useSelector(getNoticesLoading);
@@ -43,27 +39,10 @@ export const NoticesList = ({ category }) => {
 
 	const noResults = !notices.length && !isLoading;
 
-	// const params = useSelector(getQueryParams);
-	// console.log(params);
-
 	useEffect(() => {
 		dispatch(setQueryParams({ category }));
-		if(isLogin)dispatch(getFavoriteNoticeByUser())
-		// switch (category) {
-		// 	case 'favorite':
-		// 		dispatch(getFavoriteNoticeForCategories());
-		// 		break;
-
-		// 	case 'own':
-		// 		dispatch(getUserNotices());
-		// 		break;
-		// 	default:
-				dispatch(getNoticeByCategory());
-		// 		break;
-		// }
-		// if (isLogin) {
-		// 	dispatch(getFavoriteNoticeByUser());
-		// }
+		if (isLogin) dispatch(getFavoriteNoticeByUser());
+		dispatch(getNoticeByCategory());
 	}, [category, dispatch, isLogin]);
 
 	const onDeleteNotice = e => {
@@ -91,7 +70,7 @@ export const NoticesList = ({ category }) => {
 					))}
 				</ul>
 			}
-			<div>
+			<div className={styles.pagination}>
 				{showPagination && <NoticesPaginationList pages={totalPages} />}
 			</div>
 		</div>
