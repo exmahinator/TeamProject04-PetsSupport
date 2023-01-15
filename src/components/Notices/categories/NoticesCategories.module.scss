@@ -2,15 +2,12 @@
 @import '../../../shared/styles/variables';
 
 .nav {
-	margin: 0 auto;
-	width: 280px;
-	display: flex;
-	flex-wrap: wrap;
+	@include flex(flex-start, center);
 	gap: 12px;
+	flex-wrap: wrap;
 
 	@include media(tablet) {
 		width: 70%;
-		margin-left: 5%;
 	}
 
 	&__item {

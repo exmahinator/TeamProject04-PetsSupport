@@ -4,7 +4,7 @@ export const ContactBtn = ({ phone, onCloseModal }) => {
 	return (
 		<a
 			href={`tel:${phone}`}
-			onClick={onCloseModal}
+			// onClick={onCloseModal}
 			className={style.infoModal__contact}
 		>
 			Contact

@@ -81,32 +81,38 @@ const NoticesItems = ({
 				</div>
 
 				<div className={styles.categor}>
-					<p className={styles.categor__paragraph}>{category ?? '-'}</p>
+					<p className={styles.categor__paragraph}>{category}</p>
 				</div>
 			</div>
 			<div className={styles.boxWrap}>
 				<div>
 					<div className={styles.heading}>
-						<h2 className={styles.heading__title}>{title ?? '-'}</h2>
+						<h2 className={styles.heading__title}>{title}</h2>
 					</div>
 
 					<ul className={styles.list}>
-						<li className={styles.list__item}>
+						{breed !== '' && (
+							<li className={styles.list__item}>
 							<p className={styles.list__paragraph}>Breed:</p>
-							<p className={styles.list__span}>{breed ?? '-'}</p>
+							<p className={styles.list__span}>{breed}</p>
 						</li>
+						)}
+						{location !== '' && (
 						<li className={styles.list__item}>
 							<p className={styles.list__paragraph}>Place:</p>
-							<p className={styles.list__span}>{location ?? '-'}</p>
+							<p className={styles.list__span}>{location}</p>
 						</li>
+						)}
+						{age !== '' && (
 						<li className={styles.list__item}>
 							<p className={styles.list__paragraph}>Age:</p>
-							<p className={styles.list__span}>{age ?? '-'}</p>
+							<p className={styles.list__span}>{age}</p>
 						</li>
+						)}
 						{category === 'sell' && (
 							<li className={styles.list__item}>
 								<p className={styles.list__paragraph}>Price:</p>
-								<p className={styles.list__span}>{price ?? '-'}</p>
+								<p className={styles.list__span}>{price}</p>
 							</li>
 						)}
 					</ul>

@@ -3,7 +3,6 @@ import { ReactComponent as FemaleSvg } from 'shared/images/Notices/el_female.svg
 import { ReactComponent as UploadCross } from 'shared/images/user/uploadCross.svg';
 import { Button } from 'components/Reuse/Button/Button';
 import styles from '../NoticesAddPetForm.module.scss';
-// import { AddPetItem } from '../AddPetItem/AddPetItem';
 import { AddPetRadioItem } from '../AddPetRadioItem/AddPetSex';
 import { AddPetInput } from 'components/User/AddPetForm/AddPetInput/AddPetInput';
 import {
@@ -12,14 +11,11 @@ import {
 	petPrice,
 } from 'components/Authorization/Input/inputOptions';
 import { ValidationError } from 'components/Authorization/ValidationError/ValidationError';
-// import { ValidationError } from 'components/Authorization/ValidationError/ValidationError';
 
 export const SecondStep = ({ register, onSubmit, downPage, watch, errors }) => {
 	const newImage = watch('avatar');
 	const categorySelected = watch('category');
 	const isSellCategorySelected = categorySelected === 'sell';
-
-	console.log(errors);
 
 	return (
 		<>
@@ -104,6 +100,12 @@ export const SecondStep = ({ register, onSubmit, downPage, watch, errors }) => {
 				/>
 			</div>
 			<div className={styles.buttonWrap}>
+				<Button
+					type={'button'}
+					text={'Back'}
+					colorType={'white'}
+					onClickFunc={downPage}
+				/>
 				<button
 					type="submit"
 					onSubmit={onSubmit}
@@ -111,12 +113,6 @@ export const SecondStep = ({ register, onSubmit, downPage, watch, errors }) => {
 				>
 					Done
 				</button>
-				<Button
-					type={'button'}
-					text={'Back'}
-					colorType={'white'}
-					onClickFunc={downPage}
-				/>
 			</div>
 		</>
 	);

@@ -6,7 +6,6 @@ import {
 } from 'components/Authorization/Input/inputOptions';
 import { Button } from 'components/Reuse/Button/Button';
 import { AddPetInput } from 'components/User/AddPetForm/AddPetInput/AddPetInput';
-// import { AddPetItem } from '../AddPetItem/AddPetItem';
 import { AddPetCategory } from '../AddPetRadioItem/AddPetCategory';
 import styles from '../NoticesAddPetForm.module.scss';
 
@@ -30,8 +29,8 @@ export const FirstStep = ({ register, errors, nextPage, onCloseModal }) => {
 				<li className={styles.categor__item}>
 					<AddPetCategory
 						data="petCategoriesGoodHands"
-						text="goodhands"
-						value="goodhands"
+						text="in good hands"
+						value="in good hands"
 						field="category"
 						register={register}
 					/>
@@ -56,54 +55,19 @@ export const FirstStep = ({ register, errors, nextPage, onCloseModal }) => {
 				<AddPetInput register={register} errors={errors} settings={petBirth} />
 				<AddPetInput register={register} errors={errors} settings={petBreed} />
 			</div>
-			{/* <ul>
-				<li>
-					<AddPetItem
-						data="title"
-						text="Tittle of ad"
-						field="title"
-						register={register}
-						req={true}
-					/>
-				</li>
-				<li>
-					<AddPetItem
-						data="name"
-						text="Name pet"
-						field="name"
-						register={register}
-					/>
-				</li>
-				<li>
-					<AddPetItem
-						data="birthday"
-						text="Date of birth"
-						field="birthday"
-						register={register}
-					/>
-				</li>
-				<li>
-					<AddPetItem
-						data="breed"
-						text="Breed"
-						field="breed"
-						register={register}
-					/>
-				</li>
-			</ul> */}
 
 			<div className={styles.buttonWrap}>
-				<Button
-					type={'button'}
-					text={'Next'}
-					colorType={'orange'}
-					onClickFunc={nextPage}
-				/>
 				<Button
 					type={'button'}
 					text={'Cancel'}
 					colorType={'white'}
 					onClickFunc={onCloseModal}
+				/>
+				<Button
+					type={'button'}
+					text={'Next'}
+					colorType={'orange'}
+					onClickFunc={nextPage}
 				/>
 			</div>
 		</div>
