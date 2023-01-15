@@ -16,14 +16,9 @@ import {
 	phoneOpt,
 } from '../Input/inputOptions';
 import { register as reg } from '../../../redux/auth/auth-operations';
-// import { useFormSession } from 'shared/hooks/auth/useFormSession';
-
-
-// const SESSION_STORAGE_NAME = 'registerFrom'
 
 export const RegisterForm = () => {
 	const [nextStep, setNextStep] = useState(false);
-	// const { getSessionData, setSessionData } = useFormSession(SESSION_STORAGE_NAME);
 	 const defaultValues = {email: '', password: '',city: '', name: '', phone: '', passwordConfirm: ''}
 
 	const dispatch = useDispatch();
@@ -37,10 +32,6 @@ export const RegisterForm = () => {
 
 	const password = useRef({});
 	password.current = watch('password', '');
-
-//   watch(({email, city, name, phone})=> {
-// 		setSessionData({ email, city, name, phone });
-// 	});
 
 	const onSubmit = ({ email, password, city, phone, name }) => {
 		phone = '+38' + phone;
@@ -60,7 +51,6 @@ export const RegisterForm = () => {
 			const errorMessage = e.status === 409 ? 'This email is already in use' : 'Oops, something went wrong... Try again, please'
 			return toast.error(errorMessage)
 		});
-		// setSessionData({});
 	};
 
 	const toggleBackBtn = () => {

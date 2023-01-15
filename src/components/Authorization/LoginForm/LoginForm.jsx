@@ -6,21 +6,14 @@ import { Input } from '../Input/Input';
 import { emailOpt, passwordOpt } from '../Input/inputOptions';
 import { useDispatch } from 'react-redux';
 import { login } from '../../../redux/auth/auth-operations';
-// import { useFormSession } from 'shared/hooks/auth/useFormSession';
 import { toast } from 'react-toastify';
 
 
-// const SESSION_STORAGE_NAME = 'loginFrom';
-
 export const LoginForm = () => {
 	const dispatch = useDispatch();
-	// const { getSessionData, setSessionData } =
-	// useFormSession(SESSION_STORAGE_NAME);
-	// const defaultValuesFromSessionStorage = getSessionData();
 
 
 	const {
-		// watch,
 		register,
 		handleSubmit,
 		formState: { errors, isValid },
@@ -28,10 +21,6 @@ export const LoginForm = () => {
 		mode: 'onBlur',
 		defaultValues:{email: '', password: ''},
 	});
-
-	// watch(({ email }) => {
-	// 	setSessionData({ email });
-	// });
 
 	const onSubmit = ({ email, password }) => {
 		if (!isValid) return;
@@ -46,7 +35,6 @@ export const LoginForm = () => {
 				const {name}= res.user
 			return toast.success(`Welcome, ${name} !`) })
 			.catch(() => toast.error('Invalid password or email'));
-		// setSessionData({});
 	};
 
 	return (
