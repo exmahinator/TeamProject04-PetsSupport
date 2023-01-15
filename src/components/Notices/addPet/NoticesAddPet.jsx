@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { Modal } from 'components/Reuse/Modal/Modal';
 import { AddPetForm } from '../addPetForm/NoticesAddPetForm';
-import styles from './NoticesAddPet.module.scss';
 import { useAuth } from 'shared/hooks/useAuth';
-import { toast } from 'react-toastify';
 import { toggleBodyHidden } from 'shared/functions/toggleBodyHidden';
+import styles from './NoticesAddPet.module.scss';
 
-const NoticesAddPet = () => {
+export const NoticesAddPet = () => {
 	const [isShowModal, setIsShowModal] = useState(false);
 
 	const isLogin = useAuth();
@@ -62,5 +62,3 @@ const NoticesAddPet = () => {
 		</>
 	);
 };
-
-export default NoticesAddPet;

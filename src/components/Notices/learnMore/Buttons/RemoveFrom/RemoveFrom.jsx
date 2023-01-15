@@ -1,7 +1,5 @@
 import { HeartLoader } from 'components/Notices/HeartLoader/HeartLoader';
-
 import { ReactComponent as AddToIcon } from 'shared/images/Notices/AddToIcon.svg';
-
 import style from '../Buttons.module.scss';
 
 export const RemoveFrom = ({ id, onRemoveFromFavorite, isFavLoading }) => {

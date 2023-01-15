@@ -1,5 +1,6 @@
-import { toast } from 'react-toastify';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import {
 	addNoticeToFavorite,
 	getNoticeByCategory,
@@ -8,15 +9,12 @@ import {
 import { Favorite } from '../Favorite/Favorite';
 import { getAge } from 'shared/functions/getAge';
 import { numberToWord } from 'shared/functions/numberToWord';
+import { LearnMore } from '../learnMore/LearnMore';
+import { getCategory } from 'redux/notices/notices-selectors';
 import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
-
-import LearnMore from '../learnMore/LearnMore';
 import styles from './NoticesItems.module.scss';
-import {  getCategory} from 'redux/notices/notices-selectors';
-import { useState } from 'react';
 
-
-const NoticesItems = ({
+export const NoticesItems = ({
 	data,
 	ownerId,
 	isLogin,
@@ -37,12 +35,10 @@ const NoticesItems = ({
 		imageURL,
 	} = data;
 
-
 	const dispatch = useDispatch();
 
-	const  listCategory = useSelector(getCategory);
-		const [isShowModal, setIsShowModal] = useState(false);
-
+	const listCategory = useSelector(getCategory);
+	const [isShowModal, setIsShowModal] = useState(false);
 
 	const onAddToFavorite = e => {
 		const cardId = e.currentTarget.id;
@@ -57,7 +53,6 @@ const NoticesItems = ({
 
 		dispatch(removeNoticeFromFavorite(cardId));
 		if (listCategory === 'favorite' && !isShowModal) {
-
 			dispatch(getNoticeByCategory());
 		}
 	};
@@ -93,21 +88,21 @@ const NoticesItems = ({
 					<ul className={styles.list}>
 						{breed !== '' && (
 							<li className={styles.list__item}>
-							<p className={styles.list__paragraph}>Breed:</p>
-							<p className={styles.list__span}>{breed}</p>
-						</li>
+								<p className={styles.list__paragraph}>Breed:</p>
+								<p className={styles.list__span}>{breed}</p>
+							</li>
 						)}
 						{location !== '' && (
-						<li className={styles.list__item}>
-							<p className={styles.list__paragraph}>Place:</p>
-							<p className={styles.list__span}>{location}</p>
-						</li>
+							<li className={styles.list__item}>
+								<p className={styles.list__paragraph}>Place:</p>
+								<p className={styles.list__span}>{location}</p>
+							</li>
 						)}
 						{age !== '' && (
-						<li className={styles.list__item}>
-							<p className={styles.list__paragraph}>Age:</p>
-							<p className={styles.list__span}>{age}</p>
-						</li>
+							<li className={styles.list__item}>
+								<p className={styles.list__paragraph}>Age:</p>
+								<p className={styles.list__span}>{age}</p>
+							</li>
 						)}
 						{category === 'sell' && (
 							<li className={styles.list__item}>
@@ -129,7 +124,7 @@ const NoticesItems = ({
 						onRemoveFromFavorite={onRemoveFromFavorite}
 					/>
 
-					{ownerId === owner && (						
+					{ownerId === owner && (
 						<button
 							id={id}
 							type="button"
@@ -149,5 +144,3 @@ const NoticesItems = ({
 		</div>
 	);
 };
-
-export default NoticesItems;

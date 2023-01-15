@@ -1,5 +1,4 @@
 import { ReactComponent as NoticesHartSvg } from 'shared/images/Notices/Notices-hart.svg';
-
 import style from '../Favorite.module.scss';
 
 export const NotAdded = ({ onAddToFavorite, id }) => {
