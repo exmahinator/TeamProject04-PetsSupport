@@ -83,6 +83,8 @@
 
 		&:hover,
 		:focus {
+			filter: drop-shadow(0 0 20px $hover-color);
+			color: $hover-color;
 			cursor: pointer;
 		}
 	}
@@ -241,7 +243,11 @@
 			height: 32px;
 			padding: 6px;
 		}
-
+		&:hover,
+		&:focus {
+			color: $hover-color;
+			filter: drop-shadow(0 0 10px $hover-color);
+		}
 		&__disabled {
 			cursor: auto;
 			width: 24px;

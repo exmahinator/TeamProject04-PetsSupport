@@ -16,7 +16,7 @@ export const UserItem = ({
 	text,
 	setValue,
 	onSubmit,
-	pattern:{pattern, patternMessage}
+	pattern: { pattern, patternMessage },
 }) => {
 	const [edited, setEdited] = useState(false);
 
@@ -43,24 +43,29 @@ export const UserItem = ({
 				<p className={style.user__text}>{text}:</p>
 				{edited ? (
 					<>
-					<input
-						{...register(field, {pattern:{
-						value: pattern,
-						message: patternMessage,
-                    }})}
-						className={style.user__input}
+						<input
+							{...register(field, {
+								pattern: {
+									value: pattern,
+									message: patternMessage,
+								},
+							})}
+							className={style.user__input}
 							type={type}
 							name={field}
-						id={data}
-					/>
+							id={data}
+							placeholder={`Your ${field}`}
+						/>
 
-				{errors[field] && <div className={style.error__notify}>{errors[field]?.message}</div>}
-				</>
-				
+						{errors[field] && (
+							<div className={style.error__notify}>
+								{errors[field]?.message}
+							</div>
+						)}
+					</>
 				) : (
-					<p className={style.user__data}>{data}</p>
+					<p className={style.user__data}>{data === '' ? `Unknown` : data}</p>
 				)}
-			
 
 				{edited ? (
 					<button className={style.user__button} type="submit">

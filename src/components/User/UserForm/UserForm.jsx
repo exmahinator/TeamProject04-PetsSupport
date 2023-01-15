@@ -12,17 +12,28 @@ import { UserSkeletonMobile } from 'components/Reuse/Loaders/Skeleton/UserSkelet
 import style from './UserForm.module.scss';
 
 export const UserForm = ({ formData }) => {
-	const { userInfo:{name, email, birthday, phone, city}, userAvatar, isUserLoading, isCurrentLoading } = formData;
-	const { register, handleSubmit, watch, setValue, formState: { errors }, } = useForm({});
+	const {
+		userInfo: { name, email, birthday, phone, city },
+		userAvatar,
+		isUserLoading,
+		isCurrentLoading,
+	} = formData;
+	const {
+		register,
+		handleSubmit,
+		watch,
+		setValue,
+		formState: { errors },
+	} = useForm({});
 	const dispatch = useDispatch();
 
 	const normalizeUserInfo = {
 		name,
 		email,
-		birthday, 
+		birthday,
 		phone,
-		city
-}
+		city,
+	};
 
 	const onSubmit = data => {
 		if (data) {
