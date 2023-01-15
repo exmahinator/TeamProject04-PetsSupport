@@ -54,3 +54,14 @@
 		line-height: 1.35;
 	}
 }
+
+.links {
+	&:link,
+	&:visited {
+		text-decoration: none;
+		transition: $transition;
+		&:hover {
+			color: #f59256;
+		}
+	}
+}

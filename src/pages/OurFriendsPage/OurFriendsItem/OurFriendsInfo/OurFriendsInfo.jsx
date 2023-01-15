@@ -25,19 +25,21 @@ export const OurFriendsInfo = ({
 			<div>
 				<p>Address:</p>
 
-				<a href={addressUrl}>
+				<a className={styles.links} href={addressUrl}>
 					{address ? sliceAdress(address) : '_____________'}
 				</a>
 			</div>
-			<p>
-				Email:
-				<br />
+			<p>Email:</p>
+
+			<a className={styles.links} href={email}>
 				{email ? `${email}` : '_____________'}
-			</p>
-			<p>
-				Phone:
-				<br /> {phone ? `${phone}` : '_____________'}
-			</p>
+			</a>
+
+			<p>Phone: </p>
+
+			<a className={styles.links} href={phone}>
+				{phone ? `${phone}` : '_____________'}
+			</a>
 		</div>
 	);
 };
