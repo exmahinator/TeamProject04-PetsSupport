@@ -20,10 +20,10 @@
 }
 
 .heading {
+	position: relative;
 	width: 250px;
 	max-height: 76px;
 	margin-bottom: 16px;
-
 
 	&__title {
 		font-weight: 700;
@@ -34,6 +34,24 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		transition: $transition;
+	}
+
+	&__tooltip {
+		position: absolute;
+		font-size: 0px;
+		top: -55%;
+		left: 0;
+	}
+
+	&__title:hover ~ &__tooltip {
+		width: max-content;
+		font-weight: 500;
+		font-size: 18px;
+		background-color: $sixth-bg-color;
+		border: 1px solid $accent-color;
+		border-radius: 20px;
+		padding: 1px 8px;
 	}
 }
 
@@ -142,7 +160,7 @@
 	height: 100px;
 	@include flex(center, center);
 	gap: 12px;
-	margin-bottom: 12px
+	margin-bottom: 12px;
 }
 
 .deleteOwnNotice {

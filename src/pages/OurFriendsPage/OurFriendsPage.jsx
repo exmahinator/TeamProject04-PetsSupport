@@ -7,7 +7,7 @@ import {
 import { getAllServices } from '../../redux/services/services-operations';
 import { Container } from '@mui/material';
 import { Title } from 'components/Reuse/Title/Title';
-import { OurFriendsList } from './OurFriendsList/OurFriendsList';
+import { OurFriendsList } from '../../components/OurFriends/OurFriendsList/OurFriendsList';
 import style from './OurFriendsPage.module.scss';
 import { BigSpinner } from 'components/Reuse/Loaders/Spinner/BigSpinner';
 

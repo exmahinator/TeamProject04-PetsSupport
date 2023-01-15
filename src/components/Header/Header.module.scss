@@ -6,14 +6,14 @@
 	@include flex(space-between, center);
 	position: relative;
 	margin: 0px auto;
-	padding-top: 16px;
+	padding: 16px 0px 20px;
 
 	@include media(tablet) {
-		padding-top: 22px;
+		padding: 20px 0px 46px;
 	}
 
 	@include media(desktop) {
-		padding-top: 20px;
+		padding: 20px 0px 30px;
 	}
 }
 

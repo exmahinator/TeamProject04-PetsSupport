@@ -50,7 +50,7 @@ const UserPage = () => {
 	const cardData = { userPets, onDeletePet, isPetsLoading };
 
 	return (
-		<div className={style.general}>
+		<div className={style.section}>
 			<div className={style.user__wrapper}>
 				<Title title="My information:" className={style.titleUser} />
 				<UserForm formData={formData} />
