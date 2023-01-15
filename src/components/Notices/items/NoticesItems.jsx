@@ -83,6 +83,7 @@ export const NoticesItems = ({
 				<div>
 					<div className={styles.heading}>
 						<h2 className={styles.heading__title}>{title}</h2>
+						<p className={styles.heading__tooltip}>{title}</p>
 					</div>
 
 					<ul className={styles.list}>
