@@ -12,7 +12,6 @@ import { toast } from 'react-toastify';
 export const LoginForm = () => {
 	const dispatch = useDispatch();
 
-
 	const {
 		register,
 		handleSubmit,
