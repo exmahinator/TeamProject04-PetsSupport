@@ -105,6 +105,9 @@
 .link {
 	@extend .linkText;
 	color: #3091eb;
+		&:hover {
+				color: $hover-color;
+			}
 }
 
 .btn {
