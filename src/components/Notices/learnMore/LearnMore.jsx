@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import { Modal } from 'components/Reuse/Modal/Modal';
 
 import styles from './LearnMore.module.scss';
 import { Buttons } from './Buttons/Buttons';
+import { useDispatch} from 'react-redux';
+import {  } from 'redux/notices/notices-selectors';
+import { getNoticeByCategory } from 'redux/notices/notices-operations';
 
 const LearnMore = ({
 	data,
@@ -10,6 +13,9 @@ const LearnMore = ({
 	isFavLoading,
 	onAddToFavorite,
 	onRemoveFromFavorite,
+	isShowModal, 
+	setIsShowModal, 
+	listCategory,
 }) => {
 	const {
 		_id: id,
@@ -26,7 +32,9 @@ const LearnMore = ({
 		category,
 	} = data;
 
-	const [isShowModal, setIsShowModal] = useState(false);
+
+	const dispatch = useDispatch();
+
 
 	const showModal = () => {
 		setIsShowModal(true);
@@ -36,6 +44,9 @@ const LearnMore = ({
 	};
 
 	const onClose = () => {
+		if (listCategory === 'favorite') {
+			dispatch(getNoticeByCategory());
+		}
 		setIsShowModal(false);
 		document.body.style.overflow = 'unset';
 	};
