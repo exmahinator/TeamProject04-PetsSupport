@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import { Modal } from 'components/Reuse/Modal/Modal';
 
 import styles from './LearnMore.module.scss';
@@ -13,6 +13,8 @@ const LearnMore = ({
 	isFavLoading,
 	onAddToFavorite,
 	onRemoveFromFavorite,
+	isShowModal, 
+	setIsShowModal, 
 }) => {
 	const {
 		_id: id,
@@ -29,9 +31,9 @@ const LearnMore = ({
 		category,
 	} = data;
 
-	const [isShowModal, setIsShowModal] = useState(false);
+	// const [isShowModal, setIsShowModal] = useState(false);
 
-		const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	const {category: listCategory} = useSelector(getQueryParams);
 
 
@@ -45,7 +47,6 @@ const LearnMore = ({
 	const onClose = () => {
 		if (listCategory === 'favorite') {
 			dispatch(getNoticeByCategory());
-			console.log(135133)
 		}
 		setIsShowModal(false);
 		document.body.style.overflow = 'unset';

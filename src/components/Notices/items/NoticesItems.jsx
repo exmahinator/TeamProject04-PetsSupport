@@ -1,7 +1,8 @@
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
 	addNoticeToFavorite,
+	getNoticeByCategory,
 	removeNoticeFromFavorite,
 } from 'redux/notices/notices-operations';
 import { Favorite } from '../Favorite/Favorite';
@@ -11,6 +12,9 @@ import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
 
 import LearnMore from '../learnMore/LearnMore';
 import styles from './NoticesItems.module.scss';
+import { getQueryParams } from 'redux/notices/notices-selectors';
+import { useState } from 'react';
+
 
 const NoticesItems = ({
 	data,
@@ -36,6 +40,10 @@ const NoticesItems = ({
 
 	const dispatch = useDispatch();
 
+	const { category: listCategory } = useSelector(getQueryParams);
+		const [isShowModal, setIsShowModal] = useState(false);
+
+
 	const onAddToFavorite = e => {
 		const cardId = e.currentTarget.id;
 
@@ -48,7 +56,9 @@ const NoticesItems = ({
 		const cardId = e.currentTarget.id;
 
 		dispatch(removeNoticeFromFavorite(cardId));
-		// dispatch(getNoticeByCategory())
+		if (listCategory === 'favorite' && !isShowModal) {
+			dispatch(getNoticeByCategory());
+		}
 	};
 
 	const born = getAge(birthday);
@@ -102,28 +112,16 @@ const NoticesItems = ({
 				</div>
 				<div className={styles.btnContainer}>
 					<LearnMore
+						isShowModal={isShowModal}
+						setIsShowModal={setIsShowModal}
 						data={data}
-						// id={id}
-						// sex={sex}
-						// name={name}
-						// phone={phone}
-						// breed={breed}
-						// price={price}
-						// title={title}
-						// email={email}
-						// imageURL={imageURL}
-						// birthday={birthday}
-						// category={category}
-						// comments={comments}
-						// location={location}
 						favNotices={favNotices}
 						isFavLoading={isFavLoading}
 						onAddToFavorite={onAddToFavorite}
 						onRemoveFromFavorite={onRemoveFromFavorite}
 					/>
 
-					{ownerId === owner && (
-						
+					{ownerId === owner && (						
 						<button
 							id={id}
 							type="button"

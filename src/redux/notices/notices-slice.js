@@ -44,6 +44,7 @@ const noticesSlice = createSlice({
 		resetIsAddedSuccess: state => {
 			state.isAddedSuccess = false;
 		},
+		
 	},
 	extraReducers: {
 		//! Менять нельзя!
@@ -153,7 +154,7 @@ const noticesSlice = createSlice({
 		[addNotice.fulfilled]: (store, { payload }) => {
 			store.isAddedSuccess = true;
 			store.loading = false;
-			if (store.currentNotices[0]?.category === payload.category) {
+			if ([payload.category, 'own'].includes(store.queryParams.category)){
 				store.currentNotices = [payload, ...store.currentNotices];
 			}
 		},

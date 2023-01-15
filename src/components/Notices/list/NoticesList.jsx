@@ -5,7 +5,7 @@ import {
 	getCurrentNotices,
 	getFavoriteNotices,
 	getNoticesLoading,
-	getQueryParams,
+	// getQueryParams,
 	getTotalPages,
 } from 'redux/notices/notices-selectors';
 import { getUserId } from 'redux/auth/auth-selectors';
@@ -43,7 +43,7 @@ export const NoticesList = ({ category }) => {
 
 	const noResults = !notices.length && !isLoading;
 
-	const params = useSelector(getQueryParams);
+	// const params = useSelector(getQueryParams);
 	// console.log(params);
 
 	useEffect(() => {
