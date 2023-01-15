@@ -21,7 +21,7 @@ export const TrashButton = ({ id, onDeletePet, isPetsLoading }) => {
 					) : (
 						<TrashIcon
 							className={style.trashIcon}
-							fill="rgba(17, 17, 17, 0.6)"
+							fill="currentColor"
 							width={24}
 							height={24}
 						/>
@@ -39,7 +39,7 @@ export const TrashButton = ({ id, onDeletePet, isPetsLoading }) => {
 					) : (
 						<TrashIcon
 							className={style.trashIcon}
-							fill="rgba(17, 17, 17, 0.6)"
+							fill="currentColor"
 							width={15}
 							height={15}
 						/>
