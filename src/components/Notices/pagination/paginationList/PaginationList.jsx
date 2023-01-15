@@ -5,7 +5,7 @@ export const NoticesPaginationList = ({ pages }) => {
 	const arr = Array(pages).fill('*');
 
 	return (
-		<div className={style.wrapper}>
+		<div>
 			<ul className={style.list}>
 				{arr.map((el, index) => {
 					return (

@@ -78,9 +78,7 @@ export const getFavoriteNoticeForCategories = createAsyncThunk(
 
 export const getFavoriteNoticeByUser = createAsyncThunk(
 	'notices/getFavoriteNoticeByUser',
-	async (_, { rejectWithValue, getState }) => {
-		const { notices: { queryParams } } = getState();
-		console.log(queryParams)
+	async (_, { rejectWithValue }) => {
 		try {
 			const result = await api.getFavoriteNotices();
 			return result;

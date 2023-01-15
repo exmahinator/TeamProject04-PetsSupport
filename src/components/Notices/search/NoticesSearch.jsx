@@ -5,11 +5,11 @@ import style from './NoticesSearch.module.scss';
 import { SearchTooltip } from 'components/News/Search/SearchTooltip';
 import { SearchBtns } from 'components/News/Search/SearchBtns/SearchBtns';
 import { getNoticeByCategory } from 'redux/notices/notices-operations';
-import { getQueryParams } from 'redux/notices/notices-selectors';
+import {getFilter  } from 'redux/notices/notices-selectors';
 
 
 const NoticesSearch = () => {
-	const { filter } = useSelector(getQueryParams);
+	const filter = useSelector(getFilter);
 
     const dispatch = useDispatch();
 	const input = useRef();

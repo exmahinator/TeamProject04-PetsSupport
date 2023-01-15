@@ -38,7 +38,7 @@ const NoticesPage = () => {
 			<Container>
 				<NoticesHeading />
 				<NoticesSearch />
-				<div className={styles.wrapper}>
+				<div className={styles.categories}>
 					<NoticesCategories />
 					<NoticesAddPet />
 				</div>

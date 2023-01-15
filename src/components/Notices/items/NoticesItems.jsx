@@ -1,7 +1,8 @@
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
 	addNoticeToFavorite,
+	getNoticeByCategory,
 	removeNoticeFromFavorite,
 } from 'redux/notices/notices-operations';
 import { Favorite } from '../Favorite/Favorite';
@@ -11,6 +12,9 @@ import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
 
 import LearnMore from '../learnMore/LearnMore';
 import styles from './NoticesItems.module.scss';
+import {  getCategory} from 'redux/notices/notices-selectors';
+import { useState } from 'react';
+
 
 const NoticesItems = ({
 	data,
@@ -36,6 +40,10 @@ const NoticesItems = ({
 
 	const dispatch = useDispatch();
 
+	const  listCategory = useSelector(getCategory);
+		const [isShowModal, setIsShowModal] = useState(false);
+
+
 	const onAddToFavorite = e => {
 		const cardId = e.currentTarget.id;
 
@@ -48,7 +56,10 @@ const NoticesItems = ({
 		const cardId = e.currentTarget.id;
 
 		dispatch(removeNoticeFromFavorite(cardId));
-		// dispatch(getNoticeByCategory())
+		if (listCategory === 'favorite' && !isShowModal) {
+
+			dispatch(getNoticeByCategory());
+		}
 	};
 
 	const born = getAge(birthday);
@@ -70,60 +81,55 @@ const NoticesItems = ({
 				</div>
 
 				<div className={styles.categor}>
-					<p className={styles.categor__paragraph}>{category ?? '-'}</p>
+					<p className={styles.categor__paragraph}>{category}</p>
 				</div>
 			</div>
 			<div className={styles.boxWrap}>
 				<div>
 					<div className={styles.heading}>
-						<h2 className={styles.heading__title}>{title ?? '-'}</h2>
+						<h2 className={styles.heading__title}>{title}</h2>
 					</div>
 
 					<ul className={styles.list}>
-						<li className={styles.list__item}>
+						{breed !== '' && (
+							<li className={styles.list__item}>
 							<p className={styles.list__paragraph}>Breed:</p>
-							<p className={styles.list__span}>{breed ?? '-'}</p>
+							<p className={styles.list__span}>{breed}</p>
 						</li>
+						)}
+						{location !== '' && (
 						<li className={styles.list__item}>
 							<p className={styles.list__paragraph}>Place:</p>
-							<p className={styles.list__span}>{location ?? '-'}</p>
+							<p className={styles.list__span}>{location}</p>
 						</li>
+						)}
+						{age !== '' && (
 						<li className={styles.list__item}>
 							<p className={styles.list__paragraph}>Age:</p>
-							<p className={styles.list__span}>{age ?? '-'}</p>
+							<p className={styles.list__span}>{age}</p>
 						</li>
+						)}
 						{category === 'sell' && (
 							<li className={styles.list__item}>
 								<p className={styles.list__paragraph}>Price:</p>
-								<p className={styles.list__span}>{price ?? '-'}</p>
+								<p className={styles.list__span}>{price}</p>
 							</li>
 						)}
 					</ul>
 				</div>
 				<div className={styles.btnContainer}>
 					<LearnMore
+						listCategory={listCategory}
+						isShowModal={isShowModal}
+						setIsShowModal={setIsShowModal}
 						data={data}
-						// id={id}
-						// sex={sex}
-						// name={name}
-						// phone={phone}
-						// breed={breed}
-						// price={price}
-						// title={title}
-						// email={email}
-						// imageURL={imageURL}
-						// birthday={birthday}
-						// category={category}
-						// comments={comments}
-						// location={location}
 						favNotices={favNotices}
 						isFavLoading={isFavLoading}
 						onAddToFavorite={onAddToFavorite}
 						onRemoveFromFavorite={onRemoveFromFavorite}
 					/>
 
-					{ownerId === owner && (
-						
+					{ownerId === owner && (						
 						<button
 							id={id}
 							type="button"

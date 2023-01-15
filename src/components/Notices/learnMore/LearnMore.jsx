@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Modal } from 'components/Reuse/Modal/Modal';
 
 import styles from './LearnMore.module.scss';
 import { Buttons } from './Buttons/Buttons';
+import { useDispatch } from 'react-redux';
+import {} from 'redux/notices/notices-selectors';
+import { getNoticeByCategory } from 'redux/notices/notices-operations';
 
 const LearnMore = ({
 	data,
@@ -10,6 +13,9 @@ const LearnMore = ({
 	isFavLoading,
 	onAddToFavorite,
 	onRemoveFromFavorite,
+	isShowModal,
+	setIsShowModal,
+	listCategory,
 }) => {
 	const {
 		_id: id,
@@ -26,7 +32,7 @@ const LearnMore = ({
 		category,
 	} = data;
 
-	const [isShowModal, setIsShowModal] = useState(false);
+	const dispatch = useDispatch();
 
 	const showModal = () => {
 		setIsShowModal(true);
@@ -36,6 +42,9 @@ const LearnMore = ({
 	};
 
 	const onClose = () => {
+		if (listCategory === 'favorite') {
+			dispatch(getNoticeByCategory());
+		}
 		setIsShowModal(false);
 		document.body.style.overflow = 'unset';
 	};
@@ -85,43 +94,60 @@ const LearnMore = ({
 							</div>
 							<div>
 								<ul className={styles.list}>
-									<li className={styles.list__item}>
-										<p className={styles.desc}>Name:</p>
-										<p className={styles.desc__paragraph}>{name}</p>
-									</li>
-									<li className={styles.list__item}>
-										<p className={styles.desc}>Birthday:</p>
-										<p className={styles.desc__paragraph}>{birthday}</p>
-									</li>
-									<li className={styles.list__item}>
-										<p className={styles.desc}>Breed:</p>
-										<p className={styles.desc__paragraph}>{breed}</p>
-									</li>
-									<li className={styles.list__item}>
-										<p className={styles.desc}>Place:</p>
-										<p className={styles.desc__paragraph}>{location}</p>
-									</li>
-									<li className={styles.list__item}>
-										<p className={styles.desc}>The sex:</p>
-										<p className={styles.desc__paragraph}>{sex}</p>
-									</li>
-									<li className={styles.list__item}>
-										<p className={styles.desc}>Email:</p>
-										<p className={styles.desc__paragraph}>{email ?? '-'}</p>
-									</li>
-									<li className={styles.list__item}>
-										<p className={styles.desc}>Phone:</p>
-										<p className={styles.desc__paragraph}>{phone ?? '-'}</p>
-									</li>
+									{name !== '' && (
+										<li className={styles.list__item}>
+											<p className={styles.desc}>Name:</p>
+											<p className={styles.desc__paragraph}>{name}</p>
+										</li>
+									)}
+									{birthday !== '' && (
+										<li className={styles.list__item}>
+											<p className={styles.desc}>Birthday:</p>
+											<p className={styles.desc__paragraph}>{birthday}</p>
+										</li>
+									)}
+
+									{breed !== '' && (
+										<li className={styles.list__item}>
+											<p className={styles.desc}>Breed:</p>
+											<p className={styles.desc__paragraph}>{breed}</p>
+										</li>
+									)}
+									{location !== '' && (
+										<li className={styles.list__item}>
+											<p className={styles.desc}>Place:</p>
+											<p className={styles.desc__paragraph}>{location}</p>
+										</li>
+									)}
+									{sex !== '' && (
+										<li className={styles.list__item}>
+											<p className={styles.desc}>The sex:</p>
+											<p className={styles.desc__paragraph}>{sex}</p>
+										</li>
+									)}
+									{email !== '' && (
+										<li className={styles.list__item}>
+											<p className={styles.desc}>Email:</p>
+											<a href='mailto:email' className={styles.desc__paragraph__contact}>{email}</a>
+										</li>
+									)}
+									{phone !== '' && (
+										<li className={styles.list__item}>
+											<p className={styles.desc}>Phone:</p>
+											<a href='tel:phone' className={styles.desc__paragraph__contact}>{phone}</a>
+										</li>
+									)}
 								</ul>
 							</div>
 						</div>
 					</div>
 					<div className={styles.commen}>
+						{comments !== '' && (
 						<p className={styles.commen__paragraph}>
 							<span className={styles.commen__span}>Comments: </span>
 							{comments}
 						</p>
+						)}
 					</div>
 
 					<Buttons
