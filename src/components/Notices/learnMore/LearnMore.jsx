@@ -1,13 +1,11 @@
 import { useEffect } from 'react';
-import { Modal } from 'components/Reuse/Modal/Modal';
-
-import styles from './LearnMore.module.scss';
-import { Buttons } from './Buttons/Buttons';
 import { useDispatch } from 'react-redux';
-import {} from 'redux/notices/notices-selectors';
+import { Modal } from 'components/Reuse/Modal/Modal';
+import { Buttons } from './Buttons/Buttons';
 import { getNoticeByCategory } from 'redux/notices/notices-operations';
+import styles from './LearnMore.module.scss';
 
-const LearnMore = ({
+export const LearnMore = ({
 	data,
 	favNotices,
 	isFavLoading,
@@ -128,13 +126,23 @@ const LearnMore = ({
 									{email !== '' && (
 										<li className={styles.list__item}>
 											<p className={styles.desc}>Email:</p>
-											<a href='mailto:email' className={styles.desc__paragraph__contact}>{email}</a>
+											<a
+												href="mailto:email"
+												className={styles.desc__paragraph__contact}
+											>
+												{email}
+											</a>
 										</li>
 									)}
 									{phone !== '' && (
 										<li className={styles.list__item}>
 											<p className={styles.desc}>Phone:</p>
-											<a href='tel:phone' className={styles.desc__paragraph__contact}>{phone}</a>
+											<a
+												href="tel:phone"
+												className={styles.desc__paragraph__contact}
+											>
+												{phone}
+											</a>
 										</li>
 									)}
 								</ul>
@@ -143,10 +151,10 @@ const LearnMore = ({
 					</div>
 					<div className={styles.commen}>
 						{comments !== '' && (
-						<p className={styles.commen__paragraph}>
-							<span className={styles.commen__span}>Comments: </span>
-							{comments}
-						</p>
+							<p className={styles.commen__paragraph}>
+								<span className={styles.commen__span}>Comments: </span>
+								{comments}
+							</p>
 						)}
 					</div>
 
@@ -164,5 +172,3 @@ const LearnMore = ({
 		</>
 	);
 };
-
-export default LearnMore;

@@ -1,18 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import {
 	getIsAddedSuccess,
 	getNoticesError,
 } from 'redux/notices/notices-selectors';
-import { Container } from 'components/Reuse/Container/Container';
-import NoticesHeading from 'components/Notices/heading/NoticesHeading';
-import NoticesSearch from 'components/Notices/search/NoticesSearch';
-import NoticesCategories from 'components/Notices/categories/NoticesCategories';
-import NoticesAddPet from 'components/Notices/addPet/NoticesAddPet';
-import styles from './NoticesPage.module.scss';
-import { useEffect } from 'react';
-import { toast } from 'react-toastify';
 import { resetIsAddedSuccess } from 'redux/notices/notices-slice';
+import { Container } from 'components/Reuse/Container/Container';
+import { NoticesHeading } from 'components/Notices/heading/NoticesHeading';
+import { NoticesSearch } from 'components/Notices/search/NoticesSearch';
+import { NoticesCategories } from 'components/Notices/categories/NoticesCategories';
+import { NoticesAddPet } from 'components/Notices/addPet/NoticesAddPet';
+import styles from './NoticesPage.module.scss';
 
 const NoticesPage = () => {
 	const dispatch = useDispatch();
@@ -20,7 +20,6 @@ const NoticesPage = () => {
 	const isAddedSuccess = useSelector(getIsAddedSuccess);
 
 	useEffect(() => {
-		
 		if (isAddedSuccess) {
 			toast.success(`Ad successfully added.`);
 			dispatch(resetIsAddedSuccess());

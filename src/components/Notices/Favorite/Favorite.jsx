@@ -1,6 +1,5 @@
 import { HeartLoader } from '../HeartLoader/HeartLoader';
 import { Added } from './Added/Added';
-
 import { NotAdded } from './NotAdded/NotAdded';
 
 export const Favorite = ({
@@ -10,7 +9,6 @@ export const Favorite = ({
 	favNotices,
 	isFavLoading,
 }) => {
-
 	// console.log(favNotices)
 	return (
 		<>
