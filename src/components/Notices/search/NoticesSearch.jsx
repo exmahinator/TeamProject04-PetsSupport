@@ -8,7 +8,7 @@ import { getNoticeByCategory } from 'redux/notices/notices-operations';
 import {getFilter  } from 'redux/notices/notices-selectors';
 
 
-const NoticesSearch = () => {
+export const NoticesSearch = () => {
 	const filter = useSelector(getFilter);
 
     const dispatch = useDispatch();
@@ -50,6 +50,3 @@ const NoticesSearch = () => {
 		</div>
 	);
 };
-
-
-export default NoticesSearch

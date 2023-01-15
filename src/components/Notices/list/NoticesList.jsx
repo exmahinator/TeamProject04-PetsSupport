@@ -13,12 +13,11 @@ import {
 	getNoticeByCategory,
 	removeNotice,
 } from 'redux/notices/notices-operations';
-
-import NoticesItems from '../items/NoticesItems';
-import styles from './NoticesList.module.scss';
+import { NoticesItems } from '../items/NoticesItems';
 import { NoticesPaginationList } from '../pagination/paginationList/PaginationList';
 import { setQueryParams } from 'redux/notices/notices-slice';
 import { NewsEmpty } from 'components/News/NewsEmpty/NewsEmpty';
+import styles from './NoticesList.module.scss';
 
 export const NoticesList = ({ category }) => {
 	const isLogin = useAuth();

@@ -2,9 +2,13 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from 'shared/hooks/useAuth';
 import style from './NoticesCategories.module.scss';
 
-const NoticesCategories = () => {
-	const activ = { color: '#FFFFFF', background: '#F59256', borderColor: "transparent"};
-	const notActive = { color: '#111111'};
+export const NoticesCategories = () => {
+	const activ = {
+		color: '#FFFFFF',
+		background: '#F59256',
+		borderColor: 'transparent',
+	};
+	const notActive = { color: '#111111' };
 
 	const isLogin = useAuth();
 
@@ -62,5 +66,3 @@ const NoticesCategories = () => {
 		</ul>
 	);
 };
-
-export default NoticesCategories;
