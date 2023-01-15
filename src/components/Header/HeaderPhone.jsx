@@ -5,7 +5,7 @@ import { UserNav } from './UserNav/UserNav';
 import { AuthNav } from './AuthNav/AuthNav';
 import style from './Header.module.scss';
 import { ReactComponent as Strips } from 'shared/images/Burger/Strips.svg';
-import { ReactComponent as Cross } from 'shared/images/Burger/Cross.svg';
+import { ReactComponent as Cross } from 'shared/images/Burger/x.svg';
 import { useAuth } from 'shared/hooks/useAuth';
 
 import { toggleBodyHidden } from 'shared/functions/toggleBodyHidden';
@@ -34,8 +34,8 @@ export const HeaderPhone = () => {
 							onClick={toggleMenu}
 						>
 							<Cross
-								width="20px"
-								heigth="20px"
+								width="40px"
+								heigth="40px"
 								aria-label="Меню"
 								className={style.cross}
 							></Cross>
