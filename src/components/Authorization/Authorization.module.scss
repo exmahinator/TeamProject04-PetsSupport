@@ -63,7 +63,7 @@
 	text-align: center;
 	@include media(tablet) {
 		position: absolute;
-		top: 45%;
+		top: 300px;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 608px;
@@ -129,6 +129,7 @@
 	&:focus {
 		background-color: $hover-color;
 		border-color: $hover-color;
+		
 	}
 }
 .lightBtn {
