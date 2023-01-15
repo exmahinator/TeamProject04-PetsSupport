@@ -3,8 +3,8 @@ import { Modal } from 'components/Reuse/Modal/Modal';
 
 import styles from './LearnMore.module.scss';
 import { Buttons } from './Buttons/Buttons';
-import { useDispatch, useSelector } from 'react-redux';
-import { getQueryParams } from 'redux/notices/notices-selectors';
+import { useDispatch} from 'react-redux';
+import {  } from 'redux/notices/notices-selectors';
 import { getNoticeByCategory } from 'redux/notices/notices-operations';
 
 const LearnMore = ({
@@ -15,6 +15,7 @@ const LearnMore = ({
 	onRemoveFromFavorite,
 	isShowModal, 
 	setIsShowModal, 
+	listCategory,
 }) => {
 	const {
 		_id: id,
@@ -31,10 +32,8 @@ const LearnMore = ({
 		category,
 	} = data;
 
-	// const [isShowModal, setIsShowModal] = useState(false);
 
 	const dispatch = useDispatch();
-	const {category: listCategory} = useSelector(getQueryParams);
 
 
 	const showModal = () => {

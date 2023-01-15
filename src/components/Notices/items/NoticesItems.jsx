@@ -12,7 +12,7 @@ import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
 
 import LearnMore from '../learnMore/LearnMore';
 import styles from './NoticesItems.module.scss';
-import { getQueryParams } from 'redux/notices/notices-selectors';
+import {  getCategory} from 'redux/notices/notices-selectors';
 import { useState } from 'react';
 
 
@@ -40,7 +40,7 @@ const NoticesItems = ({
 
 	const dispatch = useDispatch();
 
-	const { category: listCategory } = useSelector(getQueryParams);
+	const  listCategory = useSelector(getCategory);
 		const [isShowModal, setIsShowModal] = useState(false);
 
 
@@ -57,6 +57,7 @@ const NoticesItems = ({
 
 		dispatch(removeNoticeFromFavorite(cardId));
 		if (listCategory === 'favorite' && !isShowModal) {
+
 			dispatch(getNoticeByCategory());
 		}
 	};
@@ -112,6 +113,7 @@ const NoticesItems = ({
 				</div>
 				<div className={styles.btnContainer}>
 					<LearnMore
+						listCategory={listCategory}
 						isShowModal={isShowModal}
 						setIsShowModal={setIsShowModal}
 						data={data}
