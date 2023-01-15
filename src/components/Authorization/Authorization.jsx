@@ -20,7 +20,9 @@ export const Authorization = ({ type }) => {
   return (
     <section className={isMobileLandscape ? style.landscape: style.section }>
 
-          <div className={style.container}>
+      <div className={style.container}>
+        <div className={style.outer}>
+
               <div className={style.wrapper}>
                   
               <Subtitle text={content.title} />
@@ -28,6 +30,7 @@ export const Authorization = ({ type }) => {
               <span className={style.linkText}>{ content.navigateMessage}</span>
               <Link className={style.link} to={content.navigatePath}>{ content.linkText}</Link>
               </div>
+        </div>
       </div>
     </section>
   );
