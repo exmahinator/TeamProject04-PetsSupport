@@ -106,7 +106,7 @@ function App() {
 							/>
 							<Route
 								path="for-free"
-								element={<NoticesList category="goodhands" />}
+								element={<NoticesList category="in good hands" />}
 							/>
 							<Route
 								path="favorite"
