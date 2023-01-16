@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { Buttons } from './Buttons/Buttons';
 import { addUserPet } from 'redux/user/user-operations';
-import { createFormData } from 'shared/functions/createFormData';
+import { Buttons } from './Buttons/Buttons';
 import { AddPetFormFirstPage } from './FirstPage/AddPetFormFirstPage';
 import { AddPetFormSecondPage } from './SecondPage/AddPetFormSecondPage';
+import { createFormData } from 'shared/functions/createFormData';
 
 import style from './AddPetForm.module.scss';
 
@@ -24,7 +24,6 @@ export const AddPetForm = ({ onCloseModal }) => {
 	});
 	const dispatch = useDispatch();
 	const [isfirstPage, setIsFirstPage] = useState(true);
-	// const petName = watch('name');
 
 	const onTogglePage = () => {
 		if (!isValid && isfirstPage) return;

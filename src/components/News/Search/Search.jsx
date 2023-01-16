@@ -1,12 +1,11 @@
-import React, { useRef, useState } from 'react';
-
-
-import style from './Search.module.scss';
+import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getQueryParams } from 'redux/news/news-selectors';
 import { setQueryParams } from 'redux/news/news-slice';
 import { SearchTooltip } from './SearchTooltip';
 import { SearchBtns } from './SearchBtns/SearchBtns';
+
+import style from './Search.module.scss';
 
 export const Search = () => {
 	const { query } = useSelector(getQueryParams);
@@ -39,7 +38,11 @@ export const Search = () => {
 					placeholder="Search"
 				/>
 				<SearchTooltip />
-				<SearchBtns isCloseIcon={isCloseIcon} handleClear={ handleClear} handleSearch ={handleSearch} />
+				<SearchBtns
+					isCloseIcon={isCloseIcon}
+					handleClear={handleClear}
+					handleSearch={handleSearch}
+				/>
 			</form>
 		</div>
 	);

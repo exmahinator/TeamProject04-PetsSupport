@@ -1,11 +1,7 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { ContentOfPopover } from '../ContentOfPopover/ContentOfPopover';
 import { Button, Popover } from '@mui/material';
-
-// import { nanoid } from 'nanoid';
-
-// import styles from './OurFriendPopover.module.scss';
+import { ContentOfPopover } from '../ContentOfPopover/ContentOfPopover';
 
 const CustomizedBtn = styled(Button)`
 	font-family: 'Manrope';

@@ -1,12 +1,10 @@
-import React from 'react';
-
 import style from './Input.module.scss';
 
 export const Input = () => {
-  return (
-    <div className={style.wrap}>
-      <input className={style.input} type="text" placeholder="Search" />
-      <button className={style.btn}></button>
-    </div>
-  );
+	return (
+		<div className={style.wrap}>
+			<input className={style.input} type="text" placeholder="Search" />
+			<button className={style.btn}></button>
+		</div>
+	);
 };

@@ -1,11 +1,7 @@
 import instance from './auth';
 
-// export const getNoticeByCategory = async (params = 'sell') => {
-// 	const { data } = await instance.get(`/notices?category=${params}`);
-// 	return data;
-// };
+
 export const getNoticeByCategory = async ({ page = 1, category = 'sell', filter ='' }) => {
-	// console.log(page, category, filter)
 	let result;
 	switch (category) {
 			case 'favorite':
@@ -37,7 +33,6 @@ export const addNoticeToFavorite = async id => {
 };
 
 export const getFavoriteNotices = async (params) => {
-	// console.log(params)
 	const { data } = await instance.get(`/notices/users/favorite`);
 	return data;
 };

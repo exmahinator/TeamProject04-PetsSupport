@@ -1,5 +1,6 @@
-import styles from './ContentOfPopover.module.scss';
 import { nanoid } from 'nanoid';
+
+import styles from './ContentOfPopover.module.scss';
 
 export const ContentOfPopover = ({ workDays }) => {
 	const Item = workDays.map(({ isOpen, from, to, weekday }) => (

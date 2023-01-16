@@ -1,5 +1,3 @@
-import React from 'react';
-
 import style from './Button.module.scss';
 
 export const Button = ({
@@ -51,10 +49,3 @@ export const Button = ({
 			return;
 	}
 };
-
-// !=============EXEMPLES==============
-
-//  <Button type={"type"} text={'TEST'} colorType={'white'} onClickFunc={yourFunction} />
-//  <Button type={"type"} text={'TEST1'} colorType={'orange'} onClickFunc={yourFunction} />
-//  <Button type={"type"} text={'TEST2'} colorType={'transparent'} onClickFunc={yourFunction} />
-//  <Button type={"type"} text={'TEST3'} colorType={'disabled'} onClickFunc={yourFunction} />

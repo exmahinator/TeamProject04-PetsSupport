@@ -1,16 +1,18 @@
-import React from 'react';
-import style from '../Authorization.module.scss';
-
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import { login } from '../../../redux/auth/auth-operations';
+import { getIsLoading } from 'redux/auth/auth-selectors';
+
 import { Input } from '../Input/Input';
 import { emailOpt, passwordOpt } from '../Input/inputOptions';
-import { useDispatch } from 'react-redux';
-import { login } from '../../../redux/auth/auth-operations';
-import { toast } from 'react-toastify';
+import { Spinner } from 'components/Reuse/Loaders/Spinner/Spinner';
 
+import style from '../Authorization.module.scss';
 
 export const LoginForm = () => {
 	const dispatch = useDispatch();
+	const isLoading = useSelector(getIsLoading);
 
 	const {
 		register,
@@ -18,7 +20,7 @@ export const LoginForm = () => {
 		formState: { errors, isValid },
 	} = useForm({
 		mode: 'onBlur',
-		defaultValues:{email: '', password: ''},
+		defaultValues: { email: '', password: '' },
 	});
 
 	const onSubmit = ({ email, password }) => {
@@ -30,9 +32,10 @@ export const LoginForm = () => {
 
 		dispatch(login(res))
 			.unwrap()
-			.then((res) => {
-				const {name}= res.user
-			return toast.success(`Welcome, ${name} !`) })
+			.then(res => {
+				const { name } = res.user;
+				return toast.success(`Welcome, ${name} !`);
+			})
 			.catch(() => toast.error('Invalid password or email'));
 	};
 
@@ -40,8 +43,8 @@ export const LoginForm = () => {
 		<form className={style.form} onSubmit={handleSubmit(onSubmit)}>
 			<Input settings={emailOpt} register={register} errors={errors} />
 			<Input settings={passwordOpt} register={register} errors={errors} />
-			<button className={style.btn}  type="submit">
-				Login
+			<button className={style.btn} type="submit">
+				{isLoading ? <Spinner customStyle={{ color: 'inherit' }} /> : 'Login'}
 			</button>
 		</form>
 	);

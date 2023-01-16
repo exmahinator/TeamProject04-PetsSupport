@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
-
 import catImg from 'shared/images/user/anonymousCat.png';
+
 import style from './CardImg.module.scss';
 
 export const CardImg = ({ petImg }) => {

@@ -6,12 +6,13 @@ import {
 	getNoticeByCategory,
 	removeNoticeFromFavorite,
 } from 'redux/notices/notices-operations';
+import { getCategory } from 'redux/notices/notices-selectors';
 import { Favorite } from '../Favorite/Favorite';
+import { LearnMore } from '../learnMore/LearnMore';
 import { getAge } from 'shared/functions/getAge';
 import { numberToWord } from 'shared/functions/numberToWord';
-import { LearnMore } from '../learnMore/LearnMore';
-import { getCategory } from 'redux/notices/notices-selectors';
 import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
+
 import styles from './NoticesItems.module.scss';
 
 export const NoticesItems = ({

@@ -1,8 +1,8 @@
-import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
 import { useMediaQuery } from 'react-responsive';
+import { ReactComponent as TrashIcon } from 'shared/images/user/trashIcon.svg';
+import { Spinner } from 'components/Reuse/Loaders/Spinner/Spinner';
 
 import style from './TrashButton.module.scss';
-import { Spinner } from 'components/Reuse/Loaders/Spinner/Spinner';
 
 export const TrashButton = ({ id, onDeletePet, isPetsLoading }) => {
 	const isTablet = useMediaQuery({ query: '(min-width: 768px)' });

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { Modal } from 'components/Reuse/Modal/Modal';
 import { AddPetForm } from '../addPetForm/NoticesAddPetForm';
 import { useAuth } from 'shared/hooks/useAuth';
 import { toggleBodyHidden } from 'shared/functions/toggleBodyHidden';
+
 import styles from './NoticesAddPet.module.scss';
 
 export const NoticesAddPet = () => {
@@ -52,7 +53,7 @@ export const NoticesAddPet = () => {
 				btnType={'circle'}
 				isShowModal={isShowModal}
 				setIsShowModal={
-					isLogin ? showModal : () => toast.error('Please login!')
+					isLogin ? showModal : () => toast.error('Authorize please')
 				}
 				handleBackdropClick={handleBackdropClick}
 			>

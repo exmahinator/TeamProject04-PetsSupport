@@ -1,10 +1,7 @@
-import style from '../Authorization.module.scss';
-
-import React, { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
- import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import { Input } from '../Input/Input';
 import {
@@ -16,19 +13,32 @@ import {
 	phoneOpt,
 } from '../Input/inputOptions';
 import { register as reg } from '../../../redux/auth/auth-operations';
+import { getIsLoading } from 'redux/auth/auth-selectors';
+
+import { Spinner } from 'components/Reuse/Loaders/Spinner/Spinner';
+
+import style from '../Authorization.module.scss';
 
 export const RegisterForm = () => {
 	const [nextStep, setNextStep] = useState(false);
-	 const defaultValues = {email: '', password: '',city: '', name: '', phone: '', passwordConfirm: ''}
+	const defaultValues = {
+		email: '',
+		password: '',
+		city: '',
+		name: '',
+		phone: '',
+		passwordConfirm: '',
+	};
 
 	const dispatch = useDispatch();
+	const isLoading = useSelector(getIsLoading);
 
 	const {
 		register,
 		handleSubmit,
 		watch,
 		formState: { errors, isValid },
-	} = useForm({mode: 'onBlur',defaultValues: defaultValues});
+	} = useForm({ mode: 'onBlur', defaultValues: defaultValues });
 
 	const password = useRef({});
 	password.current = watch('password', '');
@@ -43,18 +53,23 @@ export const RegisterForm = () => {
 			phone,
 		};
 		console.log(res);
-		dispatch(reg(res)).unwrap()
-			.then((res) => {
-			const {name}= res.user
-			return toast.success(`Welcome, ${name} !`) })
-			.catch((e) => {
-			const errorMessage = e.status === 409 ? 'This email is already in use' : 'Oops, something went wrong... Try again, please'
-			return toast.error(errorMessage)
-		});
+		dispatch(reg(res))
+			.unwrap()
+			.then(res => {
+				const { name } = res.user;
+				return toast.success(`Welcome, ${name} !`);
+			})
+			.catch(e => {
+				const errorMessage =
+					e.status === 409
+						? 'This email is already in use'
+						: 'Oops, something went wrong... Try again, please';
+				return toast.error(errorMessage);
+			});
 	};
 
 	const toggleBackBtn = () => {
-		if(!nextStep && !isValid)return
+		if (!nextStep && !isValid) return;
 		setNextStep(prevState => !prevState);
 	};
 
@@ -76,10 +91,7 @@ export const RegisterForm = () => {
 						inputRef={password}
 					/>
 
-					<button
-						className={style.btn}
-						onClick={toggleBackBtn}
-					>
+					<button className={style.btn} onClick={toggleBackBtn}>
 						Next
 					</button>
 				</>
@@ -91,7 +103,11 @@ export const RegisterForm = () => {
 					<Input settings={phoneOpt} register={register} errors={errors} />
 
 					<button className={style.btn} type="submit">
-						Register
+						{isLoading ? (
+							<Spinner customStyle={{ color: 'inherit' }} />
+						) : (
+							'Register'
+						)}
 					</button>
 					<button
 						onClick={toggleBackBtn}

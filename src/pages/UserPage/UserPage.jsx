@@ -1,18 +1,18 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { UserForm } from 'components/User/UserForm/UserForm';
-
-import { selectors } from './selectors';
+import { toast } from 'react-toastify';
 import { getUserData, removeUserPet } from 'redux/user/user-operations';
+import { resetIsAddedPetSuccess } from 'redux/user/user-slice';
+import { getIsAddedPetSuccess, getUserError } from 'redux/user/user-selectors';
+import { selectors } from './selectors';
+
+import { UserForm } from 'components/User/UserForm/UserForm';
 import { Card } from 'components/User/Card/Card';
 import { Title } from 'components/User/Title/Title';
 import { getIsLoading } from 'redux/auth/auth-selectors';
 import { UserModal } from 'components/User/UserModal/UserModal';
 
 import style from './UserPage.module.scss';
-import { getIsAddedPetSuccess, getUserError } from 'redux/user/user-selectors';
-import { toast } from 'react-toastify';
-import { resetIsAddedPetSuccess } from 'redux/user/user-slice';
 
 const UserPage = () => {
 	const dispatch = useDispatch();

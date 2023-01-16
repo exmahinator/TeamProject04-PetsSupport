@@ -4,7 +4,7 @@ import * as api from '../../shared/api/user';
 
 export const getUserData = createAsyncThunk(
 	'user/getUserData',
-	async (data, { rejectWithValue }) => {
+	async (_, { rejectWithValue }) => {
 		try {
 			const result = await api.getUserData();
 			return result;
