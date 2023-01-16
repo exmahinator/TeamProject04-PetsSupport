@@ -17,6 +17,7 @@
 		background-image: url(../../shared/images/auth/mobile2x.png);
 	}
 	@include media(tablet) {
+		min-height: 800px;
 		height: calc(100vh - 68px);
 		background-image: url(../../shared/images/auth/tablet1x.png);
 		@media (min-device-pixel-ratio: 2),
@@ -61,16 +62,13 @@
 }
 .outer{
 	@include media(tablet){
-
+		margin-top: 120px;
 		height: 620px;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
 	}
-	@include media(desktop){
-		top: 45%;
-	}
+		@include media(desktop) {
+			margin-top: 0;
+			height: 620px;	
+		}
 }
 .wrapper {
 	text-align: center;
