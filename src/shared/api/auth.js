@@ -12,13 +12,6 @@ const setToken = token => {
 	}
 	instance.defaults.headers.common.authorization = '';
 };
-/*
-instance.interceptors.request.use(async(config)=> {
-    const accessToken = localStorage.getItem("accessToken");
-    config.headers.common.authorization = `Bearer ${accessToken}`;
-    return config;
-})
-*/
 
 instance.interceptors.response.use(
 	response => response,

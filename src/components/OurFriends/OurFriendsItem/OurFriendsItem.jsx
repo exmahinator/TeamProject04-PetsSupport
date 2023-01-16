@@ -1,7 +1,7 @@
 import { OurFriendsInfo } from './OurFriendsInfo/OurFriendsInfo';
-import styles from './OurFriendsItem.module.scss';
-
 import picture from '../../../shared/images/Friends/hands.png';
+
+import styles from './OurFriendsItem.module.scss';
 
 export const OurFriendsItem = ({ data }) => {
 	const { title, address, addressUrl, email, imageUrl, phone, url, workDays } =

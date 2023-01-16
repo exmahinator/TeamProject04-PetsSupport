@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { addNotice } from 'redux/notices/notices-operations';
 import { useForm } from 'react-hook-form';
 import { FirstStep, SecondStep } from './steps';
-import { addNotice } from 'redux/notices/notices-operations';
 import { createFormData } from 'shared/functions/createFormData';
 
 import styles from './NoticesAddPetForm.module.scss';

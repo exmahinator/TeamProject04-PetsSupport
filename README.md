@@ -1,26 +1,6 @@
-# Інструкції
+# About the project
 
-1. sass модулі + \_variables.scss
-2. експорт сторінок default / експорт компонентів іменований
-3. для зберігання глобального стану використовуємо Redux
-4. для api запитів використовуємо axios
-5. для форм використовуємо react-hook-form
-6. для нотифікації використовуємо react-toastify
-7. для лоадера використовуємо react-loader-spinner
-8. перевикористовувані компоненти - кнопки, модалки, заголовки, інпут сеарч, та
-   кнопки-залишки в add pet і notices. І якщо ще виявите щось однакове, теж
-   виносимо.
-9. назви функцій та змінних робимо логічними, за правилами
-10. папки називаємо камелКейсом, ніяких підкреслень та дефісів
-11. Нагадую, що перед кожним своїм пушем:
-
-- спочатку прописуємо команди "git add .", "git commit -m '.....'", "git pull
-  origin main", "git push";
-- після цього тегаємо в чаті або в личку мене, щоб я знала, хто і що мені здав
-
-Для дотримання версій пишемо команду npm ci
-
-.env.local
-
-- REACT_APP_API_URL=http://localhost:3001/api
-- REACT_APP_BASE_URL=""
+- "Take good care of your small pets";
+- Website about pets: contains pages of news, partners, pets, divided into
+  categories, as well as a personal account of a registered user with the
+  ability to add information about themselves and pets

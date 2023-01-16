@@ -1,6 +1,6 @@
-import styles from './OurFriendsInfo.module.scss';
-
 import { OurFriendsPopover } from '../OurFriendPopover/OurFriendPopover';
+
+import styles from './OurFriendsInfo.module.scss';
 
 export const OurFriendsInfo = ({
 	addressUrl,

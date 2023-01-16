@@ -1,10 +1,7 @@
-import { Authorization } from 'components/Authorization/Authorization'
-import React from 'react'
+import { Authorization } from 'components/Authorization/Authorization';
 
 const LoginPage = () => {
-  return (
-   <Authorization type='login'/>
-  )
-}
+	return <Authorization type="login" />;
+};
 
-export default LoginPage
+export default LoginPage;

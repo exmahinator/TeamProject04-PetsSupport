@@ -1,11 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import storageSession from 'redux-persist/lib/storage/session'
+import storageSession from 'redux-persist/lib/storage/session';
 import { persistReducer } from 'redux-persist';
 
 import {
 	getNoticeByCategory,
 	addNotice,
-	// getOneNotice,
 	addNoticeToFavorite,
 	getFavoriteNoticeForCategories,
 	getFavoriteNoticeByUser,
@@ -25,15 +24,19 @@ const initialState = {
 		filter: '',
 		category: 'sell',
 		page: 1,
-	}
+	},
 };
 
 const noticesSlice = createSlice({
 	name: 'notices',
 	initialState,
 	reducers: {
-		setQueryParams: (state, { payload }) => {			
-			const { page = 1, filter = '', category = state.queryParams.category } = payload;
+		setQueryParams: (state, { payload }) => {
+			const {
+				page = 1,
+				filter = '',
+				category = state.queryParams.category,
+			} = payload;
 			state.queryParams.filter = filter;
 			state.queryParams.category = category;
 			state.queryParams.page = page;
@@ -44,10 +47,8 @@ const noticesSlice = createSlice({
 		resetIsAddedSuccess: state => {
 			state.isAddedSuccess = false;
 		},
-		
 	},
 	extraReducers: {
-		//! Менять нельзя!
 		[getNoticeByCategory.pending]: store => {
 			store.loading = true;
 			store.error = null;
@@ -61,7 +62,7 @@ const noticesSlice = createSlice({
 			store.loading = false;
 			store.error = payload;
 		},
-		//! Менять нельзя!
+
 		[getUserNotices.pending]: store => {
 			store.loading = true;
 			store.error = null;
@@ -74,7 +75,7 @@ const noticesSlice = createSlice({
 			store.loading = false;
 			store.error = payload;
 		},
-		//! Менять нельзя!
+
 		[getFavoriteNoticeForCategories.pending]: store => {
 			store.loading = true;
 			store.error = null;
@@ -88,7 +89,7 @@ const noticesSlice = createSlice({
 			store.loading = false;
 			store.error = payload;
 		},
-		//! Менять нельзя!
+
 		[getFavoriteNoticeByUser.pending]: store => {
 			store.loading = true;
 			store.error = null;
@@ -101,7 +102,7 @@ const noticesSlice = createSlice({
 			store.loading = false;
 			store.error = payload;
 		},
-		//! Менять нельзя!
+
 		[addNoticeToFavorite.pending]: store => {
 			store.loading = true;
 			store.error = null;
@@ -115,7 +116,7 @@ const noticesSlice = createSlice({
 			store.loading = false;
 			store.error = payload;
 		},
-		//! Менять нельзя!
+
 		[removeNoticeFromFavorite.pending]: store => {
 			store.loading = true;
 			store.error = null;
@@ -136,7 +137,7 @@ const noticesSlice = createSlice({
 		[addNotice.fulfilled]: (store, { payload }) => {
 			store.isAddedSuccess = true;
 			store.loading = false;
-			if ([payload.category, 'own'].includes(store.queryParams.category)){
+			if ([payload.category, 'own'].includes(store.queryParams.category)) {
 				store.currentNotices = [payload, ...store.currentNotices];
 			}
 		},
@@ -161,11 +162,10 @@ const noticesSlice = createSlice({
 	},
 });
 
-
-export const { setQueryParams,  setTotalPages, resetIsAddedSuccess } =
+export const { setQueryParams, setTotalPages, resetIsAddedSuccess } =
 	noticesSlice.actions;
 
-const noticesReducer = noticesSlice.reducer
+const noticesReducer = noticesSlice.reducer;
 
 const persistConfig = {
 	key: 'noticesQueryParams',
@@ -173,6 +173,6 @@ const persistConfig = {
 	whitelist: ['queryParams'],
 };
 
-const persistedNoticesReducer = persistReducer(persistConfig, noticesReducer)
+const persistedNoticesReducer = persistReducer(persistConfig, noticesReducer);
 
 export default persistedNoticesReducer;

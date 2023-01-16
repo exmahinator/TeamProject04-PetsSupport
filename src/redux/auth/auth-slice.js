@@ -64,7 +64,6 @@ const authSlice = createSlice({
 		[current.fulfilled]: (store, { payload }) => {
 			store.loading = false;
 			store.user = payload;
-			// store.token = '';
 			store.isLogin = true;
 			store.isFirstQuery = false;
 			store.userId = payload._id;

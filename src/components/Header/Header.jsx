@@ -1,5 +1,6 @@
-import { Container } from 'components/Reuse/Container/Container';
 import { useMediaQuery } from 'react-responsive';
+
+import { Container } from 'components/Reuse/Container/Container';
 import { HeaderPhone } from './HeaderPhone';
 import { HeaderTablet } from './HeaderTablet';
 import { HeaderDesktop } from './HeaderDesktop';

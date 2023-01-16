@@ -12,6 +12,7 @@ import { NoticesHeading } from 'components/Notices/heading/NoticesHeading';
 import { NoticesSearch } from 'components/Notices/search/NoticesSearch';
 import { NoticesCategories } from 'components/Notices/categories/NoticesCategories';
 import { NoticesAddPet } from 'components/Notices/addPet/NoticesAddPet';
+
 import styles from './NoticesPage.module.scss';
 
 const NoticesPage = () => {

@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { getIsFirstQuery, getToken } from 'redux/auth/auth-selectors';
 import { current } from 'redux/auth/auth-operations';
@@ -13,7 +14,6 @@ import { PublicRouter } from 'components/Routes/PublicRouter/PublicRouter';
 import { SharedLayout } from './components/SharedLayout/SharedLayout';
 
 import './shared/styles/style.scss';
-import 'react-toastify/dist/ReactToastify.css';
 
 const NewsPage = lazy(() => import('./pages/NewsPage/NewsPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
@@ -43,7 +43,6 @@ function App() {
 	}
 
 	return (
-		// удалить потом
 		<>
 			<Suspense>
 				<Routes>

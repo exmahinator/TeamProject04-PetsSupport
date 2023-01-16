@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from 'shared/hooks/useAuth';
+import { categoryLinks } from '../../../shared/constants/categoryLinks';
+
 import style from './NoticesCategories.module.scss';
 
 export const NoticesCategories = () => {
@@ -14,55 +16,35 @@ export const NoticesCategories = () => {
 
 	return (
 		<ul className={style.nav}>
-			<li className={style.nav__item}>
-				<NavLink
-					to="/notices/sell"
-					className={style.nav__link}
-					style={({ isActive }) => (isActive ? activ : notActive)}
-				>
-					sell
-				</NavLink>
-			</li>
-			<li className={style.nav__item}>
-				<NavLink
-					to="/notices/lost-found"
-					className={style.nav__link}
-					style={({ isActive }) => (isActive ? activ : notActive)}
-				>
-					lost/found
-				</NavLink>
-			</li>
-			<li className={style.nav__item}>
-				<NavLink
-					to="/notices/for-free"
-					className={style.nav__link}
-					style={({ isActive }) => (isActive ? activ : notActive)}
-				>
-					in good hands
-				</NavLink>
-			</li>
-			{isLogin && (
-				<>
-					<li className={style.nav__item}>
-						<NavLink
-							to="/notices/favorite"
-							className={style.nav__link}
-							style={({ isActive }) => (isActive ? activ : notActive)}
-						>
-							favorite
-						</NavLink>
-					</li>
-					<li className={style.nav__item}>
-						<NavLink
-							to="/notices/own"
-							className={style.nav__link}
-							style={({ isActive }) => (isActive ? activ : notActive)}
-						>
-							my ads
-						</NavLink>
-					</li>
-				</>
-			)}
+			{categoryLinks.map((el, index) => {
+				if (!isLogin && !el.private) {
+					return (
+						<li key={index} className={style.nav__item}>
+							<NavLink
+								to={el.path}
+								className={style.nav__link}
+								style={({ isActive }) => (isActive ? activ : notActive)}
+							>
+								{el.text}
+							</NavLink>
+						</li>
+					);
+				}
+				if (isLogin) {
+					return (
+						<li key={index} className={style.nav__item}>
+							<NavLink
+								to={el.path}
+								className={style.nav__link}
+								style={({ isActive }) => (isActive ? activ : notActive)}
+							>
+								{el.text}
+							</NavLink>
+						</li>
+					);
+				}
+				return '';
+			})}
 		</ul>
 	);
 };

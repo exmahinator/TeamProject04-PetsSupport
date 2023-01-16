@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Logo } from './Logo/Logo';
 import { Nav } from './Nav/Nav';
 import { UserNav } from './UserNav/UserNav';
 import { AuthNav } from './AuthNav/AuthNav';
-import style from './Header.module.scss';
 import { ReactComponent as Strips } from 'shared/images/Burger/Strips.svg';
 import { ReactComponent as Cross } from 'shared/images/Burger/x.svg';
 import { useAuth } from 'shared/hooks/useAuth';
 
 import { toggleBodyHidden } from 'shared/functions/toggleBodyHidden';
+
+import style from './Header.module.scss';
 
 export const HeaderPhone = () => {
 	const isAuth = useAuth();

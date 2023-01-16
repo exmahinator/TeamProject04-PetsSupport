@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useAuth } from 'shared/hooks/useAuth';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	getCurrentNotices,
@@ -16,7 +15,9 @@ import {
 import { NoticesItems } from '../items/NoticesItems';
 import { NoticesPaginationList } from '../pagination/paginationList/PaginationList';
 import { setQueryParams } from 'redux/notices/notices-slice';
+import { useAuth } from 'shared/hooks/useAuth';
 import { NewsEmpty } from 'components/News/NewsEmpty/NewsEmpty';
+
 import styles from './NoticesList.module.scss';
 
 export const NoticesList = ({ category }) => {

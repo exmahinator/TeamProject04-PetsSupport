@@ -1,5 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import { ReactComponent as CrossIcon } from 'shared/images/user/uploadCross.svg';
+
 import style from './Modal.module.scss';
 
 export const Modal = ({

@@ -1,12 +1,7 @@
-import { Authorization } from 'components/Authorization/Authorization'
-import React from 'react'
+import { Authorization } from 'components/Authorization/Authorization';
 
 const RegisterPage = () => {
-  return (
-   <Authorization type='register'/>
-  )
-}
+	return <Authorization type="register" />;
+};
 
-
-
-export default RegisterPage
+export default RegisterPage;

@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Modal } from 'components/Reuse/Modal/Modal';
-import { Buttons } from './Buttons/Buttons';
 import { getNoticeByCategory } from 'redux/notices/notices-operations';
+import { Buttons } from './Buttons/Buttons';
+import { Modal } from 'components/Reuse/Modal/Modal';
+
 import styles from './LearnMore.module.scss';
 
 export const LearnMore = ({

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	getServices,
@@ -8,8 +8,9 @@ import { getAllServices } from '../../redux/services/services-operations';
 import { Container } from '@mui/material';
 import { Title } from 'components/Reuse/Title/Title';
 import { OurFriendsList } from '../../components/OurFriends/OurFriendsList/OurFriendsList';
-import style from './OurFriendsPage.module.scss';
 import { BigSpinner } from 'components/Reuse/Loaders/Spinner/BigSpinner';
+
+import style from './OurFriendsPage.module.scss';
 
 const OurFriendsPage = () => {
 	const dispatch = useDispatch();

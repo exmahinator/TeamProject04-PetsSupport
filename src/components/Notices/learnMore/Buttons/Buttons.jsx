@@ -1,7 +1,7 @@
 import { AddTo } from './AddTo/AddTo';
 import { RemoveFrom } from './RemoveFrom/RemoveFrom';
-
 import { ContactBtn } from './ContactBtn/ContactBtn';
+
 import style from './Buttons.module.scss';
 
 export const Buttons = ({

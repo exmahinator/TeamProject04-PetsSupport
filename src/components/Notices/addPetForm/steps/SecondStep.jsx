@@ -1,9 +1,8 @@
 import { ReactComponent as MaleSvg } from 'shared/images/Notices/el_male.svg';
 import { ReactComponent as FemaleSvg } from 'shared/images/Notices/el_female.svg';
 import { ReactComponent as UploadCross } from 'shared/images/user/uploadCross.svg';
-import { Button } from 'components/Reuse/Button/Button';
-import styles from '../NoticesAddPetForm.module.scss';
 import { AddPetRadioItem } from '../AddPetRadioItem/AddPetSex';
+import { Button } from 'components/Reuse/Button/Button';
 import { AddPetInput } from 'components/User/AddPetForm/AddPetInput/AddPetInput';
 import {
 	petsLocation,
@@ -11,6 +10,8 @@ import {
 	petPrice,
 } from 'components/Authorization/Input/inputOptions';
 import { ValidationError } from 'components/Authorization/ValidationError/ValidationError';
+
+import styles from '../NoticesAddPetForm.module.scss';
 
 export const SecondStep = ({ register, onSubmit, downPage, watch, errors }) => {
 	const newImage = watch('avatar');

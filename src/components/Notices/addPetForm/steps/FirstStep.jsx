@@ -7,6 +7,7 @@ import {
 import { Button } from 'components/Reuse/Button/Button';
 import { AddPetInput } from 'components/User/AddPetForm/AddPetInput/AddPetInput';
 import { AddPetCategory } from '../AddPetRadioItem/AddPetCategory';
+
 import styles from '../NoticesAddPetForm.module.scss';
 
 export const FirstStep = ({ register, errors, nextPage, onCloseModal }) => {

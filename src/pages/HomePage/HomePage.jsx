@@ -1,6 +1,4 @@
 import { Container } from 'components/Reuse/Container/Container';
-import React from 'react';
-import style from './HomePage.module.scss';
 import girlPhoneUrl from '../../shared/images/Home/phoneImg.png';
 import girlPhoneUrl2x from '../../shared/images/Home/phoneImg2x.png';
 import girlTabletUrl from '../../shared/images/Home/tabletImg.png';
@@ -8,7 +6,8 @@ import girlTabletUrl2x from '../../shared/images/Home/tabletImg2x.png';
 import girlDesktopUrl from '../../shared/images/Home/desktopImg.png';
 import girlDesktopUrl2x from '../../shared/images/Home/desktopImg2x.png';
 import Heart from '../../shared/images/Home/desktopHeart.png';
-// import { Title } from 'components/Reuse/Title/Title';
+
+import style from './HomePage.module.scss';
 
 const HomePage = () => {
 	return (
@@ -16,7 +15,6 @@ const HomePage = () => {
 			<section className={style.headerSection}>
 				<Container>
 					<div className={style.headerControlBox}>
-						{/* <Title text="Take good care of your small pets" /> */}
 						<h1 className={style.text}>Take good care of your small pets</h1>
 						<div className={style.headerImgBox}>
 							<picture>
